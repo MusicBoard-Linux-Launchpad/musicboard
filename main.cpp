@@ -2,6 +2,15 @@
 #include <QApplication>
 #include <QShortcut>
 #include <digitalclock.h>
+#include "audiorecorder.h"
+#include <QtWidgets>
+#include <QAudioProbe>
+#include <QAudioRecorder>
+#include <QDir>
+#include <QFileDialog>
+#include <QMediaRecorder>
+#include "preferencesform.h"
+
 QString P1_R="P1";
 QString P2_R="P2";
 QString P3_R="P3";
@@ -19,6 +28,8 @@ QString P14_R="P14";
 QString P15_R="P15";
 QString P16_R="P16";
 QString P17_R="P17";
+
+int Master;
 
 //QShortcut P1_S;
 //QShortcut P2_S;
@@ -65,13 +76,20 @@ int R5_A=99;
 int R6_A=99;
 int R7_A=99;
 int R8_A=99;
+int Masters=0;
+int NumLock=10;
+int FontColor=0;
+int BgColor1=0;
+int BgColor2=0;
 
 int main(int argc, char *argv[])
 {
   QApplication a(argc, argv);
   MusicBoard w;
   w.show();
-  //DigitalClock clock;
-  //clock.show();
-  return a.exec();
+  AudioRecorder recorder;
+  recorder.show();
+//  PreferencesForm preferences;
+//  preferences.show();
+return a.exec();
 }

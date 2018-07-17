@@ -10,7 +10,9 @@ Settings::Settings(QWidget *parent) :
 {
     ui1->setupUi(this);
     ui1->SHelp->hide();
+    MusicBoard on_ReInit_clicked();
     //ui1->Sc_1->set
+    extern int NumLock;
     ui1->LabelWeb->setText("<a style=\"color:#534496;\" href=\"https://musicboard-blog.weebly.com/\">Go to the MusicBoard Blog to find Out More!</a>");
     ui1->LabelWeb->setTextFormat(Qt::RichText);
     ui1->LabelWeb->setTextInteractionFlags(Qt::TextBrowserInteraction);
@@ -160,6 +162,8 @@ Settings::Settings(QWidget *parent) :
 
 Settings::~Settings()
 {
+    MusicBoard a;
+    a.on_ReInit_clicked(); /// nu merg
     delete ui1;
 }
 
@@ -765,7 +769,14 @@ void Settings::on_MasterSlider_valueChanged(int position)
 //    ui1->R_6->setMaximum(R6_A);
 //    ui1->R_7->setMaximum(R7_A);
 //    ui1->R_8->setMaximum(R8_A);
-
+//      extern int Masters;
+//      if (Masters==1){
+//      MusicBoard a;
+//      a.ui->VolSlider->setValue(position);
+//      a.ui->VolSlider->setSliderPosition(position);\
+//      Masters=0;
+//      }
+//      Masters=1;
 }
 
 void Settings::on_P_1_sliderPressed()
@@ -972,3 +983,27 @@ void Settings::on_SHelpClose_clicked()
 //{
 
 //}
+
+void Settings::on_SMasterLeft_clicked()
+{
+    ui1->MasterSlider->setValue(ui1->MasterSlider->value()-5);
+    ui1->MasterSlider->setSliderPosition(ui1->MasterSlider->value()-5);
+}
+
+void Settings::on_SMasterRight_clicked()
+{
+    ui1->MasterSlider->setValue(ui1->MasterSlider->value()+5);
+    ui1->MasterSlider->setSliderPosition(ui1->MasterSlider->value()+5);
+}
+
+void Settings::on_HiddenNumlockButton_clicked()
+{
+    extern int NumLock;
+    if (NumLock==1){
+        NumLock=0;
+    }
+    else {
+        NumLock=1;
+    }
+    //ui1->lineEdit->setText(QString::number(NumLock));
+}

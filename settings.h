@@ -27,7 +27,7 @@ public slots:
 
     void on_SettingsApplyTextButton_released();
 
-private slots:
+public slots:
     void on_HiddenCloseButton_clicked();
 
     void on_buttonBox_accepted();
@@ -106,8 +106,18 @@ private slots:
 
     void on_Sc_1_editingFinished();
 
-private:
+    void on_P_1_valueChanged(int value);
+
+    void on_P_1_sliderMoved(int position);
+
+public:
     Ui::Settings *ui1;
+private slots:
+    void on_SMasterLeft_clicked();
+    void on_SMasterRight_clicked();
+    void on_P_1_sliderReleased();
+    void on_HiddenNumlockButton_clicked();
+    void on_Buttons_rejected();
 };
 
 #endif // SETTINGS_H

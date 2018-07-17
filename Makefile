@@ -33,7 +33,7 @@ MOVE          = mv -f
 TAR           = tar -cf
 COMPRESS      = gzip -9f
 DISTNAME      = MusicBoard1.0.0
-DISTDIR = /home/n/Downloads/Project_8_9_MusicBoard/Project_9_1_4_Last_WIthout_Help_File_Formats_Maked_JKL_Keys_Did_Not_Compile_Help_About/MusicBoard/.tmp/MusicBoard1.0.0
+DISTDIR = /home/n/Downloads/Project_8_9_MusicBoard/Project_9_1_4_Last_WIthout_Help_File_Formats_Maked_JKL_Keys_Did_Not_Compile_Help_About_Last_Settings_NumLock_On_Off_Master_Set_Without_Rec_With_Last_Settings_Demo_Without_Terminal_With/MusicBoard/.tmp/MusicBoard1.0.0
 LINK          = g++
 LFLAGS        = -m64
 LIBS          = $(SUBLIBS) -L/usr/X11R6/lib64 -lQt5Multimedia -lQt5Widgets -lQt5Gui -lQt5Network -lQt5Core -lGL -lpthread 
@@ -51,18 +51,26 @@ OBJECTS_DIR   = ./
 SOURCES       = main.cpp \
 		musicboard.cpp \
 		settings.cpp \
-		digitalclock.cpp qrc_res.cpp \
+		digitalclock.cpp \
+		audiorecorder.cpp \
+		preferencesform.cpp qrc_res.cpp \
 		moc_musicboard.cpp \
 		moc_settings.cpp \
-		moc_digitalclock.cpp
+		moc_digitalclock.cpp \
+		moc_audiorecorder.cpp \
+		moc_preferencesform.cpp
 OBJECTS       = main.o \
 		musicboard.o \
 		settings.o \
 		digitalclock.o \
+		audiorecorder.o \
+		preferencesform.o \
 		qrc_res.o \
 		moc_musicboard.o \
 		moc_settings.o \
-		moc_digitalclock.o
+		moc_digitalclock.o \
+		moc_audiorecorder.o \
+		moc_preferencesform.o
 DIST          = FilesForm.ui.qml \
 		Files.qml \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
@@ -131,10 +139,14 @@ DIST          = FilesForm.ui.qml \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/lex.prf \
 		MusicBoard.pro musicboard.h \
 		settings.h \
-		digitalclock.h main.cpp \
+		digitalclock.h \
+		audiorecorder.h \
+		preferencesform.h main.cpp \
 		musicboard.cpp \
 		settings.cpp \
-		digitalclock.cpp
+		digitalclock.cpp \
+		audiorecorder.cpp \
+		preferencesform.cpp
 QMAKE_TARGET  = MusicBoard
 DESTDIR       = 
 TARGET        = MusicBoard
@@ -143,7 +155,7 @@ TARGET        = MusicBoard
 first: all
 ####### Build rules
 
-$(TARGET): ui_musicboard.h ui_settings.h $(OBJECTS)  
+$(TARGET): ui_musicboard.h ui_settings.h ui_audiorecorder.h ui_preferencesform.h $(OBJECTS)  
 	$(LINK) $(LFLAGS) -o $(TARGET) $(OBJECTS) $(OBJCOMP) $(LIBS)
 	objcopy --only-keep-debug MusicBoard MusicBoard.debug && objcopy --strip-debug MusicBoard && objcopy --add-gnu-debuglink=MusicBoard.debug MusicBoard && chmod -x MusicBoard.debug
 
@@ -305,9 +317,9 @@ distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents res.qrc $(DISTDIR)/
-	$(COPY_FILE) --parents musicboard.h settings.h digitalclock.h $(DISTDIR)/
-	$(COPY_FILE) --parents main.cpp musicboard.cpp settings.cpp digitalclock.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents musicboard.ui settings.ui $(DISTDIR)/
+	$(COPY_FILE) --parents musicboard.h settings.h digitalclock.h audiorecorder.h preferencesform.h $(DISTDIR)/
+	$(COPY_FILE) --parents main.cpp musicboard.cpp settings.cpp digitalclock.cpp audiorecorder.cpp preferencesform.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents musicboard.ui settings.ui audiorecorder.ui preferencesform.ui $(DISTDIR)/
 
 
 clean: compiler_clean 
@@ -317,7 +329,7 @@ clean: compiler_clean
 
 distclean: clean 
 	-$(DEL_FILE) $(TARGET) 
-	-$(DEL_FILE) /home/n/Downloads/Project_8_9_MusicBoard/Project_9_1_4_Last_WIthout_Help_File_Formats_Maked_JKL_Keys_Did_Not_Compile_Help_About/MusicBoard/MusicBoard.debug
+	-$(DEL_FILE) /home/n/Downloads/Project_8_9_MusicBoard/Project_9_1_4_Last_WIthout_Help_File_Formats_Maked_JKL_Keys_Did_Not_Compile_Help_About_Last_Settings_NumLock_On_Off_Master_Set_Without_Rec_With_Last_Settings_Demo_Without_Terminal_With/MusicBoard/MusicBoard.debug
 	-$(DEL_FILE) Makefile
 
 
@@ -344,7 +356,9 @@ qrc_res.cpp: res.qrc \
 		LaunchPad.png \
 		Picture1_4.png \
 		KeyD1.png \
+		Settings1.png \
 		TallLaunchPad.jpg \
+		Theme2.png \
 		MBIco.png \
 		Sets1.png \
 		KeysLF.png \
@@ -352,7 +366,9 @@ qrc_res.cpp: res.qrc \
 		KeyboardPresets.jpg \
 		Color_1.jpg \
 		Presets.jpg \
+		Theme21.png \
 		Im.png \
+		Theme24.png \
 		LaunchPad_0.jpg \
 		KeysLT1.png \
 		MB.png \
@@ -456,27 +472,35 @@ qrc_res.cpp: res.qrc \
 		PianoSounds/Edit/E2.wav
 	/usr/lib/x86_64-linux-gnu/qt5/bin/rcc -name res res.qrc -o qrc_res.cpp
 
-compiler_moc_header_make_all: moc_musicboard.cpp moc_settings.cpp moc_digitalclock.cpp
+compiler_moc_header_make_all: moc_musicboard.cpp moc_settings.cpp moc_digitalclock.cpp moc_audiorecorder.cpp moc_preferencesform.cpp
 compiler_moc_header_clean:
-	-$(DEL_FILE) moc_musicboard.cpp moc_settings.cpp moc_digitalclock.cpp
+	-$(DEL_FILE) moc_musicboard.cpp moc_settings.cpp moc_digitalclock.cpp moc_audiorecorder.cpp moc_preferencesform.cpp
 moc_musicboard.cpp: musicboard.h \
 		/usr/lib/x86_64-linux-gnu/qt5/bin/moc
-	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/n/Downloads/Project_8_9_MusicBoard/Project_9_1_4_Last_WIthout_Help_File_Formats_Maked_JKL_Keys_Did_Not_Compile_Help_About/MusicBoard -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtMultimedia -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtNetwork -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/6 -I/usr/include/x86_64-linux-gnu/c++/6 -I/usr/include/c++/6/backward -I/usr/lib/gcc/x86_64-linux-gnu/6/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/6/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include musicboard.h -o moc_musicboard.cpp
+	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/n/Downloads/Project_8_9_MusicBoard/Project_9_1_4_Last_WIthout_Help_File_Formats_Maked_JKL_Keys_Did_Not_Compile_Help_About_Last_Settings_NumLock_On_Off_Master_Set_Without_Rec_With_Last_Settings_Demo_Without_Terminal_With/MusicBoard -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtMultimedia -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtNetwork -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/6 -I/usr/include/x86_64-linux-gnu/c++/6 -I/usr/include/c++/6/backward -I/usr/lib/gcc/x86_64-linux-gnu/6/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/6/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include musicboard.h -o moc_musicboard.cpp
 
 moc_settings.cpp: global.h \
 		settings.h \
 		/usr/lib/x86_64-linux-gnu/qt5/bin/moc
-	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/n/Downloads/Project_8_9_MusicBoard/Project_9_1_4_Last_WIthout_Help_File_Formats_Maked_JKL_Keys_Did_Not_Compile_Help_About/MusicBoard -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtMultimedia -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtNetwork -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/6 -I/usr/include/x86_64-linux-gnu/c++/6 -I/usr/include/c++/6/backward -I/usr/lib/gcc/x86_64-linux-gnu/6/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/6/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include settings.h -o moc_settings.cpp
+	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/n/Downloads/Project_8_9_MusicBoard/Project_9_1_4_Last_WIthout_Help_File_Formats_Maked_JKL_Keys_Did_Not_Compile_Help_About_Last_Settings_NumLock_On_Off_Master_Set_Without_Rec_With_Last_Settings_Demo_Without_Terminal_With/MusicBoard -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtMultimedia -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtNetwork -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/6 -I/usr/include/x86_64-linux-gnu/c++/6 -I/usr/include/c++/6/backward -I/usr/lib/gcc/x86_64-linux-gnu/6/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/6/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include settings.h -o moc_settings.cpp
 
 moc_digitalclock.cpp: digitalclock.h \
 		/usr/lib/x86_64-linux-gnu/qt5/bin/moc
-	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/n/Downloads/Project_8_9_MusicBoard/Project_9_1_4_Last_WIthout_Help_File_Formats_Maked_JKL_Keys_Did_Not_Compile_Help_About/MusicBoard -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtMultimedia -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtNetwork -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/6 -I/usr/include/x86_64-linux-gnu/c++/6 -I/usr/include/c++/6/backward -I/usr/lib/gcc/x86_64-linux-gnu/6/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/6/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include digitalclock.h -o moc_digitalclock.cpp
+	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/n/Downloads/Project_8_9_MusicBoard/Project_9_1_4_Last_WIthout_Help_File_Formats_Maked_JKL_Keys_Did_Not_Compile_Help_About_Last_Settings_NumLock_On_Off_Master_Set_Without_Rec_With_Last_Settings_Demo_Without_Terminal_With/MusicBoard -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtMultimedia -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtNetwork -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/6 -I/usr/include/x86_64-linux-gnu/c++/6 -I/usr/include/c++/6/backward -I/usr/lib/gcc/x86_64-linux-gnu/6/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/6/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include digitalclock.h -o moc_digitalclock.cpp
+
+moc_audiorecorder.cpp: audiorecorder.h \
+		/usr/lib/x86_64-linux-gnu/qt5/bin/moc
+	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/n/Downloads/Project_8_9_MusicBoard/Project_9_1_4_Last_WIthout_Help_File_Formats_Maked_JKL_Keys_Did_Not_Compile_Help_About_Last_Settings_NumLock_On_Off_Master_Set_Without_Rec_With_Last_Settings_Demo_Without_Terminal_With/MusicBoard -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtMultimedia -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtNetwork -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/6 -I/usr/include/x86_64-linux-gnu/c++/6 -I/usr/include/c++/6/backward -I/usr/lib/gcc/x86_64-linux-gnu/6/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/6/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include audiorecorder.h -o moc_audiorecorder.cpp
+
+moc_preferencesform.cpp: preferencesform.h \
+		/usr/lib/x86_64-linux-gnu/qt5/bin/moc
+	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/n/Downloads/Project_8_9_MusicBoard/Project_9_1_4_Last_WIthout_Help_File_Formats_Maked_JKL_Keys_Did_Not_Compile_Help_About_Last_Settings_NumLock_On_Off_Master_Set_Without_Rec_With_Last_Settings_Demo_Without_Terminal_With/MusicBoard -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtMultimedia -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtNetwork -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/6 -I/usr/include/x86_64-linux-gnu/c++/6 -I/usr/include/c++/6/backward -I/usr/lib/gcc/x86_64-linux-gnu/6/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/6/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include preferencesform.h -o moc_preferencesform.cpp
 
 compiler_moc_source_make_all:
 compiler_moc_source_clean:
-compiler_uic_make_all: ui_musicboard.h ui_settings.h
+compiler_uic_make_all: ui_musicboard.h ui_settings.h ui_audiorecorder.h ui_preferencesform.h
 compiler_uic_clean:
-	-$(DEL_FILE) ui_musicboard.h ui_settings.h
+	-$(DEL_FILE) ui_musicboard.h ui_settings.h ui_audiorecorder.h ui_preferencesform.h
 ui_musicboard.h: musicboard.ui \
 		/usr/lib/x86_64-linux-gnu/qt5/bin/uic
 	/usr/lib/x86_64-linux-gnu/qt5/bin/uic musicboard.ui -o ui_musicboard.h
@@ -484,6 +508,14 @@ ui_musicboard.h: musicboard.ui \
 ui_settings.h: settings.ui \
 		/usr/lib/x86_64-linux-gnu/qt5/bin/uic
 	/usr/lib/x86_64-linux-gnu/qt5/bin/uic settings.ui -o ui_settings.h
+
+ui_audiorecorder.h: audiorecorder.ui \
+		/usr/lib/x86_64-linux-gnu/qt5/bin/uic
+	/usr/lib/x86_64-linux-gnu/qt5/bin/uic audiorecorder.ui -o ui_audiorecorder.h
+
+ui_preferencesform.h: preferencesform.ui \
+		/usr/lib/x86_64-linux-gnu/qt5/bin/uic
+	/usr/lib/x86_64-linux-gnu/qt5/bin/uic preferencesform.ui -o ui_preferencesform.h
 
 compiler_yacc_decl_make_all:
 compiler_yacc_decl_clean:
@@ -496,7 +528,10 @@ compiler_clean: compiler_rcc_clean compiler_moc_header_clean compiler_uic_clean
 ####### Compile
 
 main.o: main.cpp musicboard.h \
-		digitalclock.h
+		digitalclock.h \
+		audiorecorder.h \
+		preferences.h \
+		global.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o main.cpp
 
 musicboard.o: musicboard.cpp musicboard.h \
@@ -504,7 +539,9 @@ musicboard.o: musicboard.cpp musicboard.h \
 		settings.h \
 		global.h \
 		ui_settings.h \
-		digitalclock.h
+		digitalclock.h \
+		audiorecorder.h \
+		preferences.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o musicboard.o musicboard.cpp
 
 settings.o: settings.cpp settings.h \
@@ -516,6 +553,15 @@ settings.o: settings.cpp settings.h \
 
 digitalclock.o: digitalclock.cpp digitalclock.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o digitalclock.o digitalclock.cpp
+
+audiorecorder.o: audiorecorder.cpp audiorecorder.h \
+		qaudiolevel.h \
+		ui_audiorecorder.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o audiorecorder.o audiorecorder.cpp
+
+preferencesform.o: preferencesform.cpp preferencesform.h \
+		ui_preferencesform.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o preferencesform.o preferencesform.cpp
 
 qrc_res.o: qrc_res.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o qrc_res.o qrc_res.cpp
@@ -529,11 +575,28 @@ moc_settings.o: moc_settings.cpp
 moc_digitalclock.o: moc_digitalclock.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_digitalclock.o moc_digitalclock.cpp
 
+moc_audiorecorder.o: moc_audiorecorder.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_audiorecorder.o moc_audiorecorder.cpp
+
+moc_preferencesform.o: moc_preferencesform.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_preferencesform.o moc_preferencesform.cpp
+
 ####### Install
 
-install:  FORCE
+install_target: first FORCE
+	@test -d $(INSTALL_ROOT)/usr/lib/x86_64-linux-gnu/qt5/examples/multimedia/audiorecorder || mkdir -p $(INSTALL_ROOT)/usr/lib/x86_64-linux-gnu/qt5/examples/multimedia/audiorecorder
+	-$(INSTALL_FILE) /home/n/Downloads/Project_8_9_MusicBoard/Project_9_1_4_Last_WIthout_Help_File_Formats_Maked_JKL_Keys_Did_Not_Compile_Help_About_Last_Settings_NumLock_On_Off_Master_Set_Without_Rec_With_Last_Settings_Demo_Without_Terminal_With/MusicBoard/MusicBoard.debug $(INSTALL_ROOT)/usr/lib/x86_64-linux-gnu/qt5/examples/multimedia/audiorecorder/MusicBoard.debug
+	-$(INSTALL_PROGRAM) $(QMAKE_TARGET) $(INSTALL_ROOT)/usr/lib/x86_64-linux-gnu/qt5/examples/multimedia/audiorecorder/$(QMAKE_TARGET)
 
-uninstall:  FORCE
+uninstall_target: FORCE
+	-$(DEL_FILE) $(INSTALL_ROOT)/usr/lib/x86_64-linux-gnu/qt5/examples/multimedia/audiorecorder/MusicBoard.debug 
+	 -$(DEL_FILE) $(INSTALL_ROOT)/usr/lib/x86_64-linux-gnu/qt5/examples/multimedia/audiorecorder/$(QMAKE_TARGET)
+	-$(DEL_DIR) $(INSTALL_ROOT)/usr/lib/x86_64-linux-gnu/qt5/examples/multimedia/audiorecorder/ 
+
+
+install: install_target  FORCE
+
+uninstall: uninstall_target  FORCE
 
 FORCE:
 

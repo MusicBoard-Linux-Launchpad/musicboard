@@ -29,14 +29,25 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += main.cpp\
         musicboard.cpp \
     settings.cpp \
-    digitalclock.cpp
+    digitalclock.cpp \
+    audiorecorder.cpp \
+    preferencesform.cpp
+
+win32:INCLUDEPATH += $$PWD
 
 HEADERS  += musicboard.h \
     settings.h \
-    digitalclock.h
+    digitalclock.h \
+    audiorecorder.h \
+    preferencesform.h
 
 FORMS    += musicboard.ui \
-    settings.ui
+    settings.ui \
+    audiorecorder.ui \
+    preferencesform.ui
+
+target.path = $$[QT_INSTALL_EXAMPLES]/multimedia/audiorecorder
+INSTALLS += target
 
 RESOURCES += \
     res.qrc

@@ -7,6 +7,9 @@
 #include "settings.h"
 #include "ui_settings.h"
 #include "digitalclock.h"
+#include "audiorecorder.h"
+#include "preferencesform.h"
+
 #ifdef _WIN32
 #include <Windows.h>
 #endif
@@ -25,7 +28,7 @@
 //}
 
 
-int NumLock=10;
+///int NumLock=10;
 
 //void NmLk (){
 //    if (is_numlock_activated()){
@@ -58,14 +61,20 @@ MusicBoard::MusicBoard(QWidget *parent) :
   ui(new Ui::MusicBoard)
 {
   ui->setupUi(this);
-
-  if (is_numlock_activated()){
+  extern int NumLock;
+  ui->VolSlider->setStyleSheet("QSlider {background-color: rgba(136, 138, 133, 0);selection-background-color: rgb(255, 255, 255);}QSlider::handle:horizontal {height: 10px;background-image: url(:/pictures/Slider14.png);image: url(:/pictures/Slider14.png);background-color: rgba(136, 138, 133, 0)}");
+  ui->VolLabel->setStyleSheet("color: rgb(255, 255, 255);background-color: rgba(136, 138, 133, 0);");
+  if (NumLock==1){
       ui->NumlockLabel->setStyleSheet("background-color: rgba(255, 255, 255, 0);color: rgb(239, 41, 41);");
       //NumLock=0;
+      ui->NmLkOnOff->setText("ON");
+      ui->UnderOn->show();
   }
   else {
       ui->NumlockLabel->setStyleSheet("background-color: rgba(255, 255, 255, 0);");
       //NumLock=1;
+      ui->NmLkOnOff->setText("OFF");
+      ui->UnderOn->hide();
   }
 
 //  QTimer *timer = new QTimer(this);
@@ -77,9 +86,16 @@ MusicBoard::MusicBoard(QWidget *parent) :
 
 //  //ui->Time->setText(text);
 
-
-//  TimeShow();
-
+  ui->MBTerminal->hide();
+  ui->Demo1->hide();
+  ui->Demo2->hide();
+  ui->Demo3->hide();
+  ui->Demo4->hide();
+  ui->Demo5->hide();
+  ui->Demo6->hide();
+  ui->Demo7->hide();
+  //  TimeShow();
+  ui->UnderOn->hide();
   ui->P7->setStyleSheet("background-color: rgba(136, 138, 133, 179);background-image: url(:/pictures/LaunchPad.png);image: url(:/pictures/LaunchPad.png);");
   ui->K1->setStyleSheet("background-color: rgba(255, 159, 159, 179);image: url(:/pictures/KeysLF.png);background-image: url(:/pictures/KeysLF.png);color: rgb(255, 255, 255);");
   ui->Set1->setStyleSheet("color: rgb(255, 255, 255);background-image: url(:/pictures/Sets.png);image: url(:/pictures/Sets.png);background-color: rgba(159, 138, 252, 153);border-color: rgba(159, 138, 252, 153);");
@@ -103,8 +119,8 @@ MusicBoard::MusicBoard(QWidget *parent) :
   ui->Help->hide();
   ui->K4->hide();
   ui->NumlockLabel_2->hide();
-  ui->VolLabel->hide();
-  ui->VolSlider->hide();
+  //ui->VolLabel->hide();
+  //ui->VolSlider->hide();
   ui->TrLeft->hide();
   ui->TrRight->hide();
   //ui->HelpButton->hide();CloseClose_2
@@ -117,7 +133,7 @@ MusicBoard::MusicBoard(QWidget *parent) :
   ui->MBoard->hide();
   ui->ClearEdit->hide();
   ui->Licence->hide();
-  ///ui->ThemeEdit->hide();///aici cami
+  ///ui->ThemeEdit->hide();///aici Gelu
   ui->NotesEdit->hide();
   ui->ThemesEdit->hide();
   ui->Rhythm2->hide();
@@ -144,6 +160,25 @@ MusicBoard::~MusicBoard()
 {
   delete ui;
 }
+
+//QAudioRecorder * audioRecorder = new QAudioRecorder();
+
+//QAudioEncoderSettings * sets = newQAudioEncoderSettings();
+//sets.setCodec(boxValue(ui->audioCodecBox).toString());
+//sets.setSampleRate(boxValue(ui->sampleRateBox).toInt());
+//sets.setBitRate(boxValue(ui->bitrateBox).toInt());
+//sets.setQuality(QMultimedia::EncodingQuality(ui->qualitySlider->value()));
+//sets.setEncodingMode(ui->constantQualityRadioButton->isChecked() ?
+//                         QMultimedia::ConstantQualityEncoding :
+//                         QMultimedia::ConstantBitRateEncoding);
+
+//QString container = boxValue(ui->containerBox).toString();
+
+//   audioRecorder->setEncodingSettings(settings, QVideoEncoderSettings(), container);
+//   audioRecorder->record();
+
+//   ui->statusbar->showMessage(tr("Recorded %1 sec").arg(duration / 1000));
+
 
 int setButton;
 int isHelp=0;
@@ -173,7 +208,11 @@ int isP34=0;
 int isStartRhythm=0;
 int TIndicator=1;// pana fac functie de temp. (BPM)
 int isSettings=0;
-///int isThemeEdit=0;//aici cami
+int isDemo=0;
+int isDemoKey=0;
+int isDemoFunction=0;
+int isMBTerminal=0;
+///int isThemeEdit=0;//aici Gelu
 //isHelp=0; // de ce nu merge asa
 //isAbout=0;
 //Selectat Si Modulat Sunet
@@ -234,6 +273,12 @@ void MusicBoard::on_C_clicked()
   extern int KeyboardVol;
   C->setVolume(KeyboardVol);
   C->play();
+  if (isDemo==2){
+      on_HiddenHideAllButton_clicked();
+      isDemo=3;
+      ui->Demo2->hide();
+      ui->Demo3->show();
+  }
 }
 
 
@@ -245,6 +290,12 @@ void MusicBoard::on_D_clicked()
   extern int KeyboardVol;
   D->setVolume(KeyboardVol);
   D->play();
+  if (isDemo==2){
+      on_HiddenHideAllButton_clicked();
+      isDemo=3;
+      ui->Demo2->hide();
+      ui->Demo3->show();
+  }
 }
 
 void MusicBoard::on_C_B_clicked()
@@ -255,6 +306,12 @@ void MusicBoard::on_C_B_clicked()
   extern int KeyboardVol;
   C_B->setVolume(KeyboardVol);
   C_B->play();
+  if (isDemo==2){
+      on_HiddenHideAllButton_clicked();
+      isDemo=3;
+      ui->Demo2->hide();
+      ui->Demo3->show();
+  }
 }
 
 void MusicBoard::on_D_B_clicked()
@@ -265,6 +322,12 @@ void MusicBoard::on_D_B_clicked()
   extern int KeyboardVol;
   D_B->setVolume(KeyboardVol);
   D_B->play();
+  if (isDemo==2){
+      on_HiddenHideAllButton_clicked();
+      isDemo=3;
+      ui->Demo2->hide();
+      ui->Demo3->show();
+  }
 }
 
 void MusicBoard::on_E_clicked()
@@ -275,6 +338,12 @@ void MusicBoard::on_E_clicked()
   extern int KeyboardVol;
   E->setVolume(KeyboardVol);
   E->play();
+  if (isDemo==2){
+      on_HiddenHideAllButton_clicked();
+      isDemo=3;
+      ui->Demo2->hide();
+      ui->Demo3->show();
+  }
 }
 
 void MusicBoard::on_F_clicked()
@@ -285,6 +354,12 @@ void MusicBoard::on_F_clicked()
   extern int KeyboardVol;
   F->setVolume(KeyboardVol);
   F->play();
+  if (isDemo==2){
+      on_HiddenHideAllButton_clicked();
+      isDemo=3;
+      ui->Demo2->hide();
+      ui->Demo3->show();
+  }
 }
 
 void MusicBoard::on_F_B_clicked()
@@ -295,6 +370,12 @@ void MusicBoard::on_F_B_clicked()
   extern int KeyboardVol;
   F_B->setVolume(KeyboardVol);
   F_B->play();
+  if (isDemo==2){
+      on_HiddenHideAllButton_clicked();
+      isDemo=3;
+      ui->Demo2->hide();
+      ui->Demo3->show();
+  }
 }
 
 void MusicBoard::on_G_clicked()
@@ -305,6 +386,12 @@ void MusicBoard::on_G_clicked()
   extern int KeyboardVol;
   G->setVolume(KeyboardVol);
   G->play();
+  if (isDemo==2){
+      on_HiddenHideAllButton_clicked();
+      isDemo=3;
+      ui->Demo2->hide();
+      ui->Demo3->show();
+  }
 }
 
 void MusicBoard::on_G_B_clicked()
@@ -315,6 +402,12 @@ void MusicBoard::on_G_B_clicked()
   extern int KeyboardVol;
   G_B->setVolume(KeyboardVol);
   G_B->play();
+  if (isDemo==2){
+      on_HiddenHideAllButton_clicked();
+      isDemo=3;
+      ui->Demo2->hide();
+      ui->Demo3->show();
+  }
 }
 
 void MusicBoard::on_A_clicked()
@@ -325,6 +418,12 @@ void MusicBoard::on_A_clicked()
   extern int KeyboardVol;
   A->setVolume(KeyboardVol);
   A->play();
+  if (isDemo==2){
+      on_HiddenHideAllButton_clicked();
+      isDemo=3;
+      ui->Demo2->hide();
+      ui->Demo3->show();
+  }
 }
 
 void MusicBoard::on_A_B_clicked()
@@ -336,8 +435,15 @@ void MusicBoard::on_A_B_clicked()
   A_B->setVolume(KeyboardVol);
   A_B->play();
   ui->NumLockLabel->setText("Click on \"NumLock\"");
+  extern int NumLock;
   if (NumLock==10){
   NumLock=7;
+  }
+  if (isDemo==2){
+      on_HiddenHideAllButton_clicked();
+      isDemo=3;
+      ui->Demo2->hide();
+      ui->Demo3->show();
   }
 }
 
@@ -349,6 +455,12 @@ void MusicBoard::on_B_clicked()
   extern int KeyboardVol;
   B->setVolume(KeyboardVol);
   B->play();
+  if (isDemo==2){
+      on_HiddenHideAllButton_clicked();
+      isDemo=3;
+      ui->Demo2->hide();
+      ui->Demo3->show();
+  }
 }
 
 void MusicBoard::on_C2_clicked()
@@ -359,6 +471,12 @@ void MusicBoard::on_C2_clicked()
   extern int KeyboardVol;
   C2->setVolume(KeyboardVol);
   C2->play();
+  if (isDemo==2){
+      on_HiddenHideAllButton_clicked();
+      isDemo=3;
+      ui->Demo2->hide();
+      ui->Demo3->show();
+  }
 }
 
 void MusicBoard::on_C2_B_clicked()
@@ -369,6 +487,12 @@ void MusicBoard::on_C2_B_clicked()
   extern int KeyboardVol;
   C2_B->setVolume(KeyboardVol);
   C2_B->play();
+  if (isDemo==2){
+      on_HiddenHideAllButton_clicked();
+      isDemo=3;
+      ui->Demo2->hide();
+      ui->Demo3->show();
+  }
 }
 
 void MusicBoard::on_D2_clicked()
@@ -379,6 +503,12 @@ void MusicBoard::on_D2_clicked()
   extern int KeyboardVol;
   D2->setVolume(KeyboardVol);
   D2->play();
+  if (isDemo==2){
+      on_HiddenHideAllButton_clicked();
+      isDemo=3;
+      ui->Demo2->hide();
+      ui->Demo3->show();
+  }
 }
 
 void MusicBoard::on_D2_B_clicked()
@@ -389,6 +519,12 @@ void MusicBoard::on_D2_B_clicked()
   extern int KeyboardVol;
   D2_B->setVolume(KeyboardVol);
   D2_B->play();
+  if (isDemo==2){
+      on_HiddenHideAllButton_clicked();
+      isDemo=3;
+      ui->Demo2->hide();
+      ui->Demo3->show();
+  }
 }
 
 void MusicBoard::on_E2_clicked()
@@ -399,6 +535,12 @@ void MusicBoard::on_E2_clicked()
   extern int KeyboardVol;
   E2->setVolume(KeyboardVol);
   E2->play();
+  if (isDemo==2){
+      on_HiddenHideAllButton_clicked();
+      isDemo=3;
+      ui->Demo2->hide();
+      ui->Demo3->show();
+  }
 }
 
 void MusicBoard::on_F2_clicked()
@@ -409,6 +551,12 @@ void MusicBoard::on_F2_clicked()
   extern int KeyboardVol;
   F2->setVolume(KeyboardVol);
   F2->play();
+  if (isDemo==2){
+      on_HiddenHideAllButton_clicked();
+      isDemo=3;
+      ui->Demo2->hide();
+      ui->Demo3->show();
+  }
 }
 
 void MusicBoard::on_F2_B_clicked()
@@ -419,6 +567,12 @@ void MusicBoard::on_F2_B_clicked()
   extern int KeyboardVol;
   F2_B->setVolume(KeyboardVol);
   F2_B->play();
+  if (isDemo==2){
+      on_HiddenHideAllButton_clicked();
+      isDemo=3;
+      ui->Demo2->hide();
+      ui->Demo3->show();
+  }
 }
 
 void MusicBoard::on_G2_clicked()
@@ -429,6 +583,12 @@ void MusicBoard::on_G2_clicked()
   extern int KeyboardVol;
   G2->setVolume(KeyboardVol);
   G2->play();
+  if (isDemo==2){
+      on_HiddenHideAllButton_clicked();
+      isDemo=3;
+      ui->Demo2->hide();
+      ui->Demo3->show();
+  }
 }
 
 // Percussion
@@ -495,9 +655,18 @@ void MusicBoard::on_P1_clicked()
   extern int P1_A;
   P1->setVolume(P1_A);
   P1->play();
+  extern int NumLock;
   if (NumLock==10){
       ui->NumLockInfo->hide();
+      ui->NmLkOnOff->setStyleSheet("color: rgb(255, 255, 255);background-color: rgba(136, 138, 133, 0);");
+      ui->NmLkOnOff->setText("OFF");
       NumLock=0;
+  }
+  if (isDemo==4){
+      on_HiddenHideAllButton_clicked();
+     isDemo=5;
+     ui->Demo4->hide();
+     ui->Demo5->show();
   }
 }
 
@@ -511,10 +680,23 @@ void MusicBoard::on_P2_clicked()
   extern int P2_A;
   P2->setVolume(P2_A);
   P2->play();
+  if (isDemo==4){
+      on_HiddenHideAllButton_clicked();
+     isDemo=5;
+     ui->Demo4->hide();
+     ui->Demo5->show();
+  }
 }
 
 void MusicBoard::on_P3_clicked()
 { setButton=3;
+    if (isDemo==4){
+        on_HiddenHideAllButton_clicked();
+       isDemo=5;
+       //ui->MBTerminal->setText("A intrat.");
+       ui->Demo4->hide();
+       ui->Demo5->show();
+    }
   QMediaPlayer * P3 = new QMediaPlayer();
   ui->Error->setText(QString::number(setButton));
   //QMediaPlayer * P3 = new QMediaPlayer();
@@ -523,18 +705,23 @@ void MusicBoard::on_P3_clicked()
   extern int P3_A;
   P3->setVolume(P3_A);
   P3->play();
+
 }
 
 void MusicBoard::on_P4_clicked()
 { setButton=4;
   QMediaPlayer * P4 = new QMediaPlayer();
   ui->Error->setText(QString::number(setButton));
-  //QMediaPlayer * P4 = new QMediaPlayer();
-  //P4->setMedia(QUrl("qrc:/sounds/Dub_Selection/FX4.wav"));
   P4->setMedia(QUrl(P4_Song));
   extern int P4_A;
   P4->setVolume(P4_A);
   P4->play();
+  if (isDemo==4){
+      on_HiddenHideAllButton_clicked();
+     isDemo=5;
+     ui->Demo4->hide();
+     ui->Demo5->show();
+  }
 }
 
 void MusicBoard::on_P5_clicked()
@@ -547,6 +734,12 @@ void MusicBoard::on_P5_clicked()
   extern int P5_A;
   P5->setVolume(P5_A);
   P5->play();
+  if (isDemo==4){
+      on_HiddenHideAllButton_clicked();
+     isDemo=5;
+     ui->Demo4->hide();
+     ui->Demo5->show();
+  }
 }
 
 void MusicBoard::on_P6_clicked()
@@ -559,6 +752,12 @@ void MusicBoard::on_P6_clicked()
   extern int P6_A;
   P6->setVolume(P6_A);
   P6->play();
+  if (isDemo==4){
+      on_HiddenHideAllButton_clicked();
+     isDemo=5;
+     ui->Demo4->hide();
+     ui->Demo5->show();
+  }
 }
 
 void MusicBoard::on_P7_clicked()
@@ -571,6 +770,12 @@ void MusicBoard::on_P7_clicked()
   extern int P7_A;
   P7->setVolume(P7_A);
   P7->play();
+  if (isDemo==4){
+      on_HiddenHideAllButton_clicked();
+     isDemo=5;
+     ui->Demo4->hide();
+     ui->Demo5->show();
+  }
 }
 
 void MusicBoard::on_File1_clicked(const QModelIndex &index)
@@ -705,6 +910,22 @@ int CheckM4p (QString a){
     }
 }
 
+int CheckJpg (QString a){
+    QString v;
+    int i;
+    int n;
+    n=a.length();
+    for (i=0;i<=n;i=i+1){
+       v[n-i]=a[i];
+    }
+    if (v[1]=='g' && v[2]=='p' && v[3]=='j' && v[4]=='.'){
+    return 1;
+    }
+    else {
+    return 0;
+    }
+}
+
 int Check3gp (QString a){
     QString v;
     int i;
@@ -740,10 +961,10 @@ int CheckAac (QString a){
 void MusicBoard::on_File2_clicked(const QModelIndex &index)
 {
     QString FilePath = filemodel->fileInfo(index).absoluteFilePath();
-    FilePath = "file://" + FilePath;
     if (CheckWAV(FilePath)==1 || CheckMP3(FilePath)==1 || CheckOgg(FilePath)==1 || CheckM4p(FilePath)==1 || CheckWma(FilePath)==1 || CheckAiff(FilePath)==1 || CheckVox(FilePath)==1 || CheckFlac(FilePath)==1 || Check3gp(FilePath)==1 || CheckAac(FilePath)==1){
 // Attribute the FilePath to the path of the meida of the button
         //ui->Error->setText("Button?");
+        FilePath = "file://" + FilePath;
         ui->Path->setText(FilePath);
       //  /////if (setButton==1){P1->setMedia(QUrl("file://"+FilePath)); P1->play();}
         //if (setButton==1){P1->setMedia(QUrl("qrc:/sounds/Dub_Selection/DROP 07 Scos Sfarsit Scos.wav")); P1->play();}
@@ -776,7 +997,22 @@ void MusicBoard::on_File2_clicked(const QModelIndex &index)
         // Se Poate cu buton?
         setButton=0;
         ui->Error->setText("Set");
-      } else {
+      }
+//    if (CheckJpg(FilePath)==1) {
+//        QDir dir("/home/n/Downloads/Project_8_9_MusicBoard/Project_9_1_4_Last_WIthout_Help_File_Formats_Maked_JKL_Keys_Did_Not_Compile_Help_About_Last_Settings_NumLock_On_Off_Master_Set_Without_Rec_With");
+//        FilePath=dir.relativeFilePath(FilePath);
+//        ui->Path->setText(FilePath);
+
+//        if (setButton==1){
+//            //FilePath = ":" + FilePath;
+//            ui->P1->setStyleSheet("background-image: url(:/pictures/Presets.jpg); image: url(:/pictures/Presets.jpg); background-color: rgb(136, 138, 133);  color: rgb(255, 255, 255);");
+////            QPixmap pixmap(FilePath);
+////            QIcon P1Ic(pixmap);
+////            ui->P1->setIcon(P1Ic);
+////            ui->P1->setIconSize(pixmap.rect().size());
+//        }
+//    }
+        else {
         ui->Error->setText("Error");
       }
 }
@@ -790,6 +1026,12 @@ void MusicBoard::on_P8_clicked()
   extern int P8_A;
   P8->setVolume(P8_A);
   P8->play();
+  if (isDemo==4){
+      on_HiddenHideAllButton_clicked();
+     isDemo=5;
+     ui->Demo4->hide();
+     ui->Demo5->show();
+  }
 }
 
 void MusicBoard::on_P9_clicked()
@@ -801,6 +1043,12 @@ void MusicBoard::on_P9_clicked()
   extern int P9_A;
   P9->setVolume(P9_A);
   P9->play();
+  if (isDemo==4){
+      on_HiddenHideAllButton_clicked();
+     isDemo=5;
+     ui->Demo4->hide();
+     ui->Demo5->show();
+  }
 }
 
 void MusicBoard::on_P10_clicked()
@@ -809,23 +1057,30 @@ void MusicBoard::on_P10_clicked()
     //ui->Error->setText(QString::number(setButton));
     //QMediaPlayer * P10 = new QMediaPlayer();
     //P10->play();
-    if (NumLock==0){
-        ui->NmLkOnOff->setStyleSheet("color: rgb(255, 255, 255);background-color: rgba(136, 138, 133, 0);");
-        ui->NmLkOnOff->setText("OFF");
+   int k=0;
+   extern int NumLock;
+   if (NumLock==0){
         NumLock=1;
-    }
-    if (NumLock==1) {
         ui->NmLkOnOff->setStyleSheet("background-color: rgba(255, 255, 255, 0);color: rgb(239, 41, 41);");
         ui->NmLkOnOff->setText("ON");
+        ui->UnderOn->show();
+        k=1;
+    }
+    if (NumLock==1 && k==0) {
+        ui->NmLkOnOff->setStyleSheet("color: rgb(255, 255, 255);background-color: rgba(136, 138, 133, 0);");
+        ui->NmLkOnOff->setText("OFF");
+        ui->UnderOn->hide();
         NumLock=0;
     }
     if (NumLock==7){
         ui->NumLockInfo->hide();
         ui->NmLkOnOff->setText("OFF");
-        ui->NmLkOnOff->setStyleSheet("background-color: rgba(255, 255, 255, 0);color: rgb(239, 41, 41);");
+        ui->NmLkOnOff->setStyleSheet("color: rgb(255, 255, 255);background-color: rgba(136, 138, 133, 0);");
         NumLock=0;
+        k=1;
     }
-    ui->Time->setText(QString::number(NumLock));
+    //ui->Time->setText(QString::number(NumLock));
+    k=1;
 }
 
 void MusicBoard::on_P11_clicked()
@@ -838,6 +1093,12 @@ void MusicBoard::on_P11_clicked()
     extern int P11_A;
     P11->setVolume(P11_A);
     P11->play();
+    if (isDemo==4){
+        on_HiddenHideAllButton_clicked();
+       isDemo=5;
+       ui->Demo4->hide();
+       ui->Demo5->show();
+    }
 }
 
 void MusicBoard::on_P12_clicked()
@@ -850,6 +1111,12 @@ void MusicBoard::on_P12_clicked()
     extern int P12_A;
     P12->setVolume(P12_A);
     P12->play();
+    if (isDemo==4){
+        on_HiddenHideAllButton_clicked();
+       isDemo=5;
+       ui->Demo4->hide();
+       ui->Demo5->show();
+    }
 }
 
 void MusicBoard::on_P13_clicked()
@@ -862,6 +1129,12 @@ void MusicBoard::on_P13_clicked()
     extern int P13_A;
     P13->setVolume(P13_A);
     P13->play();
+    if (isDemo==4){
+        on_HiddenHideAllButton_clicked();
+       isDemo=5;
+       ui->Demo4->hide();
+       ui->Demo5->show();
+    }
 }
 
 void MusicBoard::on_P14_clicked()
@@ -874,6 +1147,12 @@ void MusicBoard::on_P14_clicked()
     extern int P14_A;
     P14->setVolume(P14_A);
     P14->play();
+    if (isDemo==4){
+        on_HiddenHideAllButton_clicked();
+       isDemo=5;
+       ui->Demo4->hide();
+       ui->Demo5->show();
+    }
 }
 
 void MusicBoard::on_P15_clicked()
@@ -886,6 +1165,12 @@ void MusicBoard::on_P15_clicked()
     extern int P15_A;
     P15->setVolume(P15_A);
     P15->play();
+    if (isDemo==4){
+        on_HiddenHideAllButton_clicked();
+       isDemo=5;
+       ui->Demo4->hide();
+       ui->Demo5->show();
+    }
 }
 
 void MusicBoard::on_P16_clicked()
@@ -898,6 +1183,12 @@ void MusicBoard::on_P16_clicked()
     extern int P16_A;
     P16->setVolume(P16_A);
     P16->play();
+    if (isDemo==4){
+        on_HiddenHideAllButton_clicked();
+       isDemo=5;
+       ui->Demo4->hide();
+       ui->Demo5->show();
+    }
 }
 
 void MusicBoard::on_P17_clicked()
@@ -910,6 +1201,12 @@ void MusicBoard::on_P17_clicked()
     extern int P17_A;
     P17->setVolume(P17_A);
     P17->play();
+    if (isDemo==4){
+       on_HiddenHideAllButton_clicked();
+       isDemo=5;
+       ui->Demo4->hide();
+       ui->Demo5->show();
+    }
 }
 
 void MusicBoard::on_Close_clicked()
@@ -949,7 +1246,6 @@ void MusicBoard::on_R2_clicked()
     ui->Rhythm2->show();
     on_StartRhythm_clicked();
     ui->Error->setText("R2");
-    //QMediaPlayer * P17 = new QMediaPlayer();
     R2->setMedia(QUrl(R2_Song));
     extern int R2_A;
     R2->setVolume(R2_A);
@@ -961,6 +1257,12 @@ void MusicBoard::on_R2_clicked()
     //ui->Rhythm2->hide();
     //isRhythm2=0;
     //}
+    if (isDemo==5){
+        on_HiddenHideAllButton_clicked();
+        isDemo=6;
+        ui->Demo5->hide();
+        ui->Demo6->show();
+    }
 }
 
 void MusicBoard::on_R3_clicked()
@@ -973,6 +1275,12 @@ void MusicBoard::on_R3_clicked()
     extern int R3_A;
     R3->setVolume(R3_A);
     R3->play();
+    if (isDemo==5){
+        on_HiddenHideAllButton_clicked();
+        isDemo=6;
+        ui->Demo5->hide();
+        ui->Demo6->show();
+    }
 }
 
 void MusicBoard::on_R4_clicked()
@@ -985,6 +1293,12 @@ void MusicBoard::on_R4_clicked()
     extern int R4_A;
     R4->setVolume(R4_A);
     R4->play();
+    if (isDemo==5){
+        on_HiddenHideAllButton_clicked();
+        isDemo=6;
+        ui->Demo5->hide();
+        ui->Demo6->show();
+    }
 }
 
 void MusicBoard::on_R5_clicked()
@@ -997,6 +1311,12 @@ void MusicBoard::on_R5_clicked()
     extern int R5_A;
     R5->setVolume(R5_A);
     R5->play();
+    if (isDemo==5){
+        on_HiddenHideAllButton_clicked();
+        isDemo=6;
+        ui->Demo5->hide();
+        ui->Demo6->show();
+    }
 }
 
 void MusicBoard::on_R6_clicked()
@@ -1009,6 +1329,12 @@ void MusicBoard::on_R6_clicked()
     extern int R6_A;
     R6->setVolume(R6_A);
     R6->play();
+    if (isDemo==5){
+        on_HiddenHideAllButton_clicked();
+        isDemo=6;
+        ui->Demo5->hide();
+        ui->Demo6->show();
+    }
 }
 
 void MusicBoard::on_R7_clicked()
@@ -1021,6 +1347,12 @@ void MusicBoard::on_R7_clicked()
     extern int R7_A;
     R7->setVolume(R7_A);
     R7->play();
+    if (isDemo==5){
+        on_HiddenHideAllButton_clicked();
+        isDemo=6;
+        ui->Demo5->hide();
+        ui->Demo6->show();
+    }
 }
 
 void MusicBoard::on_R8_clicked()
@@ -1033,10 +1365,27 @@ void MusicBoard::on_R8_clicked()
     extern int R8_A;
     R8->setVolume(R8_A);
     R8->play();
+    if (isDemo==5){
+        on_HiddenHideAllButton_clicked();
+        isDemo=6;
+        ui->Demo5->hide();
+        ui->Demo6->show();
+    }
 }
 
 void MusicBoard::on_K2_clicked()
 {
+    if (isDemo==1){
+        on_HiddenHideAllButton_clicked();
+        ui->Demo1->hide();
+        ui->Demo2->show();
+        isDemo=2;
+//        if (isDemo==5){
+//            isDemo=6;
+//            ui->Demo5->hide();
+//            ui->Demo6->show();
+//        }
+    }
 C_Song="qrc:/sounds/Keyboards/Keyboard2/2C.wav";
 C_B_Song="qrc:/sounds/Keyboards/Keyboard2/2C_B.wav";
 D_Song="qrc:/sounds/Keyboards/Keyboard2/2D.wav";
@@ -1062,6 +1411,12 @@ G2_Song="qrc:/sounds/Keyboards/Keyboard2/2G2.wav";
 
 void MusicBoard::on_K1_clicked()
 {
+    if (isDemo==1){
+        on_HiddenHideAllButton_clicked();
+        ui->Demo1->hide();
+        ui->Demo2->show();
+        isDemo=2;
+    }
   C_Song="qrc:/sounds/PianoSounds/Edit/C.wav";
   C_B_Song="qrc:/sounds/PianoSounds/Edit/C_B.wav";
   D_Song="qrc:/sounds/PianoSounds/Edit/D.wav";
@@ -1088,6 +1443,12 @@ void MusicBoard::on_K1_clicked()
 void MusicBoard::on_K3_clicked()
 {
   on_K4_clicked();
+  if (isDemo==1){
+      on_HiddenHideAllButton_clicked();
+      ui->Demo1->hide();
+      ui->Demo2->show();
+      isDemo=2;
+  }
 //  C_Song="qrc:/sounds/Keyboards/Keyboard3/3_C.wav";
 //  C_B_Song="qrc:/sounds/Keyboards/Keyboard3/4_CB.wav";
 //  D_Song="qrc:/sounds/Keyboards/Keyboard3/5_D.wav";
@@ -1144,7 +1505,7 @@ void MusicBoard::on_AboutClose_clicked()
 //    isFile=0;
 //    isEdit=0;
     on_HiddenHideAllButton_clicked();
-    ///isThemeEdit=0;// aici cami
+    ///isThemeEdit=0;// aici Gelu
     isClearEdit=0;
     isAbout=0;
 }
@@ -1180,8 +1541,8 @@ void MusicBoard::on_AboutButton_clicked()
 }
 
 void MusicBoard::on_Set1_clicked()
-{
-    on_K1_clicked();
+{   /// Sa ramana keyboard?
+    ///on_K1_clicked();
     //ui->Set1->setStyleSheet("color: rgb(255, 255, 255);background-image: url(:/pictures/Sets1.png);image: url(:/pictures/Sets1.png);background-color: rgba(159, 138, 252, 153);border-color: rgba(159, 138, 252, 153);");
     P1_Song="qrc:/sounds/Dub_Selection/TMS3_NuKick_165.wav";
     P2_Song="qrc:/sounds/Dub_Selection/TMS3_Snare_002.wav";
@@ -1193,20 +1554,26 @@ void MusicBoard::on_Set1_clicked()
     P8_Song="qrc:/sounds/Dub_Selection/Low_End_FX/LowEnd_FX_04.wav";
     P9_Song="qrc:/sounds/Dub_Selection/Build Up 01.wav";
     P11_Song="qrc:/sounds/Dub_Selection/FILTER DOWN 32.wav";
-    P12_Song="qrc:/sounds/Dub_Selection/Low_End_FX/LowEnd_FX_01.wav";
-    P13_Song="qrc:/sounds/Dub_Selection/Low_End_FX/LowEnd_FX_02.wav";
-    P14_Song="qrc:/sounds/Dub_Selection/Low_End_FX/LowEnd_FX_03.wav";
-    P15_Song="qrc:/sounds/Dub_Selection/Low_End_FX/LowEnd_FX_04.wav";
-    P16_Song="qrc:/sounds/Dub_Selection/Low_End_FX/LowEnd_FX_05.wav";
-    P17_Song="qrc:/sounds/Dub_Selection/Low_End_FX/LowEnd_FX_06.wav";
-    R1_Song="";
-    R2_Song="";
-    R3_Song="";
-    R4_Song="";
-    R5_Song="";
-    R6_Song="";
-    R7_Song="";
-    R8_Song="";
+    P12_Song="qrc:/sounds/Dub_Selection/Low_End_FX/LowEnd_FX_09.wav";
+    P13_Song="qrc:/sounds/Dub_Selection/Low_End_FX/LowEnd_FX_03.wav";
+    P14_Song="qrc:/sounds/Dub_Selection/Low_End_FX/LowEnd_FX_01.wav";
+    P15_Song="qrc:/sounds/Dub_Selection/Low_End_FX/LowEnd_FX_14.wav";
+    P16_Song="qrc:/sounds/Dub_Selection/Low_End_FX/LowEnd_FX_02.wav";
+    P17_Song="qrc:/sounds/Dub_Selection/Low_End_FX/LowEnd_FX_07.wav";
+    R3_Song="qrc:/sounds/Dub_Selection/Low_End_FX/LowEnd_FX_13.wav";
+    R4_Song="qrc:/sounds/Dub_Selection/Low_End_FX/LowEnd_FX_12.wav";
+    R5_Song="qrc:/sounds/Dub_Selection/Low_End_FX/LowEnd_FX_10.wav";
+    R6_Song="qrc:/sounds/Dub_Selection/Low_End_FX/LowEnd_FX_04.wav";
+    R7_Song="qrc:/sounds/Dub_Selection/Low_End_FX/LowEnd_FX_017.wav";
+    R8_Song="qrc:/sounds/Dub_Selection/Low_End_FX/LowEnd_FX_06.wav";
+
+
+    if (isDemo==3){
+    on_HiddenHideAllButton_clicked();
+    isDemo=4;
+    ui->Demo3->hide();
+    ui->Demo4->show();
+    }
 
     //extern QString P1_R;
     ui->P1->setText("Kick");
@@ -1307,8 +1674,8 @@ void MusicBoard::on_Set1_clicked()
 }
 
 void MusicBoard::on_Set2_clicked()
-{
-  on_K2_clicked();
+{ /// Sa ramana keyboard?
+  ///on_K2_clicked();
   P1_Song="qrc:/sounds/Dub_Selection/TMS3_NuKick_165.wav";
   P2_Song="qrc:/sounds/Dub_Selection/TMS3_Snare_002.wav";
   P3_Song="qrc:/sounds/Dub_Selection/FX4.wav";
@@ -1317,7 +1684,7 @@ void MusicBoard::on_Set2_clicked()
   P6_Song="qrc:/sounds/Dub_Selection/Low_End_FX/LowEnd_FX_08.wav";
   P7_Song="qrc:/sounds/Dub_Selection/Low_End_FX/LowEnd_FX_09.wav";
   P8_Song="qrc:/sounds/Dub_Selection/Bass Drop (Extended) (Louder).wav";
-  P9_Song="qrc:/sounds/Dub_Selection/FX5.wav";
+  ;P9_Song="qrc:/sounds/Dub_Selection/FX5.wav";
   P11_Song="qrc:/sounds/Dub_Selection/ufx_imp_atomic.wav";
   P12_Song="qrc:/sounds/Dub_Selection/Low_End_FX/LowEnd_FX_01.wav";
   P13_Song="qrc:/sounds/Dub_Selection/Low_End_FX/LowEnd_FX_02.wav";
@@ -1325,14 +1692,19 @@ void MusicBoard::on_Set2_clicked()
   P15_Song="qrc:/sounds/Dub_Selection/Low_End_FX/LowEnd_FX_04.wav";
   P16_Song="qrc:/sounds/Dub_Selection/Low_End_FX/LowEnd_FX_05.wav";
   P17_Song="qrc:/sounds/Dub_Selection/Low_End_FX/LowEnd_FX_06.wav";
-  R1_Song="";
-  R2_Song="";
-  R3_Song="";
-  R4_Song="";
-  R5_Song="";
-  R6_Song="";
-  R7_Song="";
-  R8_Song="";
+  R3_Song="qrc:/sounds/Dub_Selection/Low_End_FX/LowEnd_FX_17.wav";
+  R4_Song="qrc:/sounds/Dub_Selection/Low_End_FX/LowEnd_FX_16.wav";
+  R5_Song="qrc:/sounds/Dub_Selection/Low_End_FX/LowEnd_FX_15.wav";
+  R6_Song="qrc:/sounds/Dub_Selection/Low_End_FX/LowEnd_FX_14.wav";
+  R7_Song="qrc:/sounds/Dub_Selection/Low_End_FX/LowEnd_FX_13.wav";
+  R8_Song="qrc:/sounds/Dub_Selection/Low_End_FX/LowEnd_FX_12.wav";
+
+  if (isDemo==3){
+  on_HiddenHideAllButton_clicked();
+  isDemo=4;
+  ui->Demo3->hide();
+  ui->Demo4->show();
+  }
 
   //extern QString P1_R;
   ui->P1->setText("Kick");
@@ -1433,8 +1805,8 @@ void MusicBoard::on_Set2_clicked()
 }
 
 void MusicBoard::on_Set3_clicked()
-{
-  on_K3_clicked();
+{ /// Sa ramana keyboard?
+  ///on_K3_clicked();
   P1_Song="qrc:/sounds/Dub_Selection/Bass Drop (Extended) (Louder).wav";
   P2_Song="qrc:/sounds/Dub_Selection/Build Up 01.wav";
   P3_Song="qrc:/sounds/Dub_Selection/DROP 07 Scos Sfarsit Scos.wav";
@@ -1451,14 +1823,19 @@ void MusicBoard::on_Set3_clicked()
   P15_Song="qrc:/sounds/Dub_Selection/Low_End_FX/LowEnd_FX_09.wav";
   P16_Song="qrc:/sounds/Dub_Selection/Low_End_FX/LowEnd_FX_08.wav";
   P17_Song="qrc:/sounds/Dub_Selection/Low_End_FX/LowEnd_FX_10.wav";
-  R1_Song="";
-  R2_Song="";
-  R3_Song="";
-  R4_Song="";
-  R5_Song="";
-  R6_Song="";
-  R7_Song="";
-  R8_Song="";
+  R3_Song="qrc:/sounds/Dub_Selection/Low_End_FX/LowEnd_FX_02.wav";
+  R4_Song="qrc:/sounds/Dub_Selection/Low_End_FX/LowEnd_FX_05.wav";
+  R5_Song="qrc:/sounds/Dub_Selection/Low_End_FX/LowEnd_FX_06.wav";
+  R6_Song="qrc:/sounds/Dub_Selection/Low_End_FX/LowEnd_FX_11.wav";
+  R7_Song="qrc:/sounds/Dub_Selection/Low_End_FX/LowEnd_FX_12.wav";
+  R8_Song="qrc:/sounds/Dub_Selection/Low_End_FX/LowEnd_FX_13.wav";
+
+  if (isDemo==3){
+  on_HiddenHideAllButton_clicked();
+  isDemo=4;
+  ui->Demo3->hide();
+  ui->Demo4->show();
+  }
 
   //extern QString P1_R;
   ui->P1->setText("Drop");
@@ -1559,8 +1936,8 @@ void MusicBoard::on_Set3_clicked()
 }
 
 void MusicBoard::on_Set4_clicked()
-{
-  on_K4_clicked(); //momentan
+{ /// Sa ramana keyboard?
+  ///on_K4_clicked(); //momentan
   //on_K3_clicked();
   P1_Song="qrc:/sounds/Dub_Selection/TMS3_NuKick_165.wav";
   P2_Song="qrc:/sounds/Dub_Selection/TMS3_Snare_002.wav";
@@ -1586,6 +1963,13 @@ void MusicBoard::on_Set4_clicked()
   R6_Song="qrc:/sounds/Dub_Selection/Low_End_FX/LowEnd_FX_13.wav";
   R7_Song="qrc:/sounds/Dub_Selection/Low_End_FX/LowEnd_FX_14.wav";
   R8_Song="qrc:/sounds/Dub_Selection/Low_End_FX/LowEnd_FX_15.wav";
+
+  if (isDemo==3){
+  on_HiddenHideAllButton_clicked();
+  isDemo=4;
+  ui->Demo3->hide();
+  ui->Demo4->show();
+  }
 
   //extern QString P1_R;
   ui->P1->setText("Kick");
@@ -1739,6 +2123,11 @@ void MusicBoard::on_HelpButton_clicked()
     on_HiddenHideAllButton_clicked();
     isHelp=0;
     }
+    if (isDemo==6){
+        isDemo=7;
+        ui->Demo6->hide();
+        ui->Demo7->show();
+    }
 }
 
 void MusicBoard::on_FileButton_clicked()
@@ -1746,11 +2135,11 @@ void MusicBoard::on_FileButton_clicked()
     if (isFile==0){
     ui->File->show();
     ui->Edit->hide();
-   /// ui->ThemeEdit->hide();//aici cami
+   /// ui->ThemeEdit->hide();//aici Gelu
     ui->ClearEdit->hide();
     ui->NotesEdit->hide();
     ui->ThemesEdit->hide();
-    ///isThemeEdit=0;//aici cami
+    ///isThemeEdit=0;//aici Gelu
     isClearEdit=0;
     isEdit=0;
     //on_HiddenHideAllButton_clicked();
@@ -2040,9 +2429,9 @@ void MusicBoard::on_EditButton_clicked()
     if (isEdit==0){
         ui->Edit->show();
         ui->File->hide();
-        ///ui->ThemeEdit->hide();//aici cami
+        ///ui->ThemeEdit->hide();//aici Gelu
         ui->ClearEdit->hide();
-        ///isThemeEdit=0;//aici cami
+        ///isThemeEdit=0;//aici Gelu
         isClearEdit=0;
         isFile=0;
         //on_HiddenHideAllButton_clicked();
@@ -2190,6 +2579,11 @@ void MusicBoard::on_HiddenHelpButton_clicked()
     isHelp=0;
     isLicence=0;
     }
+    if (isDemo==6){
+        isDemo=7;
+        ui->Demo6->hide();
+        ui->Demo7->show();
+    }
 }
 
 void MusicBoard::on_HiddenAboutButton_clicked()
@@ -2281,8 +2675,8 @@ void MusicBoard::on_ClearButton_clicked()
 {
     if (isClearEdit==0){
     ui->ClearEdit->show();
-    ///ui->ThemeEdit->hide();//aici cami
-    ///isThemeEdit=0;//aici cami
+    ///ui->ThemeEdit->hide();//aici Gelu
+    ///isThemeEdit=0;//aici Gelu
     isClearEdit=1;
     ui->NotesEdit->hide();
     ui->ThemesEdit->hide();
@@ -2293,8 +2687,8 @@ void MusicBoard::on_ClearButton_clicked()
     ui->ClearEdit->hide();
     ui->ThemesEdit->hide();
     isThemesEdit=0;
-    ///ui->ThemeEdit->hide(); //aici cami
-    ///isThemeEdit=0;//aici cami
+    ///ui->ThemeEdit->hide(); //aici Gelu
+    ///isThemeEdit=0;//aici Gelu
     isClearEdit=0;
     }
 
@@ -2330,33 +2724,33 @@ void MusicBoard::on_CloseLicence_clicked()
 /*void MusicBoard::on_ThemeButton_clicked()
 {
     ///if (isThemeEdit==0){
-    ///ui->ThemeEdit->show();//aici cami
+    ///ui->ThemeEdit->show();//aici Gelu
     ui->ClearEdit->hide();
     isClearEdit=0;
     isThemeEdit=1;
     }
     else {
-    ///ui->ThemeEdit->hide();//aici cami
+    ///ui->ThemeEdit->hide();//aici Gelu
     ui->ClearEdit->hide();
     isClearEdit=0;
     isThemeEdit=0;
     }
-}*/ //aici cami
+}*/ //aici Gelu
 
 /*
 void MusicBoard::on_Theme1Button_clicked()
 {
-    ///ui->ThemeEdit->hide();//aici cami
+    ///ui->ThemeEdit->hide();//aici Gelu
     ui->Edit->hide();
     isThemeEdit=0;
     on_HiddenHideAllButton_clicked();
     isEdit=0;
-}*///aici cami
+}*///aici Gelu
 
 /*
 void MusicBoard::on_Theme2Button_clicked()
 {
-    ///ui->ThemeEdit->hide();//aici cami
+    ///ui->ThemeEdit->hide();//aici Gelu
     ui->Edit->hide();
     isThemeEdit=0;
     on_HiddenHideAllButton_clicked();
@@ -2366,13 +2760,13 @@ void MusicBoard::on_Theme2Button_clicked()
 void MusicBoard::on_Theme3Button_clicked()
 {
 
-    ///ui->ThemeEdit->hide();//aici cami
+    ///ui->ThemeEdit->hide();//aici Gelu
     ui->Edit->hide();
     isThemeEdit=0;
     on_HiddenHideAllButton_clicked();
     isEdit=0;
 }
-*///aici cami
+*///aici Gelu
 
 
 void MusicBoard::on_NewSessionButton_clicked()
@@ -2396,10 +2790,10 @@ void MusicBoard::on_HiddenHideAllButton_clicked()
 {
     ui->File->hide();
     ui->Edit->hide();
-    ///ui->ThemeEdit->hide();//aici cami
+    ///ui->ThemeEdit->hide();//aici Gelu
     ui->ThemesEdit->hide();
     ui->ClearEdit->hide();
-    ///isThemeEdit=0;//aici cami
+    ///isThemeEdit=0;//aici Gelu
     ui->NotesEdit->hide();
     isClearEdit=0;
     isFile=0;
@@ -2412,6 +2806,8 @@ void MusicBoard::on_HiddenHideAllButton_clicked()
 
 void MusicBoard::on_SettingsButton_clicked()
 {
+    ui->VolSlider->setStyleSheet("QSlider {background-color: rgba(136, 138, 133, 0);selection-background-color: rgb(136, 138, 133);}QSlider::handle:horizontal {height: 10px;/*background-image: url(:/pictures/Color_0.jpg);  img image: url(:/pictures/Color_0.jpg);*/background-image: url(:/pictures/Slider14.png);image: url(:/pictures/Slider14.png);background-color: rgba(136, 138, 133, 0)}");
+    ui->VolLabel->setStyleSheet("background-color: rgba(136, 138, 133, 0);color: rgb(136, 138, 133);");
     //if (isSettings==0){
     on_HiddenHideAllButton_clicked();
     Settings settings;
@@ -2426,6 +2822,11 @@ void MusicBoard::on_SettingsButton_clicked()
 //    settings.exec();
 //    isSettings=0;
 //    }
+    if (isDemo==6){
+        isDemo=7;
+        ui->Demo6->hide();
+        ui->Demo7->show();
+    }
 }
 
 void MusicBoard::on_ShowNotesButton_clicked()
@@ -2499,6 +2900,14 @@ void MusicBoard::on_ShowNotes1Button_clicked()
     ui->F2->setText("F");
     ui->F2_B->setText("F#");
     ui->G2->setText("G");
+//    if (isDemo==2){
+//    isDemoFunction=1;
+//        if (isDemoKey==1){
+//        isDemo=3;
+//        ui->Demo2->hide();
+//        ui->Demo3->show();
+//        }
+//    }
 }
 
 void MusicBoard::on_ShowNotes2Button_clicked()
@@ -2524,6 +2933,14 @@ void MusicBoard::on_ShowNotes2Button_clicked()
     ui->F2->setText("Fa");
     ui->F2_B->setText("Fa#");
     ui->G2->setText("Sol");
+//    if (isDemo==2){
+//    isDemoFunction=1;
+//        if (isDemoKey==1){
+//        isDemo=3;
+//        ui->Demo2->hide();
+//ui->Demo3->show();
+//        }
+//    }
 }
 
 
@@ -2550,6 +2967,14 @@ void MusicBoard::on_HideNotesButton_clicked()
     ui->F2->setText("");
     ui->F2_B->setText("");
     ui->G2->setText("");
+//    if (isDemo==2){
+//    isDemoFunction=1;
+//        if (isDemoKey==1){
+//        isDemo=3;
+//        ui->Demo2->hide();
+//        ui->Demo3->show();
+//        }
+//    }
 }
 
 void MusicBoard::on_HiddenShowNotes1_clicked()
@@ -2781,6 +3206,21 @@ void MusicBoard::on_SureYes_released()
 
 void MusicBoard::on_ReInit_clicked()
 {
+    extern int NumLock;
+
+    if (NumLock==1){
+        ui->NmLkOnOff->setStyleSheet("background-color: rgba(255, 255, 255, 0);color: rgb(239, 41, 41);");
+        //NumLock=0;
+        ui->NmLkOnOff->setText("ON");
+        ui->UnderOn->show();
+    }
+    else {
+        ui->NumlockLabel->setStyleSheet("background-color: rgba(255, 255, 255, 0);");
+        //NumLock=1;
+        ui->NmLkOnOff->setText("OFF");
+        ui->UnderOn->hide();
+    }
+
     extern QString P1_R;
     ui->P1->setText(P1_R);
     ui->P1->setShortcut(Qt::Key_Home);
@@ -2933,6 +3373,11 @@ void MusicBoard::on_ReInit_clicked()
 void MusicBoard::on_HiddenSettingsButton_clicked()
 {
     on_SettingsButton_clicked();
+    if (isDemo==6){
+        isDemo=7;
+        ui->Demo6->hide();
+        ui->Demo7->show();
+    }
 }
 
 void MusicBoard::on_HiddenCloseButtonDel_clicked()
@@ -2943,11 +3388,65 @@ void MusicBoard::on_HiddenCloseButtonDel_clicked()
 void MusicBoard::on_Theme1Button_clicked()
 {
     on_HiddenHideAllButton_clicked();
+    ui->Picture->setStyleSheet("background-image: url(:/pictures/Picture1_4.png); image: url(:/pictures/Picture1_4.png);");
+    ui->C_B->setStyleSheet("background-color: rgb(81, 38, 255); font: 7.4pt \"Cantarell\";");
+    ui->D_B->setStyleSheet("background-color: rgb(81, 38, 255); font: 7.4pt \"Cantarell\";");
+    ui->F_B->setStyleSheet("background-color: rgb(81, 38, 255); font: 7.4pt \"Cantarell\";");
+    ui->G_B->setStyleSheet("background-color: rgb(81, 38, 255); font: 7.4pt \"Cantarell\";");
+    ui->A_B->setStyleSheet("background-color: rgb(81, 38, 255); font: 7.4pt \"Cantarell\";");
+    ui->C2_B->setStyleSheet("background-color: rgb(81, 38, 255); font: 7.4pt \"Cantarell\";");
+    ui->D2_B->setStyleSheet("background-color: rgb(81, 38, 255); font: 7.4pt \"Cantarell\";");
+    ui->F2_B->setStyleSheet("background-color: rgb(81, 38, 255); font: 7.4pt \"Cantarell\";");
+    ui->L1->setStyleSheet("background-color: rgb(255, 159, 159);");
+    ui->L2->setStyleSheet("background-color: rgb(255, 159, 159);");
+    ui->L3->setStyleSheet("background-color: rgb(255, 159, 159);");
+    ui->L4->setStyleSheet("background-color: rgb(255, 159, 159);");
+    ui->L5->setStyleSheet("background-color: rgb(255, 159, 159);");
+    ui->L6->setStyleSheet("background-color: rgb(255, 159, 159);");
+    ui->L7->setStyleSheet("background-color: rgb(255, 159, 159);");
+    ui->L8->setStyleSheet("background-color: rgb(255, 159, 159);");
+    ui->L9->setStyleSheet("background-color: rgb(255, 159, 159);");
+    ui->L10->setStyleSheet("background-color: rgb(255, 159, 159);");
+    ui->FileButton->setStyleSheet("color: rgb(255, 255, 255); background-color: rgb(83, 68, 150);");
+    ui->EditButton->setStyleSheet("color: rgb(255, 255, 255); background-color: rgb(83, 68, 150);");
+    ui->HelpButton->setStyleSheet("color: rgb(255, 255, 255); background-color: rgb(83, 68, 150);");
+    ui->AboutButton->setStyleSheet("color: rgb(255, 255, 255); background-color: rgb(83, 68, 150);");
+    ui->Keys->setStyleSheet("background-color: rgb(85, 87, 83);");
+    ui->File1->setStyleSheet("background-color: rgb(152, 130, 251);");
+    ui->File2->setStyleSheet("background-color: rgb(152, 130, 251);");
 }
 
 void MusicBoard::on_Theme2Button_clicked()
 {
     on_HiddenHideAllButton_clicked();
+    //ui->Picture->setStyleSheet("background-image: url(:/pictures/Theme2.png); image: url(:/pictures/Theme2.png);");
+    //ui->Picture->setStyleSheet("image: url(:/pictures/Theme21.png); background-image: url(:/pictures/Theme21.png);");
+    ui->Picture->setStyleSheet("background-image: url(:/pictures/Theme24.png); image: url(:/pictures/Theme24.png);");
+    ui->C_B->setStyleSheet("background-color: rgb(239, 0, 143); font: 7.4pt \"Cantarell\";");
+    ui->D_B->setStyleSheet("background-color: rgb(239, 0, 143); font: 7.4pt \"Cantarell\";");
+    ui->F_B->setStyleSheet("background-color: rgb(239, 0, 143); font: 7.4pt \"Cantarell\";");
+    ui->G_B->setStyleSheet("background-color: rgb(239, 0, 143); font: 7.4pt \"Cantarell\";");
+    ui->A_B->setStyleSheet("background-color: rgb(239, 0, 143); font: 7.4pt \"Cantarell\";");
+    ui->C2_B->setStyleSheet("background-color: rgb(239, 0, 143); font: 7.4pt \"Cantarell\";");
+    ui->D2_B->setStyleSheet("background-color: rgb(239, 0, 143); font: 7.4pt \"Cantarell\";");
+    ui->F2_B->setStyleSheet("background-color: rgb(239, 0, 143); font: 7.4pt \"Cantarell\";");
+    ui->L1->setStyleSheet("background-color: rgb(83, 68, 150);");
+    ui->L2->setStyleSheet("background-color: rgb(83, 68, 150);");
+    ui->L3->setStyleSheet("background-color: rgb(83, 68, 150);");
+    ui->L4->setStyleSheet("background-color: rgb(83, 68, 150);");
+    ui->L5->setStyleSheet("background-color: rgb(83, 68, 150);");
+    ui->L6->setStyleSheet("background-color: rgb(83, 68, 150);");
+    ui->L7->setStyleSheet("background-color: rgb(83, 68, 150);");
+    ui->L8->setStyleSheet("background-color: rgb(83, 68, 150);");
+    ui->L9->setStyleSheet("background-color: rgb(83, 68, 150);");
+    ui->L10->setStyleSheet("background-color: rgb(83, 68, 150);");
+    ui->FileButton->setStyleSheet("background-color: rgb(239, 0, 143); color: rgb(255, 255, 255);");
+    ui->EditButton->setStyleSheet("background-color: rgb(239, 0, 143); color: rgb(255, 255, 255);");
+    ui->HelpButton->setStyleSheet("background-color: rgb(239, 0, 143); color: rgb(255, 255, 255);");
+    ui->AboutButton->setStyleSheet("background-color: rgb(239, 0, 143); color: rgb(255, 255, 255);");
+    ui->Keys->setStyleSheet("background-color: rgb(81, 81, 81)");
+    ui->File1->setStyleSheet("background-color: rgb(249, 149, 199)");
+    ui->File2->setStyleSheet("background-color: rgb(249, 149, 199)");
 }
 
 //void MusicBoard::on_MuteButton_clicked()
@@ -3305,4 +3804,291 @@ void MusicBoard::on_P15_released()
 void MusicBoard::on_P15_pressed()
 {
     ui->P15->setStyleSheet("background-color: rgba(255, 255, 255, 0);background-image: url(:/pictures/KeysLT1.png);image: url(:/pictures/KeysLT1.png);color: rgb(255, 255, 255);");
+}
+
+void MusicBoard::on_VolSlider_valueChanged(int position)
+{
+    ui->VolSlider->setStyleSheet("QSlider {background-color: rgba(136, 138, 133, 0);selection-background-color: rgb(255, 255, 255);}QSlider::handle:horizontal {height: 10px;background-image: url(:/pictures/Slider14.png);image: url(:/pictures/Slider14.png);background-color: rgba(136, 138, 133, 0)}");
+    ui->VolLabel->setStyleSheet("color: rgb(255, 255, 255);background-color: rgba(136, 138, 133, 0);");
+    extern int P1_A;
+    extern int P2_A;
+    extern int P3_A;
+    extern int P4_A;
+    extern int P5_A;
+    extern int P6_A;
+    extern int P7_A;
+    extern int P8_A;
+    extern int P9_A;
+    extern int P10_A;
+    extern int P11_A;
+    extern int P12_A;
+    extern int P13_A;
+    extern int P14_A;
+    extern int P15_A;
+    extern int P16_A;
+    extern int P17_A;
+    extern int KeyboardVol;
+    extern int MasterVol;
+    extern int R1_A;
+    extern int R2_A;
+    extern int R3_A;
+    extern int R4_A;
+    extern int R5_A;
+    extern int R6_A;
+    extern int R7_A;
+    extern int R8_A;
+
+    P1_A=position;
+        P2_A=position;
+        P3_A=position;
+        P4_A=position;
+        P5_A=position;
+        P6_A=position;
+        P7_A=position;
+        P8_A=position;
+        P9_A=position;
+        P10_A=position;
+        P11_A=position;
+        P12_A=position;
+        P13_A=position;
+        P14_A=position;
+        P15_A=position;
+        P16_A=position;
+        P17_A=position;
+        KeyboardVol=position;
+        MasterVol=position;
+        R1_A=position;
+        R2_A=position;
+        R3_A=position;
+        R4_A=position;
+        R5_A=position;
+        R6_A=position;
+        R7_A=position;
+        R8_A=position;
+}
+
+void MusicBoard::on_MasterLeft_clicked()
+{
+    ui->VolSlider->setValue(ui->VolSlider->value()-5);
+    ui->VolSlider->setSliderPosition(ui->VolSlider->value()-5);
+}
+
+void MusicBoard::on_MasterRight_clicked()
+{
+    ui->VolSlider->setValue(ui->VolSlider->value()+5);
+    ui->VolSlider->setSliderPosition(ui->VolSlider->value()+5);
+}
+
+//void MusicBoard::on_pushButton_clicked()
+//{
+//    AudioRecorder recorder;
+//    recorder.show();
+//}
+
+void MusicBoard::on_RecButton_clicked()
+{
+    on_HiddenHideAllButton_clicked();
+//    AudioRecorder settings;
+//    settings.setModal(true);
+//    settings.exec();
+}
+
+void MusicBoard::on_DemoButton_clicked()
+{
+    on_HiddenHideAllButton_clicked();
+    if (isDemo==0){
+    ui->Demo1->show();
+    isDemo=1;
+    } else {
+        ui->Demo1->hide();
+        ui->Demo2->hide();
+        ui->Demo3->hide();
+        ui->Demo4->hide();
+        ui->Demo5->hide();
+        ui->Demo6->hide();
+        ui->Demo7->hide();
+        isDemo=0;
+    }
+    // make else
+}
+
+//void MusicBoard::on_ShowKeysButton_clicked()
+//{
+//    on_HiddenHideAllButton_clicked();
+//    ui->C->setText("Q");
+//    ui->C_B->setText("2");
+//    ui->D->setText("W");
+//    ui->D_B->setText("3");
+//    ui->E->setText("E");
+//    ui->F->setText("R");
+//    ui->F_B->setText("5");
+//    ui->G->setText("T");
+//    ui->G_B->setText("6");
+//    ui->A->setText("Y");
+//    ui->A_B->setText("7");
+//    ui->B->setText("U");
+//    ui->C2->setText("I");
+//    ui->C2_B->setText("9");
+//    ui->D2->setText("O");
+//    ui->D2_B->setText("0");
+//    ui->E2->setText("P");
+//    ui->F2->setText("[");
+//    ui->F2_B->setText("=");
+//    ui->G2->setText("]");
+//}
+
+void MusicBoard::on_ShowMBoard_clicked()
+{
+    on_HiddenHideAllButton_clicked();
+    ui->C->setText("Q");
+    ui->C_B->setText("2");
+    ui->D->setText("W");
+    ui->D_B->setText("3");
+    ui->E->setText("E");
+    ui->F->setText("R");
+    ui->F_B->setText("5");
+    ui->G->setText("T");
+    ui->G_B->setText("6");
+    ui->A->setText("Y");
+    ui->A_B->setText("7");
+    ui->B->setText("U");
+    ui->C2->setText("I");
+    ui->C2_B->setText("9");
+    ui->D2->setText("O");
+    ui->D2_B->setText("0");
+    ui->E2->setText("P");
+    ui->F2->setText("[");
+    ui->F2_B->setText("=");
+    ui->G2->setText("]");
+//    if (isDemo==2){
+//    isDemoFunction=1;
+//        if (isDemoKey==1){
+//        isDemo=3;
+//        ui->Demo2->hide();
+//ui->Demo3->show();
+//        }
+//    }
+}
+
+void MusicBoard::on_HiddenShowMBoardButton_clicked()
+{
+    //on_HiddenHideAllButton_clicked();
+    ui->C->setText("Q");
+    ui->C_B->setText("2");
+    ui->D->setText("W");
+    ui->D_B->setText("3");
+    ui->E->setText("E");
+    ui->F->setText("R");
+    ui->F_B->setText("5");
+    ui->G->setText("T");
+    ui->G_B->setText("6");
+    ui->A->setText("Y");
+    ui->A_B->setText("7");
+    ui->B->setText("U");
+    ui->C2->setText("I");
+    ui->C2_B->setText("9");
+    ui->D2->setText("O");
+    ui->D2_B->setText("0");
+    ui->E2->setText("P");
+    ui->F2->setText("[");
+    ui->F2_B->setText("=");
+    ui->G2->setText("]");
+    if (isDemo==2){
+    isDemoFunction=1;
+        if (isDemoKey==1){
+        isDemo=3;
+        ui->Demo2->hide();
+ui->Demo3->show();
+        }
+    }
+}
+
+void MusicBoard::on_HiddenShowKeysButton_clicked()
+{
+    on_HiddenHideAllButton_clicked();
+    ui->C->setText("Q");
+    ui->C_B->setText("2");
+    ui->D->setText("W");
+    ui->D_B->setText("3");
+    ui->E->setText("E");
+    ui->F->setText("R");
+    ui->F_B->setText("5");
+    ui->G->setText("T");
+    ui->G_B->setText("6");
+    ui->A->setText("Y");
+    ui->A_B->setText("7");
+    ui->B->setText("U");
+    ui->C2->setText("I");
+    ui->C2_B->setText("9");
+    ui->D2->setText("O");
+    ui->D2_B->setText("0");
+    ui->E2->setText("P");
+    ui->F2->setText("[");
+    ui->F2_B->setText("=");
+    ui->G2->setText("]");
+    if (isDemo==2){
+    isDemoFunction=1;
+        if (isDemoKey==1){
+        isDemo=3;
+        ui->Demo2->hide();
+        ui->Demo3->show();
+        }
+    }
+}
+
+//void MusicBoard::on_DemoDoneButton_clicked()
+//{
+//    if (isDemo==5){
+//        isDemo=6;
+//        ui->Demo6->hide();
+//        ui->Demo7->show();
+//    }
+//}
+
+void MusicBoard::on_DoneDemoButton_1_clicked()
+{   on_HiddenHideAllButton_clicked();
+    if (isDemo==7){
+        isDemo=0;
+        ui->Demo7->hide();
+    }
+}
+
+void MusicBoard::on_DoneDemoButton_clicked()
+{
+    on_HiddenHideAllButton_clicked();
+    if (isDemo==6){
+        isDemo=7;
+        ui->Demo6->hide();
+        ui->Demo7->show();
+    }
+}
+
+void MusicBoard::on_ShowMBTerminalButton_clicked()
+{
+    if (isMBTerminal==0){
+        ui->MBTerminal->show();
+        isMBTerminal=1;
+        ui->ShowMBTerminalButton->setText("Hide Terminal");
+    } else {
+        ui->MBTerminal->hide();
+        isMBTerminal=0;
+        ui->ShowMBTerminalButton->setText("Show Terminal");
+    }
+}
+
+void MusicBoard::on_CloseMBTerminal_clicked()
+{   on_HiddenHideAllButton_clicked();
+    isMBTerminal=0;
+    ui->MBTerminal->hide();
+}
+
+void MusicBoard::on_PreferencesButton_clicked()
+{
+    ///ui->VolSlider->setStyleSheet("QSlider {background-color: rgba(136, 138, 133, 0);selection-background-color: rgb(136, 138, 133);}QSlider::handle:horizontal {height: 10px;/*background-image: url(:/pictures/Color_0.jpg);  img image: url(:/pictures/Color_0.jpg);*/background-image: url(:/pictures/Slider14.png);image: url(:/pictures/Slider14.png);background-color: rgba(136, 138, 133, 0)}");
+    ////ui->VolLabel->setStyleSheet("background-color: rgba(136, 138, 133, 0);color: rgb(136, 138, 133);");
+    ///if (isSettings==0){
+    on_HiddenHideAllButton_clicked();
+    PreferencesForm settings;
+    settings.setModal(true);
+    settings.exec();
 }

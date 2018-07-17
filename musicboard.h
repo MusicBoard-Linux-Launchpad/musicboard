@@ -397,6 +397,24 @@ public:
   Ui::MusicBoard *ui;
   QFileSystemModel *dirmodel;
   QFileSystemModel *filemodel;
+private slots:
+  void on_VolSlider_valueChanged(int value);
+  void on_MasterLeft_clicked();
+  void on_MasterRight_clicked();
+  void on_SaveasButton_clicked();
+  void on_RecButton_clicked();
+  void on_DemoButton_clicked();
+  void on_ShowNotes1Button_2_clicked();
+  void on_ShowKeysButton_clicked();
+  void on_ShowMBoard_clicked();
+  void on_HiddenShowMBoardButton_clicked();
+  void on_HiddenShowKeysButton_clicked();
+  void on_DemoDoneButton_clicked();
+  void on_DoneDemoButton_1_clicked();
+  void on_DoneDemoButton_clicked();
+  void on_ShowMBTerminalButton_clicked();
+  void on_CloseMBTerminal_clicked();
+  void on_PreferencesButton_clicked();
 };
 
 #endif // MUSICBOARD_H

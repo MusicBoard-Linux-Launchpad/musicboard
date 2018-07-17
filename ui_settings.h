@@ -158,6 +158,8 @@ public:
     QSlider *R_8;
     QLabel *Picture_4;
     QPushButton *SettingsMuteButton_2;
+    QPushButton *SMasterLeft;
+    QPushButton *SMasterRight;
     QWidget *SettingsWeb;
     QLabel *Picture_5;
     QFrame *frame;
@@ -177,6 +179,8 @@ public:
     QVBoxLayout *verticalLayout_6;
     QPushButton *SHelpClose;
     QLabel *label_31;
+    QPushButton *HiddenNumlockButton;
+    QLabel *label_34;
 
     void setupUi(QDialog *Settings)
     {
@@ -1310,7 +1314,15 @@ public:
         SettingsMuteButton_2->setGeometry(QRect(200, -30, 45, 21));
         SettingsMuteButton_2->setStyleSheet(QLatin1String("color: rgb(255, 255, 255);\n"
 "background-color: rgb(83, 68, 150);"));
+        SMasterLeft = new QPushButton(SettingsMixer);
+        SMasterLeft->setObjectName(QStringLiteral("SMasterLeft"));
+        SMasterLeft->setGeometry(QRect(0, 160, 83, 28));
+        SMasterRight = new QPushButton(SettingsMixer);
+        SMasterRight->setObjectName(QStringLiteral("SMasterRight"));
+        SMasterRight->setGeometry(QRect(-11, 179, 83, 28));
         tabWidget->addTab(SettingsMixer, icon1, QString());
+        SMasterLeft->raise();
+        SMasterRight->raise();
         Picture_4->raise();
         label_68->raise();
         P_1->raise();
@@ -1418,7 +1430,7 @@ public:
 "image: url(:/pictures/SettingsPicture.png);"));
         SHelp = new QFrame(Settings);
         SHelp->setObjectName(QStringLiteral("SHelp"));
-        SHelp->setGeometry(QRect(50, 40, 301, 191));
+        SHelp->setGeometry(QRect(50, 30, 301, 191));
         SHelp->setStyleSheet(QStringLiteral("background-color: rgb(110, 110, 110);"));
         SHelp->setFrameShape(QFrame::StyledPanel);
         SHelp->setFrameShadow(QFrame::Raised);
@@ -1468,6 +1480,15 @@ public:
         label_31->setGeometry(QRect(110, -20, 81, 71));
         label_31->setStyleSheet(QLatin1String("background-color: rgba(136, 138, 133, 0);\n"
 "color: rgb(255, 255, 255);"));
+        HiddenNumlockButton = new QPushButton(Settings);
+        HiddenNumlockButton->setObjectName(QStringLiteral("HiddenNumlockButton"));
+        HiddenNumlockButton->setGeometry(QRect(284, 3, 83, 28));
+        label_34 = new QLabel(Settings);
+        label_34->setObjectName(QStringLiteral("label_34"));
+        label_34->setGeometry(QRect(244, 7, 147, 20));
+        label_34->setStyleSheet(QLatin1String("color: rgb(255, 255, 255);\n"
+"background-color: rgb(83, 68, 150);"));
+        HiddenNumlockButton->raise();
         Picture->raise();
         frame_2->raise();
         label_30->raise();
@@ -1477,12 +1498,13 @@ public:
         line->raise();
         SettingsMuteButton->raise();
         SHelp->raise();
+        label_34->raise();
 
         retranslateUi(Settings);
         QObject::connect(Buttons, SIGNAL(accepted()), Settings, SLOT(accept()));
         QObject::connect(Buttons, SIGNAL(rejected()), Settings, SLOT(reject()));
 
-        tabWidget->setCurrentIndex(1);
+        tabWidget->setCurrentIndex(0);
 
 
         QMetaObject::connectSlotsByName(Settings);
@@ -1582,6 +1604,10 @@ public:
         label_29->setText(QApplication::translate("Settings", "R8:", Q_NULLPTR));
         Picture_4->setText(QString());
         SettingsMuteButton_2->setText(QApplication::translate("Settings", "Mute", Q_NULLPTR));
+        SMasterLeft->setText(QApplication::translate("Settings", "SMasterLeft", Q_NULLPTR));
+        SMasterLeft->setShortcut(QApplication::translate("Settings", "F6", Q_NULLPTR));
+        SMasterRight->setText(QApplication::translate("Settings", "SMasterRight", Q_NULLPTR));
+        SMasterRight->setShortcut(QApplication::translate("Settings", "F7", Q_NULLPTR));
         tabWidget->setTabText(tabWidget->indexOf(SettingsMixer), QApplication::translate("Settings", "Mixer", Q_NULLPTR));
         Picture_5->setText(QString());
         LabelWeb->setText(QApplication::translate("Settings", "Go to the MusicBoard Blog to find out more!", Q_NULLPTR));
@@ -1618,6 +1644,9 @@ public:
         SHelpClose->setText(QApplication::translate("Settings", "\342\234\225", Q_NULLPTR));
         SHelpClose->setShortcut(QApplication::translate("Settings", "Esc", Q_NULLPTR));
         label_31->setText(QApplication::translate("Settings", "MusicBoard", Q_NULLPTR));
+        HiddenNumlockButton->setText(QApplication::translate("Settings", "HiddenNumlockButton", Q_NULLPTR));
+        HiddenNumlockButton->setShortcut(QApplication::translate("Settings", "NumLock", Q_NULLPTR));
+        label_34->setText(QApplication::translate("Settings", " Ctrl + R after closing ", Q_NULLPTR));
     } // retranslateUi
 
 };

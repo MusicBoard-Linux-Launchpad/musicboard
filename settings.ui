@@ -136,7 +136,7 @@ alternate-background-color: rgb(255, 255, 255);</string>
        <enum>QTabWidget::South</enum>
       </property>
       <property name="currentIndex">
-       <number>1</number>
+       <number>0</number>
       </property>
       <widget class="QWidget" name="SettingsText">
        <attribute name="icon">
@@ -2786,6 +2786,40 @@ background-color: rgb(83, 68, 150);</string>
          <string>Mute</string>
         </property>
        </widget>
+       <widget class="QPushButton" name="SMasterLeft">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>160</y>
+          <width>83</width>
+          <height>28</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>SMasterLeft</string>
+        </property>
+        <property name="shortcut">
+         <string>F6</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="SMasterRight">
+        <property name="geometry">
+         <rect>
+          <x>-11</x>
+          <y>179</y>
+          <width>83</width>
+          <height>28</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>SMasterRight</string>
+        </property>
+        <property name="shortcut">
+         <string>F7</string>
+        </property>
+       </widget>
+       <zorder>SMasterLeft</zorder>
+       <zorder>SMasterRight</zorder>
        <zorder>Picture_4</zorder>
        <zorder>label_68</zorder>
        <zorder>P_1</zorder>
@@ -3043,7 +3077,7 @@ image: url(:/pictures/SettingsPicture.png);</string>
    <property name="geometry">
     <rect>
      <x>50</x>
-     <y>40</y>
+     <y>30</y>
      <width>301</width>
      <height>191</height>
     </rect>
@@ -3208,6 +3242,40 @@ color: rgb(255, 255, 255);</string>
     </property>
    </widget>
   </widget>
+  <widget class="QPushButton" name="HiddenNumlockButton">
+   <property name="geometry">
+    <rect>
+     <x>284</x>
+     <y>3</y>
+     <width>83</width>
+     <height>28</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>HiddenNumlockButton</string>
+   </property>
+   <property name="shortcut">
+    <string>NumLock</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_34">
+   <property name="geometry">
+    <rect>
+     <x>244</x>
+     <y>7</y>
+     <width>147</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(255, 255, 255);
+background-color: rgb(83, 68, 150);</string>
+   </property>
+   <property name="text">
+    <string> Ctrl + R after closing </string>
+   </property>
+  </widget>
+  <zorder>HiddenNumlockButton</zorder>
   <zorder>Picture</zorder>
   <zorder>frame_2</zorder>
   <zorder>label_30</zorder>
@@ -3217,6 +3285,7 @@ color: rgb(255, 255, 255);</string>
   <zorder>line</zorder>
   <zorder>SettingsMuteButton</zorder>
   <zorder>SHelp</zorder>
+  <zorder>label_34</zorder>
  </widget>
  <resources>
   <include location="res.qrc"/>
