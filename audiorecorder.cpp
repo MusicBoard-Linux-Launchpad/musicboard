@@ -43,10 +43,11 @@
 #include <QDir>
 #include <QFileDialog>
 #include <QMediaRecorder>
+#include <QFont>
 
 #include "audiorecorder.h"
 #include "qaudiolevel.h"
-
+#include "audiorecorder.h"
 #include "ui_audiorecorder.h"
 
 static qreal getPeakValue(const QAudioFormat &format);
@@ -56,11 +57,71 @@ template <class T>
 static QVector<qreal> getBufferLevels(const T *buffer, int frames, int channels);
 
 AudioRecorder::AudioRecorder(QWidget *parent) :
-    QMainWindow(parent),
-    ui(new Ui::AudioRecorder),
+    QDialog(parent),
+    ui5(new Ui::audiorecorder),
     outputLocationSet(false)
 {
-    ui->setupUi(this);
+    ui5->setupUi(this);
+    extern QString C1;
+    extern QString C12;
+    extern QString MainColor;
+    extern QString CFont;
+    extern QString CButtons;
+    extern QFont Font;
+    extern int On;
+    extern int Bg;
+    extern int NumLock;
+    extern int FontColor;
+    extern int BgColor1;
+    extern int BgColor2;
+    ui5->label_12->setStyleSheet("color: "+CFont+"; background-color: rgba(0, 0, 0, 0)");
+    ui5->label_13->setStyleSheet("color: "+CFont+"; background-color: rgba(0, 0, 0, 0)");
+    ui5->label_14->setStyleSheet("color: "+CFont+"; background-color: rgba(0, 0, 0, 0)");
+    ui5->label_15->setStyleSheet("color: "+CFont+"; background-color: rgba(0, 0, 0, 0)");
+    ui5->label_16->setStyleSheet("color: "+CFont+"; background-color: rgba(0, 0, 0, 0)");
+
+    ui5->label_12 ->setFont(Font);
+    ui5->label_13 ->setFont(Font);
+    ui5->label_14 ->setFont(Font);
+    ui5->label_15 ->setFont(Font);
+    ui5->label_16 ->setFont(Font);
+
+    ui5->Picture->setStyleSheet("background-color: "+C1+";");
+
+    ui5->RHelp->hide();
+
+    ui5->RHelp->setStyleSheet("background-color: "+C1+";");
+
+    if (Bg==2){ui5->Picture->setStyleSheet("background-color: qlineargradient(spread:repeat, x1:0.95008, y1:0.051, x2:1, y2:0, stop:0.20398 rgba(100, 119, 149, 255), stop:1 rgba(255, 255, 255, 255));");}
+    if (Bg==3){ui5->Picture->setStyleSheet("background-color: qradialgradient(spread:repeat, cx:1, cy:0, radius:1.226, fx:0.141, fy:0.840545, stop:0 rgba(255, 255, 255, 255), stop:0.985075 rgba(135, 48, 255, 255), stop:1 rgba(255, 255, 255, 255));");}
+    if (Bg==0){ui5->Picture->setStyleSheet("background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:0.313, y2:0.630682, stop:0 rgba(255, 255, 255, 255), stop:1 rgba(142, 125, 217, 255));");}
+    if (Bg==14){ui5->Picture->setStyleSheet("background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:0.313, y2:0.630682, stop:0 rgba(255, 255, 255, 255), stop:1 rgba(142, 125, 217, 255));");}
+    if (Bg==1){ui5->Picture->setStyleSheet("background-image: url(:/pictures/Theme24.png); image: url(:/pictures/Theme24.png); background-color: rgba(0, 0, 0, 0)");}
+    if (Bg==4){ui5->Picture->setStyleSheet("background-color: qconicalgradient(cx:0.495, cy:0.494, angle:226.6, stop:0 rgba(87, 64, 98, 255), stop:1 rgba(255, 255, 255, 255));");}
+    if (Bg==5){ui5->Picture->setStyleSheet("background-color: qlineargradient(spread:pad, x1:1, y1:0, x2:0, y2:1, stop:0 rgba(103, 61, 113, 255), stop:1 rgba(255, 255, 255, 255));");}
+    if (Bg==6){ui5->Picture->setStyleSheet("background-color: qlineargradient(spread:repeat, x1:0.516, y1:0.187136, x2:1, y2:0, stop:0.01 rgba(132, 84, 162, 255), stop:1 rgba(255, 255, 255, 255));");}
+    if (Bg==7){ui5->Picture->setStyleSheet("background-color: qlineargradient(spread:pad, x1:1, y1:0, x2:0, y2:1, stop:0 rgba(0, 0, 0, 255), stop:1 rgba(255, 255, 255, 255));");}
+    if (Bg==8){ui5->Picture->setStyleSheet("background-color: qlineargradient(spread:reflect, x1:0.896, y1:0.08, x2:1, y2:0, stop:0 rgba(114, 0, 128, 255), stop:1 rgba(255, 255, 255, 255));");}
+    if (Bg==9){ui5->Picture->setStyleSheet("background-color: qlineargradient(spread:reflect, x1:1, y1:0, x2:0, y2:1, stop:0 rgba(0, 0, 0, 255), stop:0.0447761 rgba(56, 0, 53, 255), stop:0.467662 rgba(91, 0, 122, 255), stop:0.950249 rgba(255, 180, 255, 255), stop:1 rgba(255, 255, 255, 255));");}
+    if (Bg==10){ui5->Picture->setStyleSheet("background-color: qconicalgradient(cx:0.5, cy:0.5, angle:224.8, stop:0 rgba(211, 215, 207, 255), stop:0.189055 rgba(105, 0, 219, 255), stop:0.40796 rgba(0, 0, 131, 255), stop:0.606965 rgba(175, 0, 194, 255), stop:0.741294 rgba(97, 146, 189, 255), stop:1 rgba(255, 255, 255, 255))");}
+    ////if (Bg==14){ui5->Picture->setStyleSheet("background-color: rgb(77, 68, 121);");}
+    if (Bg==41){ui5->Picture->setStyleSheet("background-color: "+MainColor+";");}
+    ui5->L1->setStyleSheet("background-color: "+C12+";");
+
+    if (CButtons.length()<17){
+        ui5->outputButton->setStyleSheet("background-color: "+CButtons+"; color: rgb(255, 255, 255);");
+        ui5->pauseButton->setStyleSheet("background-color: "+CButtons+"; color: rgb(255, 255, 255);");
+        ui5->RecHelpButton->setStyleSheet("background-color: "+CButtons+"; color: rgb(255, 255, 255);");
+        ui5->recordButton->setStyleSheet("background-color: "+CButtons+"; color: rgb(255, 255, 255);");
+  }
+    else {
+        ui5->outputButton->setStyleSheet("background-color: "+CButtons+"; color: rgb(0, 0, 0);");
+        ui5->pauseButton->setStyleSheet("background-color: "+CButtons+"; color: rgb(0, 0, 0);");
+        ui5->RecHelpButton->setStyleSheet("background-color: "+CButtons+"; color: rgb(0, 0, 0);");
+        ui5->recordButton->setStyleSheet("background-color: "+CButtons+"; color: rgb(0, 0, 0);");
+    }
+
+    extern int NumLock;
 
     audioRecorder = new QAudioRecorder(this);
     probe = new QAudioProbe;
@@ -69,46 +130,46 @@ AudioRecorder::AudioRecorder(QWidget *parent) :
     probe->setSource(audioRecorder);
 
     //audio devices
-    ui->audioDeviceBox->addItem(tr("Default"), QVariant(QString()));
+    ui5->audioDeviceBox_3->addItem(tr("Default"), QVariant(QString()));
     foreach (const QString &device, audioRecorder->audioInputs()) {
-        ui->audioDeviceBox->addItem(device, QVariant(device));
+        ui5->audioDeviceBox_3->addItem(device, QVariant(device));
     }
 
     //audio codecs
-    ui->audioCodecBox->addItem(tr("Default"), QVariant(QString()));
+    ui5->audioCodecBox_3->addItem(tr("Default"), QVariant(QString()));
     foreach (const QString &codecName, audioRecorder->supportedAudioCodecs()) {
-        ui->audioCodecBox->addItem(codecName, QVariant(codecName));
+        ui5->audioCodecBox_3->addItem(codecName, QVariant(codecName));
     }
 
     //containers
-    ui->containerBox->addItem(tr("Default"), QVariant(QString()));
+    ui5->containerBox_3->addItem(tr("Default"), QVariant(QString()));
     foreach (const QString &containerName, audioRecorder->supportedContainers()) {
-        ui->containerBox->addItem(containerName, QVariant(containerName));
+        ui5->containerBox_3->addItem(containerName, QVariant(containerName));
     }
 
     //sample rate
-    ui->sampleRateBox->addItem(tr("Default"), QVariant(0));
+    ui5->sampleRateBox_3->addItem(tr("Default"), QVariant(0));
     foreach (int sampleRate, audioRecorder->supportedAudioSampleRates()) {
-        ui->sampleRateBox->addItem(QString::number(sampleRate), QVariant(
+        ui5->sampleRateBox_3->addItem(QString::number(sampleRate), QVariant(
                 sampleRate));
     }
 
     //channels
-    ui->channelsBox->addItem(tr("Default"), QVariant(-1));
-    ui->channelsBox->addItem(QStringLiteral("1"), QVariant(1));
-    ui->channelsBox->addItem(QStringLiteral("2"), QVariant(2));
-    ui->channelsBox->addItem(QStringLiteral("4"), QVariant(4));
+    ui5->channelsBox_3->addItem(tr("Default"), QVariant(-1));
+    ui5->channelsBox_3->addItem(QStringLiteral("1"), QVariant(1));
+    ui5->channelsBox_3->addItem(QStringLiteral("2"), QVariant(2));
+    ui5->channelsBox_3->addItem(QStringLiteral("4"), QVariant(4));
 
     //quality
-    ui->qualitySlider->setRange(0, int(QMultimedia::VeryHighQuality));
-    ui->qualitySlider->setValue(int(QMultimedia::NormalQuality));
+    ui5->qualitySlider_3->setRange(0, int(QMultimedia::VeryHighQuality));
+    ui5->qualitySlider_3->setValue(int(QMultimedia::NormalQuality));
 
     //bitrates:
-    ui->bitrateBox->addItem(tr("Default"), QVariant(0));
-    ui->bitrateBox->addItem(QStringLiteral("32000"), QVariant(32000));
-    ui->bitrateBox->addItem(QStringLiteral("64000"), QVariant(64000));
-    ui->bitrateBox->addItem(QStringLiteral("96000"), QVariant(96000));
-    ui->bitrateBox->addItem(QStringLiteral("128000"), QVariant(128000));
+    ui5->bitrateBox_3->addItem(tr("Default"), QVariant(0));
+    ui5->bitrateBox_3->addItem(QStringLiteral("32000"), QVariant(32000));
+    ui5->bitrateBox_3->addItem(QStringLiteral("64000"), QVariant(64000));
+    ui5->bitrateBox_3->addItem(QStringLiteral("96000"), QVariant(96000));
+    ui5->bitrateBox_3->addItem(QStringLiteral("128000"), QVariant(128000));
 
     connect(audioRecorder, SIGNAL(durationChanged(qint64)), this,
             SLOT(updateProgress(qint64)));
@@ -131,7 +192,7 @@ void AudioRecorder::updateProgress(qint64 duration)
     if (audioRecorder->error() != QMediaRecorder::NoError || duration < 2000)
         return;
 
-    ui->statusbar->showMessage(tr("Recorded %1 sec").arg(duration / 1000));
+    ///ui5->statusbar->showMessage(tr("Recorded %1 sec").arg(duration / 1000));
 }
 
 void AudioRecorder::updateStatus(QMediaRecorder::Status status)
@@ -154,28 +215,28 @@ void AudioRecorder::updateStatus(QMediaRecorder::Status status)
         break;
     }
 
-    if (audioRecorder->error() == QMediaRecorder::NoError)
-        ui->statusbar->showMessage(statusMessage);
+    ///if (audioRecorder->error() == QMediaRecorder::NoError)
+        ///ui5->statusbar->showMessage(statusMessage);
 }
 
 void AudioRecorder::onStateChanged(QMediaRecorder::State state)
 {
     switch (state) {
     case QMediaRecorder::RecordingState:
-        ui->recordButton->setText(tr("Stop"));
-        ui->pauseButton->setText(tr("Pause"));
+        ui5->recordButton->setText(tr("Stop"));
+        ui5->pauseButton->setText(tr("Pause"));
         break;
     case QMediaRecorder::PausedState:
-        ui->recordButton->setText(tr("Stop"));
-        ui->pauseButton->setText(tr("Resume"));
+        ui5->recordButton->setText(tr("Stop"));
+        ui5->pauseButton->setText(tr("Resume"));
         break;
     case QMediaRecorder::StoppedState:
-        ui->recordButton->setText(tr("Record"));
-        ui->pauseButton->setText(tr("Pause"));
+        ui5->recordButton->setText(tr("Record"));
+        ui5->pauseButton->setText(tr("Pause"));
         break;
     }
 
-    ui->pauseButton->setEnabled(audioRecorder->state() != QMediaRecorder::StoppedState);
+    ui5->pauseButton->setEnabled(audioRecorder->state() != QMediaRecorder::StoppedState);
 }
 
 static QVariant boxValue(const QComboBox *box)
@@ -187,49 +248,49 @@ static QVariant boxValue(const QComboBox *box)
     return box->itemData(idx);
 }
 
-void AudioRecorder::toggleRecord()
-{
-    if (audioRecorder->state() == QMediaRecorder::StoppedState) {
-        audioRecorder->setAudioInput(boxValue(ui->audioDeviceBox).toString());
+//void AudioRecorder::toggleRecord()
+//{
+//    if (audioRecorder->state() == QMediaRecorder::StoppedState) {
+//        audioRecorder->setAudioInput(boxValue(ui5->audioDeviceBox_3).toString());
 
-        QAudioEncoderSettings settings;
-        settings.setCodec(boxValue(ui->audioCodecBox).toString());
-        settings.setSampleRate(boxValue(ui->sampleRateBox).toInt());
-        settings.setBitRate(boxValue(ui->bitrateBox).toInt());
-        settings.setChannelCount(boxValue(ui->channelsBox).toInt());
-        settings.setQuality(QMultimedia::EncodingQuality(ui->qualitySlider->value()));
-        settings.setEncodingMode(ui->constantQualityRadioButton->isChecked() ?
-                                 QMultimedia::ConstantQualityEncoding :
-                                 QMultimedia::ConstantBitRateEncoding);
+//        QAudioEncoderSettings settings;
+//        settings.setCodec(boxValue(ui5->audioCodecBox_3).toString());
+//        settings.setSampleRate(boxValue(ui5->sampleRateBox_3).toInt());
+//        settings.setBitRate(boxValue(ui5->bitrateBox_3).toInt());
+//        settings.setChannelCount(boxValue(ui5->channelsBox_3).toInt());
+//        settings.setQuality(QMultimedia::EncodingQuality(ui5->qualitySlider_3->value()));
+//        settings.setEncodingMode(ui5->constantQualityRadioButton_3->isChecked() ?
+//                                 QMultimedia::ConstantQualityEncoding :
+//                                 QMultimedia::ConstantBitRateEncoding);
 
-        QString container = boxValue(ui->containerBox).toString();
+//        QString container = boxValue(ui5->containerBox_3).toString();
 
-        audioRecorder->setEncodingSettings(settings, QVideoEncoderSettings(), container);
-        audioRecorder->record();
-    }
-    else {
-        audioRecorder->stop();
-    }
-}
+//        audioRecorder->setEncodingSettings(settings, QVideoEncoderSettings(), container);
+//        audioRecorder->record();
+//    }
+//    else {
+//        audioRecorder->stop();
+//    }
+//}
 
-void AudioRecorder::togglePause()
-{
-    if (audioRecorder->state() != QMediaRecorder::PausedState)
-        audioRecorder->pause();
-    else
-        audioRecorder->record();
-}
+//void AudioRecorder::togglePause()
+//{
+//    if (audioRecorder->state() != QMediaRecorder::PausedState)
+//        audioRecorder->pause();
+//    else
+//        audioRecorder->record();
+//}
 
-void AudioRecorder::setOutputLocation()
-{
-    QString fileName = QFileDialog::getSaveFileName();
-    audioRecorder->setOutputLocation(QUrl::fromLocalFile(fileName));
-    outputLocationSet = true;
-}
+//void AudioRecorder::setOutputLocation()
+//{
+//    QString fileName = QFileDialog::getSaveFileName();
+//    audioRecorder->setOutputLocation(QUrl::fromLocalFile(fileName));
+//    outputLocationSet = true;
+//}
 
 void AudioRecorder::displayErrorMessage()
 {
-    ui->statusbar->showMessage(audioRecorder->errorString());
+    //ui5->statusbar->showMessage(audioRecorder->errorString());
 }
 
 //void AudioRecorder::clearAudioLevels()
@@ -350,13 +411,84 @@ void AudioRecorder::processBuffer(const QAudioBuffer& buffer)
         qDeleteAll(audioLevels);
         audioLevels.clear();
         for (int i = 0; i < buffer.format().channelCount(); ++i) {
-            //QAudioLevel *level = new QAudioLevel(ui->centralwidget);
+            //QAudioLevel *level = new QAudioLevel(ui5->centralwidget);
             //audioLevels.append(level);
-            //ui->levelsLayout->addWidget(level);
+            //ui5->levelsLayout->addWidget(level);
         }
     }
 
     QVector<qreal> levels = getBufferLevels(buffer);
     //for (int i = 0; i < levels.count(); ++i)
         //audioLevels.at(i)->setLevel(levels.at(i));
+}
+
+void AudioRecorder::on_HiddenNumLockButton_clicked()
+{   extern int NumLock;
+    if (NumLock==1){
+        NumLock=0;
+    }
+    else {
+        NumLock=1;
+    }
+}
+
+void AudioRecorder::on_outputButton_clicked()
+{
+    QString fileName = QFileDialog::getSaveFileName();
+    audioRecorder->setOutputLocation(QUrl::fromLocalFile(fileName));
+    outputLocationSet = true;
+}
+
+void AudioRecorder::on_recordButton_clicked()
+{
+    if (audioRecorder->state() == QMediaRecorder::StoppedState) {
+        audioRecorder->setAudioInput(boxValue(ui5->audioDeviceBox_3).toString());
+
+        QAudioEncoderSettings settings;
+        settings.setCodec(boxValue(ui5->audioCodecBox_3).toString());
+        settings.setSampleRate(boxValue(ui5->sampleRateBox_3).toInt());
+        settings.setBitRate(boxValue(ui5->bitrateBox_3).toInt());
+        settings.setChannelCount(boxValue(ui5->channelsBox_3).toInt());
+        settings.setQuality(QMultimedia::EncodingQuality(ui5->qualitySlider_3->value()));
+        settings.setEncodingMode(ui5->constantQualityRadioButton_3->isChecked() ?
+                                 QMultimedia::ConstantQualityEncoding :
+                                 QMultimedia::ConstantBitRateEncoding);
+
+        QString container = boxValue(ui5->containerBox_3).toString();
+
+        audioRecorder->setEncodingSettings(settings, QVideoEncoderSettings(), container);
+        audioRecorder->record();
+    }
+    else {
+        audioRecorder->stop();
+    }
+}
+
+void AudioRecorder::on_pauseButton_clicked()
+{
+    if (audioRecorder->state() != QMediaRecorder::PausedState)
+        audioRecorder->pause();
+    else
+        audioRecorder->record();
+}
+
+
+int isRHelp=0;
+
+void AudioRecorder::on_RecHelpButton_clicked()
+{
+    if (isRHelp==0){
+        ui5->RHelp->show();
+        isRHelp=1;
+    }
+    else {
+        ui5->RHelp->hide();
+        isRHelp=0;
+    }
+}
+
+void AudioRecorder::on_RHelpClose_clicked()
+{
+    ui5->RHelp->hide();
+    isRHelp=0;
 }

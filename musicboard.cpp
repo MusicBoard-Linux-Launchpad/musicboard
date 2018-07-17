@@ -1,22 +1,25 @@
 #include "musicboard.h"
 #include "ui_musicboard.h"
 #include "string.h"
-#include <iostream>
-#include <QTimer>
-#include <QElapsedTimer>
+#include <QFont>
+
+///#include <QTimer>
+///#include <QElapsedTimer>
 #include "settings.h"
 #include "ui_settings.h"
 #include "digitalclock.h"
 #include "audiorecorder.h"
 #include "preferencesform.h"
+#include "ui_audiorecorder.h"
+#include "ui_preferences.h"
 
-#ifdef _WIN32
-#include <Windows.h>
-#endif
+//#ifdef _WIN32
+//#include <Windows.h>
+//#endif
 
-#ifdef _UNIX
-#include <X11/Xlib.h>
-#endif
+//#ifdef _UNIX
+//#include <X11/Xlib.h>
+//#endif
 //void MusicBoard::TimeShow()
 //{
 //    QTime time = QTime::currentTime();
@@ -39,21 +42,21 @@
 //    }
 //}
 
-bool is_numlock_activated()
-{
-#ifdef _WIN32
-    short status = GetKeyState(VK_NUMLOCK);
-    return status == 1;
-#endif
+//bool is_numlock_activated()
+//{
+//#ifdef _WIN32
+//    short status = GetKeyState(VK_NUMLOCK);
+//    return status == 1;
+//#endif
 
-#ifdef _UNIX
-    Display *dpy = XOpenDisplay(":0");
-    XKeyboardState x;
-    XGetKeyboardControl(dpy, &x);
-    XCloseDisplay(dpy);
-    return x.led_mask & 2;
-#endif
-}
+//#ifdef _UNIX
+//    Display *dpy = XOpenDisplay(":0");
+//    XKeyboardState x;
+//    XGetKeyboardControl(dpy, &x);
+//    XCloseDisplay(dpy);
+//    return x.led_mask & 2;
+//#endif
+//}
 
 
 MusicBoard::MusicBoard(QWidget *parent) :
@@ -62,6 +65,11 @@ MusicBoard::MusicBoard(QWidget *parent) :
 {
   ui->setupUi(this);
   extern int NumLock;
+  extern int Bg;
+  extern int isNumLockShow;
+  extern int isSureShow;
+  extern int isImages;
+  extern int isCPUEnabled;
   ui->VolSlider->setStyleSheet("QSlider {background-color: rgba(136, 138, 133, 0);selection-background-color: rgb(255, 255, 255);}QSlider::handle:horizontal {height: 10px;background-image: url(:/pictures/Slider14.png);image: url(:/pictures/Slider14.png);background-color: rgba(136, 138, 133, 0)}");
   ui->VolLabel->setStyleSheet("color: rgb(255, 255, 255);background-color: rgba(136, 138, 133, 0);");
   if (NumLock==1){
@@ -77,6 +85,18 @@ MusicBoard::MusicBoard(QWidget *parent) :
       ui->UnderOn->hide();
   }
 
+  on_ReInit_clicked();
+
+  extern QString C1;
+  extern QString C12;
+  extern QString CFont;
+  extern QString CKeyboard;
+  extern QString CButtons;
+  extern QString isKeyboarsAsLaunchpadShow;
+  extern QFont Font;
+  extern QString CFile;
+  extern QString CButtons;
+  extern QString CKeyboard;
 //  QTimer *timer = new QTimer(this);
 //  connect(timer, SIGNAL(timeout()), this, SLOT(showTime()));
 //  timer->start(1000);
@@ -137,6 +157,7 @@ MusicBoard::MusicBoard(QWidget *parent) :
   ui->NotesEdit->hide();
   ui->ThemesEdit->hide();
   ui->Rhythm2->hide();
+
   //int i=0;
   //while (QTime::currentTime().second()>i){
   //{
@@ -151,6 +172,8 @@ MusicBoard::MusicBoard(QWidget *parent) :
 //      ui->Time->setText(QString::number(i));
 //  }
   //ui->Time->setText(QTimer::timer.toString());
+
+
 }
 
 /// Cum Scriu in terminal?
@@ -212,6 +235,7 @@ int isDemo=0;
 int isDemoKey=0;
 int isDemoFunction=0;
 int isMBTerminal=0;
+int isCover=1;
 ///int isThemeEdit=0;//aici Gelu
 //isHelp=0; // de ce nu merge asa
 //isAbout=0;
@@ -264,10 +288,32 @@ QString F2_B_Song;
 QString G2_Song;
 QString Silance_Song;
 
-
+QString C_Text;
+QString C_B_Text;
+QString D_Text;
+QString D_B_Text;
+QString E_Text;
+QString F_Text;
+QString F_B_Text;
+QString G_Text;
+QString G_B_Text;
+QString A_Text;
+QString A_B_Text;
+QString B_Text;
+QString C2_Text;
+QString C2_B_Text;
+QString D2_Text;
+QString D2_B_Text;
+QString E2_Text;
+QString F2_Text;
+QString F2_B_Text;
+QString G2_Text;
 
 void MusicBoard::on_C_clicked()
 {
+  setButton=27;
+        extern int isKeyboardAsLaunchpadShow;  if (isKeyboardAsLaunchpadShow==1){
+ui->Error->setText(C_Text);}
   QMediaPlayer * C = new QMediaPlayer();
   C->setMedia(QUrl(C_Song));
   extern int KeyboardVol;
@@ -284,8 +330,11 @@ void MusicBoard::on_C_clicked()
 
 void MusicBoard::on_D_clicked()
 {
+  setButton=29;
+        extern int isKeyboardAsLaunchpadShow;  if (isKeyboardAsLaunchpadShow==1){
+ui->Error->setText(D_Text);}
   QMediaPlayer * D = new QMediaPlayer();
-  //D->setMedia(QUrl("qrc:/sounds/PianoSounds/Edit/D.wav"));
+  //D->setMedia(QUrl("qrc:/sounds/PianoSounds/Edit/D.wav");}
   D->setMedia(QUrl(D_Song));
   extern int KeyboardVol;
   D->setVolume(KeyboardVol);
@@ -300,8 +349,11 @@ void MusicBoard::on_D_clicked()
 
 void MusicBoard::on_C_B_clicked()
 {
+  setButton=28;
+        extern int isKeyboardAsLaunchpadShow;  if (isKeyboardAsLaunchpadShow==1){
+ui->Error->setText(C_B_Text);}
   QMediaPlayer * C_B = new QMediaPlayer();
-  //C_B->setMedia(QUrl("qrc:/sounds/PianoSounds/Edit/C_B.wav"));
+  //C_B->setMedia(QUrl("qrc:/sounds/PianoSounds/Edit/C_B.wav");}
   C_B->setMedia(QUrl(C_B_Song));
   extern int KeyboardVol;
   C_B->setVolume(KeyboardVol);
@@ -316,8 +368,11 @@ void MusicBoard::on_C_B_clicked()
 
 void MusicBoard::on_D_B_clicked()
 {
+  setButton=30;
+        extern int isKeyboardAsLaunchpadShow;  if (isKeyboardAsLaunchpadShow==1){
+ui->Error->setText(D_B_Text);}
   QMediaPlayer * D_B = new QMediaPlayer();
-  //D_B->setMedia(QUrl("qrc:/sounds/PianoSounds/Edit/D_B.wav"));
+  //D_B->setMedia(QUrl("qrc:/sounds/PianoSounds/Edit/D_B.wav");}
   D_B->setMedia(QUrl(D_B_Song));
   extern int KeyboardVol;
   D_B->setVolume(KeyboardVol);
@@ -332,8 +387,11 @@ void MusicBoard::on_D_B_clicked()
 
 void MusicBoard::on_E_clicked()
 {
+  setButton=31;
+        extern int isKeyboardAsLaunchpadShow;  if (isKeyboardAsLaunchpadShow==1){
+ui->Error->setText(E_Text);}
   QMediaPlayer * E = new QMediaPlayer();
-  //E->setMedia(QUrl("qrc:/sounds/PianoSounds/Edit/E.wav"));
+  //E->setMedia(QUrl("qrc:/sounds/PianoSounds/Edit/E.wav");}
   E->setMedia(QUrl(E_Song));
   extern int KeyboardVol;
   E->setVolume(KeyboardVol);
@@ -348,8 +406,11 @@ void MusicBoard::on_E_clicked()
 
 void MusicBoard::on_F_clicked()
 {
+  setButton=32;
+        extern int isKeyboardAsLaunchpadShow;  if (isKeyboardAsLaunchpadShow==1){
+ui->Error->setText(F_Text);}
   QMediaPlayer * F = new QMediaPlayer();
-  //F->setMedia(QUrl("qrc:/sounds/PianoSounds/Edit/F.wav"));
+  //F->setMedia(QUrl("qrc:/sounds/PianoSounds/Edit/F.wav");}
   F->setMedia(QUrl(F_Song));
   extern int KeyboardVol;
   F->setVolume(KeyboardVol);
@@ -364,8 +425,11 @@ void MusicBoard::on_F_clicked()
 
 void MusicBoard::on_F_B_clicked()
 {
+  setButton=33;
+        extern int isKeyboardAsLaunchpadShow;  if (isKeyboardAsLaunchpadShow==1){
+ui->Error->setText(F_B_Text);}
   QMediaPlayer * F_B = new QMediaPlayer();
-  //F_B->setMedia(QUrl("qrc:/sounds/PianoSounds/Edit/F_B.wav"));
+  //F_B->setMedia(QUrl("qrc:/sounds/PianoSounds/Edit/F_B.wav");}
   F_B->setMedia(QUrl(F_B_Song));
   extern int KeyboardVol;
   F_B->setVolume(KeyboardVol);
@@ -380,8 +444,11 @@ void MusicBoard::on_F_B_clicked()
 
 void MusicBoard::on_G_clicked()
 {
+  setButton=34;
+        extern int isKeyboardAsLaunchpadShow;  if (isKeyboardAsLaunchpadShow==1){
+ui->Error->setText(G_Text);}
   QMediaPlayer * G = new QMediaPlayer();
-  //G->setMedia(QUrl("qrc:/sounds/PianoSounds/Edit/G.wav"));
+  //G->setMedia(QUrl("qrc:/sounds/PianoSounds/Edit/G.wav");}
   G->setMedia(QUrl(G_Song));
   extern int KeyboardVol;
   G->setVolume(KeyboardVol);
@@ -396,8 +463,11 @@ void MusicBoard::on_G_clicked()
 
 void MusicBoard::on_G_B_clicked()
 {
+  setButton=35;
+        extern int isKeyboardAsLaunchpadShow;  if (isKeyboardAsLaunchpadShow==1){
+ui->Error->setText(G_B_Text);}
   QMediaPlayer * G_B = new QMediaPlayer();
-  //G_B->setMedia(QUrl("qrc:/sounds/PianoSounds/Edit/G_B.wav"));
+  //G_B->setMedia(QUrl("qrc:/sounds/PianoSounds/Edit/G_B.wav");}
   G_B->setMedia(QUrl(G_B_Song));
   extern int KeyboardVol;
   G_B->setVolume(KeyboardVol);
@@ -412,8 +482,11 @@ void MusicBoard::on_G_B_clicked()
 
 void MusicBoard::on_A_clicked()
 {
+  setButton=36;
+        extern int isKeyboardAsLaunchpadShow;  if (isKeyboardAsLaunchpadShow==1){
+ui->Error->setText(A_Text);}
   QMediaPlayer * A = new QMediaPlayer();
-  //A->setMedia(QUrl("qrc:/sounds/PianoSounds/Edit/A.wav"));
+  //A->setMedia(QUrl("qrc:/sounds/PianoSounds/Edit/A.wav");}
   A->setMedia(QUrl(A_Song));
   extern int KeyboardVol;
   A->setVolume(KeyboardVol);
@@ -428,8 +501,11 @@ void MusicBoard::on_A_clicked()
 
 void MusicBoard::on_A_B_clicked()
 {
+  setButton=37;
+        extern int isKeyboardAsLaunchpadShow;  if (isKeyboardAsLaunchpadShow==1){
+ui->Error->setText(A_B_Text);}
   QMediaPlayer * A_B = new QMediaPlayer();
-  //A_B->setMedia(QUrl("qrc:/sounds/PianoSounds/Edit/A_B.wav"));
+  //A_B->setMedia(QUrl("qrc:/sounds/PianoSounds/Edit/A_B.wav");}
   A_B->setMedia(QUrl(A_B_Song));
   extern int KeyboardVol;
   A_B->setVolume(KeyboardVol);
@@ -449,8 +525,11 @@ void MusicBoard::on_A_B_clicked()
 
 void MusicBoard::on_B_clicked()
 {
+  setButton=38;
+        extern int isKeyboardAsLaunchpadShow;  if (isKeyboardAsLaunchpadShow==1){
+ui->Error->setText(B_Text);}
   QMediaPlayer * B = new QMediaPlayer();
-  //B->setMedia(QUrl("qrc:/sounds/PianoSounds/Edit/B.wav"));
+  //B->setMedia(QUrl("qrc:/sounds/PianoSounds/Edit/B.wav");}
   B->setMedia(QUrl(B_Song));
   extern int KeyboardVol;
   B->setVolume(KeyboardVol);
@@ -465,8 +544,11 @@ void MusicBoard::on_B_clicked()
 
 void MusicBoard::on_C2_clicked()
 {
+  setButton=39;
+        extern int isKeyboardAsLaunchpadShow;  if (isKeyboardAsLaunchpadShow==1){
+ui->Error->setText(C2_Text);}
   QMediaPlayer * C2 = new QMediaPlayer();
-  //C2->setMedia(QUrl("qrc:/sounds/PianoSounds/Edit/C2.wav"));
+  //C2->setMedia(QUrl("qrc:/sounds/PianoSounds/Edit/C2.wav");}
   C2->setMedia(QUrl(C2_Song));
   extern int KeyboardVol;
   C2->setVolume(KeyboardVol);
@@ -481,8 +563,11 @@ void MusicBoard::on_C2_clicked()
 
 void MusicBoard::on_C2_B_clicked()
 {
+  setButton=40;
+        extern int isKeyboardAsLaunchpadShow;  if (isKeyboardAsLaunchpadShow==1){
+ui->Error->setText(C2_B_Text);}
   QMediaPlayer * C2_B = new QMediaPlayer();
-  //C2_B->setMedia(QUrl("qrc:/sounds/PianoSounds/Edit/C2_B.wav"));
+  //C2_B->setMedia(QUrl("qrc:/sounds/PianoSounds/Edit/C2_B.wav");}
   C2_B->setMedia(QUrl(C2_B_Song));
   extern int KeyboardVol;
   C2_B->setVolume(KeyboardVol);
@@ -497,8 +582,11 @@ void MusicBoard::on_C2_B_clicked()
 
 void MusicBoard::on_D2_clicked()
 {
+  setButton=41;
+        extern int isKeyboardAsLaunchpadShow;  if (isKeyboardAsLaunchpadShow==1){
+ui->Error->setText(D2_Text);}
   QMediaPlayer * D2 = new QMediaPlayer();
-  //D2->setMedia(QUrl("qrc:/sounds/PianoSounds/Edit/D2.wav"));
+  //D2->setMedia(QUrl("qrc:/sounds/PianoSounds/Edit/D2.wav");}
   D2->setMedia(QUrl(D2_Song));
   extern int KeyboardVol;
   D2->setVolume(KeyboardVol);
@@ -513,8 +601,11 @@ void MusicBoard::on_D2_clicked()
 
 void MusicBoard::on_D2_B_clicked()
 {
+  setButton=42;
+        extern int isKeyboardAsLaunchpadShow;  if (isKeyboardAsLaunchpadShow==1){
+ui->Error->setText(D2_B_Text);}
   QMediaPlayer * D2_B = new QMediaPlayer();
-  //D2_B->setMedia(QUrl("qrc:/sounds/PianoSounds/Edit/D2_B.wav"));
+  //D2_B->setMedia(QUrl("qrc:/sounds/PianoSounds/Edit/D2_B.wav");}
   D2_B->setMedia(QUrl(D2_B_Song));
   extern int KeyboardVol;
   D2_B->setVolume(KeyboardVol);
@@ -529,8 +620,11 @@ void MusicBoard::on_D2_B_clicked()
 
 void MusicBoard::on_E2_clicked()
 {
+  setButton=43;
+        extern int isKeyboardAsLaunchpadShow;  if (isKeyboardAsLaunchpadShow==1){
+ui->Error->setText(E2_Text);}
   QMediaPlayer * E2 = new QMediaPlayer();
-  //E2->setMedia(QUrl("qrc:/sounds/PianoSounds/Edit/E2.wav"));
+  //E2->setMedia(QUrl("qrc:/sounds/PianoSounds/Edit/E2.wav");}
   E2->setMedia(QUrl(E2_Song));
   extern int KeyboardVol;
   E2->setVolume(KeyboardVol);
@@ -545,8 +639,11 @@ void MusicBoard::on_E2_clicked()
 
 void MusicBoard::on_F2_clicked()
 {
+  setButton=44;
+        extern int isKeyboardAsLaunchpadShow;  if (isKeyboardAsLaunchpadShow==1){
+ui->Error->setText(F2_Text);}
   QMediaPlayer * F2 = new QMediaPlayer();
-  //F2->setMedia(QUrl("qrc:/sounds/PianoSounds/Edit/F2.wav"));
+  //F2->setMedia(QUrl("qrc:/sounds/PianoSounds/Edit/F2.wav");}
   F2->setMedia(QUrl(F2_Song));
   extern int KeyboardVol;
   F2->setVolume(KeyboardVol);
@@ -561,8 +658,11 @@ void MusicBoard::on_F2_clicked()
 
 void MusicBoard::on_F2_B_clicked()
 {
+  setButton=45;
+        extern int isKeyboardAsLaunchpadShow;  if (isKeyboardAsLaunchpadShow==1){
+ui->Error->setText(F2_B_Text);}
   QMediaPlayer * F2_B = new QMediaPlayer();
-  //F2_B->setMedia(QUrl("qrc:/sounds/PianoSounds/Edit/F2_B.wav"));
+  //F2_B->setMedia(QUrl("qrc:/sounds/PianoSounds/Edit/F2_B.wav");}
   F2_B->setMedia(QUrl(F2_B_Song));
   extern int KeyboardVol;
   F2_B->setVolume(KeyboardVol);
@@ -577,8 +677,11 @@ void MusicBoard::on_F2_B_clicked()
 
 void MusicBoard::on_G2_clicked()
 {
+  setButton=46;
+        extern int isKeyboardAsLaunchpadShow;  if (isKeyboardAsLaunchpadShow==1){
+ui->Error->setText(G2_Text);}
   QMediaPlayer * G2 = new QMediaPlayer();
-  //G2->setMedia(QUrl("qrc:/sounds/PianoSounds/Edit/G2.wav"));
+  //G2->setMedia(QUrl("qrc:/sounds/PianoSounds/Edit/G2.wav");}
   G2->setMedia(QUrl(G2_Song));
   extern int KeyboardVol;
   G2->setVolume(KeyboardVol);
@@ -658,6 +761,11 @@ void MusicBoard::on_P1_clicked()
   extern int NumLock;
   if (NumLock==10){
       ui->NumLockInfo->hide();
+      ui->Cover->hide();
+      extern int isCover;
+      isCover=0;
+      ui->LButton->setEnabled(true);
+      ui->LButton->setStyleSheet("background-color: rgb(186, 189, 182);");
       ui->NmLkOnOff->setStyleSheet("color: rgb(255, 255, 255);background-color: rgba(136, 138, 133, 0);");
       ui->NmLkOnOff->setText("OFF");
       NumLock=0;
@@ -959,7 +1067,7 @@ int CheckAac (QString a){
 }
 
 void MusicBoard::on_File2_clicked(const QModelIndex &index)
-{
+{   extern int isKeyboardAsLaunchpadShow;
     QString FilePath = filemodel->fileInfo(index).absoluteFilePath();
     if (CheckWAV(FilePath)==1 || CheckMP3(FilePath)==1 || CheckOgg(FilePath)==1 || CheckM4p(FilePath)==1 || CheckWma(FilePath)==1 || CheckAiff(FilePath)==1 || CheckVox(FilePath)==1 || CheckFlac(FilePath)==1 || Check3gp(FilePath)==1 || CheckAac(FilePath)==1){
 // Attribute the FilePath to the path of the meida of the button
@@ -993,7 +1101,28 @@ void MusicBoard::on_File2_clicked(const QModelIndex &index)
         if (setButton==24){R6_Song = FilePath; on_R6_clicked();}
         if (setButton==25){R7_Song = FilePath; on_R7_clicked();}
         if (setButton==26){R8_Song = FilePath; on_R8_clicked();}
-
+        if (isKeyboardAsLaunchpadShow==1){
+        if (setButton==27){C_Song = FilePath; on_C_clicked();}
+        if (setButton==28){C_B_Song = FilePath; on_C_B_clicked();}
+        if (setButton==29){D_Song = FilePath; on_D_clicked();}
+        if (setButton==30){D_B_Song = FilePath; on_D_B_clicked();}
+        if (setButton==31){E_Song = FilePath; on_E_clicked();}
+        if (setButton==32){F_Song = FilePath; on_F_clicked();}
+        if (setButton==33){F_B_Song = FilePath; on_F_B_clicked();}
+        if (setButton==34){G_Song = FilePath; on_G_clicked();}
+        if (setButton==35){G_B_Song = FilePath; on_G_B_clicked();}
+        if (setButton==36){A_Song = FilePath; on_A_clicked();}
+        if (setButton==37){A_B_Song = FilePath; on_A_B_clicked();}
+        if (setButton==38){B_Song = FilePath; on_B_clicked();}
+        if (setButton==39){C2_Song = FilePath; on_C2_clicked();}
+        if (setButton==40){C2_B_Song = FilePath; on_C2_B_clicked();}
+        if (setButton==41){D2_Song = FilePath; on_D2_clicked();}
+        if (setButton==42){D2_B_Song = FilePath; on_D2_B_clicked();}
+        if (setButton==43){E2_Song = FilePath; on_E2_clicked();}
+        if (setButton==44){F2_Song = FilePath; on_F2_clicked();}
+        if (setButton==45){F2_B_Song = FilePath; on_F2_B_clicked();}
+        if (setButton==46){G2_Song = FilePath; on_G2_clicked();}
+        }
         // Se Poate cu buton?
         setButton=0;
         ui->Error->setText("Set");
@@ -1074,6 +1203,11 @@ void MusicBoard::on_P10_clicked()
     }
     if (NumLock==7){
         ui->NumLockInfo->hide();
+        ui->Cover->hide();
+        extern int isCover;
+        isCover=0;
+        ui->LButton->setStyleSheet("background-color: rgb(186, 189, 182);");
+        ui->LButton->setEnabled(true);
         ui->NmLkOnOff->setText("OFF");
         ui->NmLkOnOff->setStyleSheet("color: rgb(255, 255, 255);background-color: rgba(136, 138, 133, 0);");
         NumLock=0;
@@ -1566,7 +1700,33 @@ void MusicBoard::on_Set1_clicked()
     R6_Song="qrc:/sounds/Dub_Selection/Low_End_FX/LowEnd_FX_04.wav";
     R7_Song="qrc:/sounds/Dub_Selection/Low_End_FX/LowEnd_FX_017.wav";
     R8_Song="qrc:/sounds/Dub_Selection/Low_End_FX/LowEnd_FX_06.wav";
+    extern int isKeyboardAsLaunchpadShow;
+    if (isKeyboardAsLaunchpadShow==1){
+        C_Song="qrc:/sounds/Dub_Selection/Low_End_FX/LowEnd_FX_05.wav";
+        C_B_Song="qrc:/sounds/Dub_Selection/Low_End_FX/LowEnd_FX_08.wav";
 
+        D_Song="qrc:/sounds/Keyboards/Keyboard2/2D.wav";
+        D_B_Song="qrc:/sounds/Keyboards/Keyboard2/2D_B.wav";
+        E_Song="qrc:/sounds/Keyboards/Keyboard2/2E.wav";
+        F_Song="qrc:/sounds/Keyboards/Keyboard2/2F.wav";
+        F_B_Song="qrc:/sounds/Keyboards/Keyboard2/2F_B.wav";
+
+        G_Song="qrc:/sounds/PianoSounds/Edit/G.wav";
+        G_B_Song="qrc:/sounds/PianoSounds/Edit/G_B.wav";
+        A_Song="qrc:/sounds/PianoSounds/Edit/A.wav";
+        A_B_Song="qrc:/sounds/PianoSounds/Edit/A_B.wav";
+
+        B_Song="qrc:/sounds/Keyboards/Keyboard4/4_12_B.wav";
+        C2_Song="qrc:/sounds/Keyboards/Keyboard4/4_13_C.wav";
+        C2_B_Song="qrc:/sounds/Keyboards/Keyboard4/4_14_CB.wav";
+        D2_Song="qrc:/sounds/Keyboards/Keyboard4/4_15_D.wav";
+
+        D2_B_Song="qrc:/sounds/Dub_Selection/Low_End_FX/LowEnd_FX_11.wav";
+        E2_Song="qrc:/sounds/Dub_Selection/Low_End_FX/LowEnd_FX_15.wav";
+        F2_Song="qrc:/sounds/Dub_Selection/Low_End_FX/LowEnd_FX_16.wav";
+        F2_B_Song="qrc:/sounds/Dub_Selection/006.wav";
+        G2_Song="qrc:/sounds/Dub_Selection/FX5.wav";
+    }
 
     if (isDemo==3){
     on_HiddenHideAllButton_clicked();
@@ -1575,73 +1735,73 @@ void MusicBoard::on_Set1_clicked()
     ui->Demo4->show();
     }
 
-    //extern QString P1_R;
-    ui->P1->setText("Kick");
+    extern QString P1_R;
+    P1_R="Kick"; ui->P1->setText(P1_R);
     ui->P1->setShortcut(Qt::Key_Home);
 
-    //extern QString P2_R;
-    ui->P2->setText("Snare");
+    extern QString P2_R;
+    P2_R="Snare"; ui->P2->setText(P2_R);
     ui->P2->setShortcut(Qt::Key_Up);
 
 
-    //extern QString P3_R;
-    ui->P3->setText("Orch");
+    extern QString P3_R;
+    P3_R="Orch"; ui->P3->setText(P3_R);
     ui->P3->setShortcut(Qt::Key_PageUp);
 
-    //extern QString P4_R;
-    ui->P4->setText("Drop");
+    extern QString P4_R;
+    P4_R="Drop"; ui->P4->setText(P4_R);
     ui->P4->setShortcut(Qt::Key_Left);
 
-    //extern QString P5_R;
-    ui->P5->setText("Bam");
+    extern QString P5_R;
+    P5_R="Bam"; ui->P5->setText(P5_R);
     ui->P5->setShortcut(Qt::Key_Clear);
 
-    //extern QString P6_R;
-    ui->P6->setText("Rpt");
+    extern QString P6_R;
+    P6_R="Rpt"; ui->P6->setText(P6_R);
     ui->P6->setShortcut(Qt::Key_Right);
 
-    //extern QString P7_R;
-    ui->P7->setText("Wom");
+    extern QString P7_R;
+    P7_R="Wom"; ui->P7->setText(P7_R);
     ui->P7->setShortcut(Qt::Key_End);
 
-    //extern QString P8_R;
-    ui->P8->setText("Lift");
+    extern QString P8_R;
+    P8_R="Lift"; ui->P8->setText(P8_R);
     ui->P8->setShortcut(Qt::Key_Down);
 
-    //extern QString P9_R;
-    ui->P9->setText("Pass");
+    extern QString P9_R;
+    P9_R="Pass"; ui->P9->setText(P9_R);
     ui->P9->setShortcut(Qt::Key_PageDown);
 
-    //extern QString P10_R;
-    ui->P10->setText("NmLk");
+    extern QString P10_R;
+    P10_R="NmLk"; ui->P10->setText(P10_R);
     ui->P10->setShortcut(Qt::Key_NumLock);
 
-    //extern QString P11_R;
-    ui->P11->setText("Down");
+    extern QString P11_R;
+    P11_R="Down"; ui->P11->setText(P11_R);
     ui->P11->setShortcut(Qt::Key_Slash);
 
-    //extern QString P12_R;
-    ui->P12->setText("Wbl");
+    extern QString P12_R;
+    P12_R="Wbl"; ui->P12->setText(P12_R);
     ui->P12->setShortcut(Qt::Key_Asterisk);
 
-    //extern QString P13_R;
-    ui->P13->setText("Wbl");
+    extern QString P13_R;
+    P13_R="Wbl"; ui->P13->setText(P13_R);
     ui->P13->setShortcut(Qt::Key_Minus);
 
-    //extern QString P14_R;
-    ui->P14->setText("UpDn");
+    extern QString P14_R;
+    P14_R="UpDn"; ui->P14->setText(P14_R);
     ui->P14->setShortcut(Qt::Key_Plus);
 
-    //extern QString P15_R;
-    ui->P15->setText("Lift");
+    extern QString P15_R;
+    P15_R="Lift"; ui->P15->setText(P15_R);
     ui->P15->setShortcut(Qt::Key_Enter);
 
-    //extern QString P16_R;
-    ui->P16->setText("Low");
+    extern QString P16_R;
+    P16_R="Low"; ui->P16->setText(P16_R);
     ui->P16->setShortcut(Qt::Key_Insert);
 
-    //extern QString P17_R;
-    ui->P17->setText("Wbl");
+    extern QString P17_R;
+    P17_R="Wbl"; ui->P17->setText(P17_R);
     ui->P17->setShortcut(Qt::Key_Delete);
 
     ui->C->setShortcut(Qt::Key_Q);
@@ -1699,6 +1859,34 @@ void MusicBoard::on_Set2_clicked()
   R7_Song="qrc:/sounds/Dub_Selection/Low_End_FX/LowEnd_FX_13.wav";
   R8_Song="qrc:/sounds/Dub_Selection/Low_End_FX/LowEnd_FX_12.wav";
 
+  extern int isKeyboardAsLaunchpadShow;
+    if (isKeyboardAsLaunchpadShow==1){
+      C_Song="qrc:/sounds/Dub_Selection/Low_End_FX/LowEnd_FX_10.wav";
+      C_B_Song="qrc:/sounds/Dub_Selection/Low_End_FX/LowEnd_FX_11.wav";
+
+      D_Song="qrc:/sounds/Keyboards/Keyboard2/2D.wav";
+      D_B_Song="qrc:/sounds/Keyboards/Keyboard2/2D_B.wav";
+      E_Song="qrc:/sounds/Keyboards/Keyboard2/2E.wav";
+      F_Song="qrc:/sounds/Keyboards/Keyboard2/2F.wav";
+      F_B_Song="qrc:/sounds/Keyboards/Keyboard2/2F_B.wav";
+
+      G_Song="qrc:/sounds/Keyboards/Keyboard4/4_8_G.wav";
+      G_B_Song="qrc:/sounds/Keyboards/Keyboard4/4_9_GB.wav";
+      A_Song="qrc:/sounds/Keyboards/Keyboard4/4_10_A.wav";
+      A_B_Song="qrc:/sounds/Keyboards/Keyboard4/4_11_AB.wav";
+
+      B_Song="qrc:/sounds/PianoSounds/Edit/B.wav";
+      C2_Song="qrc:/sounds/PianoSounds/Edit/C2.wav";
+      C2_B_Song="qrc:/sounds/PianoSounds/Edit/C2_B.wav";
+      D2_Song="qrc:/sounds/PianoSounds/Edit/D2.wav";
+
+      D2_B_Song="qrc:/sounds/Dub_Selection/006.wav";
+      E2_Song="qrc:/sounds/Dub_Selection/Build Up 01.wav";
+      F2_Song="qrc:/sounds/Dub_Selection/DROP 07 Scos Sfarsit Scos.wav";
+      F2_B_Song="qrc:/sounds/Dub_Selection/ED Synths 20.wav";
+      G2_Song="qrc:/sounds/Dub_Selection/FILTER DOWN 32.wav";
+  }
+
   if (isDemo==3){
   on_HiddenHideAllButton_clicked();
   isDemo=4;
@@ -1706,74 +1894,75 @@ void MusicBoard::on_Set2_clicked()
   ui->Demo4->show();
   }
 
-  //extern QString P1_R;
-  ui->P1->setText("Kick");
+  extern QString P1_R;
+  P1_R="Kick"; ui->P1->setText(P1_R);
   ui->P1->setShortcut(Qt::Key_Home);
 
-  //extern QString P2_R;
-  ui->P2->setText("Snare");
+  extern QString P2_R;
+  P2_R="Snare"; ui->P2->setText(P2_R);
   ui->P2->setShortcut(Qt::Key_Up);
 
 
-  //extern QString P3_R;
-  ui->P3->setText("Wom");
+  extern QString P3_R;
+  P3_R="Wom"; ui->P3->setText(P3_R);
   ui->P3->setShortcut(Qt::Key_PageUp);
 
-  //extern QString P4_R;
-  ui->P4->setText("Orch");
+  extern QString P4_R;
+  P4_R="Orch"; ui->P4->setText(P4_R);
   ui->P4->setShortcut(Qt::Key_Left);
 
-  //extern QString P5_R;
-  ui->P5->setText("Rpt");
+  extern QString P5_R;
+  P5_R="Rpt"; ui->P5->setText(P5_R);
   ui->P5->setShortcut(Qt::Key_Clear);
 
-  //extern QString P6_R;
-  ui->P6->setText("Wbl");
+  extern QString P6_R;
+  P6_R="Wbl"; ui->P6->setText(P6_R);
   ui->P6->setShortcut(Qt::Key_Right);
 
-  //extern QString P7_R;
-  ui->P7->setText("Low");
+  extern QString P7_R;
+  P7_R="Low"; ui->P7->setText(P7_R);
   ui->P7->setShortcut(Qt::Key_End);
 
-  //extern QString P8_R;
-  ui->P8->setText("Drop");
+  extern QString P8_R;
+  P8_R="Drop"; ui->P8->setText(P8_R);
   ui->P8->setShortcut(Qt::Key_Down);
 
-  //extern QString P9_R;
-  ui->P9->setText("Clk");
+  extern QString P9_R;
+  P9_R="Clk"; ui->P9->setText(P9_R);
   ui->P9->setShortcut(Qt::Key_PageDown);
 
-  //extern QString P10_R;
-  ui->P10->setText("NmLk");
+  extern QString P10_R;
+  P10_R="NmLk"; ui->P10->setText(P10_R);
   ui->P10->setShortcut(Qt::Key_NumLock);
 
-  //extern QString P11_R;
-  ui->P11->setText("Bam");
+  extern QString P11_R;
+  P11_R="Bam"; ui->P11->setText(P11_R);
   ui->P11->setShortcut(Qt::Key_Slash);
 
-  //extern QString P12_R;
-  ui->P12->setText("Wbl");
+  extern QString P12_R;
+  P12_R="Wbl"; ui->P12->setText(P12_R);
   ui->P12->setShortcut(Qt::Key_Asterisk);
 
-  //extern QString P13_R;
-  ui->P13->setText("Lift");
+  extern QString P13_R;
+  P13_R="Lift"; ui->P13->setText(P13_R);
   ui->P13->setShortcut(Qt::Key_Minus);
 
-  //extern QString P14_R;
-  ui->P14->setText("UpDn");
+  extern QString P14_R;
+  P14_R="UpDn"; ui->P14->setText(P14_R);
   ui->P14->setShortcut(Qt::Key_Plus);
 
-  //extern QString P15_R;
-  ui->P15->setText("Lift");
+  extern QString P15_R;
+  P15_R="Lift"; ui->P15->setText(P15_R);
   ui->P15->setShortcut(Qt::Key_Enter);
 
-  //extern QString P16_R;
-  ui->P16->setText("Low");
+  extern QString P16_R;
+  P16_R="Low"; ui->P16->setText(P16_R);
   ui->P16->setShortcut(Qt::Key_Insert);
 
-  //extern QString P17_R;
-  ui->P17->setText("Wbl");
+  extern QString P17_R;
+  P17_R="Wbl"; ui->P17->setText(P17_R);
   ui->P17->setShortcut(Qt::Key_Delete);
+
 
   ui->C->setShortcut(Qt::Key_Q);
   ui->C_B->setShortcut(Qt::Key_2);
@@ -1830,6 +2019,34 @@ void MusicBoard::on_Set3_clicked()
   R7_Song="qrc:/sounds/Dub_Selection/Low_End_FX/LowEnd_FX_12.wav";
   R8_Song="qrc:/sounds/Dub_Selection/Low_End_FX/LowEnd_FX_13.wav";
 
+  extern int isKeyboardAsLaunchpadShow;
+  if (isKeyboardAsLaunchpadShow=1){
+      C_Song="qrc:/sounds/Dub_Selection/Low_End_FX/LowEnd_FX_15.wav";
+      C_B_Song="qrc:/sounds/Dub_Selection/Low_End_FX/LowEnd_FX_16.wav";
+
+      D_Song="qrc:/sounds/PianoSounds/Edit/D.wav";
+      D_B_Song="qrc:/sounds/PianoSounds/Edit/D_B.wav";
+      E_Song="qrc:/sounds/PianoSounds/Edit/E.wav";
+      F_Song="qrc:/sounds/PianoSounds/Edit/F.wav";
+      F_B_Song="qrc:/sounds/PianoSounds/Edit/F_B.wav";
+
+      G_Song="qrc:/sounds/Keyboards/Keyboard2/2G.wav";
+      G_B_Song="qrc:/sounds/Keyboards/Keyboard2/2G_B.wav";
+      A_Song="qrc:/sounds/Keyboards/Keyboard2/2A.wav";
+      A_B_Song="qrc:/sounds/Keyboards/Keyboard2/2A_B.wav";
+
+      B_Song="qrc:/sounds/Keyboards/Keyboard4/4_12_B.wav";
+      C2_Song="qrc:/sounds/Keyboards/Keyboard4/4_13_C.wav";
+      C2_B_Song="qrc:/sounds/Keyboards/Keyboard4/4_14_CB.wav";
+      D2_Song="qrc:/sounds/Keyboards/Keyboard4/4_15_D.wav";
+
+      D2_B_Song="qrc:/sounds/Dub_Selection/006.wav";
+      E2_Song="qrc:/sounds/Dub_Selection/ED Synths 20.wav";
+      F2_Song="qrc:/sounds/Dub_Selection/TMS3_NuKick_165.wav";
+      F2_B_Song="qrc:/sounds/Dub_Selection/FX5.wav";
+      G2_Song="qrc:/sounds/Dub_Selection/TMS3_Snare_002.wav";
+  }
+
   if (isDemo==3){
   on_HiddenHideAllButton_clicked();
   isDemo=4;
@@ -1837,74 +2054,75 @@ void MusicBoard::on_Set3_clicked()
   ui->Demo4->show();
   }
 
-  //extern QString P1_R;
-  ui->P1->setText("Drop");
+  extern QString P1_R;
+  P1_R="Drop"; ui->P1->setText(P1_R);
   ui->P1->setShortcut(Qt::Key_Home);
 
-  //extern QString P2_R;
-  ui->P2->setText("Pass");
+  extern QString P2_R;
+  P2_R="Pass"; ui->P2->setText(P2_R);
   ui->P2->setShortcut(Qt::Key_Up);
 
 
-  //extern QString P3_R;
-  ui->P3->setText("Lock");
+  extern QString P3_R;
+  P3_R="Lock"; ui->P3->setText(P3_R);
   ui->P3->setShortcut(Qt::Key_PageUp);
 
-  //extern QString P4_R;
-  ui->P4->setText("Down");
+  extern QString P4_R;
+  P4_R="Down"; ui->P4->setText(P4_R);
   ui->P4->setShortcut(Qt::Key_Left);
 
-  //extern QString P5_R;
-  ui->P5->setText("Wom");
+  extern QString P5_R;
+  P5_R="Wom"; ui->P5->setText(P5_R);
   ui->P5->setShortcut(Qt::Key_Clear);
 
-  //extern QString P6_R;
-  ui->P6->setText("Orch");
+  extern QString P6_R;
+  P6_R="Orch"; ui->P6->setText(P6_R);
   ui->P6->setShortcut(Qt::Key_Right);
 
-  //extern QString P7_R;
-  ui->P7->setText("Bam");
+  extern QString P7_R;
+  P7_R="Bam"; ui->P7->setText(P7_R);
   ui->P7->setShortcut(Qt::Key_End);
 
-  //extern QString P8_R;
-  ui->P8->setText("Wbl");
+  extern QString P8_R;
+  P8_R="Wbl"; ui->P8->setText(P8_R);
   ui->P8->setShortcut(Qt::Key_Down);
 
-  //extern QString P9_R;
-  ui->P9->setText("Lift");
+  extern QString P9_R;
+  P9_R="Lift"; ui->P9->setText(P9_R);
   ui->P9->setShortcut(Qt::Key_PageDown);
 
-  //extern QString P10_R;
-  ui->P10->setText("NmLk");
+  extern QString P10_R;
+  P10_R="NmLk"; ui->P10->setText(P10_R);
   ui->P10->setShortcut(Qt::Key_NumLock);
 
-  //extern QString P11_R;
-  ui->P11->setText("UpDn");
+  extern QString P11_R;
+  P11_R="UpDn"; ui->P11->setText(P11_R);
   ui->P11->setShortcut(Qt::Key_Slash);
 
-  //extern QString P12_R;
-  ui->P12->setText("Wbl");
+  extern QString P12_R;
+  P12_R="Wbl"; ui->P12->setText(P12_R);
   ui->P12->setShortcut(Qt::Key_Asterisk);
 
-  //extern QString P13_R;
-  ui->P13->setText("Lift");
+  extern QString P13_R;
+  P13_R="Lift"; ui->P13->setText(P13_R);
   ui->P13->setShortcut(Qt::Key_Minus);
 
-  //extern QString P14_R;
-  ui->P14->setText("Rpt");
+  extern QString P14_R;
+  P14_R="Rpt"; ui->P14->setText(P14_R);
   ui->P14->setShortcut(Qt::Key_Plus);
 
-  //extern QString P15_R;
-  ui->P15->setText("Low");
+  extern QString P15_R;
+  P15_R="Low"; ui->P15->setText(P15_R);
   ui->P15->setShortcut(Qt::Key_Enter);
 
-  //extern QString P16_R;
-  ui->P16->setText("Tble");
+  extern QString P16_R;
+  P16_R="Tble"; ui->P16->setText(P16_R);
   ui->P16->setShortcut(Qt::Key_Insert);
 
-  //extern QString P17_R;
-  ui->P17->setText("Wbl");
+  extern QString P17_R;
+  P17_R="Wbl"; ui->P17->setText(P17_R);
   ui->P17->setShortcut(Qt::Key_Delete);
+
 
   ui->C->setShortcut(Qt::Key_Q);
   ui->C_B->setShortcut(Qt::Key_2);
@@ -1948,7 +2166,7 @@ void MusicBoard::on_Set4_clicked()
   P7_Song="qrc:/sounds/Dub_Selection/FILTER DOWN 32.wav";
   P8_Song="qrc:/sounds/Dub_Selection/Orchestra Hit 001 Revved.wav";
   P9_Song="qrc:/sounds/Dub_Selection/ufx_imp_atomic.wav";
-  P11_Song="qrc:/sounds/Dub_Selection/Low_End_FX/LowEnd_FX_01.wav";
+  P11_Song="qrc:/sounds/Dub_Sel+ection/Low_End_FX/LowEnd_FX_01.wav";
   P12_Song="qrc:/sounds/Dub_Selection/Low_End_FX/LowEnd_FX_02.wav";
   P13_Song="qrc:/sounds/Dub_Selection/Low_End_FX/LowEnd_FX_03.wav";
   P14_Song="qrc:/sounds/Dub_Selection/Low_End_FX/LowEnd_FX_04.wav";
@@ -1964,6 +2182,34 @@ void MusicBoard::on_Set4_clicked()
   R7_Song="qrc:/sounds/Dub_Selection/Low_End_FX/LowEnd_FX_14.wav";
   R8_Song="qrc:/sounds/Dub_Selection/Low_End_FX/LowEnd_FX_15.wav";
 
+  extern int isKeyboardAsLaunchpadShow;
+  if (isKeyboardAsLaunchpadShow==1){
+      C_Song="qrc:/sounds/Dub_Selection/Low_End_FX/LowEnd_FX_16.wav";
+      C_B_Song="qrc:/sounds/Dub_Selection/Low_End_FX/LowEnd_FX_17.wav";
+
+      D_Song="qrc:/sounds/Keyboards/Keyboard2/2D.wav";
+      D_B_Song="qrc:/sounds/Keyboards/Keyboard2/2D_B.wav";
+      E_Song="qrc:/sounds/Keyboards/Keyboard2/2E.wav";
+      F_Song="qrc:/sounds/Keyboards/Keyboard2/2F.wav";
+      F_B_Song="qrc:/sounds/Keyboards/Keyboard2/2F_B.wav";
+
+      G_Song="qrc:/sounds/Keyboards/Keyboard4/4_8_G.wav";
+      G_B_Song="qrc:/sounds/Keyboards/Keyboard4/4_9_GB.wav";
+      A_Song="qrc:/sounds/Keyboards/Keyboard4/4_10_A.wav";
+      A_B_Song="qrc:/sounds/Keyboards/Keyboard4/4_11_AB.wav";
+
+      B_Song="qrc:/sounds/PianoSounds/Edit/B.wav";
+      C2_Song="qrc:/sounds/PianoSounds/Edit/C2.wav";
+      C2_B_Song="qrc:/sounds/PianoSounds/Edit/C2_B.wav";
+      D2_Song="qrc:/sounds/PianoSounds/Edit/D2.wav";
+
+      D2_B_Song="qrc:/sounds/Dub_Selection/FX5.wav";
+      E2_Song="qrc:/sounds/Dub_Selection/ED Synths 20.wav";
+      F2_Song="qrc:/sounds/Dub_Selection/Build Up 01.wav";
+      F2_B_Song="qrc:/sounds/Dub_Selection/TMS3_NuKick_165.wav";
+      G2_Song="qrc:/sounds/Dub_Selection/TMS3_Snare_002.wav";
+}
+
   if (isDemo==3){
   on_HiddenHideAllButton_clicked();
   isDemo=4;
@@ -1971,74 +2217,75 @@ void MusicBoard::on_Set4_clicked()
   ui->Demo4->show();
   }
 
-  //extern QString P1_R;
-  ui->P1->setText("Kick");
+  extern QString P1_R;
+  P1_R="Kick"; ui->P1->setText(P1_R);
   ui->P1->setShortcut(Qt::Key_Home);
 
-  //extern QString P2_R;
-  ui->P2->setText("Snare");
+  extern QString P2_R;
+  P2_R="Snare"; ui->P2->setText(P2_R);
   ui->P2->setShortcut(Qt::Key_Up);
 
 
-  //extern QString P3_R;
-  ui->P3->setText("Wom");
+  extern QString P3_R;
+  P3_R="Wom"; ui->P3->setText(P3_R);
   ui->P3->setShortcut(Qt::Key_PageUp);
 
-  //extern QString P4_R;
-  ui->P4->setText("Pass");
+  extern QString P4_R;
+  P4_R="Pass"; ui->P4->setText(P4_R);
   ui->P4->setShortcut(Qt::Key_Left);
 
-  //extern QString P5_R;
-  ui->P5->setText("Drop");
+  extern QString P5_R;
+  P5_R="Drop"; ui->P5->setText(P5_R);
   ui->P5->setShortcut(Qt::Key_Clear);
 
-  //extern QString P6_R;
-  ui->P6->setText("Lock");
+  extern QString P6_R;
+  P6_R="Lock"; ui->P6->setText(P6_R);
   ui->P6->setShortcut(Qt::Key_Right);
 
-  //extern QString P7_R;
-  ui->P7->setText("Low");
+  extern QString P7_R;
+  P7_R="Low"; ui->P7->setText(P7_R);
   ui->P7->setShortcut(Qt::Key_End);
 
-  //extern QString P8_R;
-  ui->P8->setText("Orch");
+  extern QString P8_R;
+  P8_R="Orch"; ui->P8->setText(P8_R);
   ui->P8->setShortcut(Qt::Key_Down);
 
-  //extern QString P9_R;
-  ui->P9->setText("Bam");
+  extern QString P9_R;
+  P9_R="Bam"; ui->P9->setText(P9_R);
   ui->P9->setShortcut(Qt::Key_PageDown);
 
-  //extern QString P10_R;
-  ui->P10->setText("NmLk");
+  extern QString P10_R;
+  P10_R="NmLk"; ui->P10->setText(P10_R);
   ui->P10->setShortcut(Qt::Key_NumLock);
 
-  //extern QString P11_R;
-  ui->P11->setText("Clk");
+  extern QString P11_R;
+  P11_R="Clk"; ui->P11->setText(P11_R);
   ui->P11->setShortcut(Qt::Key_Slash);
 
-  //extern QString P12_R;
-  ui->P12->setText("Swp");
+  extern QString P12_R;
+  P12_R="Swp"; ui->P12->setText(P12_R);
   ui->P12->setShortcut(Qt::Key_Asterisk);
 
-  //extern QString P13_R;
-  ui->P13->setText("Wbl");
+  extern QString P13_R;
+  P13_R="Wbl"; ui->P13->setText(P13_R);
   ui->P13->setShortcut(Qt::Key_Minus);
 
-  //extern QString P14_R;
-  ui->P14->setText("Lift");
+  extern QString P14_R;
+  P14_R="Lift"; ui->P14->setText(P14_R);
   ui->P14->setShortcut(Qt::Key_Plus);
 
-  //extern QString P15_R;
-  ui->P15->setText("Low");
+  extern QString P15_R;
+  P15_R="Low"; ui->P15->setText(P15_R);
   ui->P15->setShortcut(Qt::Key_Enter);
 
-  //extern QString P16_R;
-  ui->P16->setText("Lift");
+  extern QString P16_R;
+  P16_R="Lift"; ui->P16->setText(P16_R);
   ui->P16->setShortcut(Qt::Key_Insert);
 
-  //extern QString P17_R;
-  ui->P17->setText("Rpt");
+  extern QString P17_R;
+  P17_R="Rpt"; ui->P17->setText(P17_R);
   ui->P17->setShortcut(Qt::Key_Delete);
+
 
   ui->C->setShortcut(Qt::Key_Q);
   ui->C_B->setShortcut(Qt::Key_2);
@@ -2166,7 +2413,13 @@ void MusicBoard::on_FileButton_clicked()
 
 void MusicBoard::on_CloseButton_clicked()
 {
+    extern int isSureShow;
     ui->Sure->show();
+    if (isSureShow==0){
+        on_SureYes_clicked();
+        on_SureYes_clicked();
+        ui->Sure->hide();
+    }
 //    QMediaPlayer * Close = new QMediaPlayer;
 //    Close->setMedia(QUrl("qrc:/sounds/MBoard/Sounds/Want_To_Close.mp3"));
 //    Close->play();
@@ -2193,28 +2446,55 @@ void MusicBoard::on_SureCancel_clicked()
 
 void MusicBoard::on_ClearRhythms_clicked()
 {   //ui->ClearText->setTextColor();
+    ClearWhat=1;
     ui->ClearText->setText(" Clear Rhythms?");
     ui->Clear->show();
-    ClearWhat=1;
+    extern int isSureShow;
+    if (isSureShow==0){
+        on_ClearYes_clicked();
+        on_ClearYes_clicked();
+        ui->Clear->hide();
+    }
 }
 
 void MusicBoard::on_ClearLaunchpad_clicked()
-{   ui->ClearText->setText("Clear Launchpad?");
-    ui->Clear->show();
+{
     ClearWhat=2;
+    ui->ClearText->setText("Clear Launchpad?");
+    ui->Clear->show();
+    extern int isSureShow;
+    if (isSureShow==0){
+        on_ClearYes_clicked();
+        on_ClearYes_clicked();
+        ui->Clear->hide();
+    }
 }
 
 void MusicBoard::on_CleaKeyboard_clicked()/// corectat scris ClearKeyBoard
-{   ui->ClearText->setText(" Clear Keyboard?");
-    ui->Clear->show();
+{
     ClearWhat=3;
+    ui->ClearText->setText(" Clear Keyboard?");
+    ui->Clear->show();
+    extern int isSureShow;
+    if (isSureShow==0){
+        on_ClearYes_clicked();
+        on_ClearYes_clicked();
+        ui->Clear->hide();
+    }
 }
 
 
 void MusicBoard::on_ClearAll_clicked()
-{   ui->ClearText->setText("       Clear All?");
-    ui->Clear->show();
+{
     ClearWhat=4;
+    ui->ClearText->setText("       Clear All?");
+    ui->Clear->show();
+    extern int isSureShow;
+    if (isSureShow==0){
+        on_ClearYes_clicked();
+        on_ClearYes_clicked();
+        ui->Clear->hide();
+    }
 }
 
 
@@ -2248,7 +2528,7 @@ void MusicBoard::on_ClearYes_clicked()
         P6_Song="qrc:/sounds/Silance.wav";
         P7_Song="qrc:/sounds/Silance.wav";
         P8_Song="qrc:/sounds/Silance.wav";
-        //P10_Song="qrc:/sounds/Silance.wav";
+        P9_Song="qrc:/sounds/Silance.wav";
         P11_Song="qrc:/sounds/Silance.wav";
         P12_Song="qrc:/sounds/Silance.wav";
         P13_Song="qrc:/sounds/Silance.wav";
@@ -2317,7 +2597,7 @@ void MusicBoard::on_ClearYes_clicked()
         P6_Song="qrc:/sounds/Silance.wav";
         P7_Song="qrc:/sounds/Silance.wav";
         P8_Song="qrc:/sounds/Silance.wav";
-        //P10_Song="qrc:/sounds/Silance.wav";
+        P9_Song="qrc:/sounds/Silance.wav";
         P11_Song="qrc:/sounds/Silance.wav";
         P12_Song="qrc:/sounds/Silance.wav";
         P13_Song="qrc:/sounds/Silance.wav";
@@ -3146,10 +3426,10 @@ QString s;
 QString f;
 
 //QTime *time = new QTime();
-QTimer *timer = new QTimer;
+///QTimer *timer = new QTimer;
 //QElapsedTimer *time = new QElapsedTimer();
 void MusicBoard::on_StartRhythm_clicked()
-{   s=QTime::currentTime().second();
+{   ///s=QTime::currentTime().second();
     //if (isStartRhythm==0){
     if (isP11==1 /*QTime::currentTime().toString*/) {on_P1_clicked();}
     if (isP21==1) {on_P2_clicked();}
@@ -3189,11 +3469,11 @@ void MusicBoard::on_HiddenSilanceButton_clicked()
 ///    if (timer->isActive()==false){
 ///        isStartRhythm=0;
 ///    }
-        timer->start(2000);
+        ///timer->start(2000);
         ///ui->Error->setText(QTime::currentTime().toString());
-        if (timer->remainingTime()==false){
-            isStartRhythm=0;
-        }
+        ///if (timer->remainingTime()==false){
+        ///    isStartRhythm=0;
+        ///}
     //if (Silance->positionChanged(12312)){
     //    Silance->play();
 //    }
@@ -3204,11 +3484,342 @@ void MusicBoard::on_SureYes_released()
     delete ui;
 }
 
+
+
 void MusicBoard::on_ReInit_clicked()
 {
     extern int NumLock;
+    extern int Bg;
+    extern QString C1;
+    extern QString C12;
+    extern QString CFont;
+    extern QString CKeyboard;
+    extern QString CButtons;
+    extern QFont Font;
+    extern QString CFile;
+    extern QString MainColor;
+    extern int On;
+    extern int isImages;
+    extern int isNumLockShow;
+    extern int Notes;
 
-    if (NumLock==1){
+
+    ui->MBTerminalTextActual->setText(QString::number(Bg));
+    if (Bg==0){ui->Picture->setStyleSheet("background-image: url(:/pictures/Picture1_4.png); image: url(:/pictures/Picture1_4.png); background-color: rgba(0, 0, 0, 0)");}
+    if (Bg==1){ui->Picture->setStyleSheet("background-image: url(:/pictures/Theme24.png); image: url(:/pictures/Theme24.png); background-color: rgba(0, 0, 0, 0)");}
+    if (Bg==2){ui->Picture->setStyleSheet("background-color: qlineargradient(spread:repeat, x1:0.95008, y1:0.051, x2:1, y2:0, stop:0.20398 rgba(100, 119, 149, 255), stop:1 rgba(255, 255, 255, 255));");}
+    if (Bg==3){ui->Picture->setStyleSheet("background-color: qradialgradient(spread:repeat, cx:1, cy:0, radius:1.226, fx:0.141, fy:0.840545, stop:0 rgba(255, 255, 255, 255), stop:0.985075 rgba(135, 48, 255, 255), stop:1 rgba(255, 255, 255, 255));");}
+    if (Bg==4){ui->Picture->setStyleSheet("background-color: qconicalgradient(cx:0.495, cy:0.494, angle:226.6, stop:0 rgba(87, 64, 98, 255), stop:1 rgba(255, 255, 255, 255));");}
+    if (Bg==5){ui->Picture->setStyleSheet("background-color: qlineargradient(spread:pad, x1:1, y1:0, x2:0, y2:1, stop:0 rgba(103, 61, 113, 255), stop:1 rgba(255, 255, 255, 255));");}
+    if (Bg==6){ui->Picture->setStyleSheet("background-color: qlineargradient(spread:repeat, x1:0.516, y1:0.187136, x2:1, y2:0, stop:0.01 rgba(132, 84, 162, 255), stop:1 rgba(255, 255, 255, 255));");}
+    if (Bg==7){ui->Picture->setStyleSheet("background-color: qlineargradient(spread:pad, x1:1, y1:0, x2:0, y2:1, stop:0 rgba(0, 0, 0, 255), stop:1 rgba(255, 255, 255, 255));");}
+    if (Bg==8){ui->Picture->setStyleSheet("background-color: qlineargradient(spread:reflect, x1:0.896, y1:0.08, x2:1, y2:0, stop:0 rgba(114, 0, 128, 255), stop:1 rgba(255, 255, 255, 255));");}
+    if (Bg==9){ui->Picture->setStyleSheet("background-color: qlineargradient(spread:reflect, x1:1, y1:0, x2:0, y2:1, stop:0 rgba(0, 0, 0, 255), stop:0.0447761 rgba(56, 0, 53, 255), stop:0.467662 rgba(91, 0, 122, 255), stop:0.950249 rgba(255, 180, 255, 255), stop:1 rgba(255, 255, 255, 255));");}
+    if (Bg==10){ui->Picture->setStyleSheet("background-color: qconicalgradient(cx:0.5, cy:0.5, angle:224.8, stop:0 rgba(211, 215, 207, 255), stop:0.189055 rgba(105, 0, 219, 255), stop:0.40796 rgba(0, 0, 131, 255), stop:0.606965 rgba(175, 0, 194, 255), stop:0.741294 rgba(97, 146, 189, 255), stop:1 rgba(255, 255, 255, 255))");}
+    if (Bg==41){ui->Picture->setStyleSheet("background-color: "+MainColor+";");}
+
+    if (Notes==0){
+        C_Text="C";
+        C_B_Text="C#";
+        D_Text="D";
+        D_B_Text="D_B";
+        E_Text="E";
+        F_Text="F";
+        F_B_Text="F#";
+        G_Text="G";
+        G_B_Text="G#";
+        A_Text="A";
+        A_B_Text="A#";
+        B_Text="B";
+        C2_Text="C2";
+        C2_B_Text="C2#";
+        D2_Text="D2";
+        D2_B_Text="D2#";
+        E2_Text="E2";
+        F2_Text="F2";
+        F2_B_Text="F2#";
+        G2_Text="G2";
+    }
+    else {
+            C_Text="Do";
+            C_B_Text="Do#";
+            D_Text="Re";
+            D_B_Text="Re#";
+            E_Text="Mi";
+            F_Text="Fa";
+            F_B_Text="Fa#";
+            G_Text="Sol";
+            G_B_Text="Sol#";
+            A_Text="La";
+            A_B_Text="La#";
+            B_Text="Si";
+            C2_Text="Do2";
+            C2_B_Text="Do2#";
+            D2_Text="Re2";
+            D2_B_Text="Re2#";
+            E2_Text="Mi2";
+            F2_Text="Fa2";
+            F2_B_Text="Fa2#";
+            G2_Text="Sol2";
+        }
+
+
+
+    ui->Keys->setStyleSheet("background-color: rgb(85, 87, 83);");
+    ui->Launchpad->setStyleSheet("background-color: rgb(148, 148, 148);");
+
+
+    ui->MBoard->setFont(Font);
+    ui->Help->setFont(Font);
+    ui->About->setFont(Font);
+    ui->Licence->setFont(Font);
+    ui->MBTerminal->setFont(Font);
+    ui->NumLockInfo->setFont(Font);
+    ui->ProjectNotes->setFont(Font);
+    ui->Rhythm2->setFont(Font);
+    ui->MBoard->setStyleSheet("background-color: "+C1+";");
+    ui->Clear->setStyleSheet("background-color: "+C1+";");
+    ui->Help->setStyleSheet("background-color: "+C1+";");
+    ui->About->setStyleSheet("background-color: "+C1+";");
+    ui->Licence->setStyleSheet("background-color: "+C1+";");
+    ui->MBTerminal->setStyleSheet("background-color: "+C1+";");
+    ui->Sure->setStyleSheet("background-color: "+C1+";");
+    ui->NumLockInfo->setStyleSheet("background-color: "+C1+";");
+    ui->ProjectNotes->setStyleSheet("background-color: "+C1+";");
+    ui->Rhythm2->setStyleSheet("background-color: "+C1+";");
+    ///ui->MBoard->setStyleSheet("background-color: "+C1+";");
+
+    if (isNumLockShow==1){
+        ui->UnderOn->show();
+        ui->label_42->show();
+        ui->NmLkOnOff->show();
+    } else {
+        ui->UnderOn->hide();
+        ui->label_42->hide();
+        ui->NmLkOnOff->hide();
+    }
+
+    if (isImages==0) {
+        ui->MB->setStyleSheet(" background-color: rgba(255, 255, 255, 0);");
+        ui->MB_2->setStyleSheet(" background-color: rgba(255, 255, 255, 0);");
+        ui->MB_3->setStyleSheet(" background-color: rgba(255, 255, 255, 0);");
+        ui->MB_4->setStyleSheet(" background-color: rgba(255, 255, 255, 0);");
+        ui->MB_5->setStyleSheet(" background-color: rgba(255, 255, 255, 0);");
+        ui->MB_6->setStyleSheet(" background-color: rgba(255, 255, 255, 0);");
+        ui->MB_7->setStyleSheet(" background-color: rgba(255, 255, 255, 0);");
+        ui->MB_8->setStyleSheet(" background-color: rgba(255, 255, 255, 0);");
+        ui->MB_9->setStyleSheet(" background-color: rgba(255, 255, 255, 0);");
+        ui->MB_10->setStyleSheet(" background-color: rgba(255, 255, 255, 0);");
+        ui->MB_11->setStyleSheet(" background-color: rgba(255, 255, 255, 0);");
+    }
+    else {
+        ui->MB->setStyleSheet("background-image: url(:/pictures/MB.png); background-color: rgba(255, 255, 255, 0); image: url(:/pictures/MB.png);");
+        ui->MB_2->setStyleSheet("background-image: url(:/pictures/MB.png); background-color: rgba(255, 255, 255, 0); image: url(:/pictures/MB.png);");
+        ui->MB_3->setStyleSheet("background-image: url(:/pictures/MB.png); background-color: rgba(255, 255, 255, 0); image: url(:/pictures/MB.png);");
+        ui->MB_4->setStyleSheet("background-image: url(:/pictures/MB.png); background-color: rgba(255, 255, 255, 0); image: url(:/pictures/MB.png);");
+        ui->MB_5->setStyleSheet("background-image: url(:/pictures/MB.png); background-color: rgba(255, 255, 255, 0); image: url(:/pictures/MB.png);");
+        ui->MB_6->setStyleSheet("background-image: url(:/pictures/MB.png); background-color: rgba(255, 255, 255, 0); image: url(:/pictures/MB.png);");
+        ui->MB_7->setStyleSheet("background-image: url(:/pictures/MB.png); background-color: rgba(255, 255, 255, 0); image: url(:/pictures/MB.png);");
+        ui->MB_8->setStyleSheet("background-color: rgba(255, 255, 255, 0); image: url(:/pictures/MB.png);");
+        ui->MB_9->setStyleSheet("background-image: url(:/pictures/MB.png); background-color: rgba(255, 255, 255, 0); image: url(:/pictures/MB.png);");
+        ui->MB_10->setStyleSheet("background-image: url(:/pictures/MB.png); background-color: rgba(255, 255, 255, 0); image: url(:/pictures/MB.png);");
+        ui->MB_11->setStyleSheet("background-image: url(:/pictures/MB.png); background-color: rgba(255, 255, 255, 0); image: url(:/pictures/MB.png);");
+    }
+
+    ui->label->setStyleSheet("color: "+CFont+"; background-color: rgba(0, 0, 0, 0)");
+    ui->label_2->setStyleSheet("color: "+CFont+"; background-color: rgba(0, 0, 0, 0)");
+    ui->label_3->setStyleSheet("color: "+CFont+"; background-color: rgba(0, 0, 0, 0)");
+    ///ui->label_7->setStyleSheet("color: "+CFont+"; background-color: rgba(0, 0, 0, 0)");
+    ui->label_8->setStyleSheet("color: "+CFont+"; background-color: rgba(0, 0, 0, 0)");
+    ui->label_11->setStyleSheet("color: "+CFont+"; background-color: rgba(0, 0, 0, 0)");
+    ui->label_15->setStyleSheet("color: "+CFont+"; background-color: rgba(0, 0, 0, 0)");
+    ui->label_16->setStyleSheet("color: "+CFont+"; background-color: rgba(0, 0, 0, 0)");
+    ui->label_17->setStyleSheet("color: "+CFont+"; background-color: rgba(0, 0, 0, 0)");
+    ui->label_17->setStyleSheet("color: "+CFont+"; background-color: rgba(0, 0, 0, 0)");
+    ui->label_17->setStyleSheet("color: "+CFont+"; background-color: rgba(0, 0, 0, 0)");
+    ui->label_20->setStyleSheet("color: "+CFont+"; background-color: rgba(0, 0, 0, 0)");
+    ui->label_25->setStyleSheet("color: "+CFont+"; background-color: rgba(0, 0, 0, 0)");
+    ui->label_26->setStyleSheet("color: "+CFont+"; background-color: rgba(0, 0, 0, 0)");
+    ui->label_31->setStyleSheet("color: "+CFont+"; background-color: rgba(0, 0, 0, 0)");
+    ui->label_32->setStyleSheet("color: "+CFont+"; background-color: rgba(0, 0, 0, 0)");
+    ui->label_33->setStyleSheet("color: "+CFont+"; background-color: rgba(0, 0, 0, 0)");
+    ui->label_34->setStyleSheet("color: "+CFont+"; background-color: rgba(0, 0, 0, 0)");
+    ui->label_35->setStyleSheet("color: "+CFont+"; background-color: rgba(0, 0, 0, 0)");
+    ui->label_36->setStyleSheet("color: "+CFont+"; background-color: rgba(0, 0, 0, 0)");
+    ui->label_37->setStyleSheet("color: "+CFont+"; background-color: rgba(0, 0, 0, 0)");
+    ui->label_38->setStyleSheet("color: "+CFont+"; background-color: rgba(0, 0, 0, 0)");
+    ui->label_39->setStyleSheet("color: "+CFont+"; background-color: rgba(0, 0, 0, 0)");
+    ui->label_42->setStyleSheet("color: "+CFont+"; background-color: rgba(0, 0, 0, 0)");
+    ui->label_43->setStyleSheet("color: "+CFont+"; background-color: rgba(0, 0, 0, 0)");
+
+    ui->label->setFont(Font);
+    ui->label_2->setFont(Font);
+       ui->label_3->setFont(Font);
+       ///ui->label_7->setFont(Font);
+       ui->label_8->setFont(Font);
+       ui->label_11->setFont(Font);
+       ui->label_15->setFont(Font);
+       ui->label_16->setFont(Font);
+       ui->label_17->setFont(Font);
+       ui->label_17->setFont(Font);
+       ui->label_17->setFont(Font);
+       ui->label_20->setFont(Font);
+       ui->label_25->setFont(Font);
+       ui->label_26->setFont(Font);
+       ui->label_31->setFont(Font);
+       ui->label_32->setFont(Font);
+       ui->label_33->setFont(Font);
+       ui->label_34->setFont(Font);
+       ui->label_35->setFont(Font);
+       ui->label_36->setFont(Font);
+       ui->label_37->setFont(Font);
+       ui->label_38->setFont(Font);
+       ui->label_39->setFont(Font);
+       ui->label_42->setFont(Font);
+       ui->label_43->setFont(Font);
+
+
+//    if (C1==0){
+   ///ui->label_42->setStyleSheet("background-color: rgba(0, 0, 0, 0); color: "+C1+";");
+    if (CFile.length()<17){
+        ui->File1->setStyleSheet("background-color: "+CFile+"; color: rgb(255, 255, 255);");
+        ui->File2->setStyleSheet("background-color: "+CFile+"; color: rgb(255, 255, 255);");
+
+    }
+    else {
+        ui->File1->setStyleSheet("background-color: "+CFile+";");
+        ui->File2->setStyleSheet("background-color: "+CFile+";");
+    }
+
+    ui->L1->setStyleSheet("background-color: "+C12+";");
+    ui->L2->setStyleSheet("background-color: "+C12+";");
+    ui->L3->setStyleSheet("background-color: "+C12+";");
+    ui->L4->setStyleSheet("background-color: "+C12+";");
+    ui->L5->setStyleSheet("background-color: "+C12+";");
+    ui->L6->setStyleSheet("background-color: "+C12+";");
+    ui->L7->setStyleSheet("background-color: "+C12+";");
+    ui->L7_2->setStyleSheet("background-color: "+C12+";");
+    ui->L8->setStyleSheet("background-color: "+C12+";");
+    ui->L9->setStyleSheet("background-color: "+C12+";");
+    ui->L10->setStyleSheet("background-color: "+C12+";");
+    ui->L11->setStyleSheet("background-color: "+C12+";");
+
+
+    if (CKeyboard.length()<17){
+        ui->C_B->setStyleSheet("background-color: "+CKeyboard+"; font: 7.4pt \"Cantarell\"; color: rgb(255, 255, 255);");
+        ui->D_B->setStyleSheet("background-color: "+CKeyboard+"; font: 7.4pt \"Cantarell\"; color: rgb(255, 255, 255);");
+        ui->F_B->setStyleSheet("background-color: "+CKeyboard+"; font: 7.4pt \"Cantarell\"; color: rgb(255, 255, 255);");
+        ui->G_B->setStyleSheet("background-color: "+CKeyboard+"; font: 7.4pt \"Cantarell\"; color: rgb(255, 255, 255);");
+        ui->A_B->setStyleSheet("background-color: "+CKeyboard+"; font: 7.4pt \"Cantarell\"; color: rgb(255, 255, 255);");
+        ui->C2_B->setStyleSheet("background-color: "+CKeyboard+"; font: 7.4pt \"Cantarell\"; color: rgb(255, 255, 255);");
+        ui->D2_B->setStyleSheet("background-color: "+CKeyboard+"; font: 7.4pt \"Cantarell\"; color: rgb(255, 255, 255);");
+        ui->F2_B->setStyleSheet("background-color: "+CKeyboard+"; font: 7.4pt \"Cantarell\"; color: rgb(255, 255, 255);");
+    }
+    else {
+    ui->C_B->setStyleSheet("background-color: "+CKeyboard+"; font: 7.4pt \"Cantarell\";");
+    ui->D_B->setStyleSheet("background-color: "+CKeyboard+"; font: 7.4pt \"Cantarell\";");
+    ui->F_B->setStyleSheet("background-color: "+CKeyboard+"; font: 7.4pt \"Cantarell\";");
+    ui->G_B->setStyleSheet("background-color: "+CKeyboard+"; font: 7.4pt \"Cantarell\";");
+    ui->A_B->setStyleSheet("background-color: "+CKeyboard+"; font: 7.4pt \"Cantarell\";");
+    ui->C2_B->setStyleSheet("background-color: "+CKeyboard+"; font: 7.4pt \"Cantarell\";");
+    ui->D2_B->setStyleSheet("background-color: "+CKeyboard+"; font: 7.4pt \"Cantarell\";");
+    ui->F2_B->setStyleSheet("background-color: "+CKeyboard+"; font: 7.4pt \"Cantarell\";");
+    }
+
+    if (CButtons.length()<17){
+        ui->FileButton->setStyleSheet("background-color: "+CButtons+"; color: rgb(255, 255, 255);");
+        ui->EditButton->setStyleSheet("background-color: "+CButtons+"; color: rgb(255, 255, 255);");
+        ui->AboutButton->setStyleSheet("background-color: "+CButtons+"; color: rgb(255, 255, 255);");
+        ui->HelpButton->setStyleSheet("background-color: "+CButtons+"; color: rgb(255, 255, 255);");
+        ui->PreferencesButton->setStyleSheet("background-color: "+CButtons+"; color: rgb(255, 255, 255);");
+        ///ui->ClearCancel->setStyleSheet("background-color: "+CButtons+"; color: rgb(255, 255, 255);");
+        ///ui->ClearYes->setStyleSheet("background-color: "+CButtons+"; color: rgb(255, 255, 255);");
+        ///ui->SureYes->setStyleSheet("background-color: "+CButtons+"; color: rgb(255, 255, 255);");
+        ///ui->SureCancel->setStyleSheet("background-color: "+CButtons+"; color: rgb(255, 255, 255);");
+        ui->DemoButton->setStyleSheet("background-color: "+CButtons+"; color: rgb(255, 255, 255);");
+        ui->RecButton->setStyleSheet("background-color: "+CButtons+"; color: rgb(255, 255, 255);");
+    } else {
+        ui->FileButton->setStyleSheet("background-color: "+CButtons+"; color: rgb(0, 0, 0);");
+        ui->EditButton->setStyleSheet("background-color: "+CButtons+"; color: rgb(0, 0, 0);");
+        ui->AboutButton->setStyleSheet("background-color: "+CButtons+"; color: rgb(0, 0, 0);");
+        ui->HelpButton->setStyleSheet("background-color: "+CButtons+"; color: rgb(0, 0, 0);");
+        ui->PreferencesButton->setStyleSheet("background-color: "+CButtons+"; color: rgb(0, 0, 0);");
+        ///ui->SureCancel->setStyleSheet("background-color: "+CButtons+"; color: rgb(0, 0, 0);");
+        ///ui->SureYes->setStyleSheet("background-color: "+CButtons+"; color: rgb(0, 0, 0);");
+        ///ui->ClearYes->setStyleSheet("background-color: "+CButtons+"; color: rgb(0, 0, 0);");
+        ///ui->ClearCancel->setStyleSheet("background-color: "+CButtons+"; color: rgb(0, 0, 0);");
+        ui->DemoButton->setStyleSheet("background-color: "+CButtons+"; color: rgb(0, 0, 0);");
+        ui->RecButton->setStyleSheet("background-color: "+CButtons+"; color: rgb(0, 0, 0);");
+    }
+//        ui->Picture->setStyleSheet("background-color: rgb(128, 33, 152);");
+//        ui->A->setStyleSheet("color: rgb(255, 255, 255); background-color: rgb(110, 110, 110);");
+//        ui->B->setStyleSheet("color: rgb(255, 255, 255); background-color: rgb(110, 110, 110);");
+//        ui->C->setStyleSheet("color: rgb(255, 255, 255); background-color: rgb(110, 110, 110);");
+//        ui->D->setStyleSheet("color: rgb(255, 255, 255); background-color: rgb(110, 110, 110);");
+//        ui->E->setStyleSheet("color: rgb(255, 255, 255); background-color: rgb(110, 110, 110);");
+//        ui->F->setStyleSheet("color: rgb(255, 255, 255); background-color: rgb(110, 110, 110);");
+//        ui->G->setStyleSheet("color: rgb(255, 255, 255); background-color: rgb(110, 110, 110);");
+//        ui->C2->setStyleSheet("color: rgb(255, 255, 255); background-color: rgb(110, 110, 110);");
+//        ui->D2->setStyleSheet("color: rgb(255, 255, 255); background-color: rgb(110, 110, 110);");
+//        ui->E2->setStyleSheet("color: rgb(255, 255, 255); background-color: rgb(110, 110, 110);");
+//        ui->F2->setStyleSheet("color: rgb(255, 255, 255); background-color: rgb(110, 110, 110);");
+//        ui->G2->setStyleSheet("color: rgb(255, 255, 255); background-color: rgb(110, 110, 110);");
+//        ui->A_B->setStyleSheet("color: rgb(255, 255, 255); background-color: rgb(110, 110, 110);");
+//        ui->C_B->setStyleSheet("color: rgb(255, 255, 255); background-color: rgb(110, 110, 110);");
+//        ui->D_B->setStyleSheet("color: rgb(255, 255, 255); background-color: rgb(110, 110, 110);");
+//        ui->F_B->setStyleSheet("color: rgb(255, 255, 255); background-color: rgb(110, 110, 110);");
+//        ui->G_B->setStyleSheet("color: rgb(255, 255, 255); background-color: rgb(110, 110, 110);");
+//        ui->C2_B->setStyleSheet("color: rgb(255, 255, 255); background-color: rgb(110, 110, 110);");
+//        ui->D2_B->setStyleSheet("color: rgb(255, 255, 255); background-color: rgb(110, 110, 110);");
+//        ui->F2_B->setStyleSheet("color: rgb(255, 255, 255); background-color: rgb(110, 110, 110);");
+//        ui->FileButton->setStyleSheet("color: rgb(255, 255, 255); background-color: rgb(110, 110, 110);");
+//        ui->EditButton->setStyleSheet("color: rgb(255, 255, 255); background-color: rgb(110, 110, 110);");
+//        ui->HelpButton->setStyleSheet("color: rgb(255, 255, 255); background-color: rgb(110, 110, 110);");
+//        ui->AboutButton->setStyleSheet("color: rgb(255, 255, 255); background-color: rgb(110, 110, 110);");
+//        ui->DemoButton->setStyleSheet("color: rgb(255, 255, 255); background-color: rgb(110, 110, 110);");
+//        ui->PreferencesButton->setStyleSheet("color: rgb(255, 255, 255); background-color: rgb(110, 110, 110);");
+//        ui->RecButton->setStyleSheet("color: rgb(255, 255, 255); background-color: rgb(110, 110, 110);");
+//        ui->DoneDemoButton->setStyleSheet("color: rgb(255, 255, 255); background-color: rgb(110, 110, 110);");
+//        ui->DoneDemoButton_1->setStyleSheet("color: rgb(255, 255, 255); background-color: rgb(110, 110, 110);");
+
+//        Settings a1;
+//        a1.ui1->SettingsMuteButton->setStyleSheet("color: rgb(255, 255, 255); background-color: rgb(110, 110, 110);");
+//        a1.ui1->SettingsHelpButton->setStyleSheet("color: rgb(255, 255, 255); background-color: rgb(110, 110, 110);");
+//        a1.ui1->SettingsApplyMixerButton->setStyleSheet("color: rgb(255, 255, 255); background-color: rgb(110, 110, 110);");
+//        a1.ui1->SettingsApplyTextButton->setStyleSheet("color: rgb(255, 255, 255); background-color: rgb(110, 110, 110);");
+//        a1.ui1->Picture->setStyleSheet("color: rgb(255, 255, 255); background-color: rgb(110, 110, 110);");
+//        a1.ui1->Picture_2->setStyleSheet("color: rgb(255, 255, 255); background-color: rgb(110, 110, 110);");
+//        a1.ui1->Picture_3->setStyleSheet("color: rgb(255, 255, 255); background-color: rgb(110, 110, 110);");
+//        a1.ui1->Picture_4->setStyleSheet("color: rgb(255, 255, 255); background-color: rgb(110, 110, 110);");
+//        a1.ui1->Picture_5->setStyleSheet("color: rgb(255, 255, 255); background-color: rgb(110, 110, 110);");
+//        a1.ui1->tabWidget->setStyleSheet("color: rgb(255, 255, 255); background-color: rgb(110, 110, 110);");
+
+//        AudioRecorder a5;
+//        a5.ui5->audioDeviceBox_3->setStyleSheet("color: rgb(255, 255, 255); background-color: rgb(110, 110, 110);");
+//        a5.ui5->audioCodecBox_3->setStyleSheet("color: rgb(255, 255, 255); background-color: rgb(110, 110, 110);");
+//        a5.ui5->containerBox_3->setStyleSheet("color: rgb(255, 255, 255); background-color: rgb(110, 110, 110);");
+//        a5.ui5->sampleRateBox_3->setStyleSheet("color: rgb(255, 255, 255); background-color: rgb(110, 110, 110);");
+//        a5.ui5->channelsBox_3->setStyleSheet("color: rgb(255, 255, 255); background-color: rgb(110, 110, 110);");
+//        a5.ui5->bitrateBox_3->setStyleSheet("color: rgb(255, 255, 255); background-color: rgb(110, 110, 110);");
+//        a5.ui5->outputButton->setStyleSheet("color: rgb(255, 255, 255); background-color: rgb(110, 110, 110);");
+//        a5.ui5->recordButton->setStyleSheet("color: rgb(255, 255, 255); background-color: rgb(110, 110, 110);");
+//        a5.ui5->pauseButton->setStyleSheet("color: rgb(255, 255, 255); background-color: rgb(110, 110, 110);");
+//        a5.ui5->label_6->setStyleSheet("color: rgb(255, 255, 255); background-color: rgb(110, 110, 110);");
+//        a5.ui5->label_12->setStyleSheet("color: rgb(255, 255, 255); background-color: rgb(110, 110, 110);");
+//        a5.ui5->label_13->setStyleSheet("color: rgb(255, 255, 255); background-color: rgb(110, 110, 110);");
+//        a5.ui5->label_14->setStyleSheet("color: rgb(255, 255, 255); background-color: rgb(110, 110, 110);");
+//        a5.ui5->label_15->setStyleSheet("color: rgb(255, 255, 255); background-color: rgb(110, 110, 110);");
+//        a5.ui5->label_16->setStyleSheet("color: rgb(255, 255, 255); background-color: rgb(110, 110, 110);");
+//        a5.ui5->label_34->setStyleSheet("color: rgb(255, 255, 255); background-color: rgb(110, 110, 110);");
+//        a5.ui5->Picture->setStyleSheet("color: rgb(255, 255, 255); background-color: rgb(110, 110, 110);");
+//        a5.ui5->Bitrate->setStyleSheet("color: rgb(255, 255, 255); background-color: rgb(110, 110, 110);");
+//                }
+
+
+
+
+
+if (NumLock==1){
         ui->NmLkOnOff->setStyleSheet("background-color: rgba(255, 255, 255, 0);color: rgb(239, 41, 41);");
         //NumLock=0;
         ui->NmLkOnOff->setText("ON");
@@ -3387,66 +3998,109 @@ void MusicBoard::on_HiddenCloseButtonDel_clicked()
 
 void MusicBoard::on_Theme1Button_clicked()
 {
+
+    extern QString C1;
+    extern QString C12;
+    extern QString CFont;
+    extern QString CKeyboard;
+    extern QString CButtons;
+    extern QString isKeyboarsAsLaunchpadShow;
+    extern QFont Font;
+    extern QString CFile;
+    extern int Bg;
+
+    C12="rgb(255, 159, 159)";
+    CFont="rgb(255, 255, 255)";
+    CKeyboard="rgb(81, 38, 255)";
+    CButtons="rgb(83, 68, 150)";
+    CFile="rgb(152, 130, 251)";
+    Bg=0;
+
     on_HiddenHideAllButton_clicked();
-    ui->Picture->setStyleSheet("background-image: url(:/pictures/Picture1_4.png); image: url(:/pictures/Picture1_4.png);");
-    ui->C_B->setStyleSheet("background-color: rgb(81, 38, 255); font: 7.4pt \"Cantarell\";");
-    ui->D_B->setStyleSheet("background-color: rgb(81, 38, 255); font: 7.4pt \"Cantarell\";");
-    ui->F_B->setStyleSheet("background-color: rgb(81, 38, 255); font: 7.4pt \"Cantarell\";");
-    ui->G_B->setStyleSheet("background-color: rgb(81, 38, 255); font: 7.4pt \"Cantarell\";");
-    ui->A_B->setStyleSheet("background-color: rgb(81, 38, 255); font: 7.4pt \"Cantarell\";");
-    ui->C2_B->setStyleSheet("background-color: rgb(81, 38, 255); font: 7.4pt \"Cantarell\";");
-    ui->D2_B->setStyleSheet("background-color: rgb(81, 38, 255); font: 7.4pt \"Cantarell\";");
-    ui->F2_B->setStyleSheet("background-color: rgb(81, 38, 255); font: 7.4pt \"Cantarell\";");
-    ui->L1->setStyleSheet("background-color: rgb(255, 159, 159);");
-    ui->L2->setStyleSheet("background-color: rgb(255, 159, 159);");
-    ui->L3->setStyleSheet("background-color: rgb(255, 159, 159);");
-    ui->L4->setStyleSheet("background-color: rgb(255, 159, 159);");
-    ui->L5->setStyleSheet("background-color: rgb(255, 159, 159);");
-    ui->L6->setStyleSheet("background-color: rgb(255, 159, 159);");
-    ui->L7->setStyleSheet("background-color: rgb(255, 159, 159);");
-    ui->L8->setStyleSheet("background-color: rgb(255, 159, 159);");
-    ui->L9->setStyleSheet("background-color: rgb(255, 159, 159);");
-    ui->L10->setStyleSheet("background-color: rgb(255, 159, 159);");
-    ui->FileButton->setStyleSheet("color: rgb(255, 255, 255); background-color: rgb(83, 68, 150);");
-    ui->EditButton->setStyleSheet("color: rgb(255, 255, 255); background-color: rgb(83, 68, 150);");
-    ui->HelpButton->setStyleSheet("color: rgb(255, 255, 255); background-color: rgb(83, 68, 150);");
-    ui->AboutButton->setStyleSheet("color: rgb(255, 255, 255); background-color: rgb(83, 68, 150);");
-    ui->Keys->setStyleSheet("background-color: rgb(85, 87, 83);");
-    ui->File1->setStyleSheet("background-color: rgb(152, 130, 251);");
-    ui->File2->setStyleSheet("background-color: rgb(152, 130, 251);");
+//    ui->Picture->setStyleSheet("background-image: url(:/pictures/Picture1_4.png); image: url(:/pictures/Picture1_4.png);");
+//    ui->C_B->setStyleSheet("background-color: rgb(81, 38, 255); font: 7.4pt \"Cantarell\";");
+//    ui->D_B->setStyleSheet("background-color: rgb(81, 38, 255); font: 7.4pt \"Cantarell\";");
+//    ui->F_B->setStyleSheet("background-color: rgb(81, 38, 255); font: 7.4pt \"Cantarell\";");
+//    ui->G_B->setStyleSheet("background-color: rgb(81, 38, 255); font: 7.4pt \"Cantarell\";");
+//    ui->A_B->setStyleSheet("background-color: rgb(81, 38, 255); font: 7.4pt \"Cantarell\";");
+//    ui->C2_B->setStyleSheet("background-color: rgb(81, 38, 255); font: 7.4pt \"Cantarell\";");
+//    ui->D2_B->setStyleSheet("background-color: rgb(81, 38, 255); font: 7.4pt \"Cantarell\";");
+//    ui->F2_B->setStyleSheet("background-color: rgb(81, 38, 255); font: 7.4pt \"Cantarell\";");
+//    ui->L1->setStyleSheet("background-color: rgb(255, 159, 159);");
+//    ui->L2->setStyleSheet("background-color: rgb(255, 159, 159);");
+//    ui->L3->setStyleSheet("background-color: rgb(255, 159, 159);");
+//    ui->L4->setStyleSheet("background-color: rgb(255, 159, 159);");
+//    ui->L5->setStyleSheet("background-color: rgb(255, 159, 159);");
+//    ui->L6->setStyleSheet("background-color: rgb(255, 159, 159);");
+//    ui->L7->setStyleSheet("background-color: rgb(255, 159, 159);");
+//    ui->L8->setStyleSheet("background-color: rgb(255, 159, 159);");
+//    ui->L9->setStyleSheet("background-color: rgb(255, 159, 159);");
+//    ui->L10->setStyleSheet("background-color: rgb(255, 159, 159);");
+//    ui->FileButton->setStyleSheet("color: rgb(255, 255, 255); background-color: rgb(110, 110, 110);");
+//    ui->EditButton->setStyleSheet("color: rgb(255, 255, 255); background-color: rgb(110, 110, 110);");
+//    ui->HelpButton->setStyleSheet("color: rgb(255, 255, 255); background-color: rgb(110, 110, 110);");
+//    ui->AboutButton->setStyleSheet("color: rgb(255, 255, 255); background-color: rgb(110, 110, 110);");
+//    ui->DemoButton->setStyleSheet("color: rgb(255, 255, 255); background-color: rgb(110, 110, 110);");
+//    ui->PreferencesButton->setStyleSheet("color: rgb(255, 255, 255); background-color: rgb(110, 110, 110);");
+//    ui->RecButton->setStyleSheet("color: rgb(255, 255, 255); background-color: rgb(110, 110, 110);");
+//    ui->Keys->setStyleSheet("background-color: rgb(85, 87, 83);");
+//    ui->File1->setStyleSheet("background-color: rgb(152, 130, 251);");
+//    ui->File2->setStyleSheet("background-color: rgb(152, 130, 251);");
+    on_ReInit_clicked();
 }
 
 void MusicBoard::on_Theme2Button_clicked()
 {
+    extern QString C1;
+    extern QString C12;
+    extern QString CFont;
+    extern QString CKeyboard;
+    extern QString CButtons;
+    extern QString isKeyboarsAsLaunchpadShow;
+    extern QFont Font;
+    extern QString CFile;
+    extern int Bg;
+
+    C12="rgb(110, 110, 110)";
+    CFont="rgb(255, 255, 255)";
+    CKeyboard="rgb(239, 0, 143)";
+    CButtons="rgb(239, 0, 143)";
+    CFile="rgb(249, 149, 199)";
+    Bg=1;
+
     on_HiddenHideAllButton_clicked();
-    //ui->Picture->setStyleSheet("background-image: url(:/pictures/Theme2.png); image: url(:/pictures/Theme2.png);");
-    //ui->Picture->setStyleSheet("image: url(:/pictures/Theme21.png); background-image: url(:/pictures/Theme21.png);");
-    ui->Picture->setStyleSheet("background-image: url(:/pictures/Theme24.png); image: url(:/pictures/Theme24.png);");
-    ui->C_B->setStyleSheet("background-color: rgb(239, 0, 143); font: 7.4pt \"Cantarell\";");
-    ui->D_B->setStyleSheet("background-color: rgb(239, 0, 143); font: 7.4pt \"Cantarell\";");
-    ui->F_B->setStyleSheet("background-color: rgb(239, 0, 143); font: 7.4pt \"Cantarell\";");
-    ui->G_B->setStyleSheet("background-color: rgb(239, 0, 143); font: 7.4pt \"Cantarell\";");
-    ui->A_B->setStyleSheet("background-color: rgb(239, 0, 143); font: 7.4pt \"Cantarell\";");
-    ui->C2_B->setStyleSheet("background-color: rgb(239, 0, 143); font: 7.4pt \"Cantarell\";");
-    ui->D2_B->setStyleSheet("background-color: rgb(239, 0, 143); font: 7.4pt \"Cantarell\";");
-    ui->F2_B->setStyleSheet("background-color: rgb(239, 0, 143); font: 7.4pt \"Cantarell\";");
-    ui->L1->setStyleSheet("background-color: rgb(83, 68, 150);");
-    ui->L2->setStyleSheet("background-color: rgb(83, 68, 150);");
-    ui->L3->setStyleSheet("background-color: rgb(83, 68, 150);");
-    ui->L4->setStyleSheet("background-color: rgb(83, 68, 150);");
-    ui->L5->setStyleSheet("background-color: rgb(83, 68, 150);");
-    ui->L6->setStyleSheet("background-color: rgb(83, 68, 150);");
-    ui->L7->setStyleSheet("background-color: rgb(83, 68, 150);");
-    ui->L8->setStyleSheet("background-color: rgb(83, 68, 150);");
-    ui->L9->setStyleSheet("background-color: rgb(83, 68, 150);");
-    ui->L10->setStyleSheet("background-color: rgb(83, 68, 150);");
-    ui->FileButton->setStyleSheet("background-color: rgb(239, 0, 143); color: rgb(255, 255, 255);");
-    ui->EditButton->setStyleSheet("background-color: rgb(239, 0, 143); color: rgb(255, 255, 255);");
-    ui->HelpButton->setStyleSheet("background-color: rgb(239, 0, 143); color: rgb(255, 255, 255);");
-    ui->AboutButton->setStyleSheet("background-color: rgb(239, 0, 143); color: rgb(255, 255, 255);");
-    ui->Keys->setStyleSheet("background-color: rgb(81, 81, 81)");
-    ui->File1->setStyleSheet("background-color: rgb(249, 149, 199)");
-    ui->File2->setStyleSheet("background-color: rgb(249, 149, 199)");
+//    //ui->Picture->setStyleSheet("background-image: url(:/pictures/Theme2.png); image: url(:/pictures/Theme2.png);");
+//    //ui->Picture->setStyleSheet("image: url(:/pictures/Theme21.png); background-image: url(:/pictures/Theme21.png);");
+//    ui->Picture->setStyleSheet("background-image: url(:/pictures/Theme24.png); image: url(:/pictures/Theme24.png);");
+//    ui->C_B->setStyleSheet("background-color: rgb(239, 0, 143); font: 7.4pt \"Cantarell\";");
+//    ui->D_B->setStyleSheet("background-color: rgb(239, 0, 143); font: 7.4pt \"Cantarell\";");
+//    ui->F_B->setStyleSheet("background-color: rgb(239, 0, 143); font: 7.4pt \"Cantarell\";");
+//    ui->G_B->setStyleSheet("background-color: rgb(239, 0, 143); font: 7.4pt \"Cantarell\";");
+//    ui->A_B->setStyleSheet("background-color: rgb(239, 0, 143); font: 7.4pt \"Cantarell\";");
+//    ui->C2_B->setStyleSheet("background-color: rgb(239, 0, 143); font: 7.4pt \"Cantarell\";");
+//    ui->D2_B->setStyleSheet("background-color: rgb(239, 0, 143); font: 7.4pt \"Cantarell\";");
+//    ui->F2_B->setStyleSheet("background-color: rgb(239, 0, 143); font: 7.4pt \"Cantarell\";");
+//    ui->L1->setStyleSheet("background-color: rgb(110, 110, 110);");
+//    ui->L2->setStyleSheet("background-color: rgb(110, 110, 110);");
+//    ui->L3->setStyleSheet("background-color: rgb(110, 110, 110);");
+//    ui->L4->setStyleSheet("background-color: rgb(110, 110, 110);");
+//    ui->L5->setStyleSheet("background-color: rgb(110, 110, 110);");
+//    ui->L6->setStyleSheet("background-color: rgb(110, 110, 110);");
+//    ui->L7->setStyleSheet("background-color: rgb(110, 110, 110);");
+//    ui->L8->setStyleSheet("background-color: rgb(110, 110, 110);");
+//    ui->L9->setStyleSheet("background-color: rgb(110, 110, 110);");
+//    ui->L10->setStyleSheet("background-color: rgb(110, 110, 110);");
+//    ui->FileButton->setStyleSheet("background-color: rgb(239, 0, 143); color: rgb(255, 255, 255);");
+//    ui->EditButton->setStyleSheet("background-color: rgb(239, 0, 143); color: rgb(255, 255, 255);");
+//    ui->HelpButton->setStyleSheet("background-color: rgb(239, 0, 143); color: rgb(255, 255, 255);");
+//    ui->AboutButton->setStyleSheet("background-color: rgb(239, 0, 143); color: rgb(255, 255, 255);");
+//    ui->DemoButton->setStyleSheet("background-color: rgb(239, 0, 143); color: rgb(255, 255, 255);");
+//    ui->PreferencesButton->setStyleSheet("background-color: rgb(239, 0, 143); color: rgb(255, 255, 255);");
+//    ui->RecButton->setStyleSheet("background-color: rgb(239, 0, 143); color: rgb(255, 255, 255);");
+//    ui->Keys->setStyleSheet("background-color: rgb(81, 81, 81)");
+//    ui->File1->setStyleSheet("background-color: rgb(249, 149, 199)");
+//    ui->File2->setStyleSheet("background-color: rgb(249, 149, 199)");
+    on_ReInit_clicked();
 }
 
 //void MusicBoard::on_MuteButton_clicked()
@@ -3550,7 +4204,10 @@ void MusicBoard::on_Theme2Button_clicked()
 
 void MusicBoard::on_Set1_pressed()
 {
+    extern int isCPUEnabled;
+    if (isCPUEnabled==1){
     ui->Set1->setStyleSheet("color: rgb(255, 255, 255);background-image: url(:/pictures/Sets1.png);image: url(:/pictures/Sets1.png);background-color: rgba(159, 138, 252, 153);border-color: rgba(159, 138, 252, 153);");
+    }
 }
 
 void MusicBoard::on_Set1_released()
@@ -3560,7 +4217,10 @@ void MusicBoard::on_Set1_released()
 
 void MusicBoard::on_Set2_pressed()
 {
+    extern int isCPUEnabled;
+    if (isCPUEnabled==1){
     ui->Set2->setStyleSheet("color: rgb(255, 255, 255);background-image: url(:/pictures/Sets1.png);image: url(:/pictures/Sets1.png);background-color: rgba(159, 138, 252, 153);border-color: rgba(159, 138, 252, 153);");
+    }
 }
 
 void MusicBoard::on_Set2_released()
@@ -3570,7 +4230,10 @@ void MusicBoard::on_Set2_released()
 
 void MusicBoard::on_Set3_pressed()
 {
+    extern int isCPUEnabled;
+    if (isCPUEnabled==1){
     ui->Set3->setStyleSheet("color: rgb(255, 255, 255);background-image: url(:/pictures/Sets1.png);image: url(:/pictures/Sets1.png);background-color: rgba(159, 138, 252, 153);border-color: rgba(159, 138, 252, 153);");
+    }
 }
 
 void MusicBoard::on_Set3_released()
@@ -3580,7 +4243,10 @@ void MusicBoard::on_Set3_released()
 
 void MusicBoard::on_Set4_pressed()
 {
+    extern int isCPUEnabled;
+    if (isCPUEnabled==1){
     ui->Set4->setStyleSheet("color: rgb(255, 255, 255);background-image: url(:/pictures/Sets1.png);image: url(:/pictures/Sets1.png);background-color: rgba(159, 138, 252, 153);border-color: rgba(159, 138, 252, 153);");
+    }
 }
 
 void MusicBoard::on_Set4_released()
@@ -3598,7 +4264,10 @@ void MusicBoard::on_K1_released()
 
 void MusicBoard::on_K1_pressed()
 {
+    extern int isCPUEnabled;
+    if (isCPUEnabled==1){
     ui->K1->setStyleSheet(K_Pre);
+    }
 }
 
 void MusicBoard::on_K2_released()
@@ -3608,7 +4277,10 @@ void MusicBoard::on_K2_released()
 
 void MusicBoard::on_K2_pressed()
 {
+    extern int isCPUEnabled;
+    if (isCPUEnabled==1){
     ui->K2->setStyleSheet(K_Pre);
+    }
 }
 
 void MusicBoard::on_K3_released()
@@ -3618,7 +4290,10 @@ void MusicBoard::on_K3_released()
 
 void MusicBoard::on_K3_pressed()
 {
+    extern int isCPUEnabled;
+    if (isCPUEnabled==1){
     ui->K3->setStyleSheet(K_Pre);
+    }
 }
 
 void MusicBoard::on_K4_released()
@@ -3628,7 +4303,10 @@ void MusicBoard::on_K4_released()
 
 void MusicBoard::on_K4_pressed()
 {
+    extern int isCPUEnabled;
+    if (isCPUEnabled==1){
     ui->K4->setStyleSheet(K_Pre);
+    }
 }
 
 QString P_Released="background-color: rgba(136, 138, 133, 179);background-image: url(:/pictures/LaunchPad.png);image: url(:/pictures/LaunchPad.png);";
@@ -3641,7 +4319,10 @@ void MusicBoard::on_P7_released()
 
 void MusicBoard::on_P7_pressed()
 {
+    extern int isCPUEnabled;
+    if (isCPUEnabled==1){
     ui->P7->setStyleSheet(P_Pre);
+    }
 }
 
 void MusicBoard::on_P8_released()
@@ -3652,13 +4333,19 @@ void MusicBoard::on_P8_released()
 
 void MusicBoard::on_P8_pressed()
 {
+    extern int isCPUEnabled;
+    if (isCPUEnabled==1){
     ui->P8->setStyleSheet(P_Pre);
+    }
 }
 
 
 void MusicBoard::on_P1_pressed()
 {
+    extern int isCPUEnabled;
+    if (isCPUEnabled==1){
     ui->P1->setStyleSheet(P_Pre);
+    }
 }
 
 void MusicBoard::on_P1_released()
@@ -3668,7 +4355,10 @@ void MusicBoard::on_P1_released()
 
 void MusicBoard::on_P10_pressed()
 {
+    extern int isCPUEnabled;
+    if (isCPUEnabled==1){
     ui->P10->setStyleSheet(P_Pre);
+    }
 }
 
 void MusicBoard::on_P10_released()
@@ -3678,7 +4368,10 @@ void MusicBoard::on_P10_released()
 
 void MusicBoard::on_P11_pressed()
 {
+    extern int isCPUEnabled;
+    if (isCPUEnabled==1){
     ui->P11->setStyleSheet(P_Pre);
+    }
 }
 
 void MusicBoard::on_P11_released()
@@ -3688,7 +4381,10 @@ void MusicBoard::on_P11_released()
 
 void MusicBoard::on_P12_pressed()
 {
+    extern int isCPUEnabled;
+    if (isCPUEnabled==1){
     ui->P12->setStyleSheet(P_Pre);
+    }
 }
 
 void MusicBoard::on_P12_released()
@@ -3698,7 +4394,10 @@ void MusicBoard::on_P12_released()
 
 void MusicBoard::on_P2_pressed()
 {
+    extern int isCPUEnabled;
+    if (isCPUEnabled==1){
     ui->P2->setStyleSheet(P_Pre);
+    }
 }
 
 void MusicBoard::on_P2_released()
@@ -3708,7 +4407,10 @@ void MusicBoard::on_P2_released()
 
 void MusicBoard::on_P3_pressed()
 {
+    extern int isCPUEnabled;
+    if (isCPUEnabled==1){
     ui->P3->setStyleSheet(P_Pre);
+    }
 }
 
 void MusicBoard::on_P3_released()
@@ -3718,7 +4420,10 @@ void MusicBoard::on_P3_released()
 
 void MusicBoard::on_P4_pressed()
 {
+    extern int isCPUEnabled;
+    if (isCPUEnabled==1){
     ui->P4->setStyleSheet(P_Pre);
+    }
 }
 
 void MusicBoard::on_P4_released()
@@ -3728,7 +4433,10 @@ void MusicBoard::on_P4_released()
 
 void MusicBoard::on_P5_pressed()
 {
+    extern int isCPUEnabled;
+    if (isCPUEnabled==1){
     ui->P5->setStyleSheet(P_Pre);
+    }
 }
 
 void MusicBoard::on_P5_released()
@@ -3743,12 +4451,18 @@ void MusicBoard::on_P6_released()
 
 void MusicBoard::on_P6_pressed()
 {
+    extern int isCPUEnabled;
+    if (isCPUEnabled==1){
     ui->P6->setStyleSheet(P_Pre);
+    }
 }
 
 void MusicBoard::on_P9_pressed()
 {
+    extern int isCPUEnabled;
+    if (isCPUEnabled==1){
     ui->P9->setStyleSheet(P_Pre);
+    }
 }
 
 void MusicBoard::on_P9_released()
@@ -3763,12 +4477,18 @@ void MusicBoard::on_P13_released()
 
 void MusicBoard::on_P13_pressed()
 {
+    extern int isCPUEnabled;
+    if (isCPUEnabled==1){
     ui->P13->setStyleSheet("background-color: rgb(136, 138, 133);color: rgb(255, 255, 255);background-image: url(:/pictures/KeyD1.png);image: url(:/pictures/KeyD1.png);");
+    }
 }
 
 void MusicBoard::on_P17_pressed()
 {
+    extern int isCPUEnabled;
+    if (isCPUEnabled==1){
     ui->P17->setStyleSheet("background-color: rgb(136, 138, 133);color: rgb(255, 255, 255);background-image: url(:/pictures/KeyD1.png);image: url(:/pictures/KeyD1.png);");
+    }
 }
 
 void MusicBoard::on_P17_released()
@@ -3783,12 +4503,18 @@ void MusicBoard::on_P16_released()
 
 void MusicBoard::on_P16_pressed()
 {
+    extern int isCPUEnabled;
+    if (isCPUEnabled==1){
     ui->P16->setStyleSheet("background-color: rgb(136, 138, 133);background-image: url(:/pictures/KeyDL1.png);image: url(:/pictures/KeyDL1.png);color: rgb(255, 255, 255);");
+    }
 }
 
 void MusicBoard::on_P14_pressed()
 {
+    extern int isCPUEnabled;
+    if (isCPUEnabled==1){
     ui->P14->setStyleSheet("background-color: rgba(255, 255, 255, 0);background-image: url(:/pictures/KeysLT1.png);image: url(:/pictures/KeysLT1.png);color: rgb(255, 255, 255);");
+    }
 }
 
 void MusicBoard::on_P14_released()
@@ -3803,7 +4529,10 @@ void MusicBoard::on_P15_released()
 
 void MusicBoard::on_P15_pressed()
 {
+    extern int isCPUEnabled;
+    if (isCPUEnabled==1){
     ui->P15->setStyleSheet("background-color: rgba(255, 255, 255, 0);background-image: url(:/pictures/KeysLT1.png);image: url(:/pictures/KeysLT1.png);color: rgb(255, 255, 255);");
+    }
 }
 
 void MusicBoard::on_VolSlider_valueChanged(int position)
@@ -3888,9 +4617,9 @@ void MusicBoard::on_MasterRight_clicked()
 void MusicBoard::on_RecButton_clicked()
 {
     on_HiddenHideAllButton_clicked();
-//    AudioRecorder settings;
-//    settings.setModal(true);
-//    settings.exec();
+    AudioRecorder settings;
+    settings.setModal(true);
+    settings.exec();
 }
 
 void MusicBoard::on_DemoButton_clicked()
@@ -4064,7 +4793,7 @@ void MusicBoard::on_DoneDemoButton_clicked()
 }
 
 void MusicBoard::on_ShowMBTerminalButton_clicked()
-{
+{   on_HiddenHideAllButton_clicked();
     if (isMBTerminal==0){
         ui->MBTerminal->show();
         isMBTerminal=1;
@@ -4077,8 +4806,10 @@ void MusicBoard::on_ShowMBTerminalButton_clicked()
 }
 
 void MusicBoard::on_CloseMBTerminal_clicked()
-{   on_HiddenHideAllButton_clicked();
+{
+    on_HiddenHideAllButton_clicked();
     isMBTerminal=0;
+    ui->ShowMBTerminalButton->setText("Show Terminal");
     ui->MBTerminal->hide();
 }
 
@@ -4092,3 +4823,597 @@ void MusicBoard::on_PreferencesButton_clicked()
     settings.setModal(true);
     settings.exec();
 }
+
+void MusicBoard::on_SaveasButton_clicked()
+{
+    on_HiddenHideAllButton_clicked();
+///    AudioRecorder settings; /// De ce nu merge
+///    settings.setModal(true);
+///    settings.exec();
+}
+
+    void MusicBoard::on_LButton_clicked()
+    {   extern int isCoverShow;
+        if(isCoverShow==1){
+            if (isCover==1){
+                ui->Cover->hide();
+                isCover=0;
+                ui->LButton->setStyleSheet("background-color: rgb(186, 189, 182);");
+            }
+            else {
+                ui->Cover->show();
+                isCover=1;
+                ui->LButton->setStyleSheet("color: rgb(239, 41, 41); background-color: rgb(255, 255, 255);");
+            }
+        }
+    }
+
+
+
+void MusicBoard::on_MBTerminalTextActual_editingFinished()
+{
+
+    extern QString P1_R;
+    extern QString P2_R;
+    extern QString P3_R;
+    extern QString P4_R;
+    extern QString P5_R;
+    extern QString P6_R;
+    extern QString P7_R;
+    extern QString P8_R;
+    extern QString P9_R;
+    extern QString P10_R;
+    extern QString P11_R;
+    extern QString P12_R;
+    extern QString P13_R;
+    extern QString P14_R;
+    extern QString P15_R;
+    extern QString P16_R;
+    extern QString P17_R;
+    extern QString C1;
+    extern QString C12;
+    extern QString CFont;
+    extern QString CKeyboard;
+    extern QString CFile;
+    extern QString C1_Custom;
+    extern QString C12_Custom;
+    extern QString CFont_Custom;
+    extern QString CKeyboard_Custom;
+    extern QString CFile_Custom;
+    extern QString CButtons_Custom;
+    extern QString MainColor;
+    ///extern QString ShowColor_4"rgb(?, ?, ?)";
+    ///extern QString ShowColor_5"rgb(?, ?, ?)";
+    ///extern QString ShowColor_6"rgb(?, ?, ?)";
+    extern QString CButtons;
+
+    extern int P1_A;
+    extern int P2_A;
+    extern int P3_A;
+    extern int P4_A;
+    extern int P5_A;
+    extern int P6_A;
+    extern int P7_A;
+    extern int P8_A;
+    extern int P9_A;
+    extern int P10_A;
+    extern int P11_A;
+    extern int P12_A;
+    extern int P13_A;
+    extern int P14_A;
+    extern int P15_A;
+    extern int P16_A;
+    extern int P17_A;
+    extern int KeyboardVol;
+    extern int MasterVol;
+    extern int R1_A;
+    extern int R2_A;
+    extern int R3_A;
+    extern int R4_A;
+    extern int R5_A;
+    extern int R6_A;
+    extern int R7_A;
+    extern int R8_A;
+    extern int Masters;
+    extern int NumLock;
+    extern int FontColor;
+    extern int BgColor1;
+    extern int BgColor2;
+    extern int Bg;
+    extern int Bg_Custom;
+    extern int On;
+    extern int On1;
+    extern int isCoverShow;
+    extern int isNumLockShow;
+    extern int isSureShow;
+    extern int isImages;
+    extern int isCPUEnabled;
+    extern int isKeyboardAsLaunchpadShow;
+    extern int Notes;
+    extern int ReVal; // ColorPicker
+    extern int GrVal; // ColorPicker
+    extern int BlVal; // ColorPicker
+
+
+
+    QString MBTerminalText;
+    MBTerminalText=ui->MBTerminalTextActual->text();
+    ui->MBTerminalTextActual->setText("");
+
+    if (MBTerminalText=="Mb Dev"){
+        ui->MBTerminalTextActual->setText("Tr, Val");
+    }
+
+
+    if (MBTerminalText=="Mb Dev Tr"){
+        extern int Bg;
+        Bg=0;
+        ui->MBoard->setStyleSheet("background-color: rgba(0, 0, 0, 0);");
+        ui->Clear->setStyleSheet("background-color: rgba(0, 0, 0, 0);");
+        ui->Help->setStyleSheet("background-color: rgba(0, 0, 0, 0);");
+        ui->About->setStyleSheet("background-color: rgba(0, 0, 0, 0);");
+        ui->Licence->setStyleSheet("background-color: rgba(0, 0, 0, 0);");
+        ui->MBTerminal->setStyleSheet("background-color: rgba(0, 0, 0, 0);");
+        ui->NumLockInfo->setStyleSheet("background-color: rgba(0, 0, 0, 0);");
+        ui->ProjectNotes->setStyleSheet("background-color: rgba(0, 0, 0, 0);");
+        ui->Rhythm2->setStyleSheet("background-color: rgba(0, 0, 0, 0);");
+        ui->MB->setStyleSheet(" background-color: rgba(255, 255, 255, 0);");
+            ui->MB_2->setStyleSheet(" background-color: rgba(255, 255, 255, 0);");
+            ui->MB_3->setStyleSheet(" background-color: rgba(255, 255, 255, 0);");
+            ui->MB_4->setStyleSheet(" background-color: rgba(255, 255, 255, 0);");
+            ui->MB_5->setStyleSheet(" background-color: rgba(255, 255, 255, 0);");
+            ui->MB_6->setStyleSheet(" background-color: rgba(255, 255, 255, 0);");
+            ui->MB_7->setStyleSheet(" background-color: rgba(255, 255, 255, 0);");
+            ui->MB_8->setStyleSheet(" background-color: rgba(255, 255, 255, 0);");
+            ui->MB_9->setStyleSheet(" background-color: rgba(255, 255, 255, 0);");
+            ui->MB_10->setStyleSheet(" background-color: rgba(255, 255, 255, 0);");
+            ui->MB_11->setStyleSheet(" background-color: rgba(255, 255, 255, 0);");
+        ui->label_2->setStyleSheet("color: rgb(255, 255, 255); background-color: rgba(0, 0, 0, 0)");
+        ui->label_3->setStyleSheet("color: rgb(255, 255, 255); background-color: rgba(0, 0, 0, 0)");
+        ///ui->label_7->setStyleSheet("color: rgb(255, 255, 255); background-color: rgba(0, 0, 0, 0)");
+        ui->label_8->setStyleSheet("color: rgb(255, 255, 255); background-color: rgba(0, 0, 0, 0)");
+        ui->label_11->setStyleSheet("color: rgb(255, 255, 255); background-color: rgba(0, 0, 0, 0)");
+        ui->label_15->setStyleSheet("color: rgb(255, 255, 255); background-color: rgba(0, 0, 0, 0)");
+        ui->label_16->setStyleSheet("color: rgb(255, 255, 255); background-color: rgba(0, 0, 0, 0)");
+        ui->label_17->setStyleSheet("color: rgb(255, 255, 255); background-color: rgba(0, 0, 0, 0)");
+        ui->label_17->setStyleSheet("color: rgb(255, 255, 255); background-color: rgba(0, 0, 0, 0)");
+        ui->label_17->setStyleSheet("color: rgb(255, 255, 255); background-color: rgba(0, 0, 0, 0)");
+        ui->label_20->setStyleSheet("color: rgb(255, 255, 255); background-color: rgba(0, 0, 0, 0)");
+        ui->label_25->setStyleSheet("color: rgb(255, 255, 255); background-color: rgba(0, 0, 0, 0)");
+        ui->label_26->setStyleSheet("color: rgb(255, 255, 255); background-color: rgba(0, 0, 0, 0)");
+        ui->label_31->setStyleSheet("color: rgb(255, 255, 255); background-color: rgba(0, 0, 0, 0)");
+        ui->label_32->setStyleSheet("color: rgb(255, 255, 255); background-color: rgba(0, 0, 0, 0)");
+        ui->label_33->setStyleSheet("color: rgb(255, 255, 255); background-color: rgba(0, 0, 0, 0)");
+        ui->label_34->setStyleSheet("color: rgb(255, 255, 255); background-color: rgba(0, 0, 0, 0)");
+        ui->label_35->setStyleSheet("color: rgb(255, 255, 255); background-color: rgba(0, 0, 0, 0)");
+        ui->label_36->setStyleSheet("color: rgb(255, 255, 255); background-color: rgba(0, 0, 0, 0)");
+        ui->label_37->setStyleSheet("color: rgb(255, 255, 255); background-color: rgba(0, 0, 0, 0)");
+        ui->label_38->setStyleSheet("color: rgb(255, 255, 255); background-color: rgba(0, 0, 0, 0)");
+        ui->label_39->setStyleSheet("color: rgb(255, 255, 255); background-color: rgba(0, 0, 0, 0)");
+        ui->label_42->setStyleSheet("color: rgb(255, 255, 255); background-color: rgba(0, 0, 0, 0)");
+        ui->label_43->setStyleSheet("color: rgb(255, 255, 255); background-color: rgba(0, 0, 0, 0)");
+
+     ui->File1->setStyleSheet("background-color: rgba(0, 0, 0, 0); color: rgb(255, 255, 255);");
+     ui->File2->setStyleSheet("background-color: rgba(0, 0, 0, 0); color: rgb(255, 255, 255);");
+
+     ui->Keys->setStyleSheet("background-color: rgba(0, 0, 0, 0); color: rgba(0, 0, 0, 0);");
+     ui->Launchpad->setStyleSheet("background-color: rgba(0, 0, 0, 0); color: rgba(0, 0, 0, 0);");
+     ui->Picture->setStyleSheet("background-color: rgba(0, 0, 0, 0); color: rgba(0, 0, 0, 0);");
+
+        ui->L1->setStyleSheet("background-color: rgba(0, 0, 0, 0);");
+        ui->L2->setStyleSheet("background-color: rgba(0, 0, 0, 0);");
+        ui->L3->setStyleSheet("background-color: rgba(0, 0, 0, 0);");
+        ui->L4->setStyleSheet("background-color: rgba(0, 0, 0, 0);");
+        ui->L5->setStyleSheet("background-color: rgba(0, 0, 0, 0);");
+        ui->L6->setStyleSheet("background-color: rgba(0, 0, 0, 0);");
+        ui->L7->setStyleSheet("background-color: rgba(0, 0, 0, 0);");
+        ui->L7_2->setStyleSheet("background-color: rgba(0, 0, 0, 0);");
+        ui->L8->setStyleSheet("background-color: rgba(0, 0, 0, 0);");
+        ui->L9->setStyleSheet("background-color: rgba(0, 0, 0, 0);");
+        ui->L10->setStyleSheet("background-color: rgba(0, 0, 0, 0);");
+        ui->L11->setStyleSheet("background-color: rgba(0, 0, 0, 0);");
+
+        ui->C_B->setStyleSheet("background-color: rgba(0, 0, 0, 0); font: 7.4pt \"Cantarell\";");
+        ui->D_B->setStyleSheet("background-color: rgba(0, 0, 0, 0); font: 7.4pt \"Cantarell\";");
+        ui->F_B->setStyleSheet("background-color: rgba(0, 0, 0, 0); font: 7.4pt \"Cantarell\";");
+        ui->G_B->setStyleSheet("background-color: rgba(0, 0, 0, 0); font: 7.4pt \"Cantarell\";");
+        ui->A_B->setStyleSheet("background-color: rgba(0, 0, 0, 0); font: 7.4pt \"Cantarell\";");
+        ui->C2_B->setStyleSheet("background-color: rgba(0, 0, 0, 0); font: 7.4pt \"Cantarell\";");
+        ui->D2_B->setStyleSheet("background-color: rgba(0, 0, 0, 0); font: 7.4pt \"Cantarell\";");
+        ui->F2_B->setStyleSheet("background-color: rgba(0, 0, 0, 0); font: 7.4pt \"Cantarell\";");
+
+            ui->FileButton->setStyleSheet("background-color:rgba(0, 0, 0, 0); color: rgb(255, 255, 255);");
+            ui->EditButton->setStyleSheet("background-color:rgba(0, 0, 0, 0); color: rgb(255, 255, 255);");
+            ui->AboutButton->setStyleSheet("background-color:rgba(0, 0, 0, 0); color: rgb(255, 255, 255);");
+            ui->HelpButton->setStyleSheet("background-color:rgba(0, 0, 0, 0); color: rgb(255, 255, 255);");
+            ui->PreferencesButton->setStyleSheet("background-color:rgba(0, 0, 0, 0); color: rgb(255, 255, 255);");
+            ui->DemoButton->setStyleSheet("background-color:rgba(0, 0, 0, 0); color: rgb(255, 255, 255);");
+            ui->RecButton->setStyleSheet("background-color:rgba(0, 0, 0, 0); color: rgb(255, 255, 255);");
+
+    }
+
+
+    if (MBTerminalText=="Mb Dev Val"){
+        ui->MBTerminalTextActual->setText("Enter Var");
+        if (MBTerminalText=="Bg"){
+            ui->MBTerminalTextActual->setText(QString::number(Bg));
+        }
+        if (MBTerminalText=="Bg_Custom"){
+            ui->MBTerminalTextActual->setText(QString::number(Bg_Custom));
+        }
+        if (MBTerminalText=="P1_A"){
+            ui->MBTerminalTextActual->setText(QString::number(P1_A));
+        }
+        if (MBTerminalText=="P2_A"){
+            ui->MBTerminalTextActual->setText(QString::number(P2_A));
+        }
+        if (MBTerminalText=="P3_A"){
+            ui->MBTerminalTextActual->setText(QString::number(P3_A));
+        }
+        if (MBTerminalText=="P4_A"){
+            ui->MBTerminalTextActual->setText(QString::number(P4_A));
+        }
+        if (MBTerminalText=="P5_A"){
+            ui->MBTerminalTextActual->setText(QString::number(P5_A));
+        }
+        if (MBTerminalText=="P6_A"){
+            ui->MBTerminalTextActual->setText(QString::number(P6_A));
+        }
+        if (MBTerminalText=="P7_A"){
+            ui->MBTerminalTextActual->setText(QString::number(P7_A));
+        }
+        if (MBTerminalText=="P8_A"){
+            ui->MBTerminalTextActual->setText(QString::number(P8_A));
+        }
+        if (MBTerminalText=="P9_A"){
+            ui->MBTerminalTextActual->setText(QString::number(P9_A));
+        }
+        if (MBTerminalText=="P10_A"){
+            ui->MBTerminalTextActual->setText(QString::number(P10_A));
+        }
+        if (MBTerminalText=="P11_A"){
+            ui->MBTerminalTextActual->setText(QString::number(P11_A));
+        }
+        if (MBTerminalText=="P12_A"){
+            ui->MBTerminalTextActual->setText(QString::number(P12_A));
+        }
+        if (MBTerminalText=="P13_A"){
+            ui->MBTerminalTextActual->setText(QString::number(P13_A));
+        }
+        if (MBTerminalText=="P14_A"){
+            ui->MBTerminalTextActual->setText(QString::number(P14_A));
+        }
+        if (MBTerminalText=="P15_A"){
+            ui->MBTerminalTextActual->setText(QString::number(P15_A));
+        }
+        if (MBTerminalText=="P16_A"){
+            ui->MBTerminalTextActual->setText(QString::number(P16_A));
+        }
+        if (MBTerminalText=="P17_A"){
+            ui->MBTerminalTextActual->setText(QString::number(P17_A));
+        }
+        if (MBTerminalText=="R1_A"){
+            ui->MBTerminalTextActual->setText(QString::number(R1_A));
+        }
+        if (MBTerminalText=="R2_A"){
+            ui->MBTerminalTextActual->setText(QString::number(R2_A));
+        }
+        if (MBTerminalText=="R3_A"){
+            ui->MBTerminalTextActual->setText(QString::number(R3_A));
+        }
+        if (MBTerminalText=="R4_A"){
+            ui->MBTerminalTextActual->setText(QString::number(R4_A));
+        }
+        if (MBTerminalText=="R5_A"){
+            ui->MBTerminalTextActual->setText(QString::number(R5_A));
+        }
+        if (MBTerminalText=="R6_A"){
+            ui->MBTerminalTextActual->setText(QString::number(R6_A));
+        }
+        if (MBTerminalText=="R7_A"){
+            ui->MBTerminalTextActual->setText(QString::number(R7_A));
+        }
+        if (MBTerminalText=="R8_A"){
+            ui->MBTerminalTextActual->setText(QString::number(R8_A));
+        }
+        if (MBTerminalText=="MasterVol"){
+            ui->MBTerminalTextActual->setText(QString::number(MasterVol));
+        }
+        if (MBTerminalText=="KeyboardVol"){
+            ui->MBTerminalTextActual->setText(QString::number(KeyboardVol));
+        }
+        if (MBTerminalText=="Masters"){
+            ui->MBTerminalTextActual->setText(QString::number(Masters));
+        }
+        if (MBTerminalText=="NumLock"){
+            ui->MBTerminalTextActual->setText(QString::number(NumLock));
+        }
+        if (MBTerminalText=="FontColor"){
+            ui->MBTerminalTextActual->setText(QString::number(FontColor));
+        }
+        if (MBTerminalText=="BgColor1"){
+            ui->MBTerminalTextActual->setText(QString::number(BgColor1));
+        }
+        if (MBTerminalText=="BgColor2"){
+            ui->MBTerminalTextActual->setText(QString::number(BgColor2));
+        }
+        if (MBTerminalText=="isCoverShow"){
+            ui->MBTerminalTextActual->setText(QString::number(isCoverShow));
+        }
+        if (MBTerminalText=="isNumLockShow"){
+            ui->MBTerminalTextActual->setText(QString::number(isNumLockShow));
+        }
+        if (MBTerminalText=="isSureShow"){
+            ui->MBTerminalTextActual->setText(QString::number(isSureShow));
+        }
+        if (MBTerminalText=="isImages"){
+            ui->MBTerminalTextActual->setText(QString::number(isImages));
+        }
+        if (MBTerminalText=="isCPUEnabled"){
+            ui->MBTerminalTextActual->setText(QString::number(isCPUEnabled));
+        }
+        if (MBTerminalText=="isKeyboardAsLaunchpadShow"){
+            ui->MBTerminalTextActual->setText(QString::number(isKeyboardAsLaunchpadShow));
+        }
+        if (MBTerminalText=="Notes"){
+            ui->MBTerminalTextActual->setText(QString::number(Notes));
+        }
+        if (MBTerminalText=="ReVal"){
+            ui->MBTerminalTextActual->setText(QString::number(ReVal));
+        }
+        if (MBTerminalText=="GrVal"){
+            ui->MBTerminalTextActual->setText(QString::number(GrVal));
+        }
+        if (MBTerminalText=="BlVal"){
+            ui->MBTerminalTextActual->setText(QString::number(BlVal));
+        }
+}
+
+    if (MBTerminalText=="Mb Dev Val Bg"){
+        ui->MBTerminalTextActual->setText(QString::number(Bg));
+    }
+    if (MBTerminalText=="Mb Dev Val Bg_Custom"){
+        ui->MBTerminalTextActual->setText(QString::number(Bg_Custom));
+    }
+    if (MBTerminalText=="Mb Dev Val P1_A"){
+        ui->MBTerminalTextActual->setText(QString::number(P1_A));
+    }
+    if (MBTerminalText=="Mb Dev Val P2_A"){
+        ui->MBTerminalTextActual->setText(QString::number(P2_A));
+    }
+    if (MBTerminalText=="Mb Dev Val P3_A"){
+        ui->MBTerminalTextActual->setText(QString::number(P3_A));
+    }
+    if (MBTerminalText=="Mb Dev Val P4_A"){
+        ui->MBTerminalTextActual->setText(QString::number(P4_A));
+    }
+    if (MBTerminalText=="Mb Dev Val P5_A"){
+        ui->MBTerminalTextActual->setText(QString::number(P5_A));
+    }
+    if (MBTerminalText=="Mb Dev Val P6_A"){
+        ui->MBTerminalTextActual->setText(QString::number(P6_A));
+    }
+    if (MBTerminalText=="Mb Dev Val P7_A"){
+        ui->MBTerminalTextActual->setText(QString::number(P7_A));
+    }
+    if (MBTerminalText=="Mb Dev Val P8_A"){
+        ui->MBTerminalTextActual->setText(QString::number(P8_A));
+    }
+    if (MBTerminalText=="Mb Dev Val P9_A"){
+        ui->MBTerminalTextActual->setText(QString::number(P9_A));
+    }
+    if (MBTerminalText=="Mb Dev Val P10_A"){
+        ui->MBTerminalTextActual->setText(QString::number(P10_A));
+    }
+    if (MBTerminalText=="Mb Dev Val P11_A"){
+        ui->MBTerminalTextActual->setText(QString::number(P11_A));
+    }
+    if (MBTerminalText=="Mb Dev Val P12_A"){
+        ui->MBTerminalTextActual->setText(QString::number(P12_A));
+    }
+    if (MBTerminalText=="Mb Dev Val P13_A"){
+        ui->MBTerminalTextActual->setText(QString::number(P13_A));
+    }
+    if (MBTerminalText=="Mb Dev Val P14_A"){
+        ui->MBTerminalTextActual->setText(QString::number(P14_A));
+    }
+    if (MBTerminalText=="Mb Dev Val P15_A"){
+        ui->MBTerminalTextActual->setText(QString::number(P15_A));
+    }
+    if (MBTerminalText=="Mb Dev Val P16_A"){
+        ui->MBTerminalTextActual->setText(QString::number(P16_A));
+    }
+    if (MBTerminalText=="Mb Dev Val P17_A"){
+        ui->MBTerminalTextActual->setText(QString::number(P17_A));
+    }
+    if (MBTerminalText=="Mb Dev Val R1_A"){
+        ui->MBTerminalTextActual->setText(QString::number(R1_A));
+    }
+    if (MBTerminalText=="Mb Dev Val R2_A"){
+        ui->MBTerminalTextActual->setText(QString::number(R2_A));
+    }
+    if (MBTerminalText=="Mb Dev Val R3_A"){
+        ui->MBTerminalTextActual->setText(QString::number(R3_A));
+    }
+    if (MBTerminalText=="Mb Dev Val R4_A"){
+        ui->MBTerminalTextActual->setText(QString::number(R4_A));
+    }
+    if (MBTerminalText=="Mb Dev Val R5_A"){
+        ui->MBTerminalTextActual->setText(QString::number(R5_A));
+    }
+    if (MBTerminalText=="Mb Dev Val R6_A"){
+        ui->MBTerminalTextActual->setText(QString::number(R6_A));
+    }
+    if (MBTerminalText=="Mb Dev Val R7_A"){
+        ui->MBTerminalTextActual->setText(QString::number(R7_A));
+    }
+    if (MBTerminalText=="Mb Dev Val R8_A"){
+        ui->MBTerminalTextActual->setText(QString::number(R8_A));
+    }
+    if (MBTerminalText=="Mb Dev Val MasterVol"){
+        ui->MBTerminalTextActual->setText(QString::number(MasterVol));
+    }
+    if (MBTerminalText=="Mb Dev Val KeyboardVol"){
+        ui->MBTerminalTextActual->setText(QString::number(KeyboardVol));
+    }
+    if (MBTerminalText=="Mb Dev Val Masters"){
+        ui->MBTerminalTextActual->setText(QString::number(Masters));
+    }
+    if (MBTerminalText=="Mb Dev Val NumLock"){
+        ui->MBTerminalTextActual->setText(QString::number(NumLock));
+    }
+    if (MBTerminalText=="Mb Dev Val FontColor"){
+        ui->MBTerminalTextActual->setText(QString::number(FontColor));
+    }
+    if (MBTerminalText=="Mb Dev Val BgColor1"){
+        ui->MBTerminalTextActual->setText(QString::number(BgColor1));
+    }
+    if (MBTerminalText=="Mb Dev Val BgColor2"){
+        ui->MBTerminalTextActual->setText(QString::number(BgColor2));
+    }
+    if (MBTerminalText=="Mb Dev Val isCoverShow"){
+        ui->MBTerminalTextActual->setText(QString::number(isCoverShow));
+    }
+    if (MBTerminalText=="Mb Dev Val isNumLockShow"){
+        ui->MBTerminalTextActual->setText(QString::number(isNumLockShow));
+    }
+    if (MBTerminalText=="Mb Dev Val isSureShow"){
+        ui->MBTerminalTextActual->setText(QString::number(isSureShow));
+    }
+    if (MBTerminalText=="Mb Dev Val isImages"){
+        ui->MBTerminalTextActual->setText(QString::number(isImages));
+    }
+    if (MBTerminalText=="Mb Dev Val isCPUEnabled"){
+        ui->MBTerminalTextActual->setText(QString::number(isCPUEnabled));
+    }
+    if (MBTerminalText=="Mb Dev Val isKeyboardAsLaunchpadShow"){
+        ui->MBTerminalTextActual->setText(QString::number(isKeyboardAsLaunchpadShow));
+    }
+    if (MBTerminalText=="Mb Dev Val Notes"){
+        ui->MBTerminalTextActual->setText(QString::number(Notes));
+    }
+    if (MBTerminalText=="Mb Dev Val ReVal"){
+        ui->MBTerminalTextActual->setText(QString::number(ReVal));
+    }
+    if (MBTerminalText=="Mb Dev Val GrVal"){
+        ui->MBTerminalTextActual->setText(QString::number(GrVal));
+    }
+    if (MBTerminalText=="Mb Dev Val BlVal"){
+        ui->MBTerminalTextActual->setText(QString::number(BlVal));
+    }
+
+
+
+
+    if (MBTerminalText=="Mb Dev Val P1_R"){
+        ui->MBTerminalTextActual->setText(P1_R);
+    }
+    if (MBTerminalText=="Mb Dev Val P2_R"){
+        ui->MBTerminalTextActual->setText(P2_R);
+    }
+    if (MBTerminalText=="Mb Dev Val P3_R"){
+        ui->MBTerminalTextActual->setText(P3_R);
+    }
+    if (MBTerminalText=="Mb Dev Val P4_R"){
+        ui->MBTerminalTextActual->setText(P4_R);
+    }
+    if (MBTerminalText=="Mb Dev Val P5_R"){
+        ui->MBTerminalTextActual->setText(P5_R);
+    }
+    if (MBTerminalText=="Mb Dev Val P6_R"){
+        ui->MBTerminalTextActual->setText(P6_R);
+    }
+    if (MBTerminalText=="Mb Dev Val P7_R"){
+        ui->MBTerminalTextActual->setText(P7_R);
+    }
+    if (MBTerminalText=="Mb Dev Val P8_R"){
+        ui->MBTerminalTextActual->setText(P8_R);
+    }
+    if (MBTerminalText=="Mb Dev Val P9_R"){
+        ui->MBTerminalTextActual->setText(P9_R);
+    }
+    if (MBTerminalText=="Mb Dev Val P10_R"){
+        ui->MBTerminalTextActual->setText(P10_R);
+    }
+    if (MBTerminalText=="Mb Dev Val P11_R"){
+        ui->MBTerminalTextActual->setText(P11_R);
+    }
+    if (MBTerminalText=="Mb Dev Val P12_R"){
+        ui->MBTerminalTextActual->setText(P12_R);
+    }
+    if (MBTerminalText=="Mb Dev Val P13_R"){
+        ui->MBTerminalTextActual->setText(P13_R);
+    }
+    if (MBTerminalText=="Mb Dev Val P14_R"){
+        ui->MBTerminalTextActual->setText(P14_R);
+    }
+    if (MBTerminalText=="Mb Dev Val P15_R"){
+        ui->MBTerminalTextActual->setText(P15_R);
+    }
+    if (MBTerminalText=="Mb Dev Val P16_R"){
+        ui->MBTerminalTextActual->setText(P16_R);
+    }
+    if (MBTerminalText=="Mb Dev Val P17_R"){
+        ui->MBTerminalTextActual->setText(P17_R);
+    }
+    if (MBTerminalText=="Mb Dev Val C1"){
+        ui->MBTerminalTextActual->setText(C1);
+    }
+    if (MBTerminalText=="Mb Dev Val C12"){
+        ui->MBTerminalTextActual->setText(C12);
+    }
+    if (MBTerminalText=="Mb Dev Val CFont"){
+        ui->MBTerminalTextActual->setText(CFont);
+    }
+    if (MBTerminalText=="Mb Dev Val CKeyboard"){
+        ui->MBTerminalTextActual->setText(CKeyboard);
+    }
+    if (MBTerminalText=="Mb Dev Val CFile"){
+        ui->MBTerminalTextActual->setText(CFile);
+    }
+    if (MBTerminalText=="Mb Dev Val CButtons"){
+        ui->MBTerminalTextActual->setText(CButtons);
+    }
+    if (MBTerminalText=="Mb Dev Val C1_Custom"){
+        ui->MBTerminalTextActual->setText(C1);
+    }
+    if (MBTerminalText=="Mb Dev Val C12_Custom"){
+        ui->MBTerminalTextActual->setText(C12);
+    }
+    if (MBTerminalText=="Mb Dev Val CFont_Custom"){
+        ui->MBTerminalTextActual->setText(CFont);
+    }
+    if (MBTerminalText=="Mb Dev Val CKeyboard_Custom"){
+        ui->MBTerminalTextActual->setText(CKeyboard);
+    }
+    if (MBTerminalText=="Mb Dev Val CFile_Custom"){
+        ui->MBTerminalTextActual->setText(CFile);
+    }
+    if (MBTerminalText=="Mb Dev Val CButtons_Custom"){
+        ui->MBTerminalTextActual->setText(CButtons);
+    }
+
+    if (MBTerminalText=="Mb Dev Val MainColor"){
+        ui->MBTerminalTextActual->setText(MainColor);
+    }
+
+
+    if (MBTerminalText=="Mb "){}
+    if (MBTerminalText=="Mb "){}
+    if (MBTerminalText=="Mb "){}
+    if (MBTerminalText=="Mb "){}
+    if (MBTerminalText=="Mb "){}
+
+
+}
+
+void MusicBoard::on_MBTerminalTextActual_textEdited(const QString &arg1)
+{
+    if (ui->MBTerminalTextActual->text()=="MusicBoard Termina"){
+        ui->MBTerminalTextActual->setText("");
+    }
+    if (ui->MBTerminalTextActual->text()=="Tr, Va"){
+        ui->MBTerminalTextActual->setText("");
+    }
+}
+

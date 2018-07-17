@@ -397,7 +397,7 @@ public:
   Ui::MusicBoard *ui;
   QFileSystemModel *dirmodel;
   QFileSystemModel *filemodel;
-private slots:
+public slots:
   void on_VolSlider_valueChanged(int value);
   void on_MasterLeft_clicked();
   void on_MasterRight_clicked();
@@ -415,6 +415,12 @@ private slots:
   void on_ShowMBTerminalButton_clicked();
   void on_CloseMBTerminal_clicked();
   void on_PreferencesButton_clicked();
+  void on_Cover_destroyed();
+  void on_LButton_clicked();
+  void on_MBTerminalText_editingFinished();
+  void on_MBTerminalTextActual_editingFinished();
+  void on_MBTerminalTextActual_cursorPositionChanged(int arg1, int arg2);
+  void on_MBTerminalTextActual_textEdited(const QString &arg1);
 };
 
 #endif // MUSICBOARD_H

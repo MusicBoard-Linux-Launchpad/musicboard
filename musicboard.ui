@@ -47,6 +47,9 @@
     <height>100</height>
    </size>
   </property>
+  <property name="tabShape">
+   <enum>QTabWidget::Rounded</enum>
+  </property>
   <property name="dockOptions">
    <set>QMainWindow::AllowTabbedDocks|QMainWindow::AnimatedDocks</set>
   </property>
@@ -380,6 +383,9 @@ image: url(:/pictures/LaunchPad.png);</string>
      </item>
      <item row="0" column="0">
       <widget class="QPushButton" name="P10">
+       <property name="enabled">
+        <bool>true</bool>
+       </property>
        <property name="minimumSize">
         <size>
          <width>50</width>
@@ -745,9 +751,9 @@ background-color: rgba(255, 255, 255, 0);</string>
      <property name="geometry">
       <rect>
        <x>20</x>
-       <y>0</y>
+       <y>4</y>
        <width>71</width>
-       <height>92</height>
+       <height>72</height>
       </rect>
      </property>
      <layout class="QHBoxLayout" name="horizontalLayout_2">
@@ -756,13 +762,13 @@ background-color: rgba(255, 255, 255, 0);</string>
         <property name="minimumSize">
          <size>
           <width>20</width>
-          <height>90</height>
+          <height>70</height>
          </size>
         </property>
         <property name="maximumSize">
          <size>
           <width>20</width>
-          <height>90</height>
+          <height>70</height>
          </size>
         </property>
         <property name="styleSheet">
@@ -784,13 +790,13 @@ font: 7.4pt &quot;Cantarell&quot;;
         <property name="minimumSize">
          <size>
           <width>20</width>
-          <height>90</height>
+          <height>70</height>
          </size>
         </property>
         <property name="maximumSize">
          <size>
           <width>20</width>
-          <height>90</height>
+          <height>70</height>
          </size>
         </property>
         <property name="styleSheet">
@@ -813,9 +819,9 @@ font: 7.4pt &quot;Cantarell&quot;;
      <property name="geometry">
       <rect>
        <x>120</x>
-       <y>0</y>
+       <y>4</y>
        <width>91</width>
-       <height>92</height>
+       <height>72</height>
       </rect>
      </property>
      <layout class="QHBoxLayout" name="horizontalLayout_3">
@@ -824,13 +830,13 @@ font: 7.4pt &quot;Cantarell&quot;;
         <property name="minimumSize">
          <size>
           <width>20</width>
-          <height>90</height>
+          <height>70</height>
          </size>
         </property>
         <property name="maximumSize">
          <size>
           <width>20</width>
-          <height>90</height>
+          <height>70</height>
          </size>
         </property>
         <property name="styleSheet">
@@ -852,13 +858,13 @@ font: 7.4pt &quot;Cantarell&quot;;
         <property name="minimumSize">
          <size>
           <width>20</width>
-          <height>90</height>
+          <height>70</height>
          </size>
         </property>
         <property name="maximumSize">
          <size>
           <width>20</width>
-          <height>90</height>
+          <height>70</height>
          </size>
         </property>
         <property name="styleSheet">
@@ -880,13 +886,13 @@ font: 7.4pt &quot;Cantarell&quot;;
         <property name="minimumSize">
          <size>
           <width>20</width>
-          <height>90</height>
+          <height>70</height>
          </size>
         </property>
         <property name="maximumSize">
          <size>
           <width>20</width>
-          <height>90</height>
+          <height>70</height>
          </size>
         </property>
         <property name="styleSheet">
@@ -1257,10 +1263,10 @@ font: 7.4pt &quot;Cantarell&quot;;
     <widget class="QWidget" name="horizontalLayoutWidget_5">
      <property name="geometry">
       <rect>
-       <x>330</x>
-       <y>0</y>
-       <width>41</width>
-       <height>92</height>
+       <x>328</x>
+       <y>5</y>
+       <width>46</width>
+       <height>66</height>
       </rect>
      </property>
      <layout class="QHBoxLayout" name="horizontalLayout_5">
@@ -1269,13 +1275,13 @@ font: 7.4pt &quot;Cantarell&quot;;
         <property name="minimumSize">
          <size>
           <width>20</width>
-          <height>90</height>
+          <height>70</height>
          </size>
         </property>
         <property name="maximumSize">
          <size>
           <width>20</width>
-          <height>90</height>
+          <height>70</height>
          </size>
         </property>
         <property name="styleSheet">
@@ -1297,25 +1303,31 @@ font: 7.4pt &quot;Cantarell&quot;;
     <widget class="QWidget" name="horizontalLayoutWidget_4">
      <property name="geometry">
       <rect>
-       <x>240</x>
-       <y>0</y>
-       <width>71</width>
-       <height>92</height>
+       <x>237</x>
+       <y>5</y>
+       <width>76</width>
+       <height>66</height>
       </rect>
      </property>
      <layout class="QHBoxLayout" name="horizontalLayout_4">
+      <property name="spacing">
+       <number>6</number>
+      </property>
+      <property name="bottomMargin">
+       <number>0</number>
+      </property>
       <item>
        <widget class="QPushButton" name="C2_B">
         <property name="minimumSize">
          <size>
           <width>20</width>
-          <height>90</height>
+          <height>70</height>
          </size>
         </property>
         <property name="maximumSize">
          <size>
           <width>20</width>
-          <height>90</height>
+          <height>70</height>
          </size>
         </property>
         <property name="styleSheet">
@@ -1337,13 +1349,13 @@ font: 7.4pt &quot;Cantarell&quot;;
         <property name="minimumSize">
          <size>
           <width>20</width>
-          <height>90</height>
+          <height>70</height>
          </size>
         </property>
         <property name="maximumSize">
          <size>
           <width>20</width>
-          <height>90</height>
+          <height>70</height>
          </size>
         </property>
         <property name="styleSheet">
@@ -1362,6 +1374,12 @@ font: 7.4pt &quot;Cantarell&quot;;
       </item>
      </layout>
     </widget>
+    <zorder>horizontalLayoutWidget_2</zorder>
+    <zorder>horizontalLayoutWidget_3</zorder>
+    <zorder>horizontalLayoutWidget</zorder>
+    <zorder>horizontalLayoutWidget_5</zorder>
+    <zorder>horizontalLayoutWidget_4</zorder>
+    <zorder>textEdit_7</zorder>
    </widget>
    <widget class="QTextEdit" name="NumlockLabel">
     <property name="geometry">
@@ -1385,6 +1403,9 @@ p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Cantarell'; font-size:11pt; font-weight:400; font-style:normal;&quot;&gt;
 &lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600; color:#babdb6;&quot;&gt;NumLock has to be OFF&lt;/span&gt;&lt;/p&gt;
 &lt;p align=&quot;center&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-weight:600; color:#babdb6;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    </property>
+    <property name="textInteractionFlags">
+     <set>Qt::NoTextInteraction</set>
     </property>
    </widget>
    <widget class="Line" name="L1">
@@ -2183,7 +2204,7 @@ background-color: rgb(83, 68, 150);</string>
      <string>F4</string>
     </property>
    </widget>
-   <widget class="QLabel" name="label_4">
+   <widget class="QLabel" name="Name">
     <property name="geometry">
      <rect>
       <x>390</x>
@@ -2215,48 +2236,7 @@ background-color: rgba(255, 255, 255, 0);</string>
     <property name="frameShadow">
      <enum>QFrame::Raised</enum>
     </property>
-    <widget class="QWidget" name="verticalLayoutWidget_5">
-     <property name="geometry">
-      <rect>
-       <x>170</x>
-       <y>0</y>
-       <width>21</width>
-       <height>21</height>
-      </rect>
-     </property>
-     <layout class="QVBoxLayout" name="verticalLayout_5">
-      <item>
-       <widget class="QPushButton" name="AboutClose">
-        <property name="minimumSize">
-         <size>
-          <width>17</width>
-          <height>17</height>
-         </size>
-        </property>
-        <property name="maximumSize">
-         <size>
-          <width>17</width>
-          <height>17</height>
-         </size>
-        </property>
-        <property name="cursor">
-         <cursorShape>UpArrowCursor</cursorShape>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">background-color: rgb(239, 41, 41);
-</string>
-        </property>
-        <property name="text">
-         <string>✕</string>
-        </property>
-        <property name="shortcut">
-         <string>Esc</string>
-        </property>
-       </widget>
-      </item>
-     </layout>
-    </widget>
-    <widget class="QLabel" name="label_5">
+    <widget class="QLabel" name="Name_9">
      <property name="geometry">
       <rect>
        <x>60</x>
@@ -2444,7 +2424,7 @@ p, li { white-space: pre-wrap; }
       <string notr="true"/>
      </property>
     </widget>
-    <widget class="QLabel" name="label_29">
+    <widget class="QLabel" name="MB_10">
      <property name="geometry">
       <rect>
        <x>90</x>
@@ -2464,7 +2444,7 @@ image: url(:/pictures/MB.png);</string>
       <pixmap resource="res.qrc">:/pictures/MB.png</pixmap>
      </property>
     </widget>
-    <widget class="QLabel" name="label_30">
+    <widget class="QLabel" name="MB_8">
      <property name="geometry">
       <rect>
        <x>20</x>
@@ -2481,14 +2461,49 @@ image: url(:/pictures/MB.png);</string>
       <string/>
      </property>
     </widget>
-    <zorder>label_30</zorder>
-    <zorder>label_29</zorder>
-    <zorder>verticalLayoutWidget_5</zorder>
-    <zorder>label_5</zorder>
+    <widget class="QPushButton" name="AboutClose">
+     <property name="geometry">
+      <rect>
+       <x>172</x>
+       <y>2</y>
+       <width>17</width>
+       <height>17</height>
+      </rect>
+     </property>
+     <property name="minimumSize">
+      <size>
+       <width>17</width>
+       <height>17</height>
+      </size>
+     </property>
+     <property name="maximumSize">
+      <size>
+       <width>17</width>
+       <height>17</height>
+      </size>
+     </property>
+     <property name="cursor">
+      <cursorShape>UpArrowCursor</cursorShape>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(239, 41, 41);
+</string>
+     </property>
+     <property name="text">
+      <string>✕</string>
+     </property>
+     <property name="shortcut">
+      <string>Esc</string>
+     </property>
+    </widget>
+    <zorder>MB_8</zorder>
+    <zorder>MB_10</zorder>
+    <zorder>Name_9</zorder>
     <zorder>L10</zorder>
     <zorder>textEdit</zorder>
     <zorder>textEdit_2</zorder>
     <zorder>textEdit_3</zorder>
+    <zorder>AboutClose</zorder>
    </widget>
    <widget class="QFrame" name="Help">
     <property name="geometry">
@@ -2502,7 +2517,7 @@ image: url(:/pictures/MB.png);</string>
     <property name="frameShape">
      <enum>QFrame::NoFrame</enum>
     </property>
-    <widget class="QLabel" name="label_6">
+    <widget class="QLabel" name="Name_10">
      <property name="geometry">
       <rect>
        <x>30</x>
@@ -2519,7 +2534,7 @@ color: rgb(255, 255, 255);</string>
       <string>MusicBoard</string>
      </property>
     </widget>
-    <widget class="Line" name="line_4">
+    <widget class="Line" name="L11">
      <property name="geometry">
       <rect>
        <x>10</x>
@@ -2552,47 +2567,6 @@ color: rgb(255, 255, 255);</string>
      <property name="orientation">
       <enum>Qt::Horizontal</enum>
      </property>
-    </widget>
-    <widget class="QWidget" name="verticalLayoutWidget_6">
-     <property name="geometry">
-      <rect>
-       <x>110</x>
-       <y>0</y>
-       <width>21</width>
-       <height>21</height>
-      </rect>
-     </property>
-     <layout class="QVBoxLayout" name="verticalLayout_6">
-      <item>
-       <widget class="QPushButton" name="HelpClose">
-        <property name="minimumSize">
-         <size>
-          <width>17</width>
-          <height>17</height>
-         </size>
-        </property>
-        <property name="maximumSize">
-         <size>
-          <width>17</width>
-          <height>17</height>
-         </size>
-        </property>
-        <property name="cursor">
-         <cursorShape>UpArrowCursor</cursorShape>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">background-color: rgb(239, 41, 41);
-</string>
-        </property>
-        <property name="text">
-         <string>✕</string>
-        </property>
-        <property name="shortcut">
-         <string>Esc</string>
-        </property>
-       </widget>
-      </item>
-     </layout>
     </widget>
     <widget class="QTextEdit" name="textEdit_4">
      <property name="geometry">
@@ -2669,11 +2643,15 @@ p, li { white-space: pre-wrap; }
 &lt;p align=&quot;center&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
 &lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Ctrl + S (In Settings) = Save Settings&lt;/p&gt;
 &lt;p align=&quot;center&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Ctrl + R (In MusicBoard, ) = Apply / Set Settings&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Ctrl + R (In MusicBoard) = Apply / Set Settings&lt;/p&gt;
 &lt;p align=&quot;center&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
 &lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;F6 = Increase Master&lt;/p&gt;
 &lt;p align=&quot;center&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;F7 = Decrease Master&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;F7 = Decrease Master&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Ctrl + M = Show/Hide Cover (if enabled in Preferences)&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Ctrl + C = Audio Recorder&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
      </property>
     </widget>
     <widget class="QPushButton" name="LicenceButton">
@@ -2692,7 +2670,7 @@ p, li { white-space: pre-wrap; }
       <string>Licence</string>
      </property>
     </widget>
-    <widget class="QLabel" name="label_28">
+    <widget class="QLabel" name="MB_11">
      <property name="geometry">
       <rect>
        <x>-50</x>
@@ -2712,12 +2690,47 @@ image: url(:/pictures/MB.png);</string>
       <pixmap resource="res.qrc">:/pictures/MB.png</pixmap>
      </property>
     </widget>
-    <zorder>label_28</zorder>
-    <zorder>label_6</zorder>
-    <zorder>line_4</zorder>
-    <zorder>verticalLayoutWidget_6</zorder>
+    <widget class="QPushButton" name="HelpClose">
+     <property name="geometry">
+      <rect>
+       <x>112</x>
+       <y>2</y>
+       <width>17</width>
+       <height>17</height>
+      </rect>
+     </property>
+     <property name="minimumSize">
+      <size>
+       <width>17</width>
+       <height>17</height>
+      </size>
+     </property>
+     <property name="maximumSize">
+      <size>
+       <width>17</width>
+       <height>17</height>
+      </size>
+     </property>
+     <property name="cursor">
+      <cursorShape>UpArrowCursor</cursorShape>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(239, 41, 41);
+</string>
+     </property>
+     <property name="text">
+      <string>✕</string>
+     </property>
+     <property name="shortcut">
+      <string>Esc</string>
+     </property>
+    </widget>
+    <zorder>MB_11</zorder>
+    <zorder>Name_10</zorder>
+    <zorder>L11</zorder>
     <zorder>textEdit_4</zorder>
     <zorder>LicenceButton</zorder>
+    <zorder>HelpClose</zorder>
    </widget>
    <widget class="QPushButton" name="FileButton">
     <property name="geometry">
@@ -2826,7 +2839,7 @@ background-color: rgb(83, 68, 150);</string>
       </rect>
      </property>
      <property name="text">
-      <string>Settings ⚙</string>
+      <string>Settings</string>
      </property>
     </widget>
    </widget>
@@ -2851,7 +2864,7 @@ background-color: rgb(83, 68, 150);</string>
     <property name="midLineWidth">
      <number>5</number>
     </property>
-    <widget class="QLabel" name="label_7">
+    <widget class="QLabel" name="MB_12">
      <property name="geometry">
       <rect>
        <x>40</x>
@@ -2911,6 +2924,9 @@ color: rgb(255, 255, 255);</string>
        <height>28</height>
       </rect>
      </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(110, 110, 110);</string>
+     </property>
      <property name="text">
       <string>Yes</string>
      </property>
@@ -2923,6 +2939,9 @@ color: rgb(255, 255, 255);</string>
        <width>51</width>
        <height>28</height>
       </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(110, 110, 110);</string>
      </property>
      <property name="text">
       <string>Cancel</string>
@@ -2937,6 +2956,9 @@ color: rgb(255, 255, 255);</string>
        <height>51</height>
       </rect>
      </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgba(18, 22, 12, 0);</string>
+     </property>
      <property name="frameShape">
       <enum>QFrame::NoFrame</enum>
      </property>
@@ -2950,47 +2972,6 @@ p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Cantarell'; font-size:11pt; font-weight:400; font-style:normal;&quot;&gt;
 &lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600; color:#ffffff;&quot;&gt;Are you sure you want to exit?&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
      </property>
-    </widget>
-    <widget class="QWidget" name="verticalLayoutWidget_7">
-     <property name="geometry">
-      <rect>
-       <x>140</x>
-       <y>0</y>
-       <width>21</width>
-       <height>21</height>
-      </rect>
-     </property>
-     <layout class="QVBoxLayout" name="verticalLayout_8">
-      <item>
-       <widget class="QPushButton" name="CloseClose">
-        <property name="minimumSize">
-         <size>
-          <width>17</width>
-          <height>17</height>
-         </size>
-        </property>
-        <property name="maximumSize">
-         <size>
-          <width>17</width>
-          <height>17</height>
-         </size>
-        </property>
-        <property name="cursor">
-         <cursorShape>UpArrowCursor</cursorShape>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">background-color: rgb(239, 41, 41);
-</string>
-        </property>
-        <property name="text">
-         <string>✕</string>
-        </property>
-        <property name="shortcut">
-         <string>Esc</string>
-        </property>
-       </widget>
-      </item>
-     </layout>
     </widget>
     <widget class="QLabel" name="label_25">
      <property name="geometry">
@@ -3034,14 +3015,49 @@ image: url(:/pictures/MB.png);</string>
       <pixmap resource="res.qrc">:/pictures/MB.png</pixmap>
      </property>
     </widget>
+    <widget class="QPushButton" name="CloseClose">
+     <property name="geometry">
+      <rect>
+       <x>140</x>
+       <y>4</y>
+       <width>17</width>
+       <height>17</height>
+      </rect>
+     </property>
+     <property name="minimumSize">
+      <size>
+       <width>17</width>
+       <height>17</height>
+      </size>
+     </property>
+     <property name="maximumSize">
+      <size>
+       <width>17</width>
+       <height>17</height>
+      </size>
+     </property>
+     <property name="cursor">
+      <cursorShape>UpArrowCursor</cursorShape>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(239, 41, 41);
+</string>
+     </property>
+     <property name="text">
+      <string>✕</string>
+     </property>
+     <property name="shortcut">
+      <string>Esc</string>
+     </property>
+    </widget>
     <zorder>label_25</zorder>
     <zorder>textEdit_5</zorder>
-    <zorder>label_7</zorder>
+    <zorder>MB_12</zorder>
     <zorder>L9</zorder>
     <zorder>SureYes</zorder>
     <zorder>SureCancel</zorder>
-    <zorder>verticalLayoutWidget_7</zorder>
     <zorder>label_26</zorder>
+    <zorder>CloseClose</zorder>
    </widget>
    <widget class="QLabel" name="label_8">
     <property name="geometry">
@@ -3057,13 +3073,13 @@ image: url(:/pictures/MB.png);</string>
 background-color: rgba(255, 255, 255, 0);</string>
     </property>
     <property name="text">
-     <string>DIrectly Close</string>
+     <string>Directly Close</string>
     </property>
    </widget>
    <widget class="QFrame" name="Edit">
     <property name="geometry">
      <rect>
-      <x>80</x>
+      <x>100</x>
       <y>30</y>
       <width>111</width>
       <height>191</height>
@@ -3193,7 +3209,7 @@ background-color: rgba(255, 255, 255, 0);</string>
     <property name="midLineWidth">
      <number>7</number>
     </property>
-    <widget class="QLabel" name="label_9">
+    <widget class="QLabel" name="Name_8">
      <property name="geometry">
       <rect>
        <x>40</x>
@@ -3256,6 +3272,9 @@ color: rgb(255, 255, 255);</string>
        <height>28</height>
       </rect>
      </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(110, 110, 110);</string>
+     </property>
      <property name="text">
       <string>Yes</string>
      </property>
@@ -3268,6 +3287,9 @@ color: rgb(255, 255, 255);</string>
        <width>51</width>
        <height>28</height>
       </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(110, 110, 110);</string>
      </property>
      <property name="text">
       <string>Cancel</string>
@@ -3283,7 +3305,8 @@ color: rgb(255, 255, 255);</string>
       </rect>
      </property>
      <property name="styleSheet">
-      <string notr="true">color: rgb(255, 255, 255);</string>
+      <string notr="true">color: rgb(255, 255, 255);
+background-color: rgba(17, 22, 12, 0);</string>
      </property>
      <property name="frameShape">
       <enum>QFrame::NoFrame</enum>
@@ -3299,47 +3322,6 @@ p, li { white-space: pre-wrap; }
 &lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600; color:#ffffff;&quot;&gt;Are you sure you want to clear?&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
      </property>
     </widget>
-    <widget class="QWidget" name="verticalLayoutWidget_8">
-     <property name="geometry">
-      <rect>
-       <x>140</x>
-       <y>0</y>
-       <width>21</width>
-       <height>21</height>
-      </rect>
-     </property>
-     <layout class="QVBoxLayout" name="verticalLayout_9">
-      <item>
-       <widget class="QPushButton" name="ClearCancel_X">
-        <property name="minimumSize">
-         <size>
-          <width>17</width>
-          <height>17</height>
-         </size>
-        </property>
-        <property name="maximumSize">
-         <size>
-          <width>17</width>
-          <height>17</height>
-         </size>
-        </property>
-        <property name="cursor">
-         <cursorShape>UpArrowCursor</cursorShape>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">background-color: rgb(239, 41, 41);
-</string>
-        </property>
-        <property name="text">
-         <string>✕</string>
-        </property>
-        <property name="shortcut">
-         <string>Esc</string>
-        </property>
-       </widget>
-      </item>
-     </layout>
-    </widget>
     <widget class="QTextEdit" name="ClearText_2">
      <property name="geometry">
       <rect>
@@ -3350,7 +3332,8 @@ p, li { white-space: pre-wrap; }
       </rect>
      </property>
      <property name="styleSheet">
-      <string notr="true">color: rgb(255, 255, 255);</string>
+      <string notr="true">color: rgb(255, 255, 255);
+background-color: rgba(17, 22, 12, 0);</string>
      </property>
      <property name="frameShape">
       <enum>QFrame::NoFrame</enum>
@@ -3366,7 +3349,7 @@ p, li { white-space: pre-wrap; }
 &lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Do you want to&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
      </property>
     </widget>
-    <widget class="QLabel" name="label_22">
+    <widget class="QLabel" name="MB_2">
      <property name="geometry">
       <rect>
        <x>70</x>
@@ -3408,15 +3391,50 @@ image: url(:/pictures/MB.png);</string>
       <pixmap resource="res.qrc">:/pictures/MB.png</pixmap>
      </property>
     </widget>
+    <widget class="QPushButton" name="ClearCancel_X">
+     <property name="geometry">
+      <rect>
+       <x>140</x>
+       <y>4</y>
+       <width>17</width>
+       <height>17</height>
+      </rect>
+     </property>
+     <property name="minimumSize">
+      <size>
+       <width>17</width>
+       <height>17</height>
+      </size>
+     </property>
+     <property name="maximumSize">
+      <size>
+       <width>17</width>
+       <height>17</height>
+      </size>
+     </property>
+     <property name="cursor">
+      <cursorShape>UpArrowCursor</cursorShape>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(239, 41, 41);
+</string>
+     </property>
+     <property name="text">
+      <string>✕</string>
+     </property>
+     <property name="shortcut">
+      <string>Esc</string>
+     </property>
+    </widget>
     <zorder>ClearText_2</zorder>
-    <zorder>label_22</zorder>
-    <zorder>label_9</zorder>
+    <zorder>MB_2</zorder>
+    <zorder>Name_8</zorder>
     <zorder>L8</zorder>
     <zorder>ClearYes</zorder>
     <zorder>ClearCancel</zorder>
     <zorder>ClearText</zorder>
-    <zorder>verticalLayoutWidget_8</zorder>
     <zorder>label_43</zorder>
+    <zorder>ClearCancel_X</zorder>
    </widget>
    <widget class="QFrame" name="ProjectNotes">
     <property name="geometry">
@@ -3436,7 +3454,7 @@ image: url(:/pictures/MB.png);</string>
     <property name="frameShadow">
      <enum>QFrame::Raised</enum>
     </property>
-    <widget class="QLabel" name="label_10">
+    <widget class="QLabel" name="Name_7">
      <property name="geometry">
       <rect>
        <x>80</x>
@@ -3504,51 +3522,10 @@ color: rgb(255, 255, 255);</string>
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Cantarell'; font-size:11pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Click to edit project Notes. If you want to have the notes after clossing the session, please save them separately. &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Click to edit project Notes. If you want to have the notes after closing the session, please save them separately. &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
      </property>
     </widget>
-    <widget class="QWidget" name="verticalLayoutWidget_9">
-     <property name="geometry">
-      <rect>
-       <x>220</x>
-       <y>0</y>
-       <width>21</width>
-       <height>21</height>
-      </rect>
-     </property>
-     <layout class="QVBoxLayout" name="verticalLayout_10">
-      <item>
-       <widget class="QPushButton" name="CloseProjectNotes">
-        <property name="minimumSize">
-         <size>
-          <width>17</width>
-          <height>17</height>
-         </size>
-        </property>
-        <property name="maximumSize">
-         <size>
-          <width>17</width>
-          <height>17</height>
-         </size>
-        </property>
-        <property name="cursor">
-         <cursorShape>UpArrowCursor</cursorShape>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">background-color: rgb(239, 41, 41);
-</string>
-        </property>
-        <property name="text">
-         <string>✕</string>
-        </property>
-        <property name="shortcut">
-         <string>Esc</string>
-        </property>
-       </widget>
-      </item>
-     </layout>
-    </widget>
-    <widget class="QLabel" name="label_19">
+    <widget class="QLabel" name="MB_3">
      <property name="geometry">
       <rect>
        <x>110</x>
@@ -3588,12 +3565,47 @@ image: url(:/pictures/MB.png);</string>
       <pixmap resource="res.qrc">:/pictures/MB.png</pixmap>
      </property>
     </widget>
-    <zorder>label_19</zorder>
-    <zorder>label_10</zorder>
+    <widget class="QPushButton" name="CloseProjectNotes">
+     <property name="geometry">
+      <rect>
+       <x>220</x>
+       <y>3</y>
+       <width>17</width>
+       <height>17</height>
+      </rect>
+     </property>
+     <property name="minimumSize">
+      <size>
+       <width>17</width>
+       <height>17</height>
+      </size>
+     </property>
+     <property name="maximumSize">
+      <size>
+       <width>17</width>
+       <height>17</height>
+      </size>
+     </property>
+     <property name="cursor">
+      <cursorShape>UpArrowCursor</cursorShape>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(239, 41, 41);
+</string>
+     </property>
+     <property name="text">
+      <string>✕</string>
+     </property>
+     <property name="shortcut">
+      <string>Esc</string>
+     </property>
+    </widget>
+    <zorder>MB_3</zorder>
+    <zorder>Name_7</zorder>
     <zorder>L7</zorder>
     <zorder>textEdit_7</zorder>
-    <zorder>verticalLayoutWidget_9</zorder>
     <zorder>label_20</zorder>
+    <zorder>CloseProjectNotes</zorder>
    </widget>
    <widget class="QPushButton" name="HiddenProjectNotesButton">
     <property name="geometry">
@@ -3646,8 +3658,8 @@ image: url(:/pictures/MB.png);</string>
    <widget class="QFrame" name="MBoard">
     <property name="geometry">
      <rect>
-      <x>370</x>
-      <y>60</y>
+      <x>320</x>
+      <y>40</y>
       <width>401</width>
       <height>171</height>
      </rect>
@@ -3661,7 +3673,7 @@ image: url(:/pictures/MB.png);</string>
     <property name="frameShadow">
      <enum>QFrame::Raised</enum>
     </property>
-    <widget class="QLabel" name="label_12">
+    <widget class="QLabel" name="Name_4">
      <property name="geometry">
       <rect>
        <x>170</x>
@@ -3731,48 +3743,7 @@ color: rgb(255, 255, 255);</string>
       <enum>Qt::Horizontal</enum>
      </property>
     </widget>
-    <widget class="QWidget" name="verticalLayoutWidget_10">
-     <property name="geometry">
-      <rect>
-       <x>380</x>
-       <y>0</y>
-       <width>85</width>
-       <height>21</height>
-      </rect>
-     </property>
-     <layout class="QVBoxLayout" name="verticalLayout_11">
-      <item>
-       <widget class="QPushButton" name="CloseMBoard">
-        <property name="minimumSize">
-         <size>
-          <width>17</width>
-          <height>17</height>
-         </size>
-        </property>
-        <property name="maximumSize">
-         <size>
-          <width>17</width>
-          <height>17</height>
-         </size>
-        </property>
-        <property name="cursor">
-         <cursorShape>UpArrowCursor</cursorShape>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">background-color: rgb(239, 41, 41);
-</string>
-        </property>
-        <property name="text">
-         <string>✕</string>
-        </property>
-        <property name="shortcut">
-         <string>Esc</string>
-        </property>
-       </widget>
-      </item>
-     </layout>
-    </widget>
-    <widget class="QLabel" name="label_27">
+    <widget class="QLabel" name="MB_9">
      <property name="geometry">
       <rect>
        <x>230</x>
@@ -3792,12 +3763,46 @@ image: url(:/pictures/MB.png);</string>
       <pixmap resource="res.qrc">:/pictures/MB.png</pixmap>
      </property>
     </widget>
-    <zorder>label_27</zorder>
+    <widget class="QPushButton" name="CloseMBoard">
+     <property name="geometry">
+      <rect>
+       <x>381</x>
+       <y>2</y>
+       <width>17</width>
+       <height>17</height>
+      </rect>
+     </property>
+     <property name="minimumSize">
+      <size>
+       <width>17</width>
+       <height>17</height>
+      </size>
+     </property>
+     <property name="maximumSize">
+      <size>
+       <width>17</width>
+       <height>17</height>
+      </size>
+     </property>
+     <property name="cursor">
+      <cursorShape>UpArrowCursor</cursorShape>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(239, 41, 41);
+</string>
+     </property>
+     <property name="text">
+      <string>✕</string>
+     </property>
+     <property name="shortcut">
+      <string>Esc</string>
+     </property>
+    </widget>
+    <zorder>MB_9</zorder>
     <zorder>label_11</zorder>
-    <zorder>label_12</zorder>
+    <zorder>Name_4</zorder>
     <zorder>L3</zorder>
-    <zorder>verticalLayoutWidget_10</zorder>
-    <zorder>frame_8</zorder>
+    <zorder>CloseMBoard</zorder>
    </widget>
    <widget class="QPushButton" name="HiddenMButtonushButton">
     <property name="geometry">
@@ -3819,7 +3824,7 @@ image: url(:/pictures/MB.png);</string>
     <property name="geometry">
      <rect>
       <x>190</x>
-      <y>190</y>
+      <y>220</y>
       <width>111</width>
       <height>121</height>
      </rect>
@@ -3913,7 +3918,7 @@ image: url(:/pictures/MB.png);</string>
     <property name="frameShadow">
      <enum>QFrame::Raised</enum>
     </property>
-    <widget class="QLabel" name="label_13">
+    <widget class="QLabel" name="Name_5">
      <property name="geometry">
       <rect>
        <x>80</x>
@@ -3989,51 +3994,10 @@ p, li { white-space: pre-wrap; }
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an &amp;quot;AS IS&amp;quot; BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.&lt;/p&gt;
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Also Licenced under Creative Commons Distribution Share-Alike Licence. &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Also Licenced under Creative Commons Affiliation-ShareAlike Licence. &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
      </property>
     </widget>
-    <widget class="QWidget" name="verticalLayoutWidget_11">
-     <property name="geometry">
-      <rect>
-       <x>220</x>
-       <y>0</y>
-       <width>21</width>
-       <height>21</height>
-      </rect>
-     </property>
-     <layout class="QVBoxLayout" name="verticalLayout_12">
-      <item>
-       <widget class="QPushButton" name="CloseLicence">
-        <property name="minimumSize">
-         <size>
-          <width>17</width>
-          <height>17</height>
-         </size>
-        </property>
-        <property name="maximumSize">
-         <size>
-          <width>17</width>
-          <height>17</height>
-         </size>
-        </property>
-        <property name="cursor">
-         <cursorShape>UpArrowCursor</cursorShape>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">background-color: rgb(239, 41, 41);
-</string>
-        </property>
-        <property name="text">
-         <string>✕</string>
-        </property>
-        <property name="shortcut">
-         <string>Esc</string>
-        </property>
-       </widget>
-      </item>
-     </layout>
-    </widget>
-    <widget class="QLabel" name="label_24">
+    <widget class="QLabel" name="MB_6">
      <property name="geometry">
       <rect>
        <x>110</x>
@@ -4091,12 +4055,47 @@ color: rgb(255, 255, 255);
       <string>;</string>
      </property>
     </widget>
-    <zorder>label_24</zorder>
-    <zorder>label_13</zorder>
+    <widget class="QPushButton" name="CloseLicence">
+     <property name="geometry">
+      <rect>
+       <x>221</x>
+       <y>2</y>
+       <width>17</width>
+       <height>17</height>
+      </rect>
+     </property>
+     <property name="minimumSize">
+      <size>
+       <width>17</width>
+       <height>17</height>
+      </size>
+     </property>
+     <property name="maximumSize">
+      <size>
+       <width>17</width>
+       <height>17</height>
+      </size>
+     </property>
+     <property name="cursor">
+      <cursorShape>UpArrowCursor</cursorShape>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(239, 41, 41);
+</string>
+     </property>
+     <property name="text">
+      <string>✕</string>
+     </property>
+     <property name="shortcut">
+      <string>Esc</string>
+     </property>
+    </widget>
+    <zorder>MB_6</zorder>
+    <zorder>Name_5</zorder>
     <zorder>L6</zorder>
     <zorder>textEdit_6</zorder>
-    <zorder>verticalLayoutWidget_11</zorder>
     <zorder>K4</zorder>
+    <zorder>CloseLicence</zorder>
    </widget>
    <widget class="QFrame" name="NotesEdit">
     <property name="geometry">
@@ -4168,6 +4167,10 @@ color: rgb(255, 255, 255);
       <string>Show Keys</string>
      </property>
     </widget>
+    <zorder>ShowNotes1Button</zorder>
+    <zorder>HideNotesButton</zorder>
+    <zorder>ShowMBoard</zorder>
+    <zorder>ShowNotes2Button</zorder>
    </widget>
    <widget class="QFrame" name="ThemesEdit">
     <property name="geometry">
@@ -4277,7 +4280,7 @@ color: rgb(255, 255, 255);
     <property name="frameShadow">
      <enum>QFrame::Raised</enum>
     </property>
-    <widget class="QLabel" name="label_14">
+    <widget class="QLabel" name="Name_3">
      <property name="geometry">
       <rect>
        <x>77</x>
@@ -4293,47 +4296,6 @@ color: rgb(255, 255, 255);</string>
      <property name="text">
       <string>MusicBoard</string>
      </property>
-    </widget>
-    <widget class="QWidget" name="verticalLayoutWidget_12">
-     <property name="geometry">
-      <rect>
-       <x>200</x>
-       <y>0</y>
-       <width>21</width>
-       <height>21</height>
-      </rect>
-     </property>
-     <layout class="QVBoxLayout" name="verticalLayout_13">
-      <item>
-       <widget class="QPushButton" name="CloseRhythm2">
-        <property name="minimumSize">
-         <size>
-          <width>17</width>
-          <height>17</height>
-         </size>
-        </property>
-        <property name="maximumSize">
-         <size>
-          <width>17</width>
-          <height>17</height>
-         </size>
-        </property>
-        <property name="cursor">
-         <cursorShape>UpArrowCursor</cursorShape>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">background-color: rgb(239, 41, 41);
-</string>
-        </property>
-        <property name="text">
-         <string>✕</string>
-        </property>
-        <property name="shortcut">
-         <string>Esc</string>
-        </property>
-       </widget>
-      </item>
-     </layout>
     </widget>
     <widget class="Line" name="L5">
      <property name="geometry">
@@ -4369,14 +4331,17 @@ color: rgb(255, 255, 255);</string>
       <enum>Qt::Horizontal</enum>
      </property>
     </widget>
-    <widget class="QWidget" name="gridLayoutWidget_2">
+    <widget class="QFrame" name="gridFrame_2">
      <property name="geometry">
       <rect>
-       <x>10</x>
-       <y>39</y>
-       <width>229</width>
-       <height>76</height>
+       <x>8</x>
+       <y>32</y>
+       <width>235</width>
+       <height>83</height>
       </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgba(17, 22, 12, 0);</string>
      </property>
      <layout class="QGridLayout" name="gridLayout_2">
       <item row="1" column="0">
@@ -4721,13 +4686,14 @@ font: 10pt &quot;Cantarell&quot;;</string>
       </rect>
      </property>
      <property name="styleSheet">
-      <string notr="true">color: rgb(255, 255, 255);</string>
+      <string notr="true">color: rgb(255, 255, 255);
+background-color: rgb(110, 110, 110);</string>
      </property>
      <property name="text">
       <string>Start</string>
      </property>
     </widget>
-    <widget class="QLabel" name="label_21">
+    <widget class="QLabel" name="MB_5">
      <property name="geometry">
       <rect>
        <x>-10</x>
@@ -4805,9 +4771,9 @@ font: 10pt &quot;Cantarell&quot;;</string>
     <widget class="QLabel" name="label_34">
      <property name="geometry">
       <rect>
-       <x>116</x>
+       <x>112</x>
        <y>40</y>
-       <width>20</width>
+       <width>24</width>
        <height>20</height>
       </rect>
      </property>
@@ -4823,9 +4789,9 @@ font: 10pt &quot;Cantarell&quot;;</string>
     <widget class="QLabel" name="label_35">
      <property name="geometry">
       <rect>
-       <x>115</x>
+       <x>111</x>
        <y>60</y>
-       <width>20</width>
+       <width>24</width>
        <height>32</height>
       </rect>
      </property>
@@ -4841,9 +4807,9 @@ font: 10pt &quot;Cantarell&quot;;</string>
     <widget class="QLabel" name="label_36">
      <property name="geometry">
       <rect>
-       <x>115</x>
+       <x>111</x>
        <y>85</y>
-       <width>20</width>
+       <width>24</width>
        <height>33</height>
       </rect>
      </property>
@@ -4859,10 +4825,10 @@ font: 10pt &quot;Cantarell&quot;;</string>
     <widget class="QLabel" name="label_37">
      <property name="geometry">
       <rect>
-       <x>163</x>
-       <y>55</y>
-       <width>25</width>
-       <height>44</height>
+       <x>158</x>
+       <y>52</y>
+       <width>30</width>
+       <height>47</height>
       </rect>
      </property>
      <property name="styleSheet">
@@ -4877,10 +4843,10 @@ font: 10pt &quot;Cantarell&quot;;</string>
     <widget class="QLabel" name="label_38">
      <property name="geometry">
       <rect>
-       <x>163</x>
-       <y>35</y>
-       <width>25</width>
-       <height>30</height>
+       <x>158</x>
+       <y>34</y>
+       <width>30</width>
+       <height>31</height>
       </rect>
      </property>
      <property name="styleSheet">
@@ -4895,9 +4861,9 @@ font: 10pt &quot;Cantarell&quot;;</string>
     <widget class="QLabel" name="label_39">
      <property name="geometry">
       <rect>
-       <x>163</x>
+       <x>158</x>
        <y>80</y>
-       <width>24</width>
+       <width>29</width>
        <height>43</height>
       </rect>
      </property>
@@ -4910,11 +4876,45 @@ font: 10pt &quot;Cantarell&quot;;</string>
       <string>P13:</string>
      </property>
     </widget>
-    <zorder>label_21</zorder>
-    <zorder>label_14</zorder>
-    <zorder>verticalLayoutWidget_12</zorder>
+    <widget class="QPushButton" name="CloseRhythm2">
+     <property name="geometry">
+      <rect>
+       <x>211</x>
+       <y>3</y>
+       <width>17</width>
+       <height>17</height>
+      </rect>
+     </property>
+     <property name="minimumSize">
+      <size>
+       <width>17</width>
+       <height>17</height>
+      </size>
+     </property>
+     <property name="maximumSize">
+      <size>
+       <width>17</width>
+       <height>17</height>
+      </size>
+     </property>
+     <property name="cursor">
+      <cursorShape>UpArrowCursor</cursorShape>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(239, 41, 41);
+</string>
+     </property>
+     <property name="text">
+      <string>✕</string>
+     </property>
+     <property name="shortcut">
+      <string>Esc</string>
+     </property>
+    </widget>
+    <zorder>MB_5</zorder>
+    <zorder>Name_3</zorder>
     <zorder>L5</zorder>
-    <zorder>gridLayoutWidget_2</zorder>
+    <zorder>gridFrame_2</zorder>
     <zorder>StartRhythm</zorder>
     <zorder>label_38</zorder>
     <zorder>label_15</zorder>
@@ -4928,6 +4928,7 @@ font: 10pt &quot;Cantarell&quot;;</string>
     <zorder>label_36</zorder>
     <zorder>label_34</zorder>
     <zorder>label_31</zorder>
+    <zorder>CloseRhythm2</zorder>
    </widget>
    <widget class="QPushButton" name="HiddenSilanceButton">
     <property name="geometry">
@@ -4956,7 +4957,7 @@ font: 10pt &quot;Cantarell&quot;;</string>
 background-color: rgb(186, 189, 182);</string>
     </property>
     <property name="text">
-     <string>♻</string>
+     <string>R</string>
     </property>
     <property name="shortcut">
      <string>Ctrl+R</string>
@@ -4994,7 +4995,7 @@ background-color: rgb(186, 189, 182);</string>
      <string>Ctrl+E</string>
     </property>
    </widget>
-   <widget class="QLabel" name="label_23">
+   <widget class="QLabel" name="MB">
     <property name="geometry">
      <rect>
       <x>-40</x>
@@ -5140,7 +5141,7 @@ image: url(:/pictures/Picture1_4.png);
      <number>4</number>
     </property>
    </widget>
-   <widget class="QFrame" name="frame_5">
+   <widget class="QFrame" name="Launchpad">
     <property name="geometry">
      <rect>
       <x>67</x>
@@ -5177,7 +5178,7 @@ image: url(:/pictures/Picture1_4.png);
     <property name="frameShadow">
      <enum>QFrame::Plain</enum>
     </property>
-    <widget class="QLabel" name="label_40">
+    <widget class="QLabel" name="Name_2">
      <property name="geometry">
       <rect>
        <x>60</x>
@@ -5228,7 +5229,7 @@ background-color: rgba(255, 255, 255, 0);</string>
       <enum>Qt::Horizontal</enum>
      </property>
     </widget>
-    <widget class="QLabel" name="label_41">
+    <widget class="QLabel" name="MB_7">
      <property name="geometry">
       <rect>
        <x>90</x>
@@ -5439,7 +5440,7 @@ background-color: rgb(83, 68, 150);</string>
       <string>Demo</string>
      </property>
      <property name="shortcut">
-      <string>F1</string>
+      <string>F5</string>
      </property>
     </widget>
     <widget class="QPushButton" name="PreferencesButton">
@@ -5477,6 +5478,9 @@ background-color: rgb(83, 68, 150);</string>
      </property>
      <property name="text">
       <string>Rec</string>
+     </property>
+     <property name="shortcut">
+      <string>Ctrl+C</string>
      </property>
     </widget>
    </widget>
@@ -6181,9 +6185,9 @@ p, li { white-space: pre-wrap; }
    <widget class="QFrame" name="Demo1">
     <property name="geometry">
      <rect>
-      <x>643</x>
+      <x>640</x>
       <y>36</y>
-      <width>211</width>
+      <width>212</width>
       <height>204</height>
      </rect>
     </property>
@@ -6205,8 +6209,8 @@ p, li { white-space: pre-wrap; }
     <widget class="QTextEdit" name="textEdit_10">
      <property name="geometry">
       <rect>
-       <x>159</x>
-       <y>8</y>
+       <x>161</x>
+       <y>7</y>
        <width>44</width>
        <height>42</height>
       </rect>
@@ -6228,7 +6232,7 @@ p, li { white-space: pre-wrap; }
     <widget class="QTextEdit" name="textEdit_11">
      <property name="geometry">
       <rect>
-       <x>158</x>
+       <x>160</x>
        <y>79</y>
        <width>46</width>
        <height>44</height>
@@ -6251,8 +6255,8 @@ p, li { white-space: pre-wrap; }
     <widget class="QTextEdit" name="textEdit_12">
      <property name="geometry">
       <rect>
-       <x>159</x>
-       <y>150</y>
+       <x>162</x>
+       <y>152</y>
        <width>43</width>
        <height>44</height>
       </rect>
@@ -6501,8 +6505,8 @@ p, li { white-space: pre-wrap; }
    <widget class="QFrame" name="Demo4">
     <property name="geometry">
      <rect>
-      <x>61</x>
-      <y>32</y>
+      <x>60</x>
+      <y>30</y>
       <width>352</width>
       <height>297</height>
      </rect>
@@ -6554,7 +6558,7 @@ p, li { white-space: pre-wrap; }
      <property name="geometry">
       <rect>
        <x>134</x>
-       <y>242</y>
+       <y>244</y>
        <width>42</width>
        <height>42</height>
       </rect>
@@ -6576,10 +6580,10 @@ p, li { white-space: pre-wrap; }
     <widget class="QTextEdit" name="textEdit_41">
      <property name="geometry">
       <rect>
-       <x>45</x>
-       <y>242</y>
-       <width>58</width>
-       <height>40</height>
+       <x>46</x>
+       <y>245</y>
+       <width>57</width>
+       <height>39</height>
       </rect>
      </property>
      <property name="styleSheet">
@@ -6622,7 +6626,7 @@ p, li { white-space: pre-wrap; }
     <widget class="QTextEdit" name="textEdit_43">
      <property name="geometry">
       <rect>
-       <x>72</x>
+       <x>73</x>
        <y>178</y>
        <width>41</width>
        <height>42</height>
@@ -6645,9 +6649,9 @@ p, li { white-space: pre-wrap; }
     <widget class="QTextEdit" name="textEdit_44">
      <property name="geometry">
       <rect>
-       <x>129</x>
+       <x>130</x>
        <y>180</y>
-       <width>45</width>
+       <width>44</width>
        <height>42</height>
       </rect>
      </property>
@@ -6691,10 +6695,10 @@ p, li { white-space: pre-wrap; }
     <widget class="QTextEdit" name="textEdit_46">
      <property name="geometry">
       <rect>
-       <x>72</x>
-       <y>124</y>
+       <x>74</x>
+       <y>125</y>
        <width>41</width>
-       <height>42</height>
+       <height>41</height>
       </rect>
      </property>
      <property name="styleSheet">
@@ -6760,10 +6764,10 @@ p, li { white-space: pre-wrap; }
     <widget class="QTextEdit" name="textEdit_49">
      <property name="geometry">
       <rect>
-       <x>70</x>
-       <y>68</y>
-       <width>44</width>
-       <height>42</height>
+       <x>72</x>
+       <y>71</y>
+       <width>43</width>
+       <height>41</height>
       </rect>
      </property>
      <property name="styleSheet">
@@ -6877,10 +6881,10 @@ p, li { white-space: pre-wrap; }
     <widget class="QTextEdit" name="textEdit_54">
      <property name="geometry">
       <rect>
-       <x>72</x>
-       <y>12</y>
-       <width>42</width>
-       <height>42</height>
+       <x>73</x>
+       <y>14</y>
+       <width>41</width>
+       <height>40</height>
       </rect>
      </property>
      <property name="styleSheet">
@@ -6901,7 +6905,7 @@ p, li { white-space: pre-wrap; }
      <property name="geometry">
       <rect>
        <x>131</x>
-       <y>11</y>
+       <y>14</y>
        <width>43</width>
        <height>41</height>
       </rect>
@@ -6924,7 +6928,7 @@ p, li { white-space: pre-wrap; }
      <property name="geometry">
       <rect>
        <x>203</x>
-       <y>11</y>
+       <y>14</y>
        <width>44</width>
        <height>41</height>
       </rect>
@@ -6943,13 +6947,33 @@ p, li { white-space: pre-wrap; }
 &lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;-&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
      </property>
     </widget>
+    <zorder>textEdit_39</zorder>
+    <zorder>textEdit_40</zorder>
+    <zorder>textEdit_41</zorder>
+    <zorder>textEdit_42</zorder>
+    <zorder>textEdit_43</zorder>
+    <zorder>textEdit_44</zorder>
+    <zorder>textEdit_45</zorder>
+    <zorder>textEdit_46</zorder>
+    <zorder>textEdit_47</zorder>
+    <zorder>textEdit_48</zorder>
+    <zorder>textEdit_49</zorder>
+    <zorder>textEdit_50</zorder>
+    <zorder>textEdit_51</zorder>
+    <zorder>textEdit_52</zorder>
+    <zorder>textEdit_53</zorder>
+    <zorder>textEdit_54</zorder>
+    <zorder>textEdit_55</zorder>
+    <zorder>textEdit_56</zorder>
+    <zorder>Cover</zorder>
+    <zorder>Cover</zorder>
    </widget>
    <widget class="QFrame" name="Demo5">
     <property name="geometry">
      <rect>
-      <x>6</x>
+      <x>5</x>
       <y>33</y>
-      <width>158</width>
+      <width>156</width>
       <height>233</height>
      </rect>
     </property>
@@ -7183,8 +7207,8 @@ p, li { white-space: pre-wrap; }
    <widget class="QFrame" name="Demo6">
     <property name="geometry">
      <rect>
-      <x>271</x>
-      <y>220</y>
+      <x>280</x>
+      <y>180</y>
       <width>259</width>
       <height>147</height>
      </rect>
@@ -7245,8 +7269,8 @@ background-color: rgb(83, 68, 150);</string>
    <widget class="QFrame" name="Demo7">
     <property name="geometry">
      <rect>
-      <x>270</x>
-      <y>220</y>
+      <x>280</x>
+      <y>180</y>
       <width>259</width>
       <height>147</height>
      </rect>
@@ -7307,7 +7331,7 @@ background-color: rgb(83, 68, 150);</string>
    <widget class="QFrame" name="MBTerminal">
     <property name="geometry">
      <rect>
-      <x>9</x>
+      <x>10</x>
       <y>429</y>
       <width>241</width>
       <height>91</height>
@@ -7319,7 +7343,7 @@ background-color: rgb(83, 68, 150);</string>
     <property name="frameShadow">
      <enum>QFrame::Raised</enum>
     </property>
-    <widget class="QLabel" name="label_18">
+    <widget class="QLabel" name="Name_6">
      <property name="geometry">
       <rect>
        <x>80</x>
@@ -7370,48 +7394,7 @@ color: rgb(255, 255, 255);</string>
       <enum>Qt::Horizontal</enum>
      </property>
     </widget>
-    <widget class="QWidget" name="verticalLayoutWidget_13">
-     <property name="geometry">
-      <rect>
-       <x>220</x>
-       <y>0</y>
-       <width>21</width>
-       <height>21</height>
-      </rect>
-     </property>
-     <layout class="QVBoxLayout" name="verticalLayout_14">
-      <item>
-       <widget class="QPushButton" name="CloseMBTerminal">
-        <property name="minimumSize">
-         <size>
-          <width>17</width>
-          <height>17</height>
-         </size>
-        </property>
-        <property name="maximumSize">
-         <size>
-          <width>17</width>
-          <height>17</height>
-         </size>
-        </property>
-        <property name="cursor">
-         <cursorShape>UpArrowCursor</cursorShape>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">background-color: rgb(239, 41, 41);
-</string>
-        </property>
-        <property name="text">
-         <string>✕</string>
-        </property>
-        <property name="shortcut">
-         <string>Esc</string>
-        </property>
-       </widget>
-      </item>
-     </layout>
-    </widget>
-    <widget class="QLineEdit" name="MBTerminalText">
+    <widget class="QLineEdit" name="MBTerminalTextActual">
      <property name="geometry">
       <rect>
        <x>10</x>
@@ -7428,12 +7411,12 @@ font: 75 11pt &quot;Courier 10 Pitch&quot;;</string>
       <string>MusicBoard Terminal</string>
      </property>
     </widget>
-    <widget class="QLabel" name="label_44">
+    <widget class="QLabel" name="MB_4">
      <property name="geometry">
       <rect>
        <x>110</x>
        <y>0</y>
-       <width>119</width>
+       <width>118</width>
        <height>31</height>
       </rect>
      </property>
@@ -7449,6 +7432,143 @@ image: url(:/pictures/MB.png);</string>
       <pixmap resource="res.qrc">:/pictures/MB.png</pixmap>
      </property>
     </widget>
+    <widget class="QPushButton" name="CloseMBTerminal">
+     <property name="geometry">
+      <rect>
+       <x>222</x>
+       <y>3</y>
+       <width>17</width>
+       <height>17</height>
+      </rect>
+     </property>
+     <property name="minimumSize">
+      <size>
+       <width>17</width>
+       <height>17</height>
+      </size>
+     </property>
+     <property name="maximumSize">
+      <size>
+       <width>17</width>
+       <height>17</height>
+      </size>
+     </property>
+     <property name="cursor">
+      <cursorShape>UpArrowCursor</cursorShape>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(239, 41, 41);
+</string>
+     </property>
+     <property name="text">
+      <string>✕</string>
+     </property>
+     <property name="shortcut">
+      <string>Esc</string>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QFrame" name="Cover">
+    <property name="geometry">
+     <rect>
+      <x>-10</x>
+      <y>-440</y>
+      <width>881</width>
+      <height>974</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgba(136, 138, 133, 0);
+</string>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::StyledPanel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Raised</enum>
+    </property>
+    <widget class="QTextEdit" name="textEdit_66">
+     <property name="geometry">
+      <rect>
+       <x>480</x>
+       <y>920</y>
+       <width>701</width>
+       <height>101</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgba(136, 138, 133, 0);
+font: 11pt &quot;Courier&quot;;</string>
+     </property>
+     <property name="html">
+      <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Courier'; font-size:11pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Cover is ON. &lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     </property>
+     <property name="textInteractionFlags">
+      <set>Qt::NoTextInteraction</set>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_4">
+     <property name="geometry">
+      <rect>
+       <x>167</x>
+       <y>512</y>
+       <width>544</width>
+       <height>369</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">image: url(:/pictures/MB.png);</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QFrame" name="CoverNumLock">
+    <property name="geometry">
+     <rect>
+      <x>70</x>
+      <y>40</y>
+      <width>51</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgba(136, 138, 133, 0);</string>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::StyledPanel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Raised</enum>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="LButton">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>365</x>
+      <y>7</y>
+      <width>16</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: rgb(239, 41, 41);
+background-color: rgb(255, 255, 255);</string>
+    </property>
+    <property name="text">
+     <string>L</string>
+    </property>
+    <property name="shortcut">
+     <string>Ctrl+M</string>
+    </property>
    </widget>
    <zorder>HiddenShowKeysButton</zorder>
    <zorder>MasterLeft_2</zorder>
@@ -7484,7 +7604,7 @@ image: url(:/pictures/MB.png);</string>
    <zorder>NumlockLabel_2</zorder>
    <zorder>VolSlider</zorder>
    <zorder>VolLabel</zorder>
-   <zorder>label_4</zorder>
+   <zorder>Name</zorder>
    <zorder>Licence</zorder>
    <zorder>Rhythm2</zorder>
    <zorder>ReInit</zorder>
@@ -7492,23 +7612,20 @@ image: url(:/pictures/MB.png);</string>
    <zorder>EditButton</zorder>
    <zorder>HelpButton</zorder>
    <zorder>AboutButton</zorder>
-   <zorder>label_23</zorder>
+   <zorder>MB</zorder>
    <zorder>Help</zorder>
    <zorder>About</zorder>
    <zorder>L1</zorder>
    <zorder>verticalFrame</zorder>
    <zorder>FileButton</zorder>
-   <zorder>frame_5</zorder>
+   <zorder>Launchpad</zorder>
    <zorder>P16</zorder>
    <zorder>P17</zorder>
    <zorder>P15</zorder>
    <zorder>gridFrame</zorder>
    <zorder>P14</zorder>
    <zorder>P13</zorder>
-   <zorder>MBoard</zorder>
    <zorder>Close</zorder>
-   <zorder>Sure</zorder>
-   <zorder>NumLockInfo</zorder>
    <zorder>label_42</zorder>
    <zorder>L2</zorder>
    <zorder>UnderOn</zorder>
@@ -7520,15 +7637,21 @@ image: url(:/pictures/MB.png);</string>
    <zorder>Demo4</zorder>
    <zorder>ProjectNotes</zorder>
    <zorder>Demo5</zorder>
-   <zorder>Demo6</zorder>
-   <zorder>Demo7</zorder>
    <zorder>MBTerminal</zorder>
+   <zorder>CoverNumLock</zorder>
+   <zorder>LButton</zorder>
+   <zorder>MBoard</zorder>
+   <zorder>Cover</zorder>
    <zorder>File</zorder>
    <zorder>Edit</zorder>
    <zorder>ThemesEdit</zorder>
    <zorder>NotesEdit</zorder>
    <zorder>ClearEdit</zorder>
    <zorder>Clear</zorder>
+   <zorder>Demo6</zorder>
+   <zorder>Demo7</zorder>
+   <zorder>Sure</zorder>
+   <zorder>NumLockInfo</zorder>
   </widget>
  </widget>
  <resources>

@@ -43,8 +43,8 @@ HEADERS  += musicboard.h \
 
 FORMS    += musicboard.ui \
     settings.ui \
-    audiorecorder.ui \
-    preferencesform.ui
+    preferencesform.ui \
+    audiorecorder.ui
 
 target.path = $$[QT_INSTALL_EXAMPLES]/multimedia/audiorecorder
 INSTALLS += target
