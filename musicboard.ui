@@ -31,13 +31,21 @@
   <property name="windowTitle">
    <string>MusicBoard</string>
   </property>
+  <property name="windowIcon">
+   <iconset resource="res.qrc">
+    <normaloff>:/pictures/MBIco.png</normaloff>:/pictures/MBIco.png</iconset>
+  </property>
   <property name="autoFillBackground">
    <bool>false</bool>
   </property>
   <property name="styleSheet">
-   <string notr="true">#MusicBoard {
-backdround-color: pink;
-}</string>
+   <string notr="true"/>
+  </property>
+  <property name="iconSize">
+   <size>
+    <width>100</width>
+    <height>100</height>
+   </size>
   </property>
   <property name="dockOptions">
    <set>QMainWindow::AllowTabbedDocks|QMainWindow::AnimatedDocks</set>
@@ -46,14 +54,31 @@ backdround-color: pink;
    <property name="styleSheet">
     <string notr="true">background-color: rgb(110, 110, 110);</string>
    </property>
-   <widget class="QWidget" name="gridLayoutWidget">
+   <widget class="QFrame" name="gridFrame">
     <property name="geometry">
      <rect>
       <x>60</x>
-      <y>40</y>
+      <y>39</y>
       <width>191</width>
-      <height>221</height>
+      <height>225</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgba(255, 255, 255, 0);
+/*background-color: rgb(255, 255, 255);*/
+/*background-color: rgb(152, 130, 251);*/</string>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::NoFrame</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Plain</enum>
+    </property>
+    <property name="lineWidth">
+     <number>4</number>
+    </property>
+    <property name="midLineWidth">
+     <number>0</number>
     </property>
     <layout class="QGridLayout" name="gridLayout">
      <item row="3" column="0">
@@ -71,7 +96,9 @@ backdround-color: pink;
         </size>
        </property>
        <property name="styleSheet">
-        <string notr="true">background-color: rgb(255, 255, 255);</string>
+        <string notr="true">background-color: rgba(136, 138, 133, 179);
+background-image: url(:/pictures/LaunchPad.png);
+image: url(:/pictures/LaunchPad.png);</string>
        </property>
        <property name="text">
         <string>P7</string>
@@ -96,7 +123,9 @@ backdround-color: pink;
         </size>
        </property>
        <property name="styleSheet">
-        <string notr="true">background-color: rgb(255, 255, 255);</string>
+        <string notr="true">background-color: rgba(136, 138, 133, 179);
+background-image: url(:/pictures/LaunchPad.png);
+image: url(:/pictures/LaunchPad.png);</string>
        </property>
        <property name="text">
         <string>P1</string>
@@ -121,7 +150,9 @@ backdround-color: pink;
         </size>
        </property>
        <property name="styleSheet">
-        <string notr="true">background-color: rgb(255, 255, 255);</string>
+        <string notr="true">background-color: rgba(136, 138, 133, 179);
+background-image: url(:/pictures/LaunchPad.png);
+image: url(:/pictures/LaunchPad.png);</string>
        </property>
        <property name="text">
         <string>P2</string>
@@ -146,7 +177,9 @@ backdround-color: pink;
         </size>
        </property>
        <property name="styleSheet">
-        <string notr="true">background-color: rgb(255, 255, 255);</string>
+        <string notr="true">background-color: rgba(136, 138, 133, 179);
+background-image: url(:/pictures/LaunchPad.png);
+image: url(:/pictures/LaunchPad.png);</string>
        </property>
        <property name="text">
         <string>P4</string>
@@ -171,7 +204,9 @@ backdround-color: pink;
         </size>
        </property>
        <property name="styleSheet">
-        <string notr="true">background-color: rgb(255, 255, 255);</string>
+        <string notr="true">background-color: rgba(136, 138, 133, 179);
+background-image: url(:/pictures/LaunchPad.png);
+image: url(:/pictures/LaunchPad.png);</string>
        </property>
        <property name="text">
         <string>P3</string>
@@ -196,7 +231,9 @@ backdround-color: pink;
         </size>
        </property>
        <property name="styleSheet">
-        <string notr="true">background-color: rgb(255, 255, 255);</string>
+        <string notr="true">background-color: rgba(136, 138, 133, 179);
+background-image: url(:/pictures/LaunchPad.png);
+image: url(:/pictures/LaunchPad.png);</string>
        </property>
        <property name="text">
         <string>P5</string>
@@ -221,7 +258,9 @@ backdround-color: pink;
         </size>
        </property>
        <property name="styleSheet">
-        <string notr="true">background-color: rgb(255, 255, 255);</string>
+        <string notr="true">background-color: rgba(136, 138, 133, 179);
+background-image: url(:/pictures/LaunchPad.png);
+image: url(:/pictures/LaunchPad.png);</string>
        </property>
        <property name="text">
         <string>P8</string>
@@ -246,7 +285,9 @@ backdround-color: pink;
         </size>
        </property>
        <property name="styleSheet">
-        <string notr="true">background-color: rgb(255, 255, 255);</string>
+        <string notr="true">background-color: rgba(136, 138, 133, 179);
+background-image: url(:/pictures/LaunchPad.png);
+image: url(:/pictures/LaunchPad.png);</string>
        </property>
        <property name="text">
         <string>P6</string>
@@ -271,7 +312,9 @@ backdround-color: pink;
         </size>
        </property>
        <property name="styleSheet">
-        <string notr="true">background-color: rgb(255, 255, 255);</string>
+        <string notr="true">background-color: rgba(136, 138, 133, 179);
+background-image: url(:/pictures/LaunchPad.png);
+image: url(:/pictures/LaunchPad.png);</string>
        </property>
        <property name="text">
         <string>P11</string>
@@ -296,7 +339,9 @@ backdround-color: pink;
         </size>
        </property>
        <property name="styleSheet">
-        <string notr="true">background-color: rgb(255, 255, 255);</string>
+        <string notr="true">background-color: rgba(136, 138, 133, 179);
+background-image: url(:/pictures/LaunchPad.png);
+image: url(:/pictures/LaunchPad.png);</string>
        </property>
        <property name="text">
         <string>P9</string>
@@ -321,7 +366,9 @@ backdround-color: pink;
         </size>
        </property>
        <property name="styleSheet">
-        <string notr="true">background-color: rgb(255, 255, 255);</string>
+        <string notr="true">background-color: rgba(136, 138, 133, 179);
+background-image: url(:/pictures/LaunchPad.png);
+image: url(:/pictures/LaunchPad.png);</string>
        </property>
        <property name="text">
         <string>P12</string>
@@ -346,7 +393,10 @@ backdround-color: pink;
         </size>
        </property>
        <property name="styleSheet">
-        <string notr="true">background-color: rgb(255, 255, 255);</string>
+        <string notr="true">background-color: rgba(136, 138, 133, 179);
+background-image: url(:/pictures/LaunchPad.png);
+image: url(:/pictures/LaunchPad.png);
+color: rgb(85, 87, 83);</string>
        </property>
        <property name="text">
         <string>P10</string>
@@ -357,6 +407,18 @@ backdround-color: pink;
       </widget>
      </item>
     </layout>
+    <zorder>P7</zorder>
+    <zorder>P1</zorder>
+    <zorder>P2</zorder>
+    <zorder>P4</zorder>
+    <zorder>P3</zorder>
+    <zorder>P5</zorder>
+    <zorder>P8</zorder>
+    <zorder>P6</zorder>
+    <zorder>P11</zorder>
+    <zorder>P12</zorder>
+    <zorder>P10</zorder>
+    <zorder>P9</zorder>
    </widget>
    <widget class="QPushButton" name="P13">
     <property name="geometry">
@@ -380,7 +442,10 @@ backdround-color: pink;
      </size>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(136, 138, 133);</string>
+     <string notr="true">background-color: rgb(136, 138, 133);
+color: rgb(255, 255, 255);
+background-image: url(:/pictures/KeyD.png);
+image: url(:/pictures/KeyD.png);</string>
     </property>
     <property name="text">
      <string>P13</string>
@@ -394,24 +459,39 @@ backdround-color: pink;
      <rect>
       <x>260</x>
       <y>100</y>
-      <width>50</width>
-      <height>100</height>
+      <width>47</width>
+      <height>90</height>
      </rect>
+    </property>
+    <property name="sizePolicy">
+     <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+      <horstretch>0</horstretch>
+      <verstretch>0</verstretch>
+     </sizepolicy>
     </property>
     <property name="minimumSize">
      <size>
-      <width>50</width>
-      <height>100</height>
+      <width>47</width>
+      <height>90</height>
      </size>
     </property>
     <property name="maximumSize">
      <size>
-      <width>50</width>
-      <height>50</height>
+      <width>47</width>
+      <height>90</height>
+     </size>
+    </property>
+    <property name="sizeIncrement">
+     <size>
+      <width>0</width>
+      <height>0</height>
      </size>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(136, 138, 133);</string>
+     <string notr="true">image: url(:/pictures/KeyLT.png);
+background-image: url(:/pictures/KeyLT.png);
+background-color: rgba(136, 138, 133, 179);
+color: rgb(255, 255, 255);</string>
     </property>
     <property name="text">
      <string>P14</string>
@@ -425,24 +505,27 @@ backdround-color: pink;
      <rect>
       <x>260</x>
       <y>210</y>
-      <width>50</width>
-      <height>100</height>
+      <width>47</width>
+      <height>90</height>
      </rect>
     </property>
     <property name="minimumSize">
      <size>
-      <width>50</width>
-      <height>100</height>
+      <width>47</width>
+      <height>90</height>
      </size>
     </property>
     <property name="maximumSize">
      <size>
-      <width>7</width>
-      <height>50</height>
+      <width>47</width>
+      <height>90</height>
      </size>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(136, 138, 133);</string>
+     <string notr="true">image: url(:/pictures/KeyLT.png);
+background-image: url(:/pictures/KeyLT.png);
+background-color: rgba(136, 138, 133, 179);
+color: rgb(255, 255, 255);</string>
     </property>
     <property name="text">
      <string>P15</string>
@@ -473,7 +556,10 @@ backdround-color: pink;
      </size>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(136, 138, 133);</string>
+     <string notr="true">background-color: rgb(136, 138, 133);
+background-image: url(:/pictures/KeyDL.png);
+image: url(:/pictures/KeyDL.png);
+color: rgb(255, 255, 255);</string>
     </property>
     <property name="text">
      <string>P16</string>
@@ -504,7 +590,10 @@ backdround-color: pink;
      </size>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(136, 138, 133);</string>
+     <string notr="true">background-color: rgb(136, 138, 133);
+color: rgb(255, 255, 255);
+background-image: url(:/pictures/KeyD.png);
+image: url(:/pictures/KeyD.png);</string>
     </property>
     <property name="text">
      <string>P17</string>
@@ -519,11 +608,12 @@ backdround-color: pink;
       <x>660</x>
       <y>40</y>
       <width>131</width>
-      <height>481</height>
+      <height>483</height>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(136, 138, 133);</string>
+     <string notr="true">/*background-color: rgb(136, 138, 133);*/
+background-color: rgb(152, 130, 251);</string>
     </property>
    </widget>
    <widget class="QTreeView" name="File1">
@@ -532,20 +622,24 @@ backdround-color: pink;
       <x>410</x>
       <y>40</y>
       <width>241</width>
-      <height>481</height>
+      <height>484</height>
      </rect>
     </property>
     <property name="contextMenuPolicy">
      <enum>Qt::DefaultContextMenu</enum>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(136, 138, 133);</string>
+     <string notr="true">/*background-color: rgb(136, 138, 133);*/
+background-color: rgb(152, 130, 251);</string>
     </property>
     <property name="frameShape">
      <enum>QFrame::StyledPanel</enum>
     </property>
     <property name="horizontalScrollBarPolicy">
-     <enum>Qt::ScrollBarAlwaysOn</enum>
+     <enum>Qt::ScrollBarAsNeeded</enum>
+    </property>
+    <property name="sizeAdjustPolicy">
+     <enum>QAbstractScrollArea::AdjustIgnored</enum>
     </property>
    </widget>
    <widget class="QLineEdit" name="Error">
@@ -584,7 +678,9 @@ backdround-color: pink;
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(136, 138, 133);</string>
+     <string notr="true">/*background-color: rgb(136, 138, 133);*/
+color: rgb(255, 255, 255);
+background-color: rgba(255, 255, 255, 0);</string>
     </property>
     <property name="text">
      <string> Filepath:</string>
@@ -600,7 +696,9 @@ backdround-color: pink;
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(136, 138, 133);</string>
+     <string notr="true">/*background-color: rgb(136, 138, 133);*/
+color: rgb(255, 255, 255);
+background-color: rgba(255, 255, 255, 0);</string>
     </property>
     <property name="text">
      <string>  Selected:</string>
@@ -616,7 +714,9 @@ backdround-color: pink;
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(136, 138, 133);</string>
+     <string notr="true">/*background-color: rgb(136, 138, 133);*/
+color: rgb(255, 255, 255);
+background-color: rgba(255, 255, 255, 0);</string>
     </property>
     <property name="text">
      <string>    Button</string>
@@ -628,7 +728,7 @@ backdround-color: pink;
       <x>10</x>
       <y>330</y>
       <width>391</width>
-      <height>191</height>
+      <height>194</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -667,6 +767,7 @@ backdround-color: pink;
         <property name="styleSheet">
          <string notr="true">#C_B {
 background-color: rgb(81, 38, 255);
+font: 7.4pt &quot;Cantarell&quot;;
 }</string>
         </property>
         <property name="text">
@@ -694,6 +795,7 @@ background-color: rgb(81, 38, 255);
         <property name="styleSheet">
          <string notr="true">#D_B {
 background-color: rgb(81, 38, 255);
+font: 7.4pt &quot;Cantarell&quot;;
 }</string>
         </property>
         <property name="text">
@@ -733,6 +835,7 @@ background-color: rgb(81, 38, 255);
         <property name="styleSheet">
          <string notr="true">#F_B {
 background-color: rgb(81, 38, 255);
+font: 7.4pt &quot;Cantarell&quot;;
 }</string>
         </property>
         <property name="text">
@@ -760,6 +863,7 @@ background-color: rgb(81, 38, 255);
         <property name="styleSheet">
          <string notr="true">#G_B {
 background-color: rgb(81, 38, 255);
+font: 7.4pt &quot;Cantarell&quot;;
 }</string>
         </property>
         <property name="text">
@@ -787,6 +891,7 @@ background-color: rgb(81, 38, 255);
         <property name="styleSheet">
          <string notr="true">#A_B {
 background-color: rgb(81, 38, 255);
+font: 7.4pt &quot;Cantarell&quot;;
 }</string>
         </property>
         <property name="text">
@@ -824,7 +929,9 @@ background-color: rgb(81, 38, 255);
          </size>
         </property>
         <property name="styleSheet">
-         <string notr="true">background-color: rgb(255, 255, 255);</string>
+         <string notr="true">background-color: rgb(255, 255, 255);
+font: 7.4pt &quot;Cantarell&quot;;
+</string>
         </property>
         <property name="text">
          <string/>
@@ -849,7 +956,9 @@ background-color: rgb(81, 38, 255);
          </size>
         </property>
         <property name="styleSheet">
-         <string notr="true">background-color: rgb(255, 255, 255);</string>
+         <string notr="true">background-color: rgb(255, 255, 255);
+font: 7.4pt &quot;Cantarell&quot;;
+</string>
         </property>
         <property name="text">
          <string/>
@@ -874,7 +983,9 @@ background-color: rgb(81, 38, 255);
          </size>
         </property>
         <property name="styleSheet">
-         <string notr="true">background-color: rgb(255, 255, 255);</string>
+         <string notr="true">background-color: rgb(255, 255, 255);
+font: 7.4pt &quot;Cantarell&quot;;
+</string>
         </property>
         <property name="text">
          <string/>
@@ -899,7 +1010,9 @@ background-color: rgb(81, 38, 255);
          </size>
         </property>
         <property name="styleSheet">
-         <string notr="true">background-color: rgb(255, 255, 255);</string>
+         <string notr="true">background-color: rgb(255, 255, 255);
+font: 7.4pt &quot;Cantarell&quot;;
+</string>
         </property>
         <property name="text">
          <string/>
@@ -924,7 +1037,9 @@ background-color: rgb(81, 38, 255);
          </size>
         </property>
         <property name="styleSheet">
-         <string notr="true">background-color: rgb(255, 255, 255);</string>
+         <string notr="true">background-color: rgb(255, 255, 255);
+font: 7.4pt &quot;Cantarell&quot;;
+</string>
         </property>
         <property name="text">
          <string/>
@@ -949,7 +1064,9 @@ background-color: rgb(81, 38, 255);
          </size>
         </property>
         <property name="styleSheet">
-         <string notr="true">background-color: rgb(255, 255, 255);</string>
+         <string notr="true">background-color: rgb(255, 255, 255);
+font: 7.4pt &quot;Cantarell&quot;;
+</string>
         </property>
         <property name="text">
          <string/>
@@ -974,7 +1091,9 @@ background-color: rgb(81, 38, 255);
          </size>
         </property>
         <property name="styleSheet">
-         <string notr="true">background-color: rgb(255, 255, 255);</string>
+         <string notr="true">background-color: rgb(255, 255, 255);
+font: 7.4pt &quot;Cantarell&quot;;
+</string>
         </property>
         <property name="text">
          <string/>
@@ -999,7 +1118,9 @@ background-color: rgb(81, 38, 255);
          </size>
         </property>
         <property name="styleSheet">
-         <string notr="true">background-color: rgb(255, 255, 255);</string>
+         <string notr="true">background-color: rgb(255, 255, 255);
+font: 7.4pt &quot;Cantarell&quot;;
+</string>
         </property>
         <property name="text">
          <string/>
@@ -1024,7 +1145,9 @@ background-color: rgb(81, 38, 255);
          </size>
         </property>
         <property name="styleSheet">
-         <string notr="true">background-color: rgb(255, 255, 255);</string>
+         <string notr="true">background-color: rgb(255, 255, 255);
+font: 7.4pt &quot;Cantarell&quot;;
+</string>
         </property>
         <property name="text">
          <string/>
@@ -1049,7 +1172,9 @@ background-color: rgb(81, 38, 255);
          </size>
         </property>
         <property name="styleSheet">
-         <string notr="true">background-color: rgb(255, 255, 255);</string>
+         <string notr="true">background-color: rgb(255, 255, 255);
+font: 7.4pt &quot;Cantarell&quot;;
+</string>
         </property>
         <property name="text">
          <string/>
@@ -1074,7 +1199,9 @@ background-color: rgb(81, 38, 255);
          </size>
         </property>
         <property name="styleSheet">
-         <string notr="true">background-color: rgb(255, 255, 255);</string>
+         <string notr="true">background-color: rgb(255, 255, 255);
+font: 7.4pt &quot;Cantarell&quot;;
+</string>
         </property>
         <property name="text">
          <string/>
@@ -1099,7 +1226,10 @@ background-color: rgb(81, 38, 255);
          </size>
         </property>
         <property name="styleSheet">
-         <string notr="true">background-color: rgb(255, 255, 255);</string>
+         <string notr="true">background-color: rgb(255, 255, 255);
+font: 7.4pt &quot;Cantarell&quot;;
+
+</string>
         </property>
         <property name="text">
          <string/>
@@ -1150,6 +1280,7 @@ background-color: rgb(81, 38, 255);
         <property name="styleSheet">
          <string notr="true">#F2_B {
 background-color: rgb(81, 38, 255);
+font: 7.4pt &quot;Cantarell&quot;;
 }</string>
         </property>
         <property name="text">
@@ -1189,6 +1320,7 @@ background-color: rgb(81, 38, 255);
         <property name="styleSheet">
          <string notr="true">#C2_B {
 background-color: rgb(81, 38, 255);
+font: 7.4pt &quot;Cantarell&quot;;
 }</string>
         </property>
         <property name="text">
@@ -1216,6 +1348,7 @@ background-color: rgb(81, 38, 255);
         <property name="styleSheet">
          <string notr="true">#D2_B {
 background-color: rgb(81, 38, 255);
+font: 7.4pt &quot;Cantarell&quot;;
 }</string>
         </property>
         <property name="text">
@@ -1237,6 +1370,9 @@ background-color: rgb(81, 38, 255);
       <width>91</width>
       <height>91</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgba(255, 255, 255, 0);</string>
     </property>
     <property name="frameShape">
      <enum>QFrame::NoFrame</enum>
@@ -1272,14 +1408,20 @@ p, li { white-space: pre-wrap; }
      <enum>Qt::Horizontal</enum>
     </property>
    </widget>
-   <widget class="QWidget" name="verticalLayoutWidget">
+   <widget class="QFrame" name="verticalFrame">
     <property name="geometry">
      <rect>
-      <x>800</x>
-      <y>60</y>
-      <width>85</width>
-      <height>461</height>
+      <x>790</x>
+      <y>16</y>
+      <width>61</width>
+      <height>533</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgba(255, 255, 255, 0);</string>
+    </property>
+    <property name="lineWidth">
+     <number>0</number>
     </property>
     <layout class="QVBoxLayout" name="verticalLayout">
      <item>
@@ -1296,14 +1438,24 @@ p, li { white-space: pre-wrap; }
          <height>50</height>
         </size>
        </property>
+       <property name="acceptDrops">
+        <bool>false</bool>
+       </property>
+       <property name="autoFillBackground">
+        <bool>false</bool>
+       </property>
        <property name="styleSheet">
-        <string notr="true">background-color: rgb(255, 255, 255);</string>
+        <string notr="true">background-color: rgba(255, 159, 159, 179);
+background-image: url(:/pictures/KeysLF1.png);
+image: url(:/pictures/KeysLF1.png);
+color: rgb(255, 255, 255);
+</string>
        </property>
        <property name="text">
         <string>K1</string>
        </property>
        <property name="shortcut">
-        <string>H</string>
+        <string>J</string>
        </property>
       </widget>
      </item>
@@ -1322,13 +1474,17 @@ p, li { white-space: pre-wrap; }
         </size>
        </property>
        <property name="styleSheet">
-        <string notr="true">background-color: rgb(255, 255, 255);</string>
+        <string notr="true">background-color: rgba(255, 159, 159, 179);
+background-image: url(:/pictures/KeysLF.png);
+image: url(:/pictures/KeysLF.png);
+color: rgb(255, 255, 255);
+</string>
        </property>
        <property name="text">
         <string>K2</string>
        </property>
        <property name="shortcut">
-        <string>J</string>
+        <string>K</string>
        </property>
       </widget>
      </item>
@@ -1347,35 +1503,14 @@ p, li { white-space: pre-wrap; }
         </size>
        </property>
        <property name="styleSheet">
-        <string notr="true">background-color: rgb(255, 255, 255);</string>
+        <string notr="true">background-color: rgba(255, 159, 159, 179);
+background-image: url(:/pictures/KeysLF.png);
+image: url(:/pictures/KeysLF.png);
+color: rgb(255, 255, 255);
+</string>
        </property>
        <property name="text">
         <string>K3</string>
-       </property>
-       <property name="shortcut">
-        <string>K</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QPushButton" name="K4">
-       <property name="minimumSize">
-        <size>
-         <width>50</width>
-         <height>50</height>
-        </size>
-       </property>
-       <property name="maximumSize">
-        <size>
-         <width>50</width>
-         <height>50</height>
-        </size>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">background-color: rgb(255, 255, 255);</string>
-       </property>
-       <property name="text">
-        <string>K4</string>
        </property>
        <property name="shortcut">
         <string>L</string>
@@ -1397,13 +1532,29 @@ p, li { white-space: pre-wrap; }
         </size>
        </property>
        <property name="styleSheet">
-        <string notr="true">background-color: rgb(255, 255, 255);</string>
+        <string notr="true">color: rgb(255, 255, 255);
+background-image: url(:/pictures/Sets1.png);
+image: url(:/pictures/Sets1.png);
+background-color: rgba(159, 138, 252, 153);
+border-color: rgba(159, 138, 252, 153);</string>
        </property>
        <property name="text">
         <string>Set1</string>
        </property>
        <property name="shortcut">
         <string>N</string>
+       </property>
+       <property name="checkable">
+        <bool>false</bool>
+       </property>
+       <property name="autoRepeat">
+        <bool>false</bool>
+       </property>
+       <property name="autoRepeatDelay">
+        <number>0</number>
+       </property>
+       <property name="autoRepeatInterval">
+        <number>0</number>
        </property>
       </widget>
      </item>
@@ -1422,7 +1573,11 @@ p, li { white-space: pre-wrap; }
         </size>
        </property>
        <property name="styleSheet">
-        <string notr="true">background-color: rgb(255, 255, 255);</string>
+        <string notr="true">color: rgb(255, 255, 255);
+background-image: url(:/pictures/Sets.png);
+image: url(:/pictures/Sets.png);
+background-color: rgba(159, 138, 252, 153);
+border-color: rgba(159, 138, 252, 153);</string>
        </property>
        <property name="text">
         <string>Set2</string>
@@ -1447,7 +1602,11 @@ p, li { white-space: pre-wrap; }
         </size>
        </property>
        <property name="styleSheet">
-        <string notr="true">background-color: rgb(255, 255, 255);</string>
+        <string notr="true">color: rgb(255, 255, 255);
+background-image: url(:/pictures/Sets.png);
+image: url(:/pictures/Sets.png);
+background-color: rgba(159, 138, 252, 153);
+border-color: rgba(159, 138, 252, 153);</string>
        </property>
        <property name="text">
         <string>Set3</string>
@@ -1472,7 +1631,11 @@ p, li { white-space: pre-wrap; }
         </size>
        </property>
        <property name="styleSheet">
-        <string notr="true">background-color: rgb(255, 255, 255);</string>
+        <string notr="true">color: rgb(255, 255, 255);
+background-image: url(:/pictures/Sets.png);
+image: url(:/pictures/Sets.png);
+background-color: rgba(159, 138, 252, 153);
+border-color: rgba(159, 138, 252, 153);</string>
        </property>
        <property name="text">
         <string>Set4</string>
@@ -1483,56 +1646,39 @@ p, li { white-space: pre-wrap; }
       </widget>
      </item>
     </layout>
+    <zorder>K2</zorder>
+    <zorder>K3</zorder>
+    <zorder>Set1</zorder>
+    <zorder>Set2</zorder>
+    <zorder>Set3</zorder>
+    <zorder>Set4</zorder>
+    <zorder>K1</zorder>
    </widget>
-   <widget class="QWidget" name="verticalLayoutWidget_2">
+   <widget class="QFrame" name="verticalFrame_2">
     <property name="geometry">
      <rect>
-      <x>840</x>
-      <y>0</y>
-      <width>21</width>
-      <height>21</height>
+      <x>810</x>
+      <y>40</y>
+      <width>26</width>
+      <height>25</height>
      </rect>
     </property>
-    <layout class="QVBoxLayout" name="verticalLayout_2">
-     <item>
-      <widget class="QPushButton" name="Close">
-       <property name="minimumSize">
-        <size>
-         <width>17</width>
-         <height>17</height>
-        </size>
-       </property>
-       <property name="maximumSize">
-        <size>
-         <width>17</width>
-         <height>17</height>
-        </size>
-       </property>
-       <property name="cursor">
-        <cursorShape>UpArrowCursor</cursorShape>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">background-color: rgb(239, 41, 41);
-</string>
-       </property>
-       <property name="text">
-        <string>X</string>
-       </property>
-       <property name="shortcut">
-        <string>NumLock</string>
-       </property>
-      </widget>
-     </item>
-    </layout>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgba(255, 255, 255, 0);</string>
+    </property>
+    <layout class="QVBoxLayout" name="verticalLayout_2"/>
    </widget>
-   <widget class="QWidget" name="verticalLayoutWidget_3">
+   <widget class="QFrame" name="verticalFrame_3">
     <property name="geometry">
      <rect>
-      <x>10</x>
-      <y>20</y>
-      <width>31</width>
-      <height>261</height>
+      <x>4</x>
+      <y>10</y>
+      <width>27</width>
+      <height>276</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgba(255, 255, 255, 0);</string>
     </property>
     <layout class="QVBoxLayout" name="verticalLayout_3">
      <item>
@@ -1563,7 +1709,8 @@ p, li { white-space: pre-wrap; }
        </property>
        <property name="styleSheet">
         <string notr="true">font: 7.4pt &quot;Cantarell&quot;;
-background-color: rgb(126, 255, 255);</string>
+background-color: rgb(126, 255, 255);
+color: rgb(85, 87, 83);</string>
        </property>
        <property name="text">
         <string>R1</string>
@@ -1591,7 +1738,8 @@ background-color: rgb(126, 255, 255);</string>
         </size>
        </property>
        <property name="styleSheet">
-        <string notr="true">font: 7.4pt &quot;Cantarell&quot;;</string>
+        <string notr="true">font: 7.4pt &quot;Cantarell&quot;;
+background-color: rgb(186, 189, 182);</string>
        </property>
        <property name="text">
         <string>R2</string>
@@ -1653,7 +1801,8 @@ background-color: rgb(126, 255, 255);</string>
         </size>
        </property>
        <property name="styleSheet">
-        <string notr="true">font: 7.4pt &quot;Cantarell&quot;;</string>
+        <string notr="true">font: 7.4pt &quot;Cantarell&quot;;
+</string>
        </property>
        <property name="text">
         <string>R4</string>
@@ -1665,7 +1814,7 @@ background-color: rgb(126, 255, 255);</string>
      </item>
     </layout>
    </widget>
-   <widget class="QWidget" name="horizontalLayoutWidget_11">
+   <widget class="QFrame" name="horizontalFrame_11">
     <property name="geometry">
      <rect>
       <x>5</x>
@@ -1673,6 +1822,9 @@ background-color: rgb(126, 255, 255);</string>
       <width>91</width>
       <height>21</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgba(255, 255, 255, 0);</string>
     </property>
     <layout class="QHBoxLayout" name="horizontalLayout_11">
      <item>
@@ -1693,7 +1845,7 @@ background-color: rgb(126, 255, 255);</string>
         <string notr="true">background-color: rgb(136, 138, 133);</string>
        </property>
        <property name="text">
-        <string>&lt;-</string>
+        <string>⟵</string>
        </property>
        <property name="shortcut">
         <string>Del</string>
@@ -1718,7 +1870,7 @@ background-color: rgb(126, 255, 255);</string>
         <string notr="true">background-color: rgb(136, 138, 133);</string>
        </property>
        <property name="text">
-        <string>-&gt;</string>
+        <string>⟶</string>
        </property>
        <property name="shortcut">
         <string>Del</string>
@@ -1727,14 +1879,17 @@ background-color: rgb(126, 255, 255);</string>
      </item>
     </layout>
    </widget>
-   <widget class="QWidget" name="verticalLayoutWidget_4">
+   <widget class="QFrame" name="verticalFrame_4">
     <property name="geometry">
      <rect>
-      <x>40</x>
-      <y>20</y>
-      <width>21</width>
-      <height>261</height>
+      <x>30</x>
+      <y>10</y>
+      <width>31</width>
+      <height>275</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgba(255, 255, 255, 0);</string>
     </property>
     <layout class="QVBoxLayout" name="verticalLayout_4">
      <item>
@@ -1872,6 +2027,10 @@ background-color: rgb(126, 255, 255);</string>
       <height>31</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">/*background-color: rgba(255, 255, 255, 0);*/
+background-color: rgba(255, 255, 255, 0);</string>
+    </property>
     <property name="frameShape">
      <enum>QFrame::NoFrame</enum>
     </property>
@@ -1908,6 +2067,9 @@ color: rgb(209, 197, 255);</string>
     <property name="orientation">
      <enum>Qt::Horizontal</enum>
     </property>
+    <property name="tickPosition">
+     <enum>QSlider::TicksBothSides</enum>
+    </property>
    </widget>
    <widget class="QLabel" name="VolLabel">
     <property name="geometry">
@@ -1919,7 +2081,8 @@ color: rgb(209, 197, 255);</string>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(136, 138, 133);</string>
+     <string notr="true">color: rgb(255, 255, 255);
+background-color: rgba(136, 138, 133, 0);</string>
     </property>
     <property name="text">
      <string>    Volume</string>
@@ -1962,33 +2125,47 @@ color: rgb(209, 197, 255);</string>
    <widget class="QPushButton" name="HelpButton">
     <property name="geometry">
      <rect>
-      <x>10</x>
+      <x>150</x>
       <y>0</y>
       <width>41</width>
-      <height>28</height>
+      <height>21</height>
      </rect>
     </property>
     <property name="cursor">
      <cursorShape>UpArrowCursor</cursorShape>
     </property>
+    <property name="styleSheet">
+     <string notr="true">color: rgb(255, 255, 255);
+background-color: rgb(83, 68, 150);</string>
+    </property>
     <property name="text">
      <string>Help</string>
+    </property>
+    <property name="shortcut">
+     <string>F3</string>
     </property>
    </widget>
    <widget class="QPushButton" name="AboutButton">
     <property name="geometry">
      <rect>
-      <x>60</x>
+      <x>200</x>
       <y>0</y>
       <width>61</width>
-      <height>28</height>
+      <height>21</height>
      </rect>
     </property>
     <property name="cursor">
      <cursorShape>UpArrowCursor</cursorShape>
     </property>
+    <property name="styleSheet">
+     <string notr="true">color: rgb(255, 255, 255);
+background-color: rgb(83, 68, 150);</string>
+    </property>
     <property name="text">
      <string>About</string>
+    </property>
+    <property name="shortcut">
+     <string>F4</string>
     </property>
    </widget>
    <widget class="QLabel" name="label_4">
@@ -2000,6 +2177,10 @@ color: rgb(209, 197, 255);</string>
       <height>31</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">color: rgb(255, 255, 255);
+background-color: rgba(255, 255, 255, 0);</string>
+    </property>
     <property name="text">
      <string>MusicBoard</string>
     </property>
@@ -2008,9 +2189,9 @@ color: rgb(209, 197, 255);</string>
     <property name="geometry">
      <rect>
       <x>430</x>
-      <y>80</y>
+      <y>100</y>
       <width>191</width>
-      <height>271</height>
+      <height>251</height>
      </rect>
     </property>
     <property name="frameShape">
@@ -2051,10 +2232,10 @@ color: rgb(209, 197, 255);</string>
 </string>
         </property>
         <property name="text">
-         <string>X</string>
+         <string>✕</string>
         </property>
         <property name="shortcut">
-         <string>NumLock</string>
+         <string>Esc</string>
         </property>
        </widget>
       </item>
@@ -2068,6 +2249,10 @@ color: rgb(209, 197, 255);</string>
        <width>81</width>
        <height>20</height>
       </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgba(255, 255, 255, 0);
+color: rgb(255, 255, 255);</string>
      </property>
      <property name="text">
       <string>MusicBoard</string>
@@ -2119,6 +2304,9 @@ color: rgb(209, 197, 255);</string>
      <property name="cursor" stdset="0">
       <cursorShape>UpArrowCursor</cursorShape>
      </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgba(255, 255, 255, 0);</string>
+     </property>
      <property name="frameShape">
       <enum>QFrame::NoFrame</enum>
      </property>
@@ -2139,9 +2327,8 @@ color: rgb(209, 197, 255);</string>
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Cantarell'; font-size:11pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; color:#ffffff;&quot;&gt;MusicBoard  &lt;/span&gt;&lt;/p&gt;
-&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; color:#ffffff;&quot;&gt;Linux Launchpad&lt;/span&gt;&lt;/p&gt;
-&lt;p align=&quot;center&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; color:#ffffff;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600; color:#ffffff;&quot;&gt;MusicBoard  &lt;/span&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
      </property>
      <property name="textInteractionFlags">
       <set>Qt::NoTextInteraction</set>
@@ -2157,13 +2344,16 @@ p, li { white-space: pre-wrap; }
      <property name="geometry">
       <rect>
        <x>40</x>
-       <y>110</y>
+       <y>80</y>
        <width>111</width>
        <height>121</height>
       </rect>
      </property>
      <property name="cursor" stdset="0">
       <cursorShape>UpArrowCursor</cursorShape>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgba(255, 255, 255, 0);</string>
      </property>
      <property name="frameShape">
       <enum>QFrame::NoFrame</enum>
@@ -2201,7 +2391,7 @@ p, li { white-space: pre-wrap; }
      <property name="geometry">
       <rect>
        <x>40</x>
-       <y>140</y>
+       <y>150</y>
        <width>111</width>
        <height>91</height>
       </rect>
@@ -2239,47 +2429,51 @@ p, li { white-space: pre-wrap; }
       <string notr="true"/>
      </property>
     </widget>
-    <widget class="QTextEdit" name="textEdit_5">
+    <widget class="QLabel" name="label_29">
      <property name="geometry">
       <rect>
-       <x>0</x>
-       <y>230</y>
-       <width>191</width>
+       <x>90</x>
+       <y>10</y>
+       <width>121</width>
        <height>31</height>
       </rect>
      </property>
-     <property name="cursor" stdset="0">
-      <cursorShape>UpArrowCursor</cursorShape>
+     <property name="styleSheet">
+      <string notr="true">background-image: url(:/pictures/MB.png);
+image: url(:/pictures/MB.png);</string>
      </property>
-     <property name="frameShape">
-      <enum>QFrame::NoFrame</enum>
+     <property name="text">
+      <string/>
      </property>
-     <property name="frameShadow">
-      <enum>QFrame::Sunken</enum>
-     </property>
-     <property name="lineWidth">
-      <number>0</number>
-     </property>
-     <property name="undoRedoEnabled">
-      <bool>true</bool>
-     </property>
-     <property name="lineWrapMode">
-      <enum>QTextEdit::WidgetWidth</enum>
-     </property>
-     <property name="html">
-      <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Cantarell'; font-size:11pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600; font-style:italic; color:#ffffff;&quot;&gt;For Help go to Help.txt&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-     </property>
-     <property name="textInteractionFlags">
-      <set>Qt::NoTextInteraction</set>
-     </property>
-     <property name="placeholderText">
-      <string notr="true"/>
+     <property name="pixmap">
+      <pixmap resource="res.qrc">:/pictures/MB.png</pixmap>
      </property>
     </widget>
+    <widget class="QLabel" name="label_30">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>30</y>
+       <width>201</width>
+       <height>231</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgba(255, 255, 255, 0);
+image: url(:/pictures/MB.png);</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+    <zorder>label_30</zorder>
+    <zorder>label_29</zorder>
+    <zorder>verticalLayoutWidget_5</zorder>
+    <zorder>label_5</zorder>
+    <zorder>line_3</zorder>
+    <zorder>textEdit</zorder>
+    <zorder>textEdit_2</zorder>
+    <zorder>textEdit_3</zorder>
    </widget>
    <widget class="QFrame" name="Help">
     <property name="geometry">
@@ -2287,7 +2481,7 @@ p, li { white-space: pre-wrap; }
       <x>660</x>
       <y>40</y>
       <width>131</width>
-      <height>451</height>
+      <height>483</height>
      </rect>
     </property>
     <property name="frameShape">
@@ -2301,6 +2495,10 @@ p, li { white-space: pre-wrap; }
        <width>81</width>
        <height>20</height>
       </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgba(255, 255, 255, 0);
+color: rgb(255, 255, 255);</string>
      </property>
      <property name="text">
       <string>MusicBoard</string>
@@ -2372,10 +2570,10 @@ p, li { white-space: pre-wrap; }
 </string>
         </property>
         <property name="text">
-         <string>X</string>
+         <string>✕</string>
         </property>
         <property name="shortcut">
-         <string>NumLock</string>
+         <string>Esc</string>
         </property>
        </widget>
       </item>
@@ -2384,14 +2582,17 @@ p, li { white-space: pre-wrap; }
     <widget class="QTextEdit" name="textEdit_4">
      <property name="geometry">
       <rect>
-       <x>23</x>
-       <y>60</y>
-       <width>91</width>
-       <height>381</height>
+       <x>10</x>
+       <y>90</y>
+       <width>111</width>
+       <height>384</height>
       </rect>
      </property>
      <property name="styleSheet">
       <string notr="true">background-color: rgb(255, 255, 255);</string>
+     </property>
+     <property name="readOnly">
+      <bool>true</bool>
      </property>
      <property name="html">
       <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
@@ -2419,16 +2620,2689 @@ p, li { white-space: pre-wrap; }
 &lt;p align=&quot;center&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
 &lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Use the Keyboard &lt;/p&gt;
 &lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;to play the Launchpad!&lt;/p&gt;
-&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;(  )&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;( Home, UpArrow, Pg Up, LeftArrow, 5, RightArrow, End, DownArrow, Pg Dn, Ins, Del, /, Multiply, -, Plus, Enter )&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Quick Keys&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&amp;quot; ` &amp;quot; = Show / Hide Project Notes&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;-- If Edit is shown --&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Ctrl + A = Clear All&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Ctrl + L = Clear Launchpad&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Ctrl + W = Clear Keyboard&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;--&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Ctrl + H = Slow / Hide Help&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Ctrl + I = Show / Hide About&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Ctrl + L = Show / Hide MBoard&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Esc = Close all the Wdos&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Ctrl + Esc = Close the application directly&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Ctrl + E = Close the application&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Ctrl + A = Show Settings&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Enter (In Settings) = Close Settings&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Ctrl + S (In Settings) = Save Settings&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Ctrl + R (In MusicBoard, ) = Apply / Set Settings&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="LicenceButton">
+     <property name="geometry">
+      <rect>
+       <x>30</x>
+       <y>50</y>
+       <width>71</width>
+       <height>28</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(238, 238, 236);</string>
+     </property>
+     <property name="text">
+      <string>Licence</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_28">
+     <property name="geometry">
+      <rect>
+       <x>-50</x>
+       <y>10</y>
+       <width>131</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-image: url(:/pictures/MB.png);
+image: url(:/pictures/MB.png);</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="pixmap">
+      <pixmap resource="res.qrc">:/pictures/MB.png</pixmap>
+     </property>
+    </widget>
+    <zorder>label_28</zorder>
+    <zorder>label_6</zorder>
+    <zorder>line_4</zorder>
+    <zorder>verticalLayoutWidget_6</zorder>
+    <zorder>textEdit_4</zorder>
+    <zorder>LicenceButton</zorder>
+   </widget>
+   <widget class="QPushButton" name="FileButton">
+    <property name="geometry">
+     <rect>
+      <x>50</x>
+      <y>0</y>
+      <width>41</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: rgb(255, 255, 255);
+background-color: rgb(83, 68, 150);</string>
+    </property>
+    <property name="text">
+     <string>File</string>
+    </property>
+    <property name="shortcut">
+     <string>F1</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="EditButton">
+    <property name="geometry">
+     <rect>
+      <x>100</x>
+      <y>0</y>
+      <width>41</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: rgb(255, 255, 255);
+background-color: rgb(83, 68, 150);</string>
+    </property>
+    <property name="text">
+     <string>Edit</string>
+    </property>
+    <property name="shortcut">
+     <string>F2</string>
+    </property>
+   </widget>
+   <widget class="QFrame" name="File">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>30</y>
+      <width>111</width>
+      <height>131</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(238, 238, 236);</string>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::StyledPanel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Raised</enum>
+    </property>
+    <widget class="QPushButton" name="CloseButton">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>100</y>
+       <width>111</width>
+       <height>28</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Close Session</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="SaveasButton">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>70</y>
+       <width>111</width>
+       <height>28</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Save as</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="NewSessionButton">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>10</y>
+       <width>111</width>
+       <height>28</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>New Session ♬</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="SettingsButton">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>40</y>
+       <width>111</width>
+       <height>28</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Settings ⚙</string>
      </property>
     </widget>
    </widget>
-   <zorder>gridLayoutWidget</zorder>
-   <zorder>P13</zorder>
-   <zorder>P14</zorder>
-   <zorder>P15</zorder>
-   <zorder>P16</zorder>
-   <zorder>P17</zorder>
+   <widget class="QFrame" name="Sure">
+    <property name="geometry">
+     <rect>
+      <x>350</x>
+      <y>220</y>
+      <width>161</width>
+      <height>131</height>
+     </rect>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::Panel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Plain</enum>
+    </property>
+    <property name="lineWidth">
+     <number>3</number>
+    </property>
+    <property name="midLineWidth">
+     <number>5</number>
+    </property>
+    <widget class="QLabel" name="label_7">
+     <property name="geometry">
+      <rect>
+       <x>40</x>
+       <y>0</y>
+       <width>81</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgba(255, 255, 255, 0);
+color: rgb(255, 255, 255);</string>
+     </property>
+     <property name="text">
+      <string>MusicBoard</string>
+     </property>
+    </widget>
+    <widget class="Line" name="line_5">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>30</y>
+       <width>141</width>
+       <height>5</height>
+      </rect>
+     </property>
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="minimumSize">
+      <size>
+       <width>0</width>
+       <height>5</height>
+      </size>
+     </property>
+     <property name="maximumSize">
+      <size>
+       <width>16777215</width>
+       <height>5</height>
+      </size>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(255, 159, 159);</string>
+     </property>
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="SureYes">
+     <property name="geometry">
+      <rect>
+       <x>90</x>
+       <y>90</y>
+       <width>51</width>
+       <height>28</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Yes</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="SureCancel">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>90</y>
+       <width>51</width>
+       <height>28</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Cancel</string>
+     </property>
+    </widget>
+    <widget class="QTextEdit" name="textEdit_5">
+     <property name="geometry">
+      <rect>
+       <x>13</x>
+       <y>40</y>
+       <width>131</width>
+       <height>51</height>
+      </rect>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::NoFrame</enum>
+     </property>
+     <property name="readOnly">
+      <bool>true</bool>
+     </property>
+     <property name="html">
+      <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Cantarell'; font-size:11pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600; color:#ffffff;&quot;&gt;Are you sure you want to exit?&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     </property>
+    </widget>
+    <widget class="QWidget" name="verticalLayoutWidget_7">
+     <property name="geometry">
+      <rect>
+       <x>140</x>
+       <y>0</y>
+       <width>21</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <layout class="QVBoxLayout" name="verticalLayout_8">
+      <item>
+       <widget class="QPushButton" name="CloseClose">
+        <property name="minimumSize">
+         <size>
+          <width>17</width>
+          <height>17</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>17</width>
+          <height>17</height>
+         </size>
+        </property>
+        <property name="cursor">
+         <cursorShape>UpArrowCursor</cursorShape>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: rgb(239, 41, 41);
+</string>
+        </property>
+        <property name="text">
+         <string>✕</string>
+        </property>
+        <property name="shortcut">
+         <string>Esc</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+    <widget class="QLabel" name="label_25">
+     <property name="geometry">
+      <rect>
+       <x>-40</x>
+       <y>0</y>
+       <width>131</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-image: url(:/pictures/MB.png);
+image: url(:/pictures/MB.png);
+background-color: rgba(255, 255, 255, 0);
+</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="pixmap">
+      <pixmap resource="res.qrc">:/pictures/MB.png</pixmap>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_26">
+     <property name="geometry">
+      <rect>
+       <x>90</x>
+       <y>-180</y>
+       <width>131</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-image: url(:/pictures/MB.png);
+image: url(:/pictures/MB.png);</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="pixmap">
+      <pixmap resource="res.qrc">:/pictures/MB.png</pixmap>
+     </property>
+    </widget>
+    <zorder>label_25</zorder>
+    <zorder>textEdit_5</zorder>
+    <zorder>label_7</zorder>
+    <zorder>line_5</zorder>
+    <zorder>SureYes</zorder>
+    <zorder>SureCancel</zorder>
+    <zorder>verticalLayoutWidget_7</zorder>
+    <zorder>label_26</zorder>
+   </widget>
+   <widget class="QLabel" name="label_8">
+    <property name="geometry">
+     <rect>
+      <x>739</x>
+      <y>-6</y>
+      <width>91</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: rgb(255, 255, 255);
+background-color: rgba(255, 255, 255, 0);</string>
+    </property>
+    <property name="text">
+     <string>DIrectly Close</string>
+    </property>
+   </widget>
+   <widget class="QFrame" name="Edit">
+    <property name="geometry">
+     <rect>
+      <x>60</x>
+      <y>30</y>
+      <width>111</width>
+      <height>161</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(238, 238, 236);</string>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::StyledPanel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Raised</enum>
+    </property>
+    <widget class="QPushButton" name="ProjectNotesButton">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>100</y>
+       <width>111</width>
+       <height>28</height>
+      </rect>
+     </property>
+     <property name="focusPolicy">
+      <enum>Qt::StrongFocus</enum>
+     </property>
+     <property name="text">
+      <string>Project Notes</string>
+     </property>
+     <property name="shortcut">
+      <string>`</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="MBoardButton">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>40</y>
+       <width>111</width>
+       <height>28</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true"/>
+     </property>
+     <property name="text">
+      <string>Show MBoard</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="ClearButton">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>130</y>
+       <width>111</width>
+       <height>28</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Clear ➫</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="ShowNotesButton">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>70</y>
+       <width>111</width>
+       <height>28</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Show Notes ➫</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="ThemesButton">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>10</y>
+       <width>111</width>
+       <height>28</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Themes ➫</string>
+     </property>
+    </widget>
+    <zorder>ThemesButton</zorder>
+    <zorder>ProjectNotesButton</zorder>
+    <zorder>MBoardButton</zorder>
+    <zorder>ClearButton</zorder>
+    <zorder>ShowNotesButton</zorder>
+   </widget>
+   <widget class="QFrame" name="Clear">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>230</y>
+      <width>161</width>
+      <height>131</height>
+     </rect>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::Panel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Plain</enum>
+    </property>
+    <property name="lineWidth">
+     <number>3</number>
+    </property>
+    <property name="midLineWidth">
+     <number>7</number>
+    </property>
+    <widget class="QLabel" name="label_9">
+     <property name="geometry">
+      <rect>
+       <x>40</x>
+       <y>0</y>
+       <width>81</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgba(255, 255, 255, 0);
+color: rgb(255, 255, 255);</string>
+     </property>
+     <property name="lineWidth">
+      <number>0</number>
+     </property>
+     <property name="text">
+      <string>MusicBoard</string>
+     </property>
+    </widget>
+    <widget class="Line" name="line_6">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>30</y>
+       <width>141</width>
+       <height>5</height>
+      </rect>
+     </property>
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="minimumSize">
+      <size>
+       <width>0</width>
+       <height>5</height>
+      </size>
+     </property>
+     <property name="maximumSize">
+      <size>
+       <width>16777215</width>
+       <height>5</height>
+      </size>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(255, 159, 159);</string>
+     </property>
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="ClearYes">
+     <property name="geometry">
+      <rect>
+       <x>90</x>
+       <y>90</y>
+       <width>51</width>
+       <height>28</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Yes</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="ClearCancel">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>90</y>
+       <width>51</width>
+       <height>28</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Cancel</string>
+     </property>
+    </widget>
+    <widget class="QTextEdit" name="ClearText">
+     <property name="geometry">
+      <rect>
+       <x>23</x>
+       <y>60</y>
+       <width>121</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: rgb(255, 255, 255);</string>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::NoFrame</enum>
+     </property>
+     <property name="readOnly">
+      <bool>true</bool>
+     </property>
+     <property name="html">
+      <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Cantarell'; font-size:11pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600; color:#ffffff;&quot;&gt;Are you sure you want to clear?&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     </property>
+    </widget>
+    <widget class="QWidget" name="verticalLayoutWidget_8">
+     <property name="geometry">
+      <rect>
+       <x>140</x>
+       <y>0</y>
+       <width>21</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <layout class="QVBoxLayout" name="verticalLayout_9">
+      <item>
+       <widget class="QPushButton" name="ClearCancel_X">
+        <property name="minimumSize">
+         <size>
+          <width>17</width>
+          <height>17</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>17</width>
+          <height>17</height>
+         </size>
+        </property>
+        <property name="cursor">
+         <cursorShape>UpArrowCursor</cursorShape>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: rgb(239, 41, 41);
+</string>
+        </property>
+        <property name="text">
+         <string>✕</string>
+        </property>
+        <property name="shortcut">
+         <string>Esc</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+    <widget class="QTextEdit" name="ClearText_2">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>40</y>
+       <width>141</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: rgb(255, 255, 255);</string>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::NoFrame</enum>
+     </property>
+     <property name="readOnly">
+      <bool>true</bool>
+     </property>
+     <property name="html">
+      <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Cantarell'; font-size:11pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Do you want to&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_22">
+     <property name="geometry">
+      <rect>
+       <x>70</x>
+       <y>0</y>
+       <width>121</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-image: url(:/pictures/MB.png);
+background-color: rgba(255, 255, 255, 0);
+image: url(:/pictures/MB.png);</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="pixmap">
+      <pixmap resource="res.qrc">:/pictures/MB.png</pixmap>
+     </property>
+    </widget>
+    <zorder>ClearText_2</zorder>
+    <zorder>label_22</zorder>
+    <zorder>label_9</zorder>
+    <zorder>line_6</zorder>
+    <zorder>ClearYes</zorder>
+    <zorder>ClearCancel</zorder>
+    <zorder>ClearText</zorder>
+    <zorder>verticalLayoutWidget_8</zorder>
+   </widget>
+   <widget class="QFrame" name="ProjectNotes">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>360</y>
+      <width>241</width>
+      <height>151</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true"/>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::StyledPanel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Raised</enum>
+    </property>
+    <widget class="QLabel" name="label_10">
+     <property name="geometry">
+      <rect>
+       <x>80</x>
+       <y>0</y>
+       <width>81</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgba(255, 255, 255, 0);
+color: rgb(255, 255, 255);</string>
+     </property>
+     <property name="text">
+      <string>MusicBoard</string>
+     </property>
+    </widget>
+    <widget class="Line" name="line_7">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>30</y>
+       <width>221</width>
+       <height>5</height>
+      </rect>
+     </property>
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="minimumSize">
+      <size>
+       <width>0</width>
+       <height>5</height>
+      </size>
+     </property>
+     <property name="maximumSize">
+      <size>
+       <width>16777215</width>
+       <height>5</height>
+      </size>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(255, 159, 159);</string>
+     </property>
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+    </widget>
+    <widget class="QTextEdit" name="textEdit_7">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>40</y>
+       <width>221</width>
+       <height>101</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(255, 255, 255);</string>
+     </property>
+     <property name="html">
+      <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Cantarell'; font-size:11pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Click to edit project Notes. If you want to have the notes after clossing the session, please save them separately. &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     </property>
+    </widget>
+    <widget class="QWidget" name="verticalLayoutWidget_9">
+     <property name="geometry">
+      <rect>
+       <x>220</x>
+       <y>0</y>
+       <width>21</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <layout class="QVBoxLayout" name="verticalLayout_10">
+      <item>
+       <widget class="QPushButton" name="CloseProjectNotes">
+        <property name="minimumSize">
+         <size>
+          <width>17</width>
+          <height>17</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>17</width>
+          <height>17</height>
+         </size>
+        </property>
+        <property name="cursor">
+         <cursorShape>UpArrowCursor</cursorShape>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: rgb(239, 41, 41);
+</string>
+        </property>
+        <property name="text">
+         <string>✕</string>
+        </property>
+        <property name="shortcut">
+         <string>Esc</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+    <widget class="QLabel" name="label_19">
+     <property name="geometry">
+      <rect>
+       <x>110</x>
+       <y>-1</y>
+       <width>121</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-image: url(:/pictures/MB.png);
+image: url(:/pictures/MB.png);</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="pixmap">
+      <pixmap resource="res.qrc">:/pictures/MB.png</pixmap>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_20">
+     <property name="geometry">
+      <rect>
+       <x>240</x>
+       <y>80</y>
+       <width>121</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-image: url(:/pictures/MB.png);
+image: url(:/pictures/MB.png);</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="pixmap">
+      <pixmap resource="res.qrc">:/pictures/MB.png</pixmap>
+     </property>
+    </widget>
+    <zorder>label_19</zorder>
+    <zorder>label_10</zorder>
+    <zorder>line_7</zorder>
+    <zorder>textEdit_7</zorder>
+    <zorder>verticalLayoutWidget_9</zorder>
+    <zorder>label_20</zorder>
+   </widget>
+   <widget class="QPushButton" name="HiddenProjectNotesButton">
+    <property name="geometry">
+     <rect>
+      <x>450</x>
+      <y>430</y>
+      <width>83</width>
+      <height>28</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>HiddenProjectNotesButton</string>
+    </property>
+    <property name="shortcut">
+     <string>`</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="HiddenHelpButton">
+    <property name="geometry">
+     <rect>
+      <x>530</x>
+      <y>390</y>
+      <width>83</width>
+      <height>28</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>hiddenHelpButton</string>
+    </property>
+    <property name="shortcut">
+     <string>Ctrl+H</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="HiddenAboutButton">
+    <property name="geometry">
+     <rect>
+      <x>450</x>
+      <y>420</y>
+      <width>83</width>
+      <height>28</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>HiddenAboutButton</string>
+    </property>
+    <property name="shortcut">
+     <string>Ctrl+I</string>
+    </property>
+   </widget>
+   <widget class="QFrame" name="MBoard">
+    <property name="geometry">
+     <rect>
+      <x>370</x>
+      <y>50</y>
+      <width>401</width>
+      <height>171</height>
+     </rect>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::StyledPanel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Raised</enum>
+    </property>
+    <widget class="QLabel" name="label_12">
+     <property name="geometry">
+      <rect>
+       <x>170</x>
+       <y>0</y>
+       <width>81</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgba(255, 255, 255, 0);
+color: rgb(255, 255, 255);</string>
+     </property>
+     <property name="text">
+      <string>MusicBoard</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_11">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>40</y>
+       <width>381</width>
+       <height>121</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="pixmap">
+      <pixmap resource="res.qrc">:/pictures/MBoard.jpg</pixmap>
+     </property>
+     <property name="scaledContents">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="Line" name="line_8">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>30</y>
+       <width>381</width>
+       <height>5</height>
+      </rect>
+     </property>
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="minimumSize">
+      <size>
+       <width>0</width>
+       <height>5</height>
+      </size>
+     </property>
+     <property name="maximumSize">
+      <size>
+       <width>16777215</width>
+       <height>5</height>
+      </size>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(255, 159, 159);</string>
+     </property>
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+    </widget>
+    <widget class="QWidget" name="verticalLayoutWidget_10">
+     <property name="geometry">
+      <rect>
+       <x>380</x>
+       <y>0</y>
+       <width>85</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <layout class="QVBoxLayout" name="verticalLayout_11">
+      <item>
+       <widget class="QPushButton" name="CloseMBoard">
+        <property name="minimumSize">
+         <size>
+          <width>17</width>
+          <height>17</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>17</width>
+          <height>17</height>
+         </size>
+        </property>
+        <property name="cursor">
+         <cursorShape>UpArrowCursor</cursorShape>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: rgb(239, 41, 41);
+</string>
+        </property>
+        <property name="text">
+         <string>✕</string>
+        </property>
+        <property name="shortcut">
+         <string>Esc</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+    <widget class="QLabel" name="label_27">
+     <property name="geometry">
+      <rect>
+       <x>230</x>
+       <y>0</y>
+       <width>131</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-image: url(:/pictures/MB.png);
+image: url(:/pictures/MB.png);</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="pixmap">
+      <pixmap resource="res.qrc">:/pictures/MB.png</pixmap>
+     </property>
+    </widget>
+    <zorder>label_27</zorder>
+    <zorder>label_11</zorder>
+    <zorder>label_12</zorder>
+    <zorder>line_8</zorder>
+    <zorder>verticalLayoutWidget_10</zorder>
+   </widget>
+   <widget class="QPushButton" name="HiddenMButtonushButton">
+    <property name="geometry">
+     <rect>
+      <x>470</x>
+      <y>390</y>
+      <width>83</width>
+      <height>28</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>HiddenMButton</string>
+    </property>
+    <property name="shortcut">
+     <string>Ctrl+L</string>
+    </property>
+   </widget>
+   <widget class="QFrame" name="ClearEdit">
+    <property name="geometry">
+     <rect>
+      <x>170</x>
+      <y>160</y>
+      <width>111</width>
+      <height>121</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(238, 238, 236);</string>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::StyledPanel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Raised</enum>
+    </property>
+    <widget class="QPushButton" name="ClearRhythms">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>0</y>
+       <width>111</width>
+       <height>28</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Clear Rhythms</string>
+     </property>
+     <property name="shortcut">
+      <string>Ctrl+A</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="ClearLaunchpad">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>30</y>
+       <width>111</width>
+       <height>28</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Clear Launchpad</string>
+     </property>
+     <property name="shortcut">
+      <string>Ctrl+L</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="CleaKeyboard">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>60</y>
+       <width>111</width>
+       <height>28</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Clear Keyboard</string>
+     </property>
+     <property name="shortcut">
+      <string>Ctrl+W</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="ClearAll">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>90</y>
+       <width>111</width>
+       <height>28</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Clear all ⊗</string>
+     </property>
+     <property name="shortcut">
+      <string>Ctrl+A</string>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QFrame" name="Licence">
+    <property name="geometry">
+     <rect>
+      <x>410</x>
+      <y>350</y>
+      <width>241</width>
+      <height>174</height>
+     </rect>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::StyledPanel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Raised</enum>
+    </property>
+    <widget class="QLabel" name="label_13">
+     <property name="geometry">
+      <rect>
+       <x>80</x>
+       <y>0</y>
+       <width>81</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgba(255, 255, 255, 0);
+color: rgb(255, 255, 255);</string>
+     </property>
+     <property name="text">
+      <string>MusicBoard</string>
+     </property>
+    </widget>
+    <widget class="Line" name="line_9">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>30</y>
+       <width>221</width>
+       <height>5</height>
+      </rect>
+     </property>
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="minimumSize">
+      <size>
+       <width>0</width>
+       <height>5</height>
+      </size>
+     </property>
+     <property name="maximumSize">
+      <size>
+       <width>16777215</width>
+       <height>5</height>
+      </size>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(255, 159, 159);</string>
+     </property>
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+    </widget>
+    <widget class="QTextEdit" name="textEdit_6">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>40</y>
+       <width>221</width>
+       <height>124</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(255, 255, 255);</string>
+     </property>
+     <property name="html">
+      <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Cantarell'; font-size:11pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Licence - MusicBoard &lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Copyright 2017 MusicBoard Licensed under the Apache License, Version 2.0 (the &amp;quot;License&amp;quot;); you may not use this file except in compliance with the License. You may obtain a copy of the License at&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;    www.apache.org/licenses/LICENSE-2.0&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an &amp;quot;AS IS&amp;quot; BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Also Licenced under Creative Commons Distribution Share-Alike Licence. &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     </property>
+    </widget>
+    <widget class="QWidget" name="verticalLayoutWidget_11">
+     <property name="geometry">
+      <rect>
+       <x>220</x>
+       <y>0</y>
+       <width>21</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <layout class="QVBoxLayout" name="verticalLayout_12">
+      <item>
+       <widget class="QPushButton" name="CloseLicence">
+        <property name="minimumSize">
+         <size>
+          <width>17</width>
+          <height>17</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>17</width>
+          <height>17</height>
+         </size>
+        </property>
+        <property name="cursor">
+         <cursorShape>UpArrowCursor</cursorShape>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: rgb(239, 41, 41);
+</string>
+        </property>
+        <property name="text">
+         <string>✕</string>
+        </property>
+        <property name="shortcut">
+         <string>Esc</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+    <widget class="QLabel" name="label_24">
+     <property name="geometry">
+      <rect>
+       <x>110</x>
+       <y>0</y>
+       <width>131</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-image: url(:/pictures/MB.png);
+image: url(:/pictures/MB.png);</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="pixmap">
+      <pixmap resource="res.qrc">:/pictures/MB.png</pixmap>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="K4">
+     <property name="enabled">
+      <bool>true</bool>
+     </property>
+     <property name="geometry">
+      <rect>
+       <x>150</x>
+       <y>50</y>
+       <width>50</width>
+       <height>50</height>
+      </rect>
+     </property>
+     <property name="minimumSize">
+      <size>
+       <width>50</width>
+       <height>50</height>
+      </size>
+     </property>
+     <property name="maximumSize">
+      <size>
+       <width>50</width>
+       <height>50</height>
+      </size>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgba(255, 159, 159, 179);
+background-image: url(:/pictures/KeysLF.png);
+image: url(:/pictures/KeysLF.png);
+color: rgb(255, 255, 255);
+</string>
+     </property>
+     <property name="text">
+      <string>K4</string>
+     </property>
+     <property name="shortcut">
+      <string>;</string>
+     </property>
+    </widget>
+    <zorder>label_24</zorder>
+    <zorder>label_13</zorder>
+    <zorder>line_9</zorder>
+    <zorder>textEdit_6</zorder>
+    <zorder>verticalLayoutWidget_11</zorder>
+    <zorder>K4</zorder>
+   </widget>
+   <widget class="QFrame" name="NotesEdit">
+    <property name="geometry">
+     <rect>
+      <x>170</x>
+      <y>100</y>
+      <width>111</width>
+      <height>91</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(238, 238, 236);</string>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::StyledPanel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Raised</enum>
+    </property>
+    <widget class="QPushButton" name="ShowNotes1Button">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>0</y>
+       <width>111</width>
+       <height>28</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Show 1</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="ShowNotes2Button">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>30</y>
+       <width>111</width>
+       <height>28</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Show 2</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="HideNotesButton">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>60</y>
+       <width>111</width>
+       <height>28</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Hide Notes</string>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QFrame" name="ThemesEdit">
+    <property name="geometry">
+     <rect>
+      <x>170</x>
+      <y>40</y>
+      <width>111</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(238, 238, 236);</string>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::StyledPanel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Raised</enum>
+    </property>
+    <widget class="QPushButton" name="Theme1Button">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>0</y>
+       <width>111</width>
+       <height>28</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Theme 1</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="Theme2Button">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>30</y>
+       <width>111</width>
+       <height>28</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Theme 2</string>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QPushButton" name="HiddenShowNotes1">
+    <property name="geometry">
+     <rect>
+      <x>630</x>
+      <y>280</y>
+      <width>16</width>
+      <height>28</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>HiddenHowNotes1</string>
+    </property>
+    <property name="shortcut">
+     <string>F10</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="HiddenShowNotes2">
+    <property name="geometry">
+     <rect>
+      <x>630</x>
+      <y>320</y>
+      <width>16</width>
+      <height>28</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>HiddenHowNotes2</string>
+    </property>
+    <property name="shortcut">
+     <string>F11</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="HiddenHideNotes">
+    <property name="geometry">
+     <rect>
+      <x>630</x>
+      <y>360</y>
+      <width>16</width>
+      <height>28</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>HiddenHowNotes2</string>
+    </property>
+    <property name="shortcut">
+     <string>F12</string>
+    </property>
+   </widget>
+   <widget class="QFrame" name="Rhythm2">
+    <property name="geometry">
+     <rect>
+      <x>415</x>
+      <y>370</y>
+      <width>231</width>
+      <height>151</height>
+     </rect>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::StyledPanel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Raised</enum>
+    </property>
+    <widget class="QLabel" name="label_14">
+     <property name="geometry">
+      <rect>
+       <x>77</x>
+       <y>0</y>
+       <width>78</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgba(255, 255, 255, 0);
+color: rgb(255, 255, 255);</string>
+     </property>
+     <property name="text">
+      <string>MusicBoard</string>
+     </property>
+    </widget>
+    <widget class="QWidget" name="verticalLayoutWidget_12">
+     <property name="geometry">
+      <rect>
+       <x>200</x>
+       <y>0</y>
+       <width>21</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <layout class="QVBoxLayout" name="verticalLayout_13">
+      <item>
+       <widget class="QPushButton" name="CloseRhythm2">
+        <property name="minimumSize">
+         <size>
+          <width>17</width>
+          <height>17</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>17</width>
+          <height>17</height>
+         </size>
+        </property>
+        <property name="cursor">
+         <cursorShape>UpArrowCursor</cursorShape>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: rgb(239, 41, 41);
+</string>
+        </property>
+        <property name="text">
+         <string>✕</string>
+        </property>
+        <property name="shortcut">
+         <string>Esc</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+    <widget class="Line" name="line_10">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>30</y>
+       <width>211</width>
+       <height>5</height>
+      </rect>
+     </property>
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="minimumSize">
+      <size>
+       <width>0</width>
+       <height>5</height>
+      </size>
+     </property>
+     <property name="maximumSize">
+      <size>
+       <width>16777215</width>
+       <height>5</height>
+      </size>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(255, 159, 159);</string>
+     </property>
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+    </widget>
+    <widget class="QWidget" name="gridLayoutWidget_2">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>39</y>
+       <width>229</width>
+       <height>76</height>
+      </rect>
+     </property>
+     <layout class="QGridLayout" name="gridLayout_2">
+      <item row="1" column="0">
+       <widget class="QPushButton" name="R_21">
+        <property name="minimumSize">
+         <size>
+          <width>20</width>
+          <height>20</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>20</width>
+          <height>20</height>
+         </size>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: rgb(159, 138, 252);</string>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="1">
+       <widget class="QPushButton" name="R_12">
+        <property name="minimumSize">
+         <size>
+          <width>20</width>
+          <height>20</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>20</width>
+          <height>20</height>
+         </size>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: rgb(159, 138, 252);</string>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="3">
+       <widget class="QPushButton" name="R_34">
+        <property name="minimumSize">
+         <size>
+          <width>20</width>
+          <height>20</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>20</width>
+          <height>20</height>
+         </size>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: rgb(159, 138, 252);</string>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="2">
+       <widget class="QPushButton" name="R_33">
+        <property name="minimumSize">
+         <size>
+          <width>20</width>
+          <height>20</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>20</width>
+          <height>20</height>
+         </size>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: rgb(159, 138, 252);</string>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="1">
+       <widget class="QPushButton" name="R_32">
+        <property name="minimumSize">
+         <size>
+          <width>20</width>
+          <height>20</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>20</width>
+          <height>20</height>
+         </size>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: rgb(159, 138, 252);</string>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="3">
+       <widget class="QPushButton" name="R_24">
+        <property name="minimumSize">
+         <size>
+          <width>20</width>
+          <height>20</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>20</width>
+          <height>20</height>
+         </size>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: rgb(159, 138, 252);</string>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="2">
+       <widget class="QPushButton" name="R_13">
+        <property name="minimumSize">
+         <size>
+          <width>20</width>
+          <height>20</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>20</width>
+          <height>20</height>
+         </size>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: rgb(159, 138, 252);</string>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="1">
+       <widget class="QPushButton" name="R_22">
+        <property name="minimumSize">
+         <size>
+          <width>20</width>
+          <height>20</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>20</width>
+          <height>20</height>
+         </size>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: rgb(159, 138, 252);</string>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="0">
+       <widget class="QPushButton" name="R_11">
+        <property name="minimumSize">
+         <size>
+          <width>20</width>
+          <height>20</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>20</width>
+          <height>20</height>
+         </size>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: rgb(159, 138, 252);</string>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="0">
+       <widget class="QPushButton" name="R_31">
+        <property name="minimumSize">
+         <size>
+          <width>20</width>
+          <height>20</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>20</width>
+          <height>20</height>
+         </size>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: rgb(159, 138, 252);</string>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="3">
+       <widget class="QPushButton" name="R_14">
+        <property name="minimumSize">
+         <size>
+          <width>20</width>
+          <height>20</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>20</width>
+          <height>20</height>
+         </size>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: rgb(159, 138, 252);</string>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="2">
+       <widget class="QPushButton" name="R_23">
+        <property name="minimumSize">
+         <size>
+          <width>20</width>
+          <height>20</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>20</width>
+          <height>20</height>
+         </size>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: rgb(159, 138, 252);</string>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+     </layout>
+     <zorder>R_21</zorder>
+     <zorder>R_34</zorder>
+     <zorder>R_33</zorder>
+     <zorder>R_32</zorder>
+     <zorder>R_23</zorder>
+     <zorder>R_24</zorder>
+     <zorder>R_13</zorder>
+     <zorder>R_22</zorder>
+     <zorder>R_11</zorder>
+     <zorder>R_31</zorder>
+     <zorder>R_14</zorder>
+     <zorder>R_12</zorder>
+    </widget>
+    <widget class="QLabel" name="label_15">
+     <property name="geometry">
+      <rect>
+       <x>15</x>
+       <y>40</y>
+       <width>20</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: rgb(255, 255, 255);
+background-color: rgba(136, 138, 133, 0);
+font: 10pt &quot;Cantarell&quot;;</string>
+     </property>
+     <property name="text">
+      <string>P1:</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_16">
+     <property name="geometry">
+      <rect>
+       <x>15</x>
+       <y>59</y>
+       <width>18</width>
+       <height>34</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: rgb(255, 255, 255);
+background-color: rgba(136, 138, 133, 0);
+font: 10pt &quot;Cantarell&quot;;</string>
+     </property>
+     <property name="text">
+      <string>P2:</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_17">
+     <property name="geometry">
+      <rect>
+       <x>15</x>
+       <y>90</y>
+       <width>19</width>
+       <height>23</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: rgb(255, 255, 255);
+background-color: rgba(136, 138, 133, 0);
+font: 10pt &quot;Cantarell&quot;;</string>
+     </property>
+     <property name="text">
+      <string>P3:</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="StartRhythm">
+     <property name="geometry">
+      <rect>
+       <x>80</x>
+       <y>120</y>
+       <width>70</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: rgb(255, 255, 255);</string>
+     </property>
+     <property name="text">
+      <string>Start</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_21">
+     <property name="geometry">
+      <rect>
+       <x>-10</x>
+       <y>0</y>
+       <width>71</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-image: url(:/pictures/MB.png);
+background-color: rgba(136, 138, 133, 0);
+image: url(:/pictures/MB.png);</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="pixmap">
+      <pixmap resource="res.qrc">:/pictures/MB.png</pixmap>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_31">
+     <property name="geometry">
+      <rect>
+       <x>64</x>
+       <y>40</y>
+       <width>21</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: rgb(255, 255, 255);
+background-color: rgba(136, 138, 133, 0);
+font: 10pt &quot;Cantarell&quot;;</string>
+     </property>
+     <property name="text">
+      <string>P4:</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_32">
+     <property name="geometry">
+      <rect>
+       <x>64</x>
+       <y>64</y>
+       <width>20</width>
+       <height>25</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: rgb(255, 255, 255);
+background-color: rgba(136, 138, 133, 0);
+font: 10pt &quot;Cantarell&quot;;</string>
+     </property>
+     <property name="text">
+      <string>P5:</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_33">
+     <property name="geometry">
+      <rect>
+       <x>64</x>
+       <y>88</y>
+       <width>21</width>
+       <height>27</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: rgb(255, 255, 255);
+background-color: rgba(136, 138, 133, 0);
+font: 10pt &quot;Cantarell&quot;;</string>
+     </property>
+     <property name="text">
+      <string>P6:</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_34">
+     <property name="geometry">
+      <rect>
+       <x>116</x>
+       <y>40</y>
+       <width>20</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: rgb(255, 255, 255);
+background-color: rgba(136, 138, 133, 0);
+font: 10pt &quot;Cantarell&quot;;</string>
+     </property>
+     <property name="text">
+      <string>P7:</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_35">
+     <property name="geometry">
+      <rect>
+       <x>115</x>
+       <y>60</y>
+       <width>20</width>
+       <height>32</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: rgb(255, 255, 255);
+background-color: rgba(136, 138, 133, 0);
+font: 10pt &quot;Cantarell&quot;;</string>
+     </property>
+     <property name="text">
+      <string>P8:</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_36">
+     <property name="geometry">
+      <rect>
+       <x>115</x>
+       <y>85</y>
+       <width>20</width>
+       <height>33</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: rgb(255, 255, 255);
+background-color: rgba(136, 138, 133, 0);
+font: 10pt &quot;Cantarell&quot;;</string>
+     </property>
+     <property name="text">
+      <string>P9:</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_37">
+     <property name="geometry">
+      <rect>
+       <x>163</x>
+       <y>55</y>
+       <width>25</width>
+       <height>44</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: rgb(255, 255, 255);
+background-color: rgba(136, 138, 133, 0);
+font: 10pt &quot;Cantarell&quot;;</string>
+     </property>
+     <property name="text">
+      <string>P12:</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_38">
+     <property name="geometry">
+      <rect>
+       <x>163</x>
+       <y>35</y>
+       <width>25</width>
+       <height>30</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: rgb(255, 255, 255);
+background-color: rgba(136, 138, 133, 0);
+font: 10pt &quot;Cantarell&quot;;</string>
+     </property>
+     <property name="text">
+      <string>P11:</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_39">
+     <property name="geometry">
+      <rect>
+       <x>163</x>
+       <y>80</y>
+       <width>24</width>
+       <height>43</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: rgb(255, 255, 255);
+background-color: rgba(136, 138, 133, 0);
+font: 10pt &quot;Cantarell&quot;;</string>
+     </property>
+     <property name="text">
+      <string>P13:</string>
+     </property>
+    </widget>
+    <zorder>label_21</zorder>
+    <zorder>label_14</zorder>
+    <zorder>verticalLayoutWidget_12</zorder>
+    <zorder>line_10</zorder>
+    <zorder>gridLayoutWidget_2</zorder>
+    <zorder>StartRhythm</zorder>
+    <zorder>label_38</zorder>
+    <zorder>label_15</zorder>
+    <zorder>label_16</zorder>
+    <zorder>label_39</zorder>
+    <zorder>label_37</zorder>
+    <zorder>label_17</zorder>
+    <zorder>label_33</zorder>
+    <zorder>label_35</zorder>
+    <zorder>label_32</zorder>
+    <zorder>label_36</zorder>
+    <zorder>label_34</zorder>
+    <zorder>label_31</zorder>
+   </widget>
+   <widget class="QPushButton" name="HiddenSilanceButton">
+    <property name="geometry">
+     <rect>
+      <x>630</x>
+      <y>250</y>
+      <width>16</width>
+      <height>28</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Silance</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="Time">
+    <property name="geometry">
+     <rect>
+      <x>550</x>
+      <y>0</y>
+      <width>111</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(255, 255, 255);</string>
+    </property>
+    <property name="dragEnabled">
+     <bool>true</bool>
+    </property>
+    <property name="readOnly">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_18">
+    <property name="geometry">
+     <rect>
+      <x>510</x>
+      <y>-1</y>
+      <width>41</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: rgb(255, 255, 255);
+background-color: rgba(255, 255, 255, 0);</string>
+    </property>
+    <property name="text">
+     <string>Time:</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="ReInit">
+    <property name="geometry">
+     <rect>
+      <x>700</x>
+      <y>0</y>
+      <width>31</width>
+      <height>28</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font: 17pt &quot;Cantarell&quot;;
+background-color: rgb(186, 189, 182);</string>
+    </property>
+    <property name="text">
+     <string>♻</string>
+    </property>
+    <property name="shortcut">
+     <string>Ctrl+R</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="HiddenSettingsButton">
+    <property name="geometry">
+     <rect>
+      <x>560</x>
+      <y>310</y>
+      <width>83</width>
+      <height>28</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>HiddenSettingsButton</string>
+    </property>
+    <property name="shortcut">
+     <string>Ctrl+A</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="HiddenCloseButtonDel">
+    <property name="geometry">
+     <rect>
+      <x>560</x>
+      <y>300</y>
+      <width>83</width>
+      <height>28</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>HiddenCloseButtonDel</string>
+    </property>
+    <property name="shortcut">
+     <string>Ctrl+E</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_23">
+    <property name="geometry">
+     <rect>
+      <x>-40</x>
+      <y>0</y>
+      <width>130</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-image: url(:/pictures/MB.png);
+background-color: rgba(255, 255, 255, 0);
+image: url(:/pictures/MB.png);</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap resource="res.qrc">:/pictures/MB.png</pixmap>
+    </property>
+   </widget>
+   <widget class="QLabel" name="Picture">
+    <property name="geometry">
+     <rect>
+      <x>1</x>
+      <y>-20</y>
+      <width>861</width>
+      <height>574</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-image: url(:/pictures/Picture1_4.png);
+image: url(:/pictures/Picture1_4.png);</string>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::NoFrame</enum>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="Close">
+    <property name="geometry">
+     <rect>
+      <x>835</x>
+      <y>5</y>
+      <width>17</width>
+      <height>17</height>
+     </rect>
+    </property>
+    <property name="minimumSize">
+     <size>
+      <width>17</width>
+      <height>17</height>
+     </size>
+    </property>
+    <property name="maximumSize">
+     <size>
+      <width>17</width>
+      <height>17</height>
+     </size>
+    </property>
+    <property name="cursor">
+     <cursorShape>UpArrowCursor</cursorShape>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(239, 41, 41);
+</string>
+    </property>
+    <property name="text">
+     <string>✕</string>
+    </property>
+    <property name="shortcut">
+     <string>Ctrl+Esc</string>
+    </property>
+   </widget>
+   <widget class="QFrame" name="frame_2">
+    <property name="geometry">
+     <rect>
+      <x>43</x>
+      <y>-20</y>
+      <width>225</width>
+      <height>47</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(255, 255, 255);</string>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::Panel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Plain</enum>
+    </property>
+    <property name="lineWidth">
+     <number>4</number>
+    </property>
+    <property name="midLineWidth">
+     <number>29</number>
+    </property>
+   </widget>
+   <widget class="QFrame" name="frame_3">
+    <property name="geometry">
+     <rect>
+      <x>94</x>
+      <y>265</y>
+      <width>152</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(255, 255, 255);</string>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::Panel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Plain</enum>
+    </property>
+    <property name="lineWidth">
+     <number>4</number>
+    </property>
+   </widget>
+   <widget class="QFrame" name="frame_4">
+    <property name="geometry">
+     <rect>
+      <x>253</x>
+      <y>31</y>
+      <width>64</width>
+      <height>286</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(255, 255, 255);</string>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::Panel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Plain</enum>
+    </property>
+    <property name="lineWidth">
+     <number>4</number>
+    </property>
+   </widget>
+   <widget class="QFrame" name="frame_5">
+    <property name="geometry">
+     <rect>
+      <x>67</x>
+      <y>37</y>
+      <width>246</width>
+      <height>286</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(148, 148, 148);</string>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::StyledPanel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Raised</enum>
+    </property>
+   </widget>
+   <widget class="QFrame" name="NumLockInfo">
+    <property name="geometry">
+     <rect>
+      <x>300</x>
+      <y>190</y>
+      <width>191</width>
+      <height>171</height>
+     </rect>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::StyledPanel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Plain</enum>
+    </property>
+    <widget class="QLabel" name="label_40">
+     <property name="geometry">
+      <rect>
+       <x>60</x>
+       <y>0</y>
+       <width>81</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: rgb(255, 255, 255);
+background-color: rgba(255, 255, 255, 0);</string>
+     </property>
+     <property name="text">
+      <string>MusicBoard</string>
+     </property>
+    </widget>
+    <widget class="Line" name="line_11">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>30</y>
+       <width>171</width>
+       <height>5</height>
+      </rect>
+     </property>
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="minimumSize">
+      <size>
+       <width>0</width>
+       <height>5</height>
+      </size>
+     </property>
+     <property name="maximumSize">
+      <size>
+       <width>16777215</width>
+       <height>5</height>
+      </size>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(255, 159, 159);</string>
+     </property>
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_41">
+     <property name="geometry">
+      <rect>
+       <x>90</x>
+       <y>0</y>
+       <width>131</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-image: url(:/pictures/MB.png);
+background-color: rgba(136, 138, 133, 0);
+selection-background-color: rgba(136, 138, 133, 0);
+image: url(:/pictures/MB.png);</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="pixmap">
+      <pixmap resource="res.qrc">:/pictures/MB.png</pixmap>
+     </property>
+    </widget>
+    <widget class="QTextEdit" name="textEdit_8">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>40</y>
+       <width>171</width>
+       <height>61</height>
+      </rect>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::Panel</enum>
+     </property>
+     <property name="frameShadow">
+      <enum>QFrame::Plain</enum>
+     </property>
+     <property name="lineWidth">
+      <number>0</number>
+     </property>
+     <property name="html">
+      <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Cantarell'; font-size:11pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:9pt; color:#ffffff;&quot;&gt;Click on the &lt;/span&gt;&lt;span style=&quot; font-size:9pt; font-weight:600; color:#ffffff;&quot;&gt;&amp;quot; 7 &amp;quot;/ &amp;quot; Home &amp;quot;&lt;/span&gt;&lt;span style=&quot; font-size:9pt; color:#ffffff;&quot;&gt; key on your numpad to determine if NumLock in on.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="NumLockLabel">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>99</y>
+       <width>171</width>
+       <height>51</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(255, 255, 255);</string>
+     </property>
+     <property name="text">
+      <string>Numlock: </string>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QLabel" name="label_42">
+    <property name="geometry">
+     <rect>
+      <x>280</x>
+      <y>-1</y>
+      <width>71</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: rgb(255, 255, 255);
+background-color: rgba(136, 138, 133, 0);</string>
+    </property>
+    <property name="text">
+     <string>NmLk:</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="NmLkOnOff">
+    <property name="geometry">
+     <rect>
+      <x>330</x>
+      <y>0</y>
+      <width>41</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: rgb(255, 255, 255);
+background-color: rgba(136, 138, 133, 0);</string>
+    </property>
+    <property name="text">
+     <string>OFF</string>
+    </property>
+   </widget>
+   <zorder>HiddenSilanceButton</zorder>
+   <zorder>frame_4</zorder>
+   <zorder>frame_3</zorder>
+   <zorder>Picture</zorder>
+   <zorder>label_8</zorder>
+   <zorder>HiddenCloseButtonDel</zorder>
+   <zorder>HiddenSettingsButton</zorder>
+   <zorder>Time</zorder>
+   <zorder>label_18</zorder>
+   <zorder>HiddenHideNotes</zorder>
+   <zorder>HiddenShowNotes2</zorder>
+   <zorder>HiddenShowNotes1</zorder>
+   <zorder>HiddenProjectNotesButton</zorder>
+   <zorder>HiddenAboutButton</zorder>
+   <zorder>HiddenMButtonushButton</zorder>
+   <zorder>HiddenHelpButton</zorder>
    <zorder>File2</zorder>
    <zorder>File1</zorder>
    <zorder>Error</zorder>
@@ -2438,48 +5312,52 @@ p, li { white-space: pre-wrap; }
    <zorder>label_3</zorder>
    <zorder>frame</zorder>
    <zorder>NumlockLabel</zorder>
-   <zorder>line</zorder>
-   <zorder>verticalLayoutWidget</zorder>
-   <zorder>verticalLayoutWidget_2</zorder>
-   <zorder>verticalLayoutWidget_3</zorder>
-   <zorder>horizontalLayoutWidget_11</zorder>
-   <zorder>verticalLayoutWidget_4</zorder>
+   <zorder>verticalFrame_2</zorder>
+   <zorder>verticalFrame_3</zorder>
+   <zorder>horizontalFrame_11</zorder>
+   <zorder>verticalFrame_4</zorder>
+   <zorder>NumlockLabel_2</zorder>
    <zorder>VolSlider</zorder>
    <zorder>VolLabel</zorder>
-   <zorder>line_2</zorder>
+   <zorder>label_4</zorder>
+   <zorder>ProjectNotes</zorder>
+   <zorder>Licence</zorder>
+   <zorder>Rhythm2</zorder>
+   <zorder>ReInit</zorder>
+   <zorder>frame_2</zorder>
+   <zorder>EditButton</zorder>
    <zorder>HelpButton</zorder>
    <zorder>AboutButton</zorder>
-   <zorder>label_4</zorder>
-   <zorder>About</zorder>
-   <zorder>NumlockLabel_2</zorder>
+   <zorder>label_23</zorder>
    <zorder>Help</zorder>
-  </widget>
-  <widget class="QMenuBar" name="menuBar">
-   <property name="geometry">
-    <rect>
-     <x>0</x>
-     <y>0</y>
-     <width>0</width>
-     <height>0</height>
-    </rect>
-   </property>
-   <property name="maximumSize">
-    <size>
-     <width>0</width>
-     <height>0</height>
-    </size>
-   </property>
-  </widget>
-  <widget class="QStatusBar" name="statusBar">
-   <property name="maximumSize">
-    <size>
-     <width>0</width>
-     <height>0</height>
-    </size>
-   </property>
+   <zorder>About</zorder>
+   <zorder>line</zorder>
+   <zorder>verticalFrame</zorder>
+   <zorder>line_2</zorder>
+   <zorder>FileButton</zorder>
+   <zorder>frame_5</zorder>
+   <zorder>P16</zorder>
+   <zorder>P17</zorder>
+   <zorder>P15</zorder>
+   <zorder>gridFrame</zorder>
+   <zorder>P14</zorder>
+   <zorder>NotesEdit</zorder>
+   <zorder>ClearEdit</zorder>
+   <zorder>P13</zorder>
+   <zorder>ThemesEdit</zorder>
+   <zorder>MBoard</zorder>
+   <zorder>Clear</zorder>
+   <zorder>File</zorder>
+   <zorder>Edit</zorder>
+   <zorder>Close</zorder>
+   <zorder>Sure</zorder>
+   <zorder>NumLockInfo</zorder>
+   <zorder>label_42</zorder>
+   <zorder>NmLkOnOff</zorder>
   </widget>
  </widget>
- <layoutdefault spacing="6" margin="11"/>
- <resources/>
+ <resources>
+  <include location="res.qrc"/>
+ </resources>
  <connections/>
 </ui>

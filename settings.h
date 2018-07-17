@@ -21,17 +21,24 @@ protected:
     void changeEvent(QEvent *e);
 
 public slots:
+    void on_pushButton_clicked();
 
     void on_SettingsApplyTextButton_clicked();
 
-public slots:
+    void on_SettingsApplyTextButton_released();
+
+private slots:
     void on_HiddenCloseButton_clicked();
+
+    void on_buttonBox_accepted();
 
     void on_Buttons_accepted();
 
     void on_SettingsApplyMixerButton_clicked();
 
     void on_SettingsMuteButton_clicked();
+
+    void on_MasterSlider_sliderMoved(int position);
 
     void on_MasterSlider_valueChanged(int value);
 
@@ -47,6 +54,7 @@ public slots:
 
     void on_P_6_sliderPressed();
 
+    void on_P_7_actionTriggered(int action);
 
     void on_P_7_sliderPressed();
 
@@ -94,13 +102,12 @@ public slots:
 
     void on_SHelpClose_clicked();
 
-public:
+    void on_P_13_valueChanged(int value);
+
+    void on_Sc_1_editingFinished();
+
+private:
     Ui::Settings *ui1;
-public slots:
-    void on_SMasterLeft_clicked();
-    void on_SMasterRight_clicked();
-    void on_HiddenNumlockButton_clicked();
-    void on_SettingsClearLabels_clicked();
 };
 
 #endif // SETTINGS_H

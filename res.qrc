@@ -90,5 +90,41 @@
         <file>Keyboards/Keyboard4/4_19_FB.wav</file>
         <file>Keyboards/Keyboard4/4_20_G.wav</file>
         <file>Keyboards/Keyboard4/4_17_1_F.wav</file>
+        <file>Silance.wav</file>
+        <file>MBoard/Sounds/MusicBoard_Last.mp3</file>
+        <file>MBoard/Sounds/Want_To_Close.mp3</file>
+    </qresource>
+    <qresource prefix="/pictures">
+        <file>MBoard.jpg</file>
+        <file>KeyboardPresets.jpg</file>
+        <file>Rhythms.jpg</file>
+        <file>Presets.jpg</file>
+        <file>LaunchPad.jpg</file>
+        <file>Color_1.jpg</file>
+        <file>Color_0.jpg</file>
+        <file>LaunchPad_0.jpg</file>
+        <file>LongLaunchPad.jpg</file>
+        <file>TallLaunchPad.jpg</file>
+        <file>MB.png</file>
+        <file>MBIco.png</file>
+        <file>Sets.png</file>
+        <file>Sets1.png</file>
+        <file>KeysLF.png</file>
+        <file>KeysLF1.png</file>
+        <file>LaunchPad1.png</file>
+        <file>LaunchPad.png</file>
+        <file>Picture1.png</file>
+        <file>Im.png</file>
+        <file>KeyD.png</file>
+        <file>Picture1_4.png</file>
+        <file>Tr.png</file>
+        <file>KeyD1.png</file>
+        <file>KeyDL.png</file>
+        <file>KeyDL1.png</file>
+        <file>KeyLT.png</file>
+        <file>KeysLT1.png</file>
+        <file>SettingsPicture.png</file>
+        <file>Slider1.png</file>
+        <file>Slider14.png</file>
     </qresource>
 </RCC>

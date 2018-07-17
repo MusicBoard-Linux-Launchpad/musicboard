@@ -33,7 +33,7 @@ MOVE          = mv -f
 TAR           = tar -cf
 COMPRESS      = gzip -9f
 DISTNAME      = MusicBoard1.0.0
-DISTDIR = /home/n/Downloads/Proiect_QT/Project_9/MusicBoard/.tmp/MusicBoard1.0.0
+DISTDIR = /home/n/Downloads/Project_8_9_MusicBoard/Project_9_1_4_Last_WIthout_Help_File_Formats_Maked_JKL_Keys_Did_Not_Compile_Help_About/MusicBoard/.tmp/MusicBoard1.0.0
 LINK          = g++
 LFLAGS        = -m64
 LIBS          = $(SUBLIBS) -L/usr/X11R6/lib64 -lQt5Multimedia -lQt5Widgets -lQt5Gui -lQt5Network -lQt5Core -lGL -lpthread 
@@ -49,12 +49,20 @@ OBJECTS_DIR   = ./
 ####### Files
 
 SOURCES       = main.cpp \
-		musicboard.cpp qrc_res.cpp \
-		moc_musicboard.cpp
+		musicboard.cpp \
+		settings.cpp \
+		digitalclock.cpp qrc_res.cpp \
+		moc_musicboard.cpp \
+		moc_settings.cpp \
+		moc_digitalclock.cpp
 OBJECTS       = main.o \
 		musicboard.o \
+		settings.o \
+		digitalclock.o \
 		qrc_res.o \
-		moc_musicboard.o
+		moc_musicboard.o \
+		moc_settings.o \
+		moc_digitalclock.o
 DIST          = FilesForm.ui.qml \
 		Files.qml \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
@@ -85,21 +93,9 @@ DIST          = FilesForm.ui.qml \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_opengl_private.pri \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_openglextensions.pri \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_openglextensions_private.pri \
-		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_packetprotocol_private.pri \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_platformsupport_private.pri \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_printsupport.pri \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_printsupport_private.pri \
-		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_qml.pri \
-		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_qml_private.pri \
-		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_qmldebug_private.pri \
-		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_qmldevtools_private.pri \
-		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_qmltest.pri \
-		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_qmltest_private.pri \
-		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_quick.pri \
-		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_quick_private.pri \
-		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_quickparticles_private.pri \
-		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_quickwidgets.pri \
-		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_quickwidgets_private.pri \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_sql.pri \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_sql_private.pri \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_testlib.pri \
@@ -133,8 +129,12 @@ DIST          = FilesForm.ui.qml \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/exceptions.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/yacc.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/lex.prf \
-		MusicBoard.pro musicboard.h main.cpp \
-		musicboard.cpp
+		MusicBoard.pro musicboard.h \
+		settings.h \
+		digitalclock.h main.cpp \
+		musicboard.cpp \
+		settings.cpp \
+		digitalclock.cpp
 QMAKE_TARGET  = MusicBoard
 DESTDIR       = 
 TARGET        = MusicBoard
@@ -143,7 +143,7 @@ TARGET        = MusicBoard
 first: all
 ####### Build rules
 
-$(TARGET): ui_musicboard.h $(OBJECTS)  
+$(TARGET): ui_musicboard.h ui_settings.h $(OBJECTS)  
 	$(LINK) $(LFLAGS) -o $(TARGET) $(OBJECTS) $(OBJCOMP) $(LIBS)
 	objcopy --only-keep-debug MusicBoard MusicBoard.debug && objcopy --strip-debug MusicBoard && objcopy --add-gnu-debuglink=MusicBoard.debug MusicBoard && chmod -x MusicBoard.debug
 
@@ -175,21 +175,9 @@ Makefile: MusicBoard.pro /usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64/qmak
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_opengl_private.pri \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_openglextensions.pri \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_openglextensions_private.pri \
-		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_packetprotocol_private.pri \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_platformsupport_private.pri \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_printsupport.pri \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_printsupport_private.pri \
-		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_qml.pri \
-		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_qml_private.pri \
-		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_qmldebug_private.pri \
-		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_qmldevtools_private.pri \
-		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_qmltest.pri \
-		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_qmltest_private.pri \
-		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_quick.pri \
-		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_quick_private.pri \
-		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_quickparticles_private.pri \
-		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_quickwidgets.pri \
-		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_quickwidgets_private.pri \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_sql.pri \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_sql_private.pri \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_testlib.pri \
@@ -259,21 +247,9 @@ Makefile: MusicBoard.pro /usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64/qmak
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_opengl_private.pri:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_openglextensions.pri:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_openglextensions_private.pri:
-/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_packetprotocol_private.pri:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_platformsupport_private.pri:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_printsupport.pri:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_printsupport_private.pri:
-/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_qml.pri:
-/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_qml_private.pri:
-/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_qmldebug_private.pri:
-/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_qmldevtools_private.pri:
-/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_qmltest.pri:
-/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_qmltest_private.pri:
-/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_quick.pri:
-/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_quick_private.pri:
-/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_quickparticles_private.pri:
-/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_quickwidgets.pri:
-/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_quickwidgets_private.pri:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_sql.pri:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_sql_private.pri:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_testlib.pri:
@@ -329,9 +305,9 @@ distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents res.qrc $(DISTDIR)/
-	$(COPY_FILE) --parents musicboard.h $(DISTDIR)/
-	$(COPY_FILE) --parents main.cpp musicboard.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents musicboard.ui $(DISTDIR)/
+	$(COPY_FILE) --parents musicboard.h settings.h digitalclock.h $(DISTDIR)/
+	$(COPY_FILE) --parents main.cpp musicboard.cpp settings.cpp digitalclock.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents musicboard.ui settings.ui $(DISTDIR)/
 
 
 clean: compiler_clean 
@@ -341,7 +317,7 @@ clean: compiler_clean
 
 distclean: clean 
 	-$(DEL_FILE) $(TARGET) 
-	-$(DEL_FILE) /home/n/Downloads/Proiect_QT/Project_9/MusicBoard/MusicBoard.debug
+	-$(DEL_FILE) /home/n/Downloads/Project_8_9_MusicBoard/Project_9_1_4_Last_WIthout_Help_File_Formats_Maked_JKL_Keys_Did_Not_Compile_Help_About/MusicBoard/MusicBoard.debug
 	-$(DEL_FILE) Makefile
 
 
@@ -360,6 +336,38 @@ compiler_rcc_clean:
 	-$(DEL_FILE) qrc_res.cpp
 qrc_res.cpp: res.qrc \
 		/usr/lib/x86_64-linux-gnu/qt5/bin/rcc \
+		KeyDL1.png \
+		Slider1.png \
+		Picture1.png \
+		KeyD.png \
+		KeysLF1.png \
+		LaunchPad.png \
+		Picture1_4.png \
+		KeyD1.png \
+		TallLaunchPad.jpg \
+		MBIco.png \
+		Sets1.png \
+		KeysLF.png \
+		Color_0.jpg \
+		KeyboardPresets.jpg \
+		Color_1.jpg \
+		Presets.jpg \
+		Im.png \
+		LaunchPad_0.jpg \
+		KeysLT1.png \
+		MB.png \
+		KeyLT.png \
+		Sets.png \
+		KeyDL.png \
+		SettingsPicture.png \
+		Rhythms.jpg \
+		LaunchPad1.png \
+		Tr.png \
+		LaunchPad.jpg \
+		LongLaunchPad.jpg \
+		MBoard.jpg \
+		Slider14.png \
+		Silance.wav \
 		Dub_Selection/TMS3_NuKick_165.wav \
 		Dub_Selection/TMS3_Snare_002.wav \
 		Dub_Selection/FX5.wav \
@@ -403,26 +411,6 @@ qrc_res.cpp: res.qrc \
 		Keyboards/Keyboard4/4_15_D.wav \
 		Keyboards/Keyboard4/4_14_CB.wav \
 		Keyboards/Keyboard4/4_1_C.wav \
-		Keyboards/Keyboard3/16_CB.wav \
-		Keyboards/Keyboard3/17_D.wav \
-		Keyboards/Keyboard3/15_C.wav \
-		Keyboards/Keyboard3/14_B.wav \
-		Keyboards/Keyboard3/23_G.wav \
-		Keyboards/Keyboard3/12_A.wav \
-		Keyboards/Keyboard3/8_F.wav \
-		Keyboards/Keyboard3/7_E.wav \
-		Keyboards/Keyboard3/6_DB.wav \
-		Keyboards/Keyboard3/21_FB.wav \
-		Keyboards/Keyboard3/13_AB.wav \
-		Keyboards/Keyboard3/10_G.wav \
-		Keyboards/Keyboard3/20_F.wav \
-		Keyboards/Keyboard3/5_D.wav \
-		Keyboards/Keyboard3/3_C.wav \
-		Keyboards/Keyboard3/11_GB.wav \
-		Keyboards/Keyboard3/4_CB.wav \
-		Keyboards/Keyboard3/17_1_DB.wav \
-		Keyboards/Keyboard3/19_E.wav \
-		Keyboards/Keyboard3/9_FB.wav \
 		Keyboards/Keyboard2/2F2_B.wav \
 		Keyboards/Keyboard2/2D_B.wav \
 		Keyboards/Keyboard2/2C_B.wav \
@@ -443,6 +431,8 @@ qrc_res.cpp: res.qrc \
 		Keyboards/Keyboard2/2G_B.wav \
 		Keyboards/Keyboard2/2F_B.wav \
 		Keyboards/Keyboard2/2C2.wav \
+		MBoard/Sounds/MusicBoard_Last.mp3 \
+		MBoard/Sounds/Want_To_Close.mp3 \
 		PianoSounds/Edit/D2.wav \
 		PianoSounds/Edit/C2.wav \
 		PianoSounds/Edit/F2_B.wav \
@@ -466,21 +456,34 @@ qrc_res.cpp: res.qrc \
 		PianoSounds/Edit/E2.wav
 	/usr/lib/x86_64-linux-gnu/qt5/bin/rcc -name res res.qrc -o qrc_res.cpp
 
-compiler_moc_header_make_all: moc_musicboard.cpp
+compiler_moc_header_make_all: moc_musicboard.cpp moc_settings.cpp moc_digitalclock.cpp
 compiler_moc_header_clean:
-	-$(DEL_FILE) moc_musicboard.cpp
+	-$(DEL_FILE) moc_musicboard.cpp moc_settings.cpp moc_digitalclock.cpp
 moc_musicboard.cpp: musicboard.h \
 		/usr/lib/x86_64-linux-gnu/qt5/bin/moc
-	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/n/Downloads/Proiect_QT/Project_9/MusicBoard -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtMultimedia -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtNetwork -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/6 -I/usr/include/x86_64-linux-gnu/c++/6 -I/usr/include/c++/6/backward -I/usr/lib/gcc/x86_64-linux-gnu/6/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/6/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include musicboard.h -o moc_musicboard.cpp
+	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/n/Downloads/Project_8_9_MusicBoard/Project_9_1_4_Last_WIthout_Help_File_Formats_Maked_JKL_Keys_Did_Not_Compile_Help_About/MusicBoard -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtMultimedia -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtNetwork -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/6 -I/usr/include/x86_64-linux-gnu/c++/6 -I/usr/include/c++/6/backward -I/usr/lib/gcc/x86_64-linux-gnu/6/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/6/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include musicboard.h -o moc_musicboard.cpp
+
+moc_settings.cpp: global.h \
+		settings.h \
+		/usr/lib/x86_64-linux-gnu/qt5/bin/moc
+	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/n/Downloads/Project_8_9_MusicBoard/Project_9_1_4_Last_WIthout_Help_File_Formats_Maked_JKL_Keys_Did_Not_Compile_Help_About/MusicBoard -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtMultimedia -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtNetwork -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/6 -I/usr/include/x86_64-linux-gnu/c++/6 -I/usr/include/c++/6/backward -I/usr/lib/gcc/x86_64-linux-gnu/6/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/6/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include settings.h -o moc_settings.cpp
+
+moc_digitalclock.cpp: digitalclock.h \
+		/usr/lib/x86_64-linux-gnu/qt5/bin/moc
+	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/n/Downloads/Project_8_9_MusicBoard/Project_9_1_4_Last_WIthout_Help_File_Formats_Maked_JKL_Keys_Did_Not_Compile_Help_About/MusicBoard -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtMultimedia -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtNetwork -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/6 -I/usr/include/x86_64-linux-gnu/c++/6 -I/usr/include/c++/6/backward -I/usr/lib/gcc/x86_64-linux-gnu/6/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/6/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include digitalclock.h -o moc_digitalclock.cpp
 
 compiler_moc_source_make_all:
 compiler_moc_source_clean:
-compiler_uic_make_all: ui_musicboard.h
+compiler_uic_make_all: ui_musicboard.h ui_settings.h
 compiler_uic_clean:
-	-$(DEL_FILE) ui_musicboard.h
+	-$(DEL_FILE) ui_musicboard.h ui_settings.h
 ui_musicboard.h: musicboard.ui \
 		/usr/lib/x86_64-linux-gnu/qt5/bin/uic
 	/usr/lib/x86_64-linux-gnu/qt5/bin/uic musicboard.ui -o ui_musicboard.h
+
+ui_settings.h: settings.ui \
+		/usr/lib/x86_64-linux-gnu/qt5/bin/uic
+	/usr/lib/x86_64-linux-gnu/qt5/bin/uic settings.ui -o ui_settings.h
 
 compiler_yacc_decl_make_all:
 compiler_yacc_decl_clean:
@@ -492,18 +495,39 @@ compiler_clean: compiler_rcc_clean compiler_moc_header_clean compiler_uic_clean
 
 ####### Compile
 
-main.o: main.cpp musicboard.h
+main.o: main.cpp musicboard.h \
+		digitalclock.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o main.cpp
 
 musicboard.o: musicboard.cpp musicboard.h \
-		ui_musicboard.h
+		ui_musicboard.h \
+		settings.h \
+		global.h \
+		ui_settings.h \
+		digitalclock.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o musicboard.o musicboard.cpp
+
+settings.o: settings.cpp settings.h \
+		global.h \
+		ui_settings.h \
+		musicboard.h \
+		ui_musicboard.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o settings.o settings.cpp
+
+digitalclock.o: digitalclock.cpp digitalclock.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o digitalclock.o digitalclock.cpp
 
 qrc_res.o: qrc_res.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o qrc_res.o qrc_res.cpp
 
 moc_musicboard.o: moc_musicboard.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_musicboard.o moc_musicboard.cpp
+
+moc_settings.o: moc_settings.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_settings.o moc_settings.cpp
+
+moc_digitalclock.o: moc_digitalclock.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_digitalclock.o moc_digitalclock.cpp
 
 ####### Install
 

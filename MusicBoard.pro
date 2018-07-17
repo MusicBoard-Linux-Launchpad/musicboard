@@ -6,6 +6,8 @@
 
 QT       += core gui
 QT += multimedia
+QT += widgets
+QT += multimedia
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -25,11 +27,16 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 
 SOURCES += main.cpp\
-        musicboard.cpp
+        musicboard.cpp \
+    settings.cpp \
+    digitalclock.cpp
 
-HEADERS  += musicboard.h
+HEADERS  += musicboard.h \
+    settings.h \
+    digitalclock.h
 
-FORMS    += musicboard.ui
+FORMS    += musicboard.ui \
+    settings.ui
 
 RESOURCES += \
     res.qrc
