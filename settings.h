@@ -3,7 +3,6 @@
 
 #include <QtGui>
 #include <QDialog>
-#include "global.h"
 
 namespace Ui {
 class Settings;
@@ -21,24 +20,17 @@ protected:
     void changeEvent(QEvent *e);
 
 public slots:
-    void on_pushButton_clicked();
 
     void on_SettingsApplyTextButton_clicked();
 
-    void on_SettingsApplyTextButton_released();
-
 public slots:
     void on_HiddenCloseButton_clicked();
-
-    void on_buttonBox_accepted();
 
     void on_Buttons_accepted();
 
     void on_SettingsApplyMixerButton_clicked();
 
     void on_SettingsMuteButton_clicked();
-
-    void on_MasterSlider_sliderMoved(int position);
 
     void on_MasterSlider_valueChanged(int value);
 
@@ -54,7 +46,6 @@ public slots:
 
     void on_P_6_sliderPressed();
 
-    void on_P_7_actionTriggered(int action);
 
     void on_P_7_sliderPressed();
 
@@ -102,22 +93,13 @@ public slots:
 
     void on_SHelpClose_clicked();
 
-    void on_P_13_valueChanged(int value);
-
-    void on_Sc_1_editingFinished();
-
-    void on_P_1_valueChanged(int value);
-
-    void on_P_1_sliderMoved(int position);
-
 public:
     Ui::Settings *ui1;
-private slots:
+public slots:
     void on_SMasterLeft_clicked();
     void on_SMasterRight_clicked();
-    void on_P_1_sliderReleased();
     void on_HiddenNumlockButton_clicked();
-    void on_Buttons_rejected();
+    void on_SettingsClearLabels_clicked();
 };
 
 #endif // SETTINGS_H

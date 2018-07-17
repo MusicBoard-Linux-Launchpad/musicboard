@@ -1,0 +1,71 @@
+Welcome to MusicBoard!
+
+------------------------------------|
+
+> Install MusicBoard
+
+Go To the "MusicBoard_1_4" Folder (more info there) and enter it in Terminal to Install Deb:
+
+dpkg -i musicboard
+
+(or with GDebi)
+
+Execute in any Terminal:
+
+musicboard
+
+-------------------------------------|
+
+For Help go to " Help.txt " or to the Help panel in MusicBoard.
+
+For Q&A go to " Q&A.txt " (to ask a question, go to: musicboardcontact@protonmail.com ).
+
+For To Do go to " To_Do " .
+
+For About go to the About panel in MusicBoard.
+
+For the Licence go to " Licence.txt " or to the Licence panel (found in Help).
+
+For Documentation go to " Documentation.pdf " .
+
+Dev. Details:
+
+- The Rec. module is made by Qt: http://doc.qt.io/archives/qt-5.5/qtmultimedia-audiorecorder-example.html
+- Sounds found at: www.musicradar.com (Free)   
+- Libraries: QFont, audiorecorder.h, ui_audiorecorder.h,  QApplication, QShortcut,  QtWidgets, QAudioProbe, QAudioRecorder, QDir, 
+QFileDialog and QMediaRecorder.
+
+-------------------------------------|
+
+Thank you for checking out MusicBoard!
+
+Contribute and share, it really helps making the Linux Launchpad a reality.
+
+Site: http://musicboard-launchpad.dx.am/
+Blog: https://musicboard-blog.weebly.com/
+Mail: musicboardcontact@protonmail.com
+GitHub: https://github.com/MusicBoard-Linux-Launchpad/musicboard
+GitHub for Website: https://github.com/MusicBoard-Linux-Launchpad/musicboard_website  
+
+Owner: Single Coil. 
+
+Blog: https://single-coil.weebly.com/
+Mail: singlecoilcontact@protonmail.com
+
+-------------------------------------|
+
+======================================================================
+======================================================================
+
+MATERIAL SUPLIMENTAR:
+
+- DOCUMENTATIA: Documentation_RO.pdf este documentatia in limba romana, inclusa in folder-ul proiectului de pe GitGub in aceeasi 
+locatie cu codul sursa si acest fisier README.
+- SURSE EXTERNE: LISTA cu sursele externe folosite este inclusa in Documentation_RO.pdf in BIBLIOGRAFIE. O IMAGINE cu testarea 
+aplicatiei pe Mac OS se gaseste la https://github.com/MusicBoard-Linux-Launchpad/musicboard/blob/master/MusicBoard_On_Mac_OS.png 
+- PREZENTAREA: Presentation_RO.pdf este prezentarea aplicatiei MusicBoard, are 5 pagini si este inclusa in folder-ul 
+proiectului de pe GitGub, in aceeasi locatie cu codul sursa si acest fisier README.
+
+======================================================================
+======================================================================
+

@@ -96,15 +96,6 @@
     </qresource>
     <qresource prefix="/pictures">
         <file>MBoard.jpg</file>
-        <file>KeyboardPresets.jpg</file>
-        <file>Rhythms.jpg</file>
-        <file>Presets.jpg</file>
-        <file>LaunchPad.jpg</file>
-        <file>Color_1.jpg</file>
-        <file>Color_0.jpg</file>
-        <file>LaunchPad_0.jpg</file>
-        <file>LongLaunchPad.jpg</file>
-        <file>TallLaunchPad.jpg</file>
         <file>MB.png</file>
         <file>MBIco.png</file>
         <file>Sets.png</file>
@@ -113,7 +104,6 @@
         <file>KeysLF1.png</file>
         <file>LaunchPad1.png</file>
         <file>LaunchPad.png</file>
-        <file>Picture1.png</file>
         <file>Im.png</file>
         <file>KeyD.png</file>
         <file>Picture1_4.png</file>
@@ -129,7 +119,6 @@
         <file>Theme2.png</file>
         <file>Settings1.png</file>
         <file>Settings1 (copy).png</file>
-        <file>Theme21.png</file>
         <file>Theme24.png</file>
     </qresource>
 </RCC>

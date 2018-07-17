@@ -1,15 +1,15 @@
 #include "musicboard.h"
-#include <QApplication>
-#include <QShortcut>
-#include <digitalclock.h>
-#include "audiorecorder.h"
-#include <QtWidgets>
-#include <QAudioProbe>
-#include <QAudioRecorder>
-#include <QDir>
-#include <QFileDialog>
-#include <QMediaRecorder>
-#include "preferencesform.h"
+    #include <QApplication>
+    #include <QShortcut>
+    #include "audiorecorder.h"
+    #include <QtWidgets>
+    #include <QAudioProbe>
+    #include <QAudioRecorder>
+    #include <QDir>
+    #include <QFileDialog>
+    #include <QMediaRecorder>
+    #include "preferencesform.h"
+    #include <QFont>
 
 QString P1_R="P1";
 QString P2_R="P2";
@@ -28,6 +28,22 @@ QString P14_R="P14";
 QString P15_R="P15";
 QString P16_R="P16";
 QString P17_R="P17";
+QString C1="rgb(110, 110, 110)";
+QString C12="rgb(255, 159, 159)";
+QString CFont="rgb(255, 255, 255)";
+QString CKeyboard="rgb(81, 38, 255)";
+QString CFile="rgb(152, 130, 251)";
+QString C1_Custom="rgb(110, 110, 110)";
+QString C12_Custom="rgb(255, 159, 159)";
+QString CFont_Custom="rgb(255, 255, 255)";
+QString CKeyboard_Custom="rgb(81, 38, 255)";
+QString CFile_Custom="rgb(152, 130, 251)";
+QString CButtons_Custom="rgb(83, 68, 150)";
+QString MainColor="";
+///QString ShowColor_4="rgb(?, ?, ?)";
+///QString ShowColor_5="rgb(?, ?, ?)";
+///QString ShowColor_6="rgb(?, ?, ?)";
+QString CButtons="rgb(83, 68, 150)";
 
 int Master;
 
@@ -48,6 +64,8 @@ int Master;
 //QShortcut P15_S;
 //QShortcut P16_S;
 //QShortcut P17_S;
+
+QFont Font;
 
 int P1_A=99;
 int P2_A=99;
@@ -81,14 +99,28 @@ int NumLock=10;
 int FontColor=0;
 int BgColor1=0;
 int BgColor2=0;
+int Bg=14;
+int Bg_Custom=14;
+int On=0;
+int On1=0;
+int isCoverShow=1;
+int isNumLockShow=1;
+int isSureShow=1;
+int isImages=1;
+int isCPUEnabled=1;
+int isKeyboardAsLaunchpadShow=0;
+int Notes=0;
+extern int ReVal=0; // ColorPicker
+extern int GrVal=0; // ColorPicker
+extern int BlVal=0; // ColorPicker
 
 int main(int argc, char *argv[])
 {
   QApplication a(argc, argv);
   MusicBoard w;
   w.show();
-  AudioRecorder recorder;
-  recorder.show();
+//  AudioRecorder recorder;
+//  recorder.show();
 //  PreferencesForm preferences;
 //  preferences.show();
 return a.exec();

@@ -1,0 +1,198 @@
+Welcome to 
+MusicBoard!
+
+1. Getting started
+
+Use the 
+buttons on the 
+right to 
+assign sound 
+to the buttons
+
+Use h, j, k, to set sounds for the Keyboard!
+
+Use n, m, ",", "." to set sounds for the Keyboard and for the Launchpad!
+
+Use the Keyboard 
+to play the Keyboard!
+( q, w, e, r, t, y, u, i, o, p, 2, 3, 5, 6, 7, 9, 0, = )
+
+Use the Keyboard 
+to play the Launchpad!
+( Home, UpArrow, Pg Up, LeftArrow, 5, RightArrow, End, DownArrow, Pg Dn, Ins, Del, /, Multiply, -, Plus, Enter )
+
+Quick Keys
+
+" ` " = Show / Hide Project Notes
+
+-- If Edit is shown --
+
+Ctrl + A = Clear All
+
+Ctrl + L = Clear Launchpad
+
+Ctrl + W = Clear Keyboard
+
+--
+
+Ctrl + H = Slow / Hide Help
+
+Ctrl + I = Show / Hide About
+
+Ctrl + L = Show / Hide MBoard
+
+Esc = Close all the Wdos
+
+Ctrl + Esc = Close the application directly
+
+Ctrl + E = Close the application
+
+Ctrl + A = Show Settings
+
+Enter (In Settings) = Close Settings
+
+Ctrl + S (In Settings) = Save Settings
+
+Ctrl + R (In MusicBoard) = Apply / Set Settings
+
+F6 = Increase Master
+
+F7 = Decrease Master
+
+Ctrl + M = Show/Hide Cover (if enabled in Preferences)
+
+For the Settings:
+
+Text
+
+Change the name of the Buttons for the Launchpad
+
+Type in the text for each button, then "Enter" ("Return"), then "Ctrl + R" in MusicBoard. The Buttons should have set. 
+
+MBoard
+
+ Set Keys
+
+Not Editable in this Release. Informational purpose only. 
+
+Mixer 
+
+Set Loudness
+
+Each slider is correlated to a Button. The Master makes all Buttons the same loudness. Use the Master first, then the rest. In order to listen to the loudness, click the slider on the sliding Button.
+
+Web
+
+Help
+
+Access the Blog or go online and start Developing! Thank you!
+
+For the Preferences: 
+
+UI1
+
+In the UI1 panel you are able to select a color for the: Windows, Frames, Buttons, Lines, Text and for the Keyboard. There are presets for most of them, as well as a Custom setting. 
+
+UI2
+
+In the UI2 panel you are able to select a custom color for the File Browsers and make multiple selections. You are able to select the notation for keys, keyboard as Launchpad, enable animations, show "Are you sure?" messages and enable MusicBoard Cover. 
+
+RGB
+
+In the RGB panel you are able to select a custom color to copy and paste in the UI1 and UI2 panels. You are also able to select NumLock Label On and Off and select whether to show images or not. 
+
+IMG
+
+In the IMG panel you are able to select the main image for MusicBoard to show in its frames. 
+
+For the Recorder:
+
+In order to record:
+
+1. Click on "Output" and select a file name and an extension
+
+2. Click on "Record" to start recording
+
+3. Click on "Pause" to pause or unpause the recording
+
+4. Click on "Stop" to stop the recording 
+
+Developer Terminal Commands (in MusicBoard Terminal):
+
+    Mb Dev Val P1_R
+    Mb Dev Val P2_R
+    Mb Dev Val P3_R
+    Mb Dev Val P4_R
+    Mb Dev Val P5_R
+    Mb Dev Val P6_R
+    Mb Dev Val P7_R
+    Mb Dev Val P8_R
+    Mb Dev Val P9_R
+    Mb Dev Val P10_R
+    Mb Dev Val P11_R
+    Mb Dev Val P12_R
+    Mb Dev Val P13_R
+    Mb Dev Val P14_R
+    Mb Dev Val P15_R
+    Mb Dev Val P16_R
+    Mb Dev Val P17_R
+    Mb Dev Val C1
+    Mb Dev Val C12
+    Mb Dev Val CFont
+    Mb Dev Val CKeyboard
+    Mb Dev Val CFile
+    Mb Dev Val C1_Custom
+    Mb Dev Val C12_Custom
+    Mb Dev Val CFont_Custom
+    Mb Dev Val CKeyboard_Custom
+    Mb Dev Val CFile_Custom
+    Mb Dev Val CButtons_Custom
+    Mb Dev Val MainColor
+    Mb Dev Val CButtons
+
+    Mb Dev Val P1_A
+    Mb Dev Val P2_A
+    Mb Dev Val P3_A
+    Mb Dev Val P4_A
+    Mb Dev Val P5_A
+    Mb Dev Val P6_A
+    Mb Dev Val P7_A
+    Mb Dev Val P8_A
+    Mb Dev Val P9_A
+    Mb Dev Val P10_A
+    Mb Dev Val P11_A
+    Mb Dev Val P12_A
+    Mb Dev Val P13_A
+    Mb Dev Val P14_A
+    Mb Dev Val P15_A
+    Mb Dev Val P16_A
+    Mb Dev Val P17_A
+    Mb Dev Val KeyboardVol
+    Mb Dev Val MasterVol
+    Mb Dev Val R1_A
+    Mb Dev Val R2_A
+    Mb Dev Val R3_A
+    Mb Dev Val R4_A
+    Mb Dev Val R5_A
+    Mb Dev Val R6_A
+    Mb Dev Val R7_A
+    Mb Dev Val R8_A
+    Mb Dev Val Masters
+    Mb Dev Val NumLock
+    Mb Dev Val FontColor
+    Mb Dev Val BgColor1
+    Mb Dev Val BgColor2
+    Mb Dev Val Bg
+    Mb Dev Val Bg_Custom
+    Mb Dev Val On
+    Mb Dev Val On1
+    Mb Dev Val isCoverShow
+    Mb Dev Val isNumLockShow
+    Mb Dev Val isSureShow
+    Mb Dev Val isImages
+    Mb Dev Val isCPUEnabled
+    Mb Dev Val isKeyboardAsLaunchpadShow
+    Mb Dev Val Notes
+    Mb Dev Val ReVal 
+    Mb Dev Val GrVal 
+    Mb Dev Val BlVal 

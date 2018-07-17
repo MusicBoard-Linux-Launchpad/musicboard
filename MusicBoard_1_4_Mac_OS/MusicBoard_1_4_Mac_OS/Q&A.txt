@@ -1,0 +1,39 @@
+This is a set of Possible Questions:
+
+------------------------------------|
+
+Q: How Do I Show notations on Keys?
+A: Go to Edit->Show Notes and select "Show1" or "Show2".
+
+------------------------------------|
+
+Q: How do I select a custom sound?
+A: Firstly, select a button that you want to change the sound to.
+Then, search for the sound through the implemented File Browser.
+You can always see the selected button, as it is shown in the UI.
+If you do not select a valid file ( wav, flac, ogg, aac, mp3, aiff, wma, m4p, 3gp
+and vox ), an "Error" message will be shown.
+Else, a "Set" text will be shown.
+To click on a button, use your mouse or the key corresponding to the button.
+A complete list of button keys is available in the app .
+Go to Edit->Show MBoard to show the keyboard, or go to Help.
+
+------------------------------------|
+
+Q: I don’t get any sound out of it.
+A: Select a preset to start, or choose out of your own files. For presets use the
+"Set1", "Set2" and so on, or click on "n", "m", "," or ".".
+You might have used the app for too long, at it might have stopped working.
+
+------------------------------------|
+
+Q: Not showing up?
+A: Make sure to type exactly: "./MusicBoard" in the terminal. Change of case will not work.
+
+------------------------------------|
+
+Q: Not able to move frames around.
+A: Not yet implemented.
+
+------------------------------------|
+

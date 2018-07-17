@@ -1,0 +1,47 @@
+This is the MusicBoard To Do. To request a feature, write it here and upload this file to GitHub: https://github.com/MusicBoard-Linux-Launchpad/musicboard . Thank you! If you have implemented a feature, please follow the Legend after the requests to note it.
+
+------------------------------------|
+To Do:
+
+Release 1.4
+
+- Transpose in MusicBoard
+= Set Rhythm, Keyboards, Settings for Pads (Kind of done, but rhythms cannot
+repeat, they are just really long sound files)
+x Set Volume
+x Make File, Edit, etc.
+x Make Help, About (In Progress) -> Done
+x Make Are you sure you want to exit
+x Set Icon
+x Place Images-> (With Labels, "Pixmap" attribute, ui editor)
+x Make Images
+- Make Minimise, etc.
+- Save, Save as, etc.
+~ Record (external recording only)
+- MIDI
+- Set default file path
+- Set the key touches to be long or short
+- Make Clear all Button
+x P17 Key -> (Shortcut "Del" used to scroll between it and other buttons. Now they
+are deleted.)
+- Make separate Widgets
+- Make it so that the last black (violet) keys do not move after a few compilations
+(with minimum and maximum height and width)
+- Social Media Accounts
+- Copyright (Copyrighted.com)
+- Remove ReInit
+- Translate (Transifex)
+- Make into VST
+- Deploy cross-platform
+- Online version of MusicBoard (go to the musicboard_website Repository on GitHub)
+- <Your Suggestion>
+
+------------------------------------|
+
+Legend:
+- To be Done
+= Partially Done
+x Done
+
+------------------------------------|
+

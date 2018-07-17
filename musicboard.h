@@ -179,17 +179,17 @@ public slots:
 
   void on_CleaKeyboard_clicked();
 
-  void on_pushButton_clicked();
+//  void on_pushButton_clicked();
 
   void on_EditButton_clicked();
 
-  void on_HelpClose_2_clicked();
+//  void on_HelpClose_2_clicked();
 
   void on_CloseClose_clicked();
 
-  void on_ClearCancel_2_clicked();
+//  void on_ClearCancel_2_clicked();
 
-  void on_ClearCancel_1_clicked();
+//  void on_ClearCancel_1_clicked();
 
   void on_ClearCancel_X_clicked();
 
@@ -215,23 +215,23 @@ public slots:
 
   void on_CloseLicence_clicked();
 
-  void on_ThemeButton_clicked();
+//  void on_ThemeButton_clicked();
 
   void on_Theme1Button_clicked();
 
   void on_Theme2Button_clicked();
 
-  void on_Theme3Button_clicked();
+//  void on_Theme3Button_clicked();
 
   void on_NewSessionButton_clicked();
 
-  void on_HIddenHideAllButton_clicked();
+//  void on_HIddenHideAllButton_clicked();
 
   void on_HiddenHideAllButton_clicked();
 
   void on_SettingsButton_clicked();
 
-  void on_ShowNOtesNutton_clicked();
+//  void on_ShowNOtesNutton_clicked();
 
   void on_ShowNotesButton_clicked();
 
@@ -241,7 +241,7 @@ public slots:
 
   void on_ShowNotes2Button_clicked();
 
-  void on_HideNotes_clicked();
+//  void on_HideNotes_clicked();
 
   void on_HideNotesButton_clicked();
 
@@ -289,13 +289,13 @@ public slots:
 
   void on_HiddenCloseButtonDel_clicked();
 
-  void on_MuteButton_clicked();
+//  void on_MuteButton_clicked();
 
   void on_Set1_pressed();
 
   void on_Set1_released();
 
-  void on_Set1_toggled(bool checked);
+//  void on_Set1_toggled(bool checked);
 
   void on_Set2_pressed();
 
@@ -391,30 +391,36 @@ public slots:
 
   void on_P15_pressed();
 
-  void TimeShow();
+//  void TimeShow();
 
 public:
   Ui::MusicBoard *ui;
   QFileSystemModel *dirmodel;
   QFileSystemModel *filemodel;
-private slots:
+public slots:
   void on_VolSlider_valueChanged(int value);
   void on_MasterLeft_clicked();
   void on_MasterRight_clicked();
   void on_SaveasButton_clicked();
   void on_RecButton_clicked();
   void on_DemoButton_clicked();
-  void on_ShowNotes1Button_2_clicked();
-  void on_ShowKeysButton_clicked();
+//  void on_ShowNotes1Button_2_clicked();
+//  void on_ShowKeysButton_clicked();
   void on_ShowMBoard_clicked();
   void on_HiddenShowMBoardButton_clicked();
   void on_HiddenShowKeysButton_clicked();
-  void on_DemoDoneButton_clicked();
+//  void on_DemoDoneButton_clicked();
   void on_DoneDemoButton_1_clicked();
   void on_DoneDemoButton_clicked();
   void on_ShowMBTerminalButton_clicked();
   void on_CloseMBTerminal_clicked();
   void on_PreferencesButton_clicked();
+//  void on_Cover_destroyed();
+  void on_LButton_clicked();
+//  void on_MBTerminalText_editingFinished();
+  void on_MBTerminalTextActual_editingFinished();
+//  void on_MBTerminalTextActual_cursorPositionChanged(int arg1, int arg2);
+  void on_MBTerminalTextActual_textEdited(const QString &arg1);
 };
 
 #endif // MUSICBOARD_H
