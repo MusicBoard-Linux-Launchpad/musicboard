@@ -1,0 +1,94 @@
+<RCC>
+    <qresource prefix="/sounds">
+        <file>Dub_Selection/006.wav</file>
+        <file>Dub_Selection/Bass Drop (Extended) (Louder).wav</file>
+        <file>Dub_Selection/Build Up 01.wav</file>
+        <file>Dub_Selection/DROP 07 Scos Sfarsit Scos.wav</file>
+        <file>Dub_Selection/ED Synths 20.wav</file>
+        <file>Dub_Selection/FILTER DOWN 32.wav</file>
+        <file>Dub_Selection/FX4.wav</file>
+        <file>Dub_Selection/FX5.wav</file>
+        <file>Dub_Selection/Orchestra Hit 001 Revved.wav</file>
+        <file>Dub_Selection/TMS3_NuKick_165.wav</file>
+        <file>Dub_Selection/TMS3_Snare_002.wav</file>
+        <file>Dub_Selection/ufx_imp_atomic.wav</file>
+        <file>Dub_Selection/Low_End_FX/LowEnd_FX_01.wav</file>
+        <file>Dub_Selection/Low_End_FX/LowEnd_FX_02.wav</file>
+        <file>Dub_Selection/Low_End_FX/LowEnd_FX_03.wav</file>
+        <file>Dub_Selection/Low_End_FX/LowEnd_FX_04.wav</file>
+        <file>Dub_Selection/Low_End_FX/LowEnd_FX_05.wav</file>
+        <file>Dub_Selection/Low_End_FX/LowEnd_FX_06.wav</file>
+        <file>Dub_Selection/Low_End_FX/LowEnd_FX_07.wav</file>
+        <file>Dub_Selection/Low_End_FX/LowEnd_FX_08.wav</file>
+        <file>Dub_Selection/Low_End_FX/LowEnd_FX_09.wav</file>
+        <file>Dub_Selection/Low_End_FX/LowEnd_FX_10.wav</file>
+        <file>Dub_Selection/Low_End_FX/LowEnd_FX_11.wav</file>
+        <file>Dub_Selection/Low_End_FX/LowEnd_FX_12.wav</file>
+        <file>Dub_Selection/Low_End_FX/LowEnd_FX_13.wav</file>
+        <file>Dub_Selection/Low_End_FX/LowEnd_FX_14.wav</file>
+        <file>Dub_Selection/Low_End_FX/LowEnd_FX_15.wav</file>
+        <file>Dub_Selection/Low_End_FX/LowEnd_FX_16.wav</file>
+        <file>Dub_Selection/Low_End_FX/LowEnd_FX_17.wav</file>
+        <file>Keyboards/Keyboard2/2A.wav</file>
+        <file>Keyboards/Keyboard2/2A_B.wav</file>
+        <file>Keyboards/Keyboard2/2B.wav</file>
+        <file>Keyboards/Keyboard2/2C.wav</file>
+        <file>Keyboards/Keyboard2/2C2.wav</file>
+        <file>Keyboards/Keyboard2/2C2_B.wav</file>
+        <file>Keyboards/Keyboard2/2C_B.wav</file>
+        <file>Keyboards/Keyboard2/2D.wav</file>
+        <file>Keyboards/Keyboard2/2D2.wav</file>
+        <file>Keyboards/Keyboard2/2D2_B.wav</file>
+        <file>Keyboards/Keyboard2/2D_B.wav</file>
+        <file>Keyboards/Keyboard2/2E.wav</file>
+        <file>Keyboards/Keyboard2/2E2.wav</file>
+        <file>Keyboards/Keyboard2/2F.wav</file>
+        <file>Keyboards/Keyboard2/2F2.wav</file>
+        <file>Keyboards/Keyboard2/2F2_B.wav</file>
+        <file>Keyboards/Keyboard2/2F_B.wav</file>
+        <file>Keyboards/Keyboard2/2G.wav</file>
+        <file>Keyboards/Keyboard2/2G2.wav</file>
+        <file>Keyboards/Keyboard2/2G_B.wav</file>
+        <file>PianoSounds/Edit/A.wav</file>
+        <file>PianoSounds/Edit/A_B.wav</file>
+        <file>PianoSounds/Edit/B.wav</file>
+        <file>PianoSounds/Edit/C.wav</file>
+        <file>PianoSounds/Edit/C2.wav</file>
+        <file>PianoSounds/Edit/C2_B.wav</file>
+        <file>PianoSounds/Edit/C_B.wav</file>
+        <file>PianoSounds/Edit/D.wav</file>
+        <file>PianoSounds/Edit/D2.wav</file>
+        <file>PianoSounds/Edit/D2_B.wav</file>
+        <file>PianoSounds/Edit/D_B.wav</file>
+        <file>PianoSounds/Edit/E.wav</file>
+        <file>PianoSounds/Edit/E2.wav</file>
+        <file>PianoSounds/Edit/F.wav</file>
+        <file>PianoSounds/Edit/F2.wav</file>
+        <file>PianoSounds/Edit/F2_B.wav</file>
+        <file>PianoSounds/Edit/F_B.wav</file>
+        <file>PianoSounds/Edit/G.wav</file>
+        <file>PianoSounds/Edit/G2.wav</file>
+        <file>PianoSounds/Edit/G2_B.wav</file>
+        <file>PianoSounds/Edit/G_B.wav</file>
+        <file>Keyboards/Keyboard4/4_1_C.wav</file>
+        <file>Keyboards/Keyboard4/4_2_CB.wav</file>
+        <file>Keyboards/Keyboard4/4_3_D.wav</file>
+        <file>Keyboards/Keyboard4/4_4_DB.wav</file>
+        <file>Keyboards/Keyboard4/4_5_E.wav</file>
+        <file>Keyboards/Keyboard4/4_6_F.wav</file>
+        <file>Keyboards/Keyboard4/4_7_FB.wav</file>
+        <file>Keyboards/Keyboard4/4_8_G.wav</file>
+        <file>Keyboards/Keyboard4/4_9_GB.wav</file>
+        <file>Keyboards/Keyboard4/4_10_A.wav</file>
+        <file>Keyboards/Keyboard4/4_11_AB.wav</file>
+        <file>Keyboards/Keyboard4/4_12_B.wav</file>
+        <file>Keyboards/Keyboard4/4_13_C.wav</file>
+        <file>Keyboards/Keyboard4/4_14_CB.wav</file>
+        <file>Keyboards/Keyboard4/4_15_D.wav</file>
+        <file>Keyboards/Keyboard4/4_16_DB.wav</file>
+        <file>Keyboards/Keyboard4/4_17_E.wav</file>
+        <file>Keyboards/Keyboard4/4_19_FB.wav</file>
+        <file>Keyboards/Keyboard4/4_20_G.wav</file>
+        <file>Keyboards/Keyboard4/4_17_1_F.wav</file>
+    </qresource>
+</RCC>
